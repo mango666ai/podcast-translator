@@ -258,6 +258,10 @@ def main():
     parser.add_argument("input", help="YouTube URL 或本地音频路径")
     parser.add_argument("--duration", type=int, default=90,
                         help="只处理前 N 秒（默认 90，设 0 处理全部）")
+    parser.add_argument("--no-tts", action="store_true",
+                        help="跳过 TTS 合成步骤（只输出 bilingual.md）")
+    parser.add_argument("--voice", default="zh-CN-XiaoxiaoNeural",
+                        help="edge-tts 声音（默认 zh-CN-XiaoxiaoNeural）")
     args = parser.parse_args()
 
     # 创建本次 job 目录
@@ -305,14 +309,29 @@ def main():
     out_md = save_bilingual(results, job_dir)
 
     print(f"\n{'='*50}")
-    print(f"✓ 完成！处理了 {len(results)} 段")
+    print(f"✓ 转录+翻译完成！处理了 {len(results)} 段")
     print(f"\n双语对照预览（前 3 段）：")
     for seg in results[:3]:
         mm, ss = divmod(int(seg.get("start") or 0), 60)
         print(f"\n  [{mm:02d}:{ss:02d}] EN: {seg['text_en'][:60]}")
         print(f"         ZH: {seg['text_zh'][:60]}")
 
-    print(f"\n完整结果: {out_md}")
+    print(f"\n完整对照: {out_md}")
+
+    # Step 4: TTS 合成 → MP3
+    if args.no_tts:
+        print(f"\n[跳过 TTS]（--no-tts）")
+    else:
+        print(f"\n{'='*50}")
+        # 调用 tts_compose 模块
+        tts_script = Path(__file__).parent / "tts_compose.py"
+        result = subprocess.run(
+            [sys.executable, str(tts_script), str(job_dir), "--voice", args.voice],
+            text=True,
+        )
+        if result.returncode != 0:
+            print("⚠️  TTS 合成失败，请手动运行：")
+            print(f"   python tts_compose.py {job_dir}")
 
 
 if __name__ == "__main__":
