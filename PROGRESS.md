@@ -47,16 +47,16 @@
 | `test_pipeline.py` | 完整链路：下载 → 转录 → 翻译 → TTS → MP3，支持断点续跑 |
 | `tts_compose.py` (M1) | edge-tts 逐段合成 + ffmpeg 拼接 → `output_zh.mp3`，声音可选，断点续跑 |
 
-### 🔄 下一步（待验证）
+### 🔄 下一步
 
-- **端到端验证**：拿一段本地 mp3 跑完整 4 步 pipeline，实际播放 `output_zh.mp3` 听效果
 - **YouTube 下载**：bot 检测问题未解决（`--cookies-from-browser safari` macOS Keychain 权限受限），备选 RSS 直链
+- **M2**：接入 diarization，多说话人不同音色（需 HuggingFace token）
 
 ### ⏳ 里程碑
 
 | 里程碑 | 状态 | 内容 |
 |--------|------|------|
-| M1 | 代码完成，待验证 | edge-tts + ffmpeg → output_zh.mp3 |
+| M1 | ✅ 验证通过 | edge-tts + ffmpeg → output_zh.mp3（16s 测试音频，381KB，15s 合成）|
 | M2 | ⏳ | 多 speaker 分音色（接入 diarization） |
 | M3 | ⏳ | F5-TTS 跨语言声音克隆 |
 | M4 | ⏳ | MiniMax TTS 女声开场简介 |
