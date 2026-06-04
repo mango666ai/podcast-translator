@@ -32,9 +32,15 @@ WORK_DIR.mkdir(exist_ok=True)
 # ─────────────────────────────────────────
 # Step 1: 下载音频
 # ─────────────────────────────────────────
-def download_audio(url: str, out_dir: Path) -> Path:
+def download_audio(url: str, out_dir: Path, cookies_file: str = None) -> Path:
     out_path = out_dir / "audio.%(ext)s"
     print(f"\n[1/3] 下载音频...")
+
+    # 自动检测 cookies.txt（放在 podcast_addon/ 目录下即可）
+    default_cookies = Path(__file__).parent / "cookies.txt"
+    if cookies_file is None and default_cookies.exists():
+        cookies_file = str(default_cookies)
+        print(f"  使用 cookies: {default_cookies.name}")
 
     cmd = [
         "yt-dlp",
@@ -42,11 +48,12 @@ def download_audio(url: str, out_dir: Path) -> Path:
         "--audio-format", "mp3",
         "--audio-quality", "0",
         "--no-playlist",
-        "--js-runtimes", "node",
-        "--cookies-from-browser", "safari",
         "-o", str(out_path),
         url,
     ]
+
+    if cookies_file:
+        cmd += ["--cookies", cookies_file]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
