@@ -39,36 +39,35 @@
 
 | 步骤 | 说明 |
 |------|------|
-| 环境搭建 | VideoLingo/.venv，Python 3.11.15，所有依赖已装（见下方清单） |
+| 环境搭建 | VideoLingo/.venv，Python 3.11.15，所有依赖已装（含 mutagen） |
 | whisperX 转录 | large-v3，Mac CPU / int8，已验证：106s 转录 ~90s 音频，准确率高 |
-| pyannote.audio 安装 | 4.0.4 ✅，torchcodec warning 无害（fallback soundfile），diarization 暂跳过 |
+| pyannote.audio 安装 | 4.0.4 ✅，torchcodec warning 无害，diarization 暂跳过 |
 | Claude headless 翻译 | 6 段 13 秒，意译质量好，JSON 解析稳定 |
 | `test_translate.py` | 翻译单元验证，快速跑通（无需音频，~15s） |
 | `test_pipeline.py` | 完整链路：下载 → 转录 → 翻译 → TTS → MP3，支持断点续跑 |
-| `tts_compose.py` (M1) | edge-tts 逐段合成 + ffmpeg 拼接 → `output_zh.mp3`，声音可选，断点续跑 |
+| `tts_compose.py` (M1) | edge-tts 逐段合成 + ffmpeg 拼接 → `output_zh.mp3` |
+| `tts_minimax.py` (M4前置) | MiniMax TTS 合成，已跑通，`output_zh_minimax.mp3` |
+| `generate_srt.py` (M5a) | 生成中文 + 双语 SRT 字幕（output_zh.srt / output_bilingual.srt） |
+| `intro_compose.py` (M4) | Claude 生成简介文本 → MiniMax/edge-tts 合成 → 拼接到 MP3 开头 → final.mp3 |
+| `add_chapters.py` (M5c) | 写入 ID3 CHAP 章节标记（mutagen），Overcast/Pocket Casts 可跳转 |
 
-### 🔄 下一步（当前卡点）
+### 🔄 下一步
 
-- **MiniMax TTS 跑通**：API key + GroupId 方式已失败；改用 `api.minimax.io`（国际版，无需 GroupId）待验证
-- **YouTube 下载**：bot 检测问题未解决，备选 RSS 直链 / 本地文件
+- **端到端验证 M4+M5**：跑 `intro_compose.py` + `generate_srt.py` + `add_chapters.py`，确认效果
+- **YouTube 下载**：bot 检测问题未解决，备选 `cookies.txt` 文件方式或 RSS 直链
 - **M2**：接入 diarization，多说话人不同音色（需 HuggingFace token）
-
-### 📋 MiniMax TTS 状态
-- 账号：platform.minimax.io（国际版），已充值
-- API 端点：`https://api.minimax.io/v1/t2a_v2`（无需 GroupId）
-- 之前测试：不带 GroupId 时认证通过但报 `insufficient balance`，充值后待重新验证
-- voice ID：国际版用 `Wise_Woman` / `Calm_Woman` 等英文 ID（非 `Podcast_female`）
-- 下次工作：直接跑 `python tts_minimax.py --preview` 验证
 
 ### ⏳ 里程碑
 
 | 里程碑 | 状态 | 内容 |
 |--------|------|------|
-| M1 | ✅ 验证通过 | edge-tts + ffmpeg → output_zh.mp3（16s 测试音频，381KB，15s 合成）|
+| M1 | ✅ | edge-tts + ffmpeg → output_zh.mp3 |
+| M4 | ✅ 代码完成 | Claude 简介 + MiniMax TTS → intro.mp3 → final.mp3（待验证） |
+| M5a | ✅ 代码完成 | SRT 字幕（中文 + 双语，待验证） |
+| M5c | ✅ 代码完成 | ID3 章节标记（mutagen，待验证） |
 | M2 | ⏳ | 多 speaker 分音色（接入 diarization） |
 | M3 | ⏳ | F5-TTS 跨语言声音克隆 |
-| M4 | ⏳ | MiniMax TTS 女声开场简介 |
-| M5 | ⏳ | ID3 章节 + 双语 .md + .srt |
+| M5b | ✅ | 双语 .md 已有 |
 
 ---
 
@@ -87,12 +86,18 @@
 
 ```
 podcast-translator/
-├── PROGRESS.md         # 本文件
-├── SETUP.md            # 新机器一键环境搭建
-├── test_translate.py   # 翻译单元验证（最快，无需音频）
-├── test_pipeline.py    # 主链路：下载 → 转录 → 翻译 → TTS → MP3
-├── tts_compose.py      # M1 独立 TTS 脚本（可单独运行）
-└── work/               # 中间产物（不提交 git）
+├── PROGRESS.md          # 本文件
+├── SETUP.md             # 新机器一键环境搭建
+├── .env                 # API keys（不提交 git）
+├── cookies.txt          # YouTube cookies（不提交 git）
+├── test_translate.py    # 翻译单元验证（最快，无需音频）
+├── test_pipeline.py     # 主链路：下载 → 转录 → 翻译 → TTS → MP3
+├── tts_compose.py       # M1: edge-tts 合成 → output_zh.mp3
+├── tts_minimax.py       # M4前置: MiniMax TTS → output_zh_minimax.mp3
+├── intro_compose.py     # M4: Claude 简介 + TTS → intro.mp3 + final.mp3
+├── generate_srt.py      # M5a: 生成 SRT 字幕（中文 + 双语）
+├── add_chapters.py      # M5c: 写入 ID3 章节标记
+└── work/                # 中间产物（不提交 git）
     └── <job_id>/
         ├── audio.mp3
         ├── transcript.json
@@ -130,13 +135,19 @@ python test_pipeline.py /path/to/audio.mp3 --duration 90   # 先测 90 秒
 python test_pipeline.py /path/to/audio.mp3 --duration 0    # 全量
 
 # ⑥ 只补 TTS 步骤（pipeline 已跑过）
-python tts_compose.py work/<job_id>
+python tts_compose.py work/<job_id>                  # edge-tts
+python tts_minimax.py work/<job_id>                  # MiniMax（需 .env 中有 key）
 
-# ⑦ 播放结果
-open work/<job_id>/output_zh.mp3
+# ⑦ M4：生成开场简介并拼接
+python intro_compose.py work/<job_id>                # → final.mp3
 
-# 声音选项
-# zh-CN-XiaoxiaoNeural  女声，自然亲切（默认）
-# zh-CN-YunjianNeural   男声，沉稳
-# python test_pipeline.py audio.mp3 --voice zh-CN-YunjianNeural
+# ⑧ M5a：生成 SRT 字幕
+python generate_srt.py work/<job_id>                 # → output_zh.srt / output_bilingual.srt
+
+# ⑨ M5c：写入 ID3 章节
+python add_chapters.py work/<job_id>                 # 默认 5 分钟一章
+python add_chapters.py work/<job_id> --interval 180  # 3 分钟一章
+
+# ⑩ 播放结果
+open work/<job_id>/final.mp3
 ```
