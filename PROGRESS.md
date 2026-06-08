@@ -98,6 +98,7 @@ podcast-translator/
 ├── intro_compose.py     # M4: Claude 简介 + TTS → intro.mp3 + final.mp3
 ├── generate_srt.py      # M5a: 生成 SRT 字幕（中文 + 双语）
 ├── add_chapters.py      # M5c: 写入 ID3 章节标记
+├── upload_feishu.py     # 上传产物到飞书云盘（播客翻译文件夹）
 └── work/                # 中间产物（不提交 git）
     └── <job_id>/
         ├── audio.mp3
@@ -158,6 +159,9 @@ python generate_srt.py work/<job_id>                 # → output_zh.srt / outpu
 python add_chapters.py work/<job_id>                 # 默认 5 分钟一章
 python add_chapters.py work/<job_id> --interval 180  # 3 分钟一章
 
-# ⑩ 播放结果
+# ⑩ 上传到飞书云盘
+python upload_feishu.py work/<job_id> --title "节目标题"
+
+# ⑪ 播放结果
 open work/<job_id>/final.mp3
 ```
