@@ -20,20 +20,21 @@
 ```
 音频输入（YouTube / RSS / 本地）
   → yt-dlp 下载
-  → whisperX 转录（large-v3，CPU int8）
-  → pyannote 说话人分离（diarization）       ← 待接入
-  → Claude Code headless 翻译（意译）
-  → edge-tts 中文语音合成（逐段）
-  → ffmpeg 拼接 → output_zh.mp3
+  → whisperX 转录（large-v3，CPU int8）        ✅
+  → pyannote 说话人分离（diarization）          ← 待接入（M2）
+  → Claude Code headless 翻译（意译）           ✅
+  → MiniMax TTS 正文合成（逐段）               ✅ → output_zh_minimax.mp3
+  → Claude 生成开场简介 + MiniMax TTS          ✅ → intro.mp3
+  → ffmpeg 拼接 intro + 正文                   ✅ → final.mp3
+  → generate_srt.py 生成字幕                   ✅ → .srt
+  → add_chapters.py 写入 ID3 章节              ✅
   ── 后期 ──
-  → F5-TTS 跨语言声音克隆                   ← M3
-  → MiniMax TTS 女声开场简介                ← M4
-  → ID3 章节 + 双语 .md + .srt              ← M5
+  → F5-TTS 跨语言声音克隆                      ← M3
 ```
 
 ---
 
-## 当前进度（截至 2026-06-03）
+## 当前进度（截至 2026-06-08）
 
 ### ✅ 已完成
 
@@ -107,7 +108,16 @@ podcast-translator/
         ├── tts_segments/                ← TTS 分段缓存（断点续跑）
         │   ├── seg_0000.mp3
         │   └── ...
-        └── output_zh.mp3                ← 最终中文 MP3 ✓
+            ├── tts_minimax_segments/        ← MiniMax 分段缓存
+        │   ├── seg_0000.mp3
+        │   └── ...
+        ├── output_zh.mp3                ← edge-tts 版
+        ├── output_zh_minimax.mp3        ← MiniMax 版（更自然）
+        ├── intro_text.txt               ← Claude 生成的简介文本
+        ├── intro.mp3                    ← 开场简介音频
+        ├── final.mp3                    ← 完整播客（intro + 正文 + 章节）✓
+        ├── output_zh.srt                ← 中文字幕
+        └── output_bilingual.srt         ← 双语字幕
 ```
 
 ---

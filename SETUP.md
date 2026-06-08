@@ -52,7 +52,7 @@ uv pip install "pyannote.audio>=3.1" --python $PYTHON
 uv pip install edge-tts pydub soundfile librosa --python $PYTHON
 
 # 工具库
-uv pip install openpyxl ruamel.yaml "openai>=1.55.3" json-repair ctranslate2 --python $PYTHON
+uv pip install openpyxl ruamel.yaml "openai>=1.55.3" json-repair ctranslate2 mutagen python-dotenv --python $PYTHON
 ```
 
 ### 5. 安装 yt-dlp
