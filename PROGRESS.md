@@ -47,10 +47,18 @@
 | `test_pipeline.py` | 完整链路：下载 → 转录 → 翻译 → TTS → MP3，支持断点续跑 |
 | `tts_compose.py` (M1) | edge-tts 逐段合成 + ffmpeg 拼接 → `output_zh.mp3`，声音可选，断点续跑 |
 
-### 🔄 下一步
+### 🔄 下一步（当前卡点）
 
-- **YouTube 下载**：bot 检测问题未解决（`--cookies-from-browser safari` macOS Keychain 权限受限），备选 RSS 直链
+- **MiniMax TTS 跑通**：API key + GroupId 方式已失败；改用 `api.minimax.io`（国际版，无需 GroupId）待验证
+- **YouTube 下载**：bot 检测问题未解决，备选 RSS 直链 / 本地文件
 - **M2**：接入 diarization，多说话人不同音色（需 HuggingFace token）
+
+### 📋 MiniMax TTS 状态
+- 账号：platform.minimax.io（国际版），已充值
+- API 端点：`https://api.minimax.io/v1/t2a_v2`（无需 GroupId）
+- 之前测试：不带 GroupId 时认证通过但报 `insufficient balance`，充值后待重新验证
+- voice ID：国际版用 `Wise_Woman` / `Calm_Woman` 等英文 ID（非 `Podcast_female`）
+- 下次工作：直接跑 `python tts_minimax.py --preview` 验证
 
 ### ⏳ 里程碑
 
