@@ -2,9 +2,9 @@ work/
 __pycache__/
 *.pyc
 .DS_Store
+._*
 *.mp3
 *.wav
 *.mp4
 .env
 cookies.txt
-.env

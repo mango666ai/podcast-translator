@@ -48,6 +48,8 @@ def download_audio(url: str, out_dir: Path, cookies_file: str = None) -> Path:
         "--audio-format", "mp3",
         "--audio-quality", "0",
         "--no-playlist",
+        "--cookies-from-browser", "chrome",
+        "--remote-components", "ejs:github",
         "-o", str(out_path),
         url,
     ]
@@ -152,7 +154,7 @@ CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 
 def call_claude(prompt: str) -> str:
     result = subprocess.run(
-        [CLAUDE_BIN, "-p", prompt, "--model", "claude-sonnet-4-5"],
+        [CLAUDE_BIN, "-p", prompt, "--model", "claude-sonnet-4-6"],
         capture_output=True, text=True, timeout=180,
     )
     if result.returncode != 0:
@@ -165,13 +167,17 @@ def call_claude(prompt: str) -> str:
 
 
 def extract_json(text: str) -> dict:
+    from json_repair import repair_json
     m = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
-    if m:
-        return json.loads(m.group(1))
-    m = re.search(r"\{[\s\S]+\}", text)
-    if m:
-        return json.loads(m.group(0))
-    raise ValueError(f"无法提取 JSON:\n{text[:300]}")
+    raw = m.group(1) if m else None
+    if raw is None:
+        m2 = re.search(r"\{[\s\S]+\}", text)
+        raw = m2.group(0) if m2 else text
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        repaired = repair_json(raw)
+        return json.loads(repaired)
 
 
 def translate(segments: list, work_dir: Path, chunk_size: int = 10) -> list:

@@ -38,12 +38,12 @@ MINIMAX_URL = "https://api.minimax.io/v1/t2a_v2"  # 国际版，无需 GroupId
 MAX_CHARS = 5000
 
 VOICES = {
-    "Podcast_female":     "播客女声（推荐）",
-    "Podcast_male":       "播客男声",
-    "female-shaonv":      "少女音",
-    "female-yujie":       "御姐音",
-    "presenter_male":     "男主持",
-    "audiobook_female_2": "有声书女声",
+    "Wise_Woman":         "睿智女声（推荐）",
+    "Calm_Woman":         "沉稳女声",
+    "Gentle_Woman":       "温柔女声",
+    "Lively_Girl":        "活泼少女",
+    "Elegant_Man":        "优雅男声",
+    "Deep_Voice_Man":     "低沉男声",
 }
 
 PREVIEW_TEXT = "欢迎收听今天的播客节目。我们今天要讨论的是人工智能的未来发展方向，以及它将如何改变我们的工作和生活方式。这是一个非常值得深入探讨的话题。"
@@ -52,7 +52,7 @@ PREVIEW_TEXT = "欢迎收听今天的播客节目。我们今天要讨论的是�
 # ─────────────────────────────────────────
 # 核心合成函数
 # ─────────────────────────────────────────
-def synthesize(text: str, out_path: Path, voice: str = "Podcast_female", speed: float = 0.95) -> bool:
+def synthesize(text: str, out_path: Path, voice: str = "Wise_Woman", speed: float = 0.95) -> bool:
     """
     调用 MiniMax T2A v2 合成单段音频，保存为 mp3。
     speed=0.95 略慢，配合 1.2x 播放器倍速刚好。
@@ -225,7 +225,7 @@ def _concat(seg_paths: list, output: Path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("job_dir", nargs="?", help="work/<job_id> 目录")
-    parser.add_argument("--voice", default="Podcast_female", choices=list(VOICES.keys()))
+    parser.add_argument("--voice", default="Wise_Woman", choices=list(VOICES.keys()))
     parser.add_argument("--preview", action="store_true", help="生成所有声音的试听样本")
     args = parser.parse_args()
 

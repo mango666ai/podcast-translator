@@ -61,12 +61,22 @@
 | `generate_srt.py` (M5a) | 从 bilingual.json 生成中文 + 双语 SRT 字幕 |
 | `add_chapters.py` (M5c) | 写入 ID3 CHAP 章节标记（mutagen），Overcast / Pocket Casts 可跳转 |
 | `upload_feishu.py` | 自动上传 MP3 + SRT 到飞书云盘「播客翻译」文件夹，记录上传结果 |
+| **端到端全流程试跑** | YouTube → 转录 → 翻译 → TTS → 简介 → 字幕 → 章节 → 飞书，全部跑通 ✅ |
+
+### 🔧 本次修复（2026-06-08 全流程试跑中发现）
+
+| 问题 | 修复 |
+|------|------|
+| 翻译 JSON 解析偶发失败 | `extract_json` 加入 `json_repair` 容错，不再硬 crash |
+| MiniMax voice ID 报错 | 国际版不支持 `Podcast_female` 等，改用 `Wise_Woman`/`Calm_Woman` 等英文 ID |
+| Claude 模型名过期 | `claude-sonnet-4-5` → `claude-sonnet-4-6` |
 
 ### 🔄 下一步
 
-- **端到端跑一遍真实播客**：验证 M4（简介）+ M5（字幕+章节）+ 飞书上传完整流程
-- **YouTube 下载**：bot 检测问题，备选 `cookies.txt` 文件方式或 RSS 直链
+- **一键运行脚本**：把 8 步命令整合成一个 `run.sh` 或 `pipeline.py`，传 URL 直接出 final.mp3
+- **完整集处理**：去掉 `--duration 120` 限制，跑一整集（30-60分钟），验证长音频的稳定性和耗时
 - **M2**：接入 diarization 多说话人分音色（需 HuggingFace token）
+- **M3**：F5-TTS 跨语言声音克隆
 
 ### ⏳ 里程碑
 
@@ -74,11 +84,12 @@
 |--------|------|------|
 | M0 | ✅ | 下载 + 转录 + 翻译 pipeline |
 | M1 | ✅ | edge-tts + ffmpeg → output_zh.mp3 |
-| M4 | ✅ 代码完成 | Claude 简介 + MiniMax TTS → intro.mp3 → final.mp3 |
-| M5a | ✅ 代码完成 | SRT 字幕（中文 + 双语） |
+| M4 | ✅ 端到端验证 | Claude 简介 + MiniMax TTS → intro.mp3 → final.mp3 |
+| M5a | ✅ 端到端验证 | SRT 字幕（中文 + 双语） |
 | M5b | ✅ | 双语 .md 已有 |
-| M5c | ✅ 代码完成 | ID3 章节标记（mutagen） |
-| 飞书上传 | ✅ | 自动上传到飞书云盘「播客翻译」 |
+| M5c | ✅ 端到端验证 | ID3 章节标记（mutagen） |
+| 飞书上传 | ✅ 端到端验证 | 自动上传到飞书云盘「播客翻译」 |
+| 一键脚本 | 🔄 | 整合全流程为单命令入口 |
 | M2 | ⏳ | 多 speaker 分音色（接入 diarization） |
 | M3 | ⏳ | F5-TTS 跨语言声音克隆 |
 
