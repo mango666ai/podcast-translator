@@ -21,6 +21,7 @@
 | 项目 | 值 |
 |------|---|
 | 飞书应用 | `cli_a92330864c785bde` |
+| 任务队列（多维表格） | https://m0c4oiqy715.feishu.cn/base/OucDbcF7MaNObBs1WANcmEAQnke |
 | 云盘文件夹 | 播客翻译 |
 | folder_token | `ZEtzfLmtYlsv4Ddoi3WcH0AYnnp` |
 | 文件夹链接 | https://m0c4oiqy715.feishu.cn/drive/folder/ZEtzfLmtYlsv4Ddoi3WcH0AYnnp |
@@ -45,7 +46,7 @@
 
 ---
 
-## 当前进度（截至 2026-06-08）
+## 当前进度（截至 2026-06-09）
 
 ### ✅ 已完成
 
@@ -62,6 +63,9 @@
 | `add_chapters.py` (M5c) | 写入 ID3 CHAP 章节标记（mutagen），Overcast / Pocket Casts 可跳转 |
 | `upload_feishu.py` | 自动上传 MP3 + SRT 到飞书云盘「播客翻译」文件夹，记录上传结果 |
 | **端到端全流程试跑** | YouTube → 转录 → 翻译 → TTS → 简介 → 字幕 → 章节 → 飞书，全部跑通 ✅ |
+| `run_jobs.py` | 飞书多维表格任务队列轮询，`--loop` 模式持续监听，一键跑完整流程 |
+| 飞书多维表格 | 播客任务队列建好，含提交表单（待处理/处理中/已完成/失败） |
+| README.md | 写好开机运行步骤，文件说明，飞书链接 |
 
 ### 🔧 本次修复（2026-06-08 全流程试跑中发现）
 
@@ -71,12 +75,12 @@
 | MiniMax voice ID 报错 | 国际版不支持 `Podcast_female` 等，改用 `Wise_Woman`/`Calm_Woman` 等英文 ID |
 | Claude 模型名过期 | `claude-sonnet-4-5` → `claude-sonnet-4-6` |
 
-### 🔄 下一步
+### 🔄 下一步（优先级排序）
 
-- **一键运行脚本**：把 8 步命令整合成一个 `run.sh` 或 `pipeline.py`，传 URL 直接出 final.mp3
-- **完整集处理**：去掉 `--duration 120` 限制，跑一整集（30-60分钟），验证长音频的稳定性和耗时
-- **M2**：接入 diarization 多说话人分音色（需 HuggingFace token）
-- **M3**：F5-TTS 跨语言声音克隆
+1. **验证 run_jobs.py**：用飞书表单提交一条真实任务，跑通完整自动化流程
+2. **完整集处理**：跑一整集（30-60 分钟），验证长音频稳定性和耗时
+3. **M2**：接入 diarization 多说话人分音色（需 HuggingFace token）
+4. **M3**：F5-TTS 跨语言声音克隆
 
 ### ⏳ 里程碑
 
@@ -84,12 +88,12 @@
 |--------|------|------|
 | M0 | ✅ | 下载 + 转录 + 翻译 pipeline |
 | M1 | ✅ | edge-tts + ffmpeg → output_zh.mp3 |
-| M4 | ✅ 端到端验证 | Claude 简介 + MiniMax TTS → intro.mp3 → final.mp3 |
-| M5a | ✅ 端到端验证 | SRT 字幕（中文 + 双语） |
+| M4 | ✅ 验证 | Claude 简介 + MiniMax TTS → intro.mp3 → final.mp3 |
+| M5a | ✅ 验证 | SRT 字幕（中文 + 双语） |
 | M5b | ✅ | 双语 .md 已有 |
-| M5c | ✅ 端到端验证 | ID3 章节标记（mutagen） |
-| 飞书上传 | ✅ 端到端验证 | 自动上传到飞书云盘「播客翻译」 |
-| 一键脚本 | 🔄 | 整合全流程为单命令入口 |
+| M5c | ✅ 验证 | ID3 章节标记（mutagen） |
+| 飞书上传 | ✅ 验证 | 自动上传到飞书云盘「播客翻译」 |
+| 任务队列 | ✅ 代码完成 | 飞书表单 → run_jobs.py → 自动处理 → 回写状态（待实测）|
 | M2 | ⏳ | 多 speaker 分音色（接入 diarization） |
 | M3 | ⏳ | F5-TTS 跨语言声音克隆 |
 
@@ -123,6 +127,8 @@ podcast-translator/
 ├── generate_srt.py      # M5a: 生成 SRT 字幕（中文 + 双语）
 ├── add_chapters.py      # M5c: 写入 ID3 章节标记
 ├── upload_feishu.py     # 上传产物到飞书云盘「播客翻译」文件夹
+├── run_jobs.py          # 🆕 飞书任务队列轮询，开机运行这个就够
+├── README.md            # 🆕 开机运行步骤 + 文件说明
 └── work/                # 中间产物（不提交 git）
     └── <job_id>/
         ├── audio.mp3
