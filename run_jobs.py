@@ -64,31 +64,51 @@ def lark(args: list) -> dict:
 
 def get_pending_task() -> dict | None:
     """从多维表格拉取第一条「待处理」任务"""
-    # 先通过视图筛选，拿第一条 Status=待处理 的记录
+    import re
     data = lark([
-        "base", "+record-search",
+        "base", "+record-list",
         "--base-token", BASE_TOKEN,
         "--table-id", TABLE_ID,
-        "--filter", json.dumps({
-            "conjunction": "and",
-            "conditions": [{
-                "field_name": F_STATUS,
-                "operator": "is",
-                "value": ["待处理"]
-            }]
-        }),
-        "--limit", "1",
+        "--format", "json",
+        "--limit", "100",
     ])
 
     if not data.get("ok"):
         log(f"⚠️  查询失败: {data.get('error', {}).get('message', '')}")
         return None
 
-    items = data.get("data", {}).get("items", [])
-    if not items:
-        return None
+    inner      = data.get("data", {}).get("data", [])
+    fields     = data.get("data", {}).get("fields", [])
+    record_ids = data.get("data", {}).get("record_id_list", [])
 
-    return items[0]
+    for i, row in enumerate(inner):
+        # 把数组行转成 {field_name: value} 字典
+        record_fields = dict(zip(fields, row))
+
+        status = record_fields.get(F_STATUS)
+        # 状态字段有时是列表（单选选项），有时是字符串
+        if isinstance(status, list):
+            status = status[0] if status else ""
+        if status != "待处理":
+            continue
+
+        # URL 字段可能是 markdown 链接格式 [text](url)，提取原始 URL
+        url_raw = record_fields.get(F_URL, "") or ""
+        m = re.search(r'\]\((https?://[^\s\)]+)\)', url_raw)  # markdown: [text](url)
+        if m:
+            record_fields[F_URL] = m.group(1)
+        else:
+            # 纯 URL
+            m2 = re.search(r'https?://\S+', url_raw)
+            if m2:
+                record_fields[F_URL] = m2.group(0)
+
+        return {
+            "record_id": record_ids[i] if i < len(record_ids) else None,
+            "fields": record_fields,
+        }
+
+    return None
 
 
 def update_record(record_id: str, fields: dict):
@@ -99,10 +119,12 @@ def update_record(record_id: str, fields: dict):
         "--base-token", BASE_TOKEN,
         "--table-id", TABLE_ID,
         "--record-id", record_id,
-        "--json", json.dumps({"fields": cells}),
-        "--yes",
+        "--json", json.dumps(cells),
     ])
-    return data.get("ok", False)
+    ok = data.get("ok", False)
+    if not ok:
+        log(f"  ⚠️  回写失败: {data.get('error', {}).get('message', data)}")
+    return ok
 
 
 def run_script(script_name: str, args: list) -> tuple[bool, str]:
