@@ -64,43 +64,50 @@ def lark(args: list) -> dict:
 
 def get_pending_task() -> dict | None:
     """从多维表格拉取第一条「待处理」任务"""
-    # 先通过视图筛选，拿第一条 Status=待处理 的记录
     data = lark([
-        "base", "+record-search",
+        "base", "+record-list",
         "--base-token", BASE_TOKEN,
         "--table-id", TABLE_ID,
-        "--filter", json.dumps({
-            "conjunction": "and",
-            "conditions": [{
-                "field_name": F_STATUS,
-                "operator": "is",
-                "value": ["待处理"]
-            }]
+        "--filter-json", json.dumps({
+            "logic": "and",
+            "conditions": [[F_STATUS, "intersects", ["待处理"]]]
         }),
         "--limit", "1",
+        "--format", "json",
     ])
 
     if not data.get("ok"):
         log(f"⚠️  查询失败: {data.get('error', {}).get('message', '')}")
         return None
 
-    items = data.get("data", {}).get("items", [])
-    if not items:
+    inner = data.get("data", {})
+    rows = inner.get("data", [])
+    record_ids = inner.get("record_id_list", [])
+    field_names = inner.get("fields", [])
+
+    if not rows or not record_ids:
         return None
 
-    return items[0]
+    # 列式 → dict: {field_name: value}
+    raw_fields = dict(zip(field_names, rows[0]))
+    # select 字段返回 list，取第一个值
+    fields = {
+        k: (v[0] if isinstance(v, list) and v else v)
+        for k, v in raw_fields.items()
+    }
+    return {"record_id": record_ids[0], "fields": fields}
 
 
 def update_record(record_id: str, fields: dict):
     """更新指定记录的字段"""
+    # 过滤掉 None 值；select 字段传字符串即可
     cells = {k: v for k, v in fields.items() if v is not None}
     data = lark([
         "base", "+record-upsert",
         "--base-token", BASE_TOKEN,
         "--table-id", TABLE_ID,
         "--record-id", record_id,
-        "--json", json.dumps({"fields": cells}),
-        "--yes",
+        "--json", json.dumps(cells),
     ])
     return data.get("ok", False)
 
