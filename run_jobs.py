@@ -98,7 +98,6 @@ def get_pending_task() -> dict | None:
         if m:
             record_fields[F_URL] = m.group(1)
         else:
-            # 纯 URL
             m2 = re.search(r'https?://\S+', url_raw)
             if m2:
                 record_fields[F_URL] = m2.group(0)
@@ -113,6 +112,7 @@ def get_pending_task() -> dict | None:
 
 def update_record(record_id: str, fields: dict):
     """更新指定记录的字段"""
+    # 过滤掉 None 值；select 字段传字符串即可
     cells = {k: v for k, v in fields.items() if v is not None}
     data = lark([
         "base", "+record-upsert",
