@@ -9,11 +9,14 @@
     <link>https://mango666ai.github.io/podcast-translator</link>
     <itunes:author>DoveInBeta</itunes:author>
     <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
+    <itunes:category text="Education" />
   <item>
     <title>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</title>
     <description>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</description>
+    <link>https://mango666ai.github.io/podcast-translator/ep/32876571</link>
     <guid>https://mango666ai.github.io/podcast-translator/ep/32876571</guid>
-    <pubDate>Fri, 19 Jun 2026 07:52:03 +0000</pubDate>
+    <pubDate>Fri, 19 Jun 2026 08:36:14 +0000</pubDate>
     <itunes:duration>77</itunes:duration>
     <enclosure url="https://github.com/mango666ai/podcast-translator/releases/download/ep-32876571/output_zh_clone.mp3" length="753741" type="audio/mpeg" />
     <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/32876571.txt" type="text/plain" />
