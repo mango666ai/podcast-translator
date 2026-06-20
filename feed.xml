@@ -8,6 +8,10 @@
     <language>zh-cn</language>
     <link>https://mango666ai.github.io/podcast-translator</link>
     <itunes:author>DoveInBeta</itunes:author>
+    <itunes:owner>
+      <itunes:name>DoveInBeta</itunes:name>
+      <itunes:email>caimengge@meiqia.com</itunes:email>
+    </itunes:owner>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
