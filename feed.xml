@@ -18,7 +18,7 @@
     <guid>https://mango666ai.github.io/podcast-translator/ep/32876571</guid>
     <pubDate>Fri, 19 Jun 2026 08:36:14 +0000</pubDate>
     <itunes:duration>77</itunes:duration>
-    <enclosure url="https://github.com/mango666ai/podcast-translator/releases/download/ep-32876571/output_zh_clone.mp3" length="753741" type="audio/mpeg" />
+    <enclosure url="https://mango666ai.github.io/podcast-translator/episodes/ep01.mp3" length="753741" type="audio/mpeg" />
     <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/32876571.txt" type="text/plain" />
   </item>
   </channel>

@@ -5,6 +5,7 @@ __pycache__/
 ._*
 *.mp3
 *.wav
+!episodes/*.mp3
 *.mp4
 .env
 cookies.txt
