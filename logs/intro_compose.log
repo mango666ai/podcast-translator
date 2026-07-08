@@ -1,0 +1,20 @@
+
+==================================================
+2026-06-10 19:39:26.521629
+
+[M4] 开场简介生成（共 3 段节目内容）
+==================================================
+  调用 Claude 生成简介... ✓ 17.2s，165 字
+
+  简介预览：
+  会说话，到底有多重要？有人说，它决定了你这一生能走多远。从军事法庭对军官的要求，到我们每个人踏入社会的必备技能，表达能力就像一把钥匙，打开的是通往人生更高处的门。但好消息是，这不是天赋的游戏——真正起...
+
+[TTS] 合成简介音频（MiniMax，Wise_Woman）...
+  ✓ intro.mp3 生成完成（673KB，6.6s）
+
+[ffmpeg] 拼接：intro + output_zh_minimax.mp3 → final.mp3 ...
+  ✓ final.mp3 完成（1120KB，0.3s）
+
+==================================================
+✓ 完整播客 MP3 输出：/Volumes/SANDISK ELE/AICoding/project5_podcast/podcast_addon/work/ddd7f65b/final.mp3
+  播放：open "/Volumes/SANDISK ELE/AICoding/project5_podcast/podcast_addon/work/ddd7f65b/final.mp3"
