@@ -9,3 +9,5 @@ __pycache__/
 *.mp4
 .env
 cookies.txt
+# YouTube 转写产物：仓库为 public，转写文本不默认入库（内容决策，见工作循环/决策报告.md）
+youtube_transcripts/

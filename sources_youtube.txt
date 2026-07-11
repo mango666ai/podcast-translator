@@ -1,0 +1,18 @@
+# YouTube 转写源清单（youtube_transcribe.py 读取）
+# 格式：URL | 备注标题    （# 开头为注释）
+
+# ── 8 个具体推荐视频（#p5-2）──
+https://www.youtube.com/watch?v=9fubhllmsBU | Claude Code 团队讲 Fable 5 提示词最佳实践
+https://www.youtube.com/watch?v=ohKt066uFhg | Viktor 创始人讲在 Slack 里造 AI 员工
+https://www.youtube.com/watch?v=az6OEZV8iHw | Cursor 设计负责人讲界面改版设计理念
+https://www.youtube.com/watch?v=l5VRhrNeidY | Anthropic content design 负责人讲 AI 时代面向人类写作
+https://www.youtube.com/watch?v=4CAFK-rc26A | ChatPRD 创始人讲 AI 时代 PM 职能演化
+https://www.youtube.com/watch?v=otkSbl399tU | 从 2000 年初设计风格汲取灵感
+https://www.youtube.com/watch?v=u7_Qof3AJ1g | Notion design system 负责人讲内部设计系统落地
+https://www.youtube.com/watch?v=Yz03ERsfDDM | Brat 专辑封面设计师讲个人经历如何塑造设计
+
+# ── 播放列表（#p5-3 / #p5-4）：先 yt-dlp --flat-playlist 枚举后把单条 URL 追加到这里 ──
+# Cursor Compile: https://www.youtube.com/playlist?list=PLuI2ZfvGpzwDCn0njJpjZ3ZiEpCqhN7BK
+# Figma Config:   https://www.youtube.com/playlist?list=PLXDU_eVOJTx6erPKfFHtCNbyCmcCn4zrp
+
+# ── 频道 @aiDotEngineer（#p5-5，无边界）：先枚举清单交用户挑，勿全量 ──
