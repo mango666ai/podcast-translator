@@ -28,6 +28,7 @@ PAGES_URL    = "https://mango666ai.github.io/podcast-translator"
 # RSS 元数据
 PODCAST_TITLE  = "Dove的学习记录"
 PODCAST_AUTHOR = "DoveInBeta"
+PODCAST_EMAIL  = "mmmmango666@gmail.com"
 PODCAST_DESC   = "英文播客 AI 翻译中文版，声音克隆自原主持人。"
 PODCAST_LANG   = "zh-cn"
 FEED_PATH      = PROJECT_DIR / "feed.xml"
@@ -151,6 +152,10 @@ def _build_feed(items_xml: list) -> str:
     <language>{PODCAST_LANG}</language>
     <link>{PAGES_URL}</link>
     <itunes:author>{PODCAST_AUTHOR}</itunes:author>
+    <itunes:owner>
+      <itunes:name>{PODCAST_AUTHOR}</itunes:name>
+      <itunes:email>{PODCAST_EMAIL}</itunes:email>
+    </itunes:owner>
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="{COVER_URL}" />
     <itunes:category text="Education" />
