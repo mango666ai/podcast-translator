@@ -16,6 +16,36 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
   <item>
+    <title>Fable5 提示词最佳实践：如何给 Claude 松绑</title>
+    <description>Anthropic Claude Code 团队成员分享如何理解 Fable 这类新模型，以及如何通过工具、上下文和更好的提问方式释放 Claude 的能力。这一集讨论给 Claude 松绑、发现自己的未知，以及在 AI 时代用更高野心做更好的工作。</description>
+    <link>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</link>
+    <guid>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</guid>
+    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+    <itunes:duration>1107</itunes:duration>
+    <enclosure url="https://mango666ai.github.io/podcast-translator/episodes/9fubhllmsBU-fable5-prompt-best-practices-zh.mp3" length="11341521" type="audio/mpeg" />
+    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/9fubhllmsBU-fable5-prompt-best-practices-zh.srt" type="text/srt" />
+  </item>
+  <item>
+    <title>Slack 里的 AI 员工：Victor 如何做公司级智能体</title>
+    <description>Victor 联合创始人介绍“公司级 AI 员工”为什么应该生活在 Slack 里，以及团队智能体在权限、记忆、上下文和语气上会遇到哪些真实挑战。</description>
+    <link>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</link>
+    <guid>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</guid>
+    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+    <itunes:duration>1041</itunes:duration>
+    <enclosure url="https://mango666ai.github.io/podcast-translator/episodes/ohKt066uFhg-slack-ai-employee-victor-zh.mp3" length="10636101" type="audio/mpeg" />
+    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/ohKt066uFhg-slack-ai-employee-victor-zh.srt" type="text/srt" />
+  </item>
+  <item>
+    <title>Cursor 界面改版设计：AI 工具不能让人变成旁观者</title>
+    <description>Cursor 设计师 Rio 讨论 AI 如何缩短想法到现实的距离，以及为什么 AI 工具不能把人变成只会审批输出的旁观者。重点是 Cursor 新界面 Glass 背后的可见性和可介入性原则。</description>
+    <link>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</link>
+    <guid>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</guid>
+    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+    <itunes:duration>1282</itunes:duration>
+    <enclosure url="https://mango666ai.github.io/podcast-translator/episodes/az6OEZV8iHw-cursor-glass-interface-design-zh.mp3" length="13066389" type="audio/mpeg" />
+    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/az6OEZV8iHw-cursor-glass-interface-design-zh.srt" type="text/srt" />
+  </item>
+  <item>
     <title>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</title>
     <description>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</description>
     <link>https://mango666ai.github.io/podcast-translator/ep/32876571</link>
