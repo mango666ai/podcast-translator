@@ -17,13 +17,15 @@
 cd ~/Documents/CCtest/podcast-translator
 source ../VideoLingo/.venv/bin/activate
 
-# 2. 启动任务队列（处理飞书表单提交的任务）
+# 2. 启动任务队列（处理飞书队列里的任务）
 python run_jobs.py --loop
 ```
 
 `--loop` 模式每 5 分钟自动检查飞书多维表格，有新任务就开始处理，处理完自动更新状态并上传飞书云盘。
 
-**提交任务：** 用手机打开飞书多维表格「播客任务队列」→ 填写表单「提交播客任务」
+**提交任务：** 你可以直接在 Codex 对话里发一批视频链接，由我整理标题、备注、优先级并写入飞书多维表格「播客任务队列」。飞书表单保留为备用入口，但不再要求你一个个手填。
+
+**当前工作规范：** 详见 `播客工作循环.md`。完整中文音频才算完成；英文原始音频、英文转写、小样都只是中间状态。
 
 ---
 
@@ -102,5 +104,8 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `add_chapters.py` | 写入 ID3 章节标记 |
 | `upload_feishu.py` | 上传产物到飞书云盘 |
 | `tts_compose.py` | edge-tts 备用合成 |
+| `youtube_transcribe.py` | 批量 YouTube 下载 + 英文转写，用于 8 个视频的第一阶段 |
+| `youtube_dub.py` | 基于转写生成中文字幕 / 中文配音小样 / 完整中文音频 |
+| `podcast_status.csv` | 8 个视频的本地机器进度表 |
 | `.env` | API Keys（不提交）`MINIMAX_API_KEY=xxx` |
 | `cookies.txt` | YouTube cookies（不提交）|
