@@ -45,15 +45,5 @@
     <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/az6OEZV8iHw-cursor-glass-interface-design-zh.mp3" length="13066389" type="audio/mpeg" />
     <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/az6OEZV8iHw-cursor-glass-interface-design-zh.srt" type="text/srt" />
   </item>
-  <item>
-    <title>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</title>
-    <description>How I AI EP01 - AI赋能市场与销售 ft. Sendbird CEO</description>
-    <link>https://mango666ai.github.io/podcast-translator/ep/32876571</link>
-    <guid>https://mango666ai.github.io/podcast-translator/ep/32876571</guid>
-    <pubDate>Fri, 19 Jun 2026 08:36:14 +0000</pubDate>
-    <itunes:duration>77</itunes:duration>
-    <enclosure url="https://mango666ai.github.io/podcast-translator/episodes/ep01.mp3" length="753741" type="audio/mpeg" />
-    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/32876571.txt" type="text/plain" />
-  </item>
   </channel>
 </rss>
