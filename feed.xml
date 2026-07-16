@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:podcast="https://podcastindex.org/namespace/1.0">
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
     <title>Dove的学习记录</title>
     <description>英文播客 AI 翻译中文版，声音克隆自原主持人。</description>
@@ -15,35 +13,75 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
-  <item>
-    <title>Fable5 提示词最佳实践：如何给 Claude 松绑</title>
-    <description>Anthropic Claude Code 团队成员分享如何理解 Fable 这类新模型，以及如何通过工具、上下文和更好的提问方式释放 Claude 的能力。这一集讨论给 Claude 松绑、发现自己的未知，以及在 AI 时代用更高野心做更好的工作。</description>
-    <link>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</link>
-    <guid>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</guid>
-    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
-    <itunes:duration>1107</itunes:duration>
-    <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/9fubhllmsBU-fable5-prompt-best-practices-zh.mp3" length="11341521" type="audio/mpeg" />
-    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/9fubhllmsBU-fable5-prompt-best-practices-zh.srt" type="text/srt" />
-  </item>
-  <item>
-    <title>Slack 里的 AI 员工：Victor 如何做公司级智能体</title>
-    <description>Victor 联合创始人介绍“公司级 AI 员工”为什么应该生活在 Slack 里，以及团队智能体在权限、记忆、上下文和语气上会遇到哪些真实挑战。</description>
-    <link>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</link>
-    <guid>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</guid>
-    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
-    <itunes:duration>1041</itunes:duration>
-    <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/ohKt066uFhg-slack-ai-employee-victor-zh.mp3" length="10636101" type="audio/mpeg" />
-    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/ohKt066uFhg-slack-ai-employee-victor-zh.srt" type="text/srt" />
-  </item>
-  <item>
-    <title>Cursor 界面改版设计：AI 工具不能让人变成旁观者</title>
-    <description>Cursor 设计师 Rio 讨论 AI 如何缩短想法到现实的距离，以及为什么 AI 工具不能把人变成只会审批输出的旁观者。重点是 Cursor 新界面 Glass 背后的可见性和可介入性原则。</description>
-    <link>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</link>
-    <guid>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</guid>
-    <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
-    <itunes:duration>1282</itunes:duration>
-    <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/az6OEZV8iHw-cursor-glass-interface-design-zh.mp3" length="13066389" type="audio/mpeg" />
-    <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/az6OEZV8iHw-cursor-glass-interface-design-zh.srt" type="text/srt" />
-  </item>
+    <item>
+      <title>AI 时代面向人类写作：语言正在变成设计本身</title>
+      <description>来源：Figma Config 2026，Writing for humans in an AI world，Chelsea Larsson（Anthropic）。这一集讲内容设计师在 AI 公司里的角色变化：语言如何成为产品设计媒介，提示词如何改变体验，Claude 的性格如何被系统提示词塑造，以及设计师如何在高速变化中继续为人类写作。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/l5VRhrNeidY</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/l5VRhrNeidY</guid>
+      <pubDate>Thu, 16 Jul 2026 16:52:52 +0000</pubDate>
+      <itunes:duration>1490</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/l5VRhrNeidY-ai-writing-for-humans-zh.mp3" length="15219837" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/l5VRhrNeidY-ai-writing-for-humans-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>AI 时代 PM 职能演化：当任何人都能构建，产品人还做什么</title>
+      <description>来源：Cursor Compile 26，The New PM，Claire Vo（ChatPRD）。这一集讨论代码和智能变得丰裕之后，产品管理如何从保护工程产能，转向寻找商业价值、推动行为改变、提出原创愿景，并把市场和团队带上同一段旅程。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/4CAFK-rc26A</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/4CAFK-rc26A</guid>
+      <pubDate>Thu, 16 Jul 2026 16:52:52 +0000</pubDate>
+      <itunes:duration>1632</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/4CAFK-rc26A-new-pm-ai-era-zh.mp3" length="16628445" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/4CAFK-rc26A-new-pm-ai-era-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>2000 年代设计灵感：未来为什么可能是低技术</title>
+      <description>来源：Figma Config 2026，The future is low-tech，Jésabel DC。技术人类学视角下的低技术未来：从乐高说明书、加载条、宝可梦和动物森友会中学习清晰度、方向感、现实连接和服务用户，让技术把人送回生活，而不是困在屏幕里。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/otkSbl399tU</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/otkSbl399tU</guid>
+      <pubDate>Thu, 16 Jul 2026 16:52:52 +0000</pubDate>
+      <itunes:duration>1251</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/otkSbl399tU-low-tech-future-zh.mp3" length="12912093" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/otkSbl399tU-low-tech-future-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>Notion 设计系统落地：一边吃饭一边换桌布</title>
+      <description>来源：Figma Config 2026，Everyone's still eating，Notion design system team。Notion 设计系统团队复盘如何在巨大代码库里标准化颜色、图标、CSS 变量和组件，并讲 AI agent 在迁移中的用处与边界：让正确的方式成为最容易的方式。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/u7_Qof3AJ1g</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/u7_Qof3AJ1g</guid>
+      <pubDate>Thu, 16 Jul 2026 16:52:52 +0000</pubDate>
+      <itunes:duration>1408</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/u7_Qof3AJ1g-notion-design-system-zh.mp3" length="14415273" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/u7_Qof3AJ1g-notion-design-system-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>Fable5 提示词最佳实践：如何给 Claude 松绑</title>
+      <description>Anthropic Claude Code 团队成员分享如何理解 Fable 这类新模型，以及如何通过工具、上下文和更好的提问方式释放 Claude 的能力。这一集讨论给 Claude 松绑、发现自己的未知，以及在 AI 时代用更高野心做更好的工作。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/9fubhllmsBU</guid>
+      <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+      <itunes:duration>1107</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/9fubhllmsBU-fable5-prompt-best-practices-zh.mp3" length="11341521" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/9fubhllmsBU-fable5-prompt-best-practices-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>Slack 里的 AI 员工：Victor 如何做公司级智能体</title>
+      <description>Victor 联合创始人介绍“公司级 AI 员工”为什么应该生活在 Slack 里，以及团队智能体在权限、记忆、上下文和语气上会遇到哪些真实挑战。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/ohKt066uFhg</guid>
+      <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+      <itunes:duration>1041</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/ohKt066uFhg-slack-ai-employee-victor-zh.mp3" length="10636101" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/ohKt066uFhg-slack-ai-employee-victor-zh.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>Cursor 界面改版设计：AI 工具不能让人变成旁观者</title>
+      <description>Cursor 设计师 Rio 讨论 AI 如何缩短想法到现实的距离，以及为什么 AI 工具不能把人变成只会审批输出的旁观者。重点是 Cursor 新界面 Glass 背后的可见性和可介入性原则。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/az6OEZV8iHw</guid>
+      <pubDate>Wed, 15 Jul 2026 14:10:29 +0000</pubDate>
+      <itunes:duration>1282</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/az6OEZV8iHw-cursor-glass-interface-design-zh.mp3" length="13066389" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/az6OEZV8iHw-cursor-glass-interface-design-zh.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
