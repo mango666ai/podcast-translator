@@ -14,6 +14,16 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>Brat 封面设计师经历：没有完成状态的设计</title>
+      <description>来源：Figma Config 2026：Death of the finished state，Brent David Freaney（Special Offer）。原始视频：https://www.youtube.com/watch?v=Yz03ERsfDDM。AI 中文译制版：本集使用原视频声线克隆制作中文配音，可能存在少量语气或断句不自然。Special Offer 艺术总监 Brent 从 MTV、《The Real World》、粉丝网站和互联网社区讲起，复盘 Charli XCX《Brat》封面如何从长期图像收藏、绿色素材、字体探索和协作信任中诞生，并提出“设计没有真正完成状态”：观众和粉丝的回应，也是设计流程的一部分。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/Yz03ERsfDDM</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/Yz03ERsfDDM</guid>
+      <pubDate>Fri, 17 Jul 2026 15:52:44 +0000</pubDate>
+      <itunes:duration>1371</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Yz03ERsfDDM-brat-cover-designer-zh-clone.mp3" length="12851973" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Yz03ERsfDDM-brat-cover-designer-zh-clone.srt" type="text/srt" />
+    </item>
+    <item>
       <title>AI 时代面向人类写作：语言正在变成设计本身</title>
       <description>来源：Figma Config 2026：Writing for humans in an AI world，Chelsea Larsson（Anthropic）。原始视频：https://www.youtube.com/watch?v=l5VRhrNeidY。这一集讲内容设计师在 AI 公司里的角色变化：语言如何成为产品设计媒介，提示词如何改变体验，Claude 的性格如何被系统提示词塑造，以及设计师如何在高速变化中继续为人类写作。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/l5VRhrNeidY</link>
