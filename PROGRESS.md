@@ -1,6 +1,6 @@
 # 播客翻译项目 — 进度记录
 
-## 2026-07-19 · 第 8 集改做多声线原声还原，卡在 MiniMax 额度
+## 2026-07-19 · 第 8 集多声线原声还原版已生成并发布
 
 - 用户反馈：
   - 第 8 集当前发布版没有区分人声，长期目标应按原视频原声还原，而不是沿用 demo 时选定的固定声线。
@@ -10,18 +10,22 @@
   - 使用 MiniMax voice clone 成功创建主持人声线：`voice_id=Yz03ERsfDDM_damian_20260719`。
   - 新增多声线合成脚本：`youtube_multivoice_dub.py`，用于把不同时间段路由到不同 voice_id。
   - 新增第 8 集说话人规则：`youtube_dub/Yz03ERsfDDM__Brat封面设计师经历/Yz03ERsfDDM__speaker_rules.json`。
-  - 多声线生成已跑通前 30/76 段：
+  - 用户为 Pay-as-you-go Audio Points 充值后，继续复用前 30 段缓存，补齐剩余段落。
+  - 多声线完整生成 76/76 段：
     - 0:19-2:15 左右：主持人 Damian 克隆声。
     - Brent 主讲：`Yz03ERsfDDM_brent_20260717`。
     - 家庭录像/引用片段：临时用 `Calm_Woman` 区分，后续如要更真实可再单独处理。
-- 阻塞项：
-  - MiniMax 返回 `insufficient credit. Please purchase top-up credits or upgrade your subscription plan`，第 31 段开始无法继续合成。
-  - 因此完整多声线版尚未生成，也未替换 RSS；小宇宙当前看到的仍是已发布的单声线 Brent 克隆版。
+  - 生成完整音频：`youtube_dub/Yz03ERsfDDM__Brat封面设计师经历/Yz03ERsfDDM__Brat封面设计师经历__完整中文音频_多声线原声还原1.00.mp3`，约 22 分 48 秒 / 12.8MB。
+  - 已复制到发布仓库并用新文件名替换 RSS enclosure：`episodes/Yz03ERsfDDM-brat-cover-designer-zh-multivoice.mp3`。
+  - RSS 描述已标注“多声线原声还原版”，说明主持人、主讲人和片段声线有区分。
+- 验证结果：
+  - 本地分段缓存 76/76 段齐全。
+  - `ffprobe` 检查完整音频：`duration=1368.478906`，`size=12765897`。
+  - 发布仓库 `feed.xml` 可解析，仍为 8 个 item，第 8 集 enclosure 指向新多声线 MP3。
 - 下一步：
-  1. 补足 MiniMax TTS 额度或换可用 TTS 供应商。
-  2. 继续运行多声线合成脚本，剩余段落会复用已生成缓存，从第 31 段附近继续。
-  3. 生成完整 `__完整中文音频_多声线原声还原1.00.mp3` 后，复制到发布仓库，用新 MP3 文件名替换 RSS 第 8 集 enclosure，再提交并推送 GitHub。
-  4. 长期把“按说话人克隆声线”纳入默认工作循环：每集先做 speaker 标注，再按 speaker 选择/克隆 voice_id。
+  1. 等 GitHub / 小宇宙缓存刷新，在小宇宙试听第 8 集多声线版。
+  2. 若第 8 集方向满意，再评估前 7 集是否按原视频 speaker 重新配音。
+  3. 长期把“按说话人克隆声线”纳入默认工作循环：每集先做 speaker 标注，再按 speaker 选择/克隆 voice_id。
 
 ## 2026-07-17 · 第 8 集补齐：原视频声线克隆版已发布
 
