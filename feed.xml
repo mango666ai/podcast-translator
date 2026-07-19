@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
     <title>Dove的学习记录</title>
@@ -15,12 +15,12 @@
     <itunes:category text="Education" />
     <item>
       <title>Brat 封面设计师经历：没有完成状态的设计</title>
-      <description>来源：Figma Config 2026：Death of the finished state，Brent David Freaney（Special Offer）。原始视频：https://www.youtube.com/watch?v=Yz03ERsfDDM。AI 中文译制版：本集使用原视频声线克隆制作中文配音，可能存在少量语气或断句不自然。Special Offer 艺术总监 Brent 从 MTV、《The Real World》、粉丝网站和互联网社区讲起，复盘 Charli XCX《Brat》封面如何从长期图像收藏、绿色素材、字体探索和协作信任中诞生，并提出“设计没有真正完成状态”：观众和粉丝的回应，也是设计流程的一部分。</description>
+      <description>来源：Figma Config 2026：Death of the finished state，Brent David Freaney（Special Offer）。原始视频：https://www.youtube.com/watch?v=Yz03ERsfDDM。AI 中文译制版：本集为多声线原声还原版，主持人 Damian 与主讲人 Brent 使用不同声线，家庭录像/引用片段也做了区分；可能存在少量语气或断句不自然。Special Offer 艺术总监 Brent 从 MTV、《The Real World》、粉丝网站和互联网社区讲起，复盘 Charli XCX《Brat》封面如何从长期图像收藏、绿色素材、字体探索和协作信任中诞生，并提出“设计没有真正完成状态”：观众和粉丝的回应，也是设计流程的一部分。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/Yz03ERsfDDM</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/Yz03ERsfDDM</guid>
       <pubDate>Fri, 17 Jul 2026 15:52:44 +0000</pubDate>
-      <itunes:duration>1371</itunes:duration>
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Yz03ERsfDDM-brat-cover-designer-zh-clone.mp3" length="12851973" type="audio/mpeg" />
+      <itunes:duration>1368</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Yz03ERsfDDM-brat-cover-designer-zh-multivoice.mp3" length="12765897" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Yz03ERsfDDM-brat-cover-designer-zh-clone.srt" type="text/srt" />
     </item>
     <item>
