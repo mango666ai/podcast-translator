@@ -1,5 +1,35 @@
 # 播客翻译项目 — 进度记录
 
+---
+
+## 🔄 换设备接手清单（2026-07-21 最后同步）
+
+**两个仓库都要拉：**
+
+```bash
+git clone https://github.com/mango666ai/podcast-translator.git   # 代码 + 已发布内容
+git clone https://github.com/mango666ai/aicoding-notes.git       # 工作区文档（PRD/PROJECT_MAP/决策日志）
+git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提供 Python venv
+```
+
+**⚠️ 必须手动补的东西（不在 git 里，故意的）：**
+
+| 项 | 怎么办 |
+| --- | --- |
+| `podcast_addon/.env` | 新建，填 `DEEPSEEK_API_KEY`（翻译主通道，**必须**）、`MINIMAX_API_KEY` + `MINIMAX_GROUP_ID`（配音，**必须**）。key 只在旧机器的本地 `.env` 里，需要自己复制过来或去官网重新生成 |
+| Python venv | 按 [SETUP.md](SETUP.md) 重建（约 10 分钟，whisperX 首次会下 ~3GB 模型） |
+| `cookies.txt` | 部分 YouTube 视频需要，用浏览器插件导出，或用 `yt-dlp --cookies-from-browser chrome` |
+
+**不会同步、但可以重新生成的中间产物**（已 gitignore）：`youtube_transcripts/`、`youtube_dub/`、`youtube_demo/`、`work/`。已发布的 8 集成品音频在仓库 `episodes/` 里，不受影响。
+
+**接手先读**：[播客工作循环.md](播客工作循环.md)（标准流程，唯一真相源）→ 本文件最新一条进度 → [../决策日志.md](../决策日志.md)（为什么这样定）
+
+**已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
+
+**当前可以直接开工的下一件事**：用 DeepSeek 跑第 9 集 `P3KDebPTUrw` 的正式翻译，替换掉之前用 YouTube 自动中文字幕做的测试版。新机器需要重新下载原视频音频（`youtube_demo/` 没同步），但两个声线 `P3KDebPTUrw_host_20260719` / `P3KDebPTUrw_andrew_20260719` 可直接复用。
+
+---
+
 ## 2026-07-21 · DeepSeek 接入验证通过；节目笔记改六段式；新增双语对照稿；标准流程文档重写；修复 git/`.env` 的 exFAT 元数据损坏
 
 - 本次完成：
