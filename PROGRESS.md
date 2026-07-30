@@ -1,5 +1,53 @@
 # 播客翻译项目 — 进度记录
 
+## 2026-07-21 · DeepSeek 接入验证通过；节目笔记改六段式；新增双语对照稿；标准流程文档重写；修复 git/`.env` 的 exFAT 元数据损坏
+
+- 本次完成：
+  - `llm_openai.py` 新增 `call_deepseek()`，`call_gpt()` 优先级改为 DeepSeek > OpenAI > Claude CLI；冒烟测试 `call_gpt("只回复：ok")` 用真实 `DEEPSEEK_API_KEY` 调用成功。
+  - `youtube_dub.py` 新增 `write_bilingual_transcript()`（英文原文+中文翻译逐句对照+`[mm:ss]`时间戳，纯文字稿，不用于播放器同步）和 `build_timestamps()`（从双语分段抽候选点，LLM 只选编号起标签，时间戳始终来自真实数据不由模型编造）；`write_notes_if_needed()` 改为六段式节目笔记（来源/本期播客简介/本期嘉宾/时间戳/精彩内容/播客信息补充），用第1集数据冒烟测试通过。
+  - 重写 [播客工作循环.md](播客工作循环.md) 为定版标准流程：核对代码后删除了从未真正用于生产的"飞书队列入口"描述，更新翻译优先级，补充双语对照稿/六段式笔记，明确列出"当前不做"清单（开场白/ID3章节/飞书上传/自动diarization），删除过时的8视频状态表（改为指向 `podcast_status.csv`）。
+  - 修复 `.git` 目录被 exFAT 自动生成的 macOS AppleDouble 元数据文件（`._*`）污染，导致 `git log`/`git fsck` 报错（172个垃圾文件，含 `refs/heads/._main` 等）；清理后仓库恢复正常，真实 `main` ref 数据未受影响。
+  - 修复本地 `.env` 被同样的 AppleDouble 元数据（`._.env`）干扰导致 Finder/TextEdit 报"已损坏"；确认 `.env` 本体完好后清掉影子文件，用户自行在文件末尾追加了真实 `DEEPSEEK_API_KEY`。
+  - 新写 [PRD.md](../PRD.md)（项目说明文档）和 [PROJECT_MAP.md](../PROJECT_MAP.md) 复核更正；决策日志补全多条：原计划环节取舍（开场白/ID3/飞书/双语对照）、DeepSeek 验证通过。
+- 验证结果：
+  - `python -m py_compile llm_openai.py youtube_dub.py` 通过。
+  - `call_gpt` 真实 DeepSeek key 调用成功。
+  - 用第1集(`9fubhllmsBU`)已有双语分段数据跑通 `write_notes_if_needed` 和 `write_bilingual_transcript`，输出内容人工检查过，格式和内容质量符合预期。
+  - `git fsck --full` 清理后无异常（仅剩正常的 dangling object 提示）。
+- 当前判断：
+  - 翻译层的最大阻塞（无稳定自动通道）已解除，第9集及以后可以走全自动翻译。
+  - 前3集(`9fubhllmsBU`/`az6OEZV8iHw`/`ohKt066uFhg`)的节目笔记还是旧五段格式，未随本次改动重新生成。
+- 下一步：
+  1. 是否要批量用新六段式模板重新生成前3集（乃至全部8集）的节目笔记和双语对照稿，待用户确认。
+  2. 用 DeepSeek 正式跑第9集(`P3KDebPTUrw`)翻译，替换掉之前的 YouTube 自动字幕测试版。
+  3. 提交并推送本次全部改动（含之前遗留的未提交文件）。
+
+## 2026-07-19 · 新视频完整本地测试版完成，发布前改接 DeepSeek 翻译
+
+- 用户反馈：
+  - `P3KDebPTUrw` 的双声线 demo 可以接受，可以继续跑完整视频。
+  - 但正式发布前不要再使用 YouTube 自动中文字幕作为最终翻译稿。
+  - 后续音频标题需要带序号，例如 `01.`、`02.`。
+  - 播客简介格式需要固定：先写来源，再写原内容更新时间，再介绍嘉宾/主持人和内容亮点。
+- 本次完成：
+  - 已用 YouTube 自动中文字幕 + 两个 MiniMax 克隆声线生成完整本地测试版：
+    - `/Volumes/SANDISK ELE/AICoding/project5_podcast/podcast_addon/youtube_demo/P3KDebPTUrw/P3KDebPTUrw_full_auto_zh_multivoice.mp3`
+    - 时长约 72 分 23 秒，大小约 39MB。
+  - 已确认没有上传到 GitHub / RSS。
+  - 新增项目地图：
+    - `/Volumes/SANDISK ELE/AICoding/project5_podcast/PROJECT_MAP.md`
+- 验证结果：
+  - `ffprobe` 检查完整音频：`duration=4342.843313`，`size=38939229`。
+  - 发布仓库当前无未提交变更。
+- 当前判断：
+  - 这版只能作为完整流程测试版，不作为正式发布版。
+  - 当前真正阻塞是缺少稳定的高质量翻译层，不是下载或 TTS。
+- 下一步：
+  1. 用户提供 DeepSeek API Key 后，把翻译层改为 DeepSeek 优先。
+  2. 用 DeepSeek 基于英文字幕/转写重新生成自然中文分段。
+  3. 保留现有两个人声克隆，重新 TTS 生成正式音频。
+  4. 正式发布时按序号命名，RSS 标题和简介使用新版格式。
+
 ## 2026-07-19 · 第 8 集多声线原声还原版已生成并发布
 
 - 用户反馈：

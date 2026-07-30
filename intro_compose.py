@@ -2,7 +2,7 @@
 M4: 开场简介生成
 流程：
   1. 读取 bilingual.json，提取节目主题和关键内容
-  2. Claude 生成中文开场旁白（~150字，女声朗读约60秒）
+  2. OpenAI GPT 生成中文开场旁白（~150字，女声朗读约60秒）
   3. MiniMax TTS 合成简介音频（无 key 时自动 fallback 到 edge-tts）
   4. ffmpeg 拼接：intro.mp3 + 主体 MP3 → final.mp3
 
@@ -23,18 +23,18 @@ import subprocess
 import requests
 from pathlib import Path
 from dotenv import load_dotenv
+from llm_openai import call_gpt
 
 load_dotenv(Path(__file__).parent / ".env")
 
 MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY", "")
 MINIMAX_URL = "https://api.minimax.io/v1/t2a_v2"
-CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 
 DEFAULT_MINIMAX_VOICE = "Wise_Woman"
 DEFAULT_EDGE_VOICE = "zh-CN-XiaoxiaoNeural"
 
 # ─────────────────────────────────────────
-# Step 1: 用 Claude 生成简介文本
+# Step 1: 用 OpenAI GPT 生成简介文本
 # ─────────────────────────────────────────
 INTRO_PROMPT = """你是一位专业播客编辑，请根据以下节目内容片段，写一段中文开场旁白。
 
@@ -52,7 +52,7 @@ INTRO_PROMPT = """你是一位专业播客编辑，请根据以下节目内容�
 
 
 def generate_intro_text(segments: list) -> str:
-    """调用 Claude 生成开场旁白文本"""
+    """调用 OpenAI GPT 生成开场旁白文本"""
     # 取前 20 段，足够了解节目主题
     sample = segments[:20]
     content_lines = []
@@ -69,18 +69,11 @@ def generate_intro_text(segments: list) -> str:
         content="\n".join(content_lines),
     )
 
-    print("  调用 Claude 生成简介...", end="", flush=True)
+    print("  调用 OpenAI GPT 生成简介...", end="", flush=True)
     t0 = time.time()
-    result = subprocess.run(
-        [CLAUDE_BIN, "-p", prompt, "--model", "claude-sonnet-4-5"],
-        capture_output=True, text=True, timeout=60,
-    )
+    intro_text = call_gpt(prompt, timeout=60).strip()
     elapsed = time.time() - t0
 
-    if result.returncode != 0:
-        raise RuntimeError(f"Claude 调用失败: {result.stderr[:200]}")
-
-    intro_text = result.stdout.strip()
     print(f" ✓ {elapsed:.1f}s，{len(intro_text)} 字")
     return intro_text
 

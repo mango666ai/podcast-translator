@@ -1,0 +1,137 @@
+# YouTube 源枚举（供 #p5-3/4/5 挑选）
+生成: 2026-07-12 11:26
+
+## Cursor Compile 播放列表
+- Opening Keynote, Michael Truell | Compile 26  |  https://youtu.be/fWa7uxyhVDE
+- What Is Your Job Now, Farhan Thawar | Compile 26  |  https://youtu.be/ByOF8qByGHU
+- The Memory Problem, Baseten | Compile 26  |  https://youtu.be/I8YnwUV2C9w
+- Closer to the Material, Ryo Lu | Compile 26  |  https://youtu.be/az6OEZV8iHw
+- The New PM, Claire Vo | Compile 26  |  https://youtu.be/4CAFK-rc26A
+- Agents and Infrastructure, Sam Lambert | Compile 26  |  https://youtu.be/zxvyO5vnknI
+- Intelligence Efficiency, Ben Geist | Compile 26  |  https://youtu.be/Z5M33oh-SAU
+- Notational Intelligence, Linus Lee | Compile 26  |  https://youtu.be/rv_VS189aVI
+- Explaining Culture to Technology, Paul Ford | Compile 26  |  https://youtu.be/BEi1ryQPGbk
+- Agency in Language, Alane Suhr | Compile 26  |  https://youtu.be/yHNcSVgz54I
+
+## Figma Config 播放列表
+- Designing Math ft. Grant Sanderson (3Blue1Brown) I Config 2026  |  https://youtu.be/bLSLN96Gn-w
+- Config 2026 Keynote with Dylan Field (CEO & Co-founder, Figma)  |  https://youtu.be/2ZCc4k_IV5w
+- Death of the finished state ft. Brent David Freaney (Special Offer) | Config 2026  |  https://youtu.be/Yz03ERsfDDM
+- Designing in code | Config 2026  |  https://youtu.be/Q3BkuQRBg-w
+- Figma deep dive: Agentic workflows and the MCP | Config 2026  |  https://youtu.be/D5WUW9X_-L0
+- Figma deep dive: Motion | Config 2026  |  https://youtu.be/3evAfmLVZK8
+- Figma deep dive: Agents | Config 2026  |  https://youtu.be/0HqSSIPZkbI
+- Everyone's still eating: building Notion's design system | Config 2026  |  https://youtu.be/u7_Qof3AJ1g
+- Hacking AI for creative operations at scale ft. Rory Flynn | Config 2026  |  https://youtu.be/_az4W2z5Fqw
+- Design systems anarchy ft. Lauren LoPrete (Mercury) | Config 2026  |  https://youtu.be/lY3dhHTJGWQ
+- Turning real-world motion into design ft. Patrick Flaherty (Microsoft) | Config 2026  |  https://youtu.be/Lo-HSCqhIF8
+- Figma deep dive: Generative shader effects | Config 2026  |  https://youtu.be/y_2_w-r9TYY
+- Figma deep dive: Weave | Config 2026  |  https://youtu.be/I9xdmNZxIfA
+- Designing in the age of the 10x engineer ft. Andy Zhang (Google) | Config 2026  |  https://youtu.be/4fZ3CeFu954
+- The rules are the art: creating with AI ft. Holly Herndon | Config 2026  |  https://youtu.be/thvAivrQ4TI
+- Dense by design ft. Matthew Ström-Awn (mu.design) | Config 2026  |  https://youtu.be/notTKhz8C2c
+- It used to be hard to be average ft. André Anjos (RAC) | Config 2026  |  https://youtu.be/mdxJNKM3AMc
+- Figma deep dive: Make | Config 2026  |  https://youtu.be/q_-udq6jXpw
+- How structured thinking gives your AI superpowers ft. Carola Pescio Canale (Atlassian) | Config 2026  |  https://youtu.be/CPkL9msCuIU
+- The future is low-tech: lessons from the early 2000s ft. Jésabel DC | Config 2026  |  https://youtu.be/otkSbl399tU
+- Figma deep dive: Agent-built plugins | Config 2026  |  https://youtu.be/5g7c4-EtmS8
+- Designed to be read: making a system AI can actually use ft. Harvey Whiting (Meta) | Config 2026  |  https://youtu.be/TQaYwH6f4DA
+- How to build content systems for AI product workflows with Ditto | Config 2026  |  https://youtu.be/Wcz4RW1_qYI
+- Legibility by design ft. Ryan Powell (Waymo) | Config 2026  |  https://youtu.be/2zmW-L1jtjc
+- What it feels like to build in 2026 | Config 2026  |  https://youtu.be/RnxHD6qc9gQ
+- Beyond design systems: designing for robots and seniors ft. Anna Oh (Norbert Health) | Config 2026  |  https://youtu.be/hGQEbwm6yc8
+- Writing for humans in an AI world ft. Chelsea Larsson (Anthropic) | Config 2026  |  https://youtu.be/l5VRhrNeidY
+- Preparing Rocket for the AI era | Config 2026  |  https://youtu.be/TThJrINckys
+- Patterns for restarting the world ft. Switch Angel + LO.FI.SCI.FI | Config 2026  |  https://youtu.be/eCwkq10Sd3I
+- Scooter, screen and duct-tape: from hack to habit ft. Unni K. Manikoth & Harish Kumar | Config 2026  |  https://youtu.be/Zn3XYOV4dUo
+- Ready for the world ft. Vicki Tan | Config 2026  |  https://youtu.be/hpBND4-uiWc
+- AI will upend your process—for the better ft. Justin Meyer (Bitovi) | Config 2026  |  https://youtu.be/6nyveN7zfMQ
+- Building real-time user insights into your design workflow ft. Prayag Narula | Config 2026  |  https://youtu.be/cYuTlnp3wLs
+- The canvas is not dead ft. Catt Small (Dropbox) | Config 2026  |  https://youtu.be/WGZ38oeoBtU
+- Quirk up your workplace ft. Darby Thomas (GitHub) | Config 2026  |  https://youtu.be/9yZq36fclmI
+- Connecting Google Workspace and Figma | Config 2026  |  https://youtu.be/AOcrfsZCsrU
+- Designing with confidence in an AI-powered world ft. Bobby Meixner (UserTesting) | Config 2026  |  https://youtu.be/XOVcpvbblGY
+- The marathon designer and creative endurance ft. Socrates Charisis (Quintessential) | Config 2026  |  https://youtu.be/Rb2XLYSgn7A
+- The invisible mechanisms in your interfaces ft. Johannes Mutter (mutter.co) | Config 2026  |  https://youtu.be/6Kxf4BJlA_s
+- From concept to confidence with Dscout AI | Config 2026  |  https://youtu.be/9pl3twjre6E
+- Reimagining NASA.gov for Earth’s most important stories ft. Ben Shown & Megan Greco | Config 2026  |  https://youtu.be/GpACvdM6guc
+- Build like it's 2030. Listen like you mean it. ft. Ned Dwyer (Great Question) | Config 2026  |  https://youtu.be/ahDcjUgyI78
+- Design for the future of apps ft. Craig Labenz (Google) | Config 2026  |  https://youtu.be/PLZoD-LvZTw
+- Dimensional shift: sculpting in Figma Draw ft. Josh McKenna | Config 2026  |  https://youtu.be/0ZoW_ym83JQ
+- 300GB story: how to inspire action when data isn’t enough | Config 2026  |  https://youtu.be/P9HfB9gWkmY
+- Usernames on Instagram: how a craft fix became an identity crisis ft. Rose McManus | Config 2026  |  https://youtu.be/njz16gKVLFs
+- The world of street art and care-filled design ft. Ella Rochelle-Lawton | Config 2026  |  https://youtu.be/5wNurWRnawU
+- Skill issue: how we built an OS for PMs at Figma | Config 2026  |  https://youtu.be/2nn5J6tUzwE
+- Prototyping for the physical world ft. Frederik Ueberschär & Sam Thorne | Config 2026  |  https://youtu.be/2pD2X8QasXg
+- The edge case is everyone ft. Willie King & Lex Liley | Config 2026  |  https://youtu.be/fNELWD0bDn8
+- From handoffs to upstream ft. Frederick Andersen (EDL) | Config 2026  |  https://youtu.be/h7i31pJenMg
+- Out of sync, on purpose: desktop design after mobile won ft. Giulio Fagiolini | Config 2026  |  https://youtu.be/J9ApkvWR3Pg
+- Designing the product that can do anything ft. Brian Ringley | Config 2026  |  https://youtu.be/72m2hpP-Zo0
+- The metacognitive design loop ft. Jenny Au & Mike Green | Config 2026  |  https://youtu.be/360gz1lqWt0
+- 10 years of daily sketching ft. Zach Lieberman (MIT Media Lab) | Config 2026  |  https://youtu.be/CaF0t8QrQjE
+- Designing brand intelligence: from rules to expression ft. Nicole Martinez | Config 2026  |  https://youtu.be/Q-0BqAhVrfQ
+- Be the director: how stage craft informs product craft ft. Kim Beverett (OpenAI) | Config 2026  |  https://youtu.be/lr7jom1NHzg
+- ESPN's migration playbook: moving to Figma w/ One North ft. Matt Roger & Elliott Muñoz | Config 2026  |  https://youtu.be/H05udeUr9ws
+- The hidden craft of interface design in modern film ft. Jayse Hansen | Config 2026  |  https://youtu.be/MhSXeoBpsgk
+- Own the loop: how designers and researchers win with AI evals ft. Setor Zilevu (Figma) | Config 2026  |  https://youtu.be/VfA-vjsFQ1o
+- Designing money: how to build a trustworthy brand in the age of AI ft. Chris Warner | Config 2026  |  https://youtu.be/vnVAF8o4bwE
+- Best practices are trapped in your head and your AI has no idea ft. Harald Kirschner | Config 2026  |  https://youtu.be/oTtaFABsVDE
+- Gnarly by design: building systems with grit ft. Beau Wingfield | Config 2026  |  https://youtu.be/rX7tMco1qEw
+- The most important component: community ft. Alicia Kranjc (Figma) | Config 2026  |  https://youtu.be/U4bSieNNFU8
+- Human methods, new material: AI for the classroom ft. Mubarak Marafa & Wendy Liao | Config 2026  |  https://youtu.be/fLF8dwbC74o
+- In praise of dark mode ft. Mehmet Aydın Baytaş (Attio) | Config 2026  |  https://youtu.be/cWggqwauYXQ
+- Closing keynote ft. Dylan Field (CEO & Co-founder, Figma) | Config 2026  |  https://youtu.be/SQji6izodIE
+- Managing multiple creative passions in a specialized world ft. Lauren Hom | Config 2026  |  https://youtu.be/KeaqUYrDPSM
+- Protoypes, failures, and unexpected breakthroughs ft. Noah Finer (Figma) | Config 2026  |  https://youtu.be/1YqJzpcTvZs
+- Prompts to fashion: AI-powered 3D-printed garments ft. Danit Peleg | Config 2026  |  https://youtu.be/68R72k19fb4
+- Don't forget the feeling: a critique of software in 2026 ft. Luis Ouriach (Figma) | Config 2026  |  https://youtu.be/EgvWTCJj8YM
+- NA  |  https://youtu.be/rSbq9DAyEvc
+- NA  |  https://youtu.be/oToZVHIV1hI
+- NA  |  https://youtu.be/BoibCCIZLjA
+- NA  |  https://youtu.be/BczUZqJgtms
+- NA  |  https://youtu.be/-ZoEot3OFr0
+- NA  |  https://youtu.be/Z6lJqcxGYIk
+- NA  |  https://youtu.be/hSSUl4vYSYo
+
+## @aiDotEngineer 频道（最近 40，全频道可能上百，不全量）
+- Claws Out: Securing and Building with OpenClaw - Nick Taylor, Pomerium  |  https://youtu.be/xg1zNlzw7Jk
+- Stop AI Agent Hallucinations: 5 Techniques + Production Patterns - Elizabeth Fuentes, AWS  |  https://youtu.be/vJukHCIv7Ck
+- The Factory That Dreams: 39 AI Agents, No Framework - Rushabh Doshi, Machinecraft  |  https://youtu.be/jtzh-GBXBWc
+- Chat and citations won't save your vertical AI - Atul Ramachandran, Filed Inc  |  https://youtu.be/RGiXcVxSD3s
+- State of the Union: Why Local, Why Now — NVIDIA, Osmantic, Roboflow, EXO Labs, @matthew_berman  |  https://youtu.be/KB41dTlX1Uc
+- Every Solo Agent Builder Eventually Reinvents a Worse Version of CI/CD - Sumaiya Shrabony  |  https://youtu.be/WLXxTaPagA8
+- Develop at Idea Velocity - Jeffrey Lee-Chan, Snapchat  |  https://youtu.be/9arM9b7JgOo
+- So many AI Tools: When to use what? — Chris Noring, Microsoft  |  https://youtu.be/GdvKNwMcfd0
+- Special Topics in Kernels, RL, Reward Hacking in Agents — Daniel Han, Unsloth  |  https://youtu.be/uIiA6DquRiE
+- Design Patterns for AI Trust: Juries, Libraries, and Agent Tiers — Alex Bauer, Upside.tech  |  https://youtu.be/YZQsWVeN3rE
+- On AI and Knowledge — Pablo Castro, Distinguished Engineer & CVP for AI Knowledge, Microsoft  |  https://youtu.be/RGSFUqzqErE
+- Understanding is the new bottleneck — Geoffrey Litt, Notion  |  https://youtu.be/WkBPX-oDMnA
+- Should AI Engineers Still Read Code in 2026? The Z/L Continuum — Alex Volkov, ThursdAI  |  https://youtu.be/ZpK5PWX2YRM
+- The Golden Age of AI Engineering — Alexander Embiricos & Romain Huet & Peter Steinberger, OpenAI  |  https://youtu.be/pMggiOb18tc
+- Everything we knew about software has changed — Theo Browne, @t3dotgg ​  |  https://youtu.be/xUnRQ9vLXxo
+- The Agentic Web and the Bazaar Era of AI - Ramesh Raskar, MIT Media Lab  |  https://youtu.be/sum9DgexFRQ
+- RLM: Recursive Language Models for Large Codebases - Shashi, Superagentic AI  |  https://youtu.be/8oyalrfwgjw
+- Think You Can Build a Game with AI? Think Again! - Danielle An & David Hoe, Meta  |  https://youtu.be/grdoOC1BT1s
+- Your agent is blindfolded — Johan Lajili, Poolside AI  |  https://youtu.be/iRcX54EO5g8
+- Building an ACP-Compatible Agent Live — Bennet Fenner, Zed  |  https://youtu.be/HsxQICTLF84
+- Teaching Coding Agents to do Spreadsheets - Nuno Campos, Witan Labs  |  https://youtu.be/HEFSExa0xl0
+- Your coding agent doesn't always follow your rules — Talha Sheikh, Checkout.com  |  https://youtu.be/MpZzWMdmQCE
+- Running a Chess YouTube Channel entirely by AI — Stephan Steinfurt, TNG  |  https://youtu.be/BqZrTdgBaPw
+- I Run a Fleet of AI Agents Across Three Machines. Here's What Broke. - Kyle Jaejun Lee, KRAFTON  |  https://youtu.be/4kYl2_mqmnQ
+- Your LLM Deception Monitor Is Broken. The Fix Is in the Training Data - Sachin Kumar, LexisNexis  |  https://youtu.be/IQkVMvXQKLY
+- From fork() to Fleet: Designing an Agent Sandbox Cloud — Abhishek Bhardwaj, OpenAI  |  https://youtu.be/OqM67QG_Ikk
+- GTM Is You - Victoria Melnikova, Evil Martians  |  https://youtu.be/G6IlDzj8OjA
+- Beyond the Harness: A Journey Towards Adaptative Engineering - Rajiv Chandegra, Annicha Labs  |  https://youtu.be/qdZzND79mcg
+- How we taught agents to use good retrieval - Hanna Lichtenberg, Mixedbread AI  |  https://youtu.be/1IdzkRVmWAA
+- What if the harness mattered more than the model? - Aditya Bhargava, Etsy  |  https://youtu.be/2e9ANoOEn28
+- Build AI Systems for Discernment, Not Approval - Angel Ortmann Lee, Duolingo  |  https://youtu.be/CDqzWpwkSls
+- Respect The Process - Andrew Dumit, Watershed Technology Inc.  |  https://youtu.be/CLttOU7n6sI
+- The Pipeline Is Dead - Iris ten Teije, Sky Valley Ambient Computing  |  https://youtu.be/bRnoEpoK5m4
+- 500 people vibe-coded for 30 days. I was one of them. - Sanja Grbic, Automattic  |  https://youtu.be/UcYoMg-8-L8
+- SWE-Marathon: Evaluating Coding Agents at Billion-Token Scale - Rishi Desai, Abundant AI  |  https://youtu.be/Rx8f05JI_WA
+- Field Guide to Fable — Thariq Shihipar, Anthropic  |  https://youtu.be/9fubhllmsBU
+- The Missing Layer After Launch - Raphael Kalandadze, Wandero AI  |  https://youtu.be/kZsf_Sfm7RU
+- Continual Learning for AI Agents: From Failures to Durable Improvements - Soheil Feizi, RELAI  |  https://youtu.be/2IxD9OB3XuQ
+- MCP Apps: Primitives, discovery, and the Future of Software - Pietro Zullo, Manufact, Inc  |  https://youtu.be/sAOBXCDiDOs
+- Your AI Product Will Fail Unless You Can Explain It - Veronica Hylak, Hey AI  |  https://youtu.be/d_Ftrl3vfV0
+DONE      136 lines

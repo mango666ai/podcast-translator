@@ -1,5 +1,8 @@
 # Slack 里的 AI 员工 - 简介与亮点
 
+## 来源
+AI Engineer 频道 / OpenClaw track 现场分享：Frederick（Victor）讲公司级 AI 员工
+
 ## 一句话简介
 Victor 联合创始人介绍“公司级 AI 员工”为什么应该生活在 Slack 里，以及团队智能体在权限、记忆、上下文和语气上会遇到哪些真实挑战。
 

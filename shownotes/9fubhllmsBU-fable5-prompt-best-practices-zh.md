@@ -1,5 +1,8 @@
 # Fable5 提示词最佳实践 - 简介与亮点
 
+## 来源
+AI Engineer 频道现场演讲：Field Guide to Fable，Thariq Shihipar（Anthropic）
+
 ## 一句话简介
 Anthropic Claude Code 团队成员分享如何理解 Fable 这类新模型，以及如何通过工具、上下文和更好的提问方式释放 Claude 的能力。
 

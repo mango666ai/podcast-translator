@@ -64,10 +64,21 @@ uv tool install yt-dlp
 ### 6. 登录 Claude Code
 
 ```bash
-claude   # 进入后 /login，浏览器完成认证
+# 如使用旧 Claude 入口才需要：claude   # 进入后 /login，浏览器完成认证
 ```
 
 ### 7. 验证安装
+
+先在 `podcast-translator/.env` 配置：
+
+```bash
+OPENAI_API_KEY=你的 OpenAI API Key
+OPENAI_MODEL=gpt-5.6-luna
+MINIMAX_API_KEY=你的 MiniMax Key
+MINIMAX_GROUP_ID=你的 MiniMax Group ID
+```
+
+`OPENAI_MODEL` 可不填，默认使用 `gpt-5.6-luna`；想提高翻译质量时可临时切到 `gpt-5.6-terra`。
 
 ```bash
 cd ~/Documents/CCtest/podcast-translator
@@ -97,7 +108,7 @@ python test_translate.py
 | torchcodec warning | pyannote import 时出现，无害，自动 fallback soundfile |
 | YouTube 下载 | 需先在 Safari 登录 YouTube，再用 `--cookies-from-browser safari` |
 | 磁盘空间 | venv ~5GB，huggingface 模型缓存 `~/.cache/huggingface/` ~3GB |
-| Claude 模型名 | 始终用 `--model claude-sonnet-4-5`，不依赖默认值 |
+| OpenAI 模型 | 默认 `gpt-5.6-luna`；可用 `OPENAI_MODEL` 覆盖，适合批量翻译控制成本 |
 
 ---
 

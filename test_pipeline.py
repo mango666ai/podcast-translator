@@ -21,6 +21,7 @@ import time
 import argparse
 import tempfile
 from pathlib import Path
+from llm_openai import call_gpt
 
 # 把 VideoLingo 加入 path
 VIDEOLINGO_DIR = Path(__file__).parent.parent / "VideoLingo"
@@ -126,7 +127,7 @@ def transcribe(audio_path: Path, duration_limit: int = None) -> list:
 
 
 # ─────────────────────────────────────────
-# Step 3: 翻译（Claude Code headless）
+# Step 3: 翻译（OpenAI GPT）
 # ─────────────────────────────────────────
 TRANSLATE_PROMPT = """你是专业播客翻译，将以下英文播客片段翻译成中文。
 
@@ -150,22 +151,6 @@ TRANSLATE_PROMPT = """你是专业播客翻译，将以下英文播客片段翻�
 ```"""
 
 
-CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
-
-def call_claude(prompt: str) -> str:
-    result = subprocess.run(
-        [CLAUDE_BIN, "-p", prompt, "--model", "claude-sonnet-4-6"],
-        capture_output=True, text=True, timeout=180,
-    )
-    if result.returncode != 0:
-        stderr = result.stderr.lower()
-        if any(k in stderr for k in ["rate limit", "usage limit", "quota"]):
-            print("⚠️  Claude Code 配额耗尽，请稍后重试（重新运行脚本即可续跑）")
-            sys.exit(0)
-        raise RuntimeError(f"claude 失败: {result.stderr[:200]}")
-    return result.stdout
-
-
 def extract_json(text: str) -> dict:
     from json_repair import repair_json
     m = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
@@ -181,7 +166,7 @@ def extract_json(text: str) -> dict:
 
 
 def translate(segments: list, work_dir: Path, chunk_size: int = 10) -> list:
-    print(f"\n[3/3] 翻译中（Claude Code headless，每 {chunk_size} 段一批）...")
+    print(f"\n[3/3] 翻译中（OpenAI GPT，每 {chunk_size} 段一批）...")
 
     results = []
     total_chunks = (len(segments) + chunk_size - 1) // chunk_size
@@ -208,7 +193,7 @@ def translate(segments: list, work_dir: Path, chunk_size: int = 10) -> list:
         prompt = TRANSLATE_PROMPT.format(segments_text=lines)
 
         t0 = time.time()
-        raw = call_claude(prompt)
+        raw = call_gpt(prompt, json_mode=True, timeout=180)
         elapsed = time.time() - t0
 
         try:
@@ -216,7 +201,7 @@ def translate(segments: list, work_dir: Path, chunk_size: int = 10) -> list:
             chunk_translations = [s["text_zh"] for s in sorted(data["segments"], key=lambda x: x["id"])]
         except Exception as e:
             print(f"  chunk {chunk_idx+1} JSON 解析失败，重试一次: {e}")
-            raw = call_claude(prompt)
+            raw = call_gpt(prompt, json_mode=True, timeout=180)
             data = extract_json(raw)
             chunk_translations = [s["text_zh"] for s in sorted(data["segments"], key=lambda x: x["id"])]
 

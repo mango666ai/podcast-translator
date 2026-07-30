@@ -99,13 +99,13 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `run_jobs.py` | 飞书任务队列轮询，一键跑完整流程 |
 | `test_pipeline.py` | 下载 → 转录 → 翻译 |
 | `tts_minimax.py` | MiniMax TTS 正文合成 |
-| `intro_compose.py` | Claude 生成简介 + TTS → 拼接 final.mp3 |
+| `intro_compose.py` | OpenAI GPT 生成简介 + TTS → 拼接 final.mp3 |
 | `generate_srt.py` | 生成中文 / 双语 SRT 字幕 |
 | `add_chapters.py` | 写入 ID3 章节标记 |
 | `upload_feishu.py` | 上传产物到飞书云盘 |
 | `tts_compose.py` | edge-tts 备用合成 |
 | `youtube_transcribe.py` | 批量 YouTube 下载 + 英文转写，用于 8 个视频的第一阶段 |
-| `youtube_dub.py` | 基于转写生成中文字幕 / 中文配音小样 / 完整中文音频 |
+| `youtube_dub.py` | 基于转写调用 OpenAI GPT 生成中文字幕 / 中文配音小样 / 完整中文音频 |
 | `podcast_status.csv` | 8 个视频的本地机器进度表 |
-| `.env` | API Keys（不提交）`MINIMAX_API_KEY=xxx` |
+| `.env` | API Keys（不提交）`OPENAI_API_KEY=xxx`、`MINIMAX_API_KEY=xxx` |
 | `cookies.txt` | YouTube cookies（不提交）|

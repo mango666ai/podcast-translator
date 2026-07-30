@@ -1,17 +1,17 @@
 """
-翻译验证脚本 — 测试 Claude Code headless 的翻译质量和 JSON 解析稳定性
+翻译验证脚本 — 测试 OpenAI GPT 的翻译质量和 JSON 解析稳定性
 
 用法：
     python test_translate.py
 
-不需要任何 API key，走本地 claude CLI（Max 订阅）
+需要 OPENAI_API_KEY，默认模型见 OPENAI_MODEL / llm_openai.py
 """
 
-import subprocess
 import json
 import re
 import sys
 import time
+from llm_openai import call_gpt
 
 # 测试用的英文片段（模拟双人访谈播客，约 3 分钟内容）
 TEST_SEGMENTS = [
@@ -65,25 +65,8 @@ TRANSLATE_PROMPT = """你是专业播客翻译，请将以下英文播客片段�
 ```"""
 
 
-def call_claude_headless(prompt: str) -> str:
-    """调用 claude -p，返回 stdout 文本"""
-    result = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True,
-        text=True,
-        timeout=120,
-    )
-    if result.returncode != 0:
-        stderr = result.stderr.lower()
-        if any(k in stderr for k in ["rate limit", "usage limit", "quota", "5-hour"]):
-            print("⚠️  Claude Code 配额耗尽，请稍后重试")
-            sys.exit(0)
-        raise RuntimeError(f"claude 调用失败: {result.stderr[:200]}")
-    return result.stdout
-
-
 def extract_json(text: str) -> dict:
-    """从 claude 输出中提取 JSON，兜底用正则"""
+    """从模型输出中提取 JSON，兜底用正则"""
     # 优先提取 ```json ... ``` 代码块
     match = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
     if match:
@@ -113,14 +96,11 @@ def main():
     segments_text = format_segments_for_prompt(TEST_SEGMENTS)
     prompt = TRANSLATE_PROMPT.format(segments_text=segments_text)
 
-    print("▶ 正在调用 claude headless...")
+    print("▶ 正在调用 OpenAI GPT...")
     t0 = time.time()
 
     try:
-        raw_output = call_claude_headless(prompt)
-    except subprocess.TimeoutExpired:
-        print("✗ 超时（120s）")
-        sys.exit(1)
+        raw_output = call_gpt(prompt, json_mode=True, timeout=120)
     except RuntimeError as e:
         print(f"✗ {e}")
         sys.exit(1)

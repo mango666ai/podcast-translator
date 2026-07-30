@@ -1,5 +1,8 @@
 # Cursor 界面改版设计 - 简介与亮点
 
+## 来源
+Cursor Compile 26：Closer to the Material，Ryo Lu（Cursor）
+
 ## 一句话简介
 Cursor 设计师 Rio 讨论 AI 如何缩短想法到现实的距离，以及为什么 AI 工具不能把人变成只会审批输出的旁观者。
 
