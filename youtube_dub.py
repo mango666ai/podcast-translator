@@ -59,6 +59,11 @@ def _source_from_status(video_id: str) -> str:
     return _row_from_status(video_id).get("source", "").strip()
 
 
+def _url_from_status(video_id: str) -> str:
+    url = _row_from_status(video_id).get("url", "").strip()
+    return url or f"https://www.youtube.com/watch?v={video_id}"
+
+
 def _title_from_transcript(video_id: str) -> str:
     txt = TRANS_DIR / f"{video_id}.txt"
     if not txt.exists():
@@ -161,8 +166,8 @@ def build_timestamps(bil: list, title: str, max_points: int = 8) -> list:
     return out
 
 
-def write_notes_if_needed(bil: list, title: str, source: str, path: Path):
-    """节目笔记：来源 / 本期播客简介 / 本期嘉宾 / 时间戳 / 精彩内容 / 播客信息补充。"""
+def write_notes_if_needed(bil: list, title: str, source: str, path: Path, url: str = ""):
+    """节目笔记：来源(含原始视频链接) / 本期播客简介 / 本期嘉宾 / 时间戳 / 精彩内容 / 播客信息补充。"""
     if path.exists() and "## 本期嘉宾" in path.read_text(encoding="utf-8"):
         return
     text = "\n".join(s.get("text_zh", "").strip() for s in bil if s.get("text_zh", "").strip())
@@ -186,10 +191,13 @@ def write_notes_if_needed(bil: list, title: str, source: str, path: Path):
     timestamps = build_timestamps(bil, title)
     ts_block = "\n".join(f"- {t} {label}" for t, label in timestamps) or "（本集较短，暂不提供时间戳）"
     highlights_block = "\n".join(f"- {h}" for h in data.get("highlights", []) if h.strip())
+    source_block = source or "来源待确认"
+    if url:
+        source_block += f"\n原始视频：{url}"
 
     notes = (
         f"# {title} - 节目笔记\n\n"
-        f"## 来源\n{source or '来源待确认'}\n\n"
+        f"## 来源\n{source_block}\n\n"
         f"## 本期播客简介\n{data.get('intro', '').strip()}\n\n"
         f"## 本期嘉宾\n{data.get('guests', '').strip()}\n\n"
         f"## 时间戳\n{ts_block}\n\n"
@@ -252,6 +260,7 @@ def main():
     segs = json.loads(tj.read_text(encoding="utf-8"))
     title = display_title(a.video_id)
     source = _source_from_status(a.video_id)
+    url = _url_from_status(a.video_id)
     safe_title = _safe_name(title)
     prefix = f"{a.video_id}__{safe_title}"
 
@@ -280,7 +289,7 @@ def main():
     write_srt(bil, srtp)
     print(f"✓ 中文字幕：{srtp}")
     write_bilingual_transcript(bil, title, job / f"{prefix}__双语对照.md")
-    write_notes_if_needed(bil, title, source, job / f"{prefix}__简介与亮点.md")
+    write_notes_if_needed(bil, title, source, job / f"{prefix}__简介与亮点.md", url=url)
 
     if a.no_audio:
         print("（--no-audio：跳过配音）"); return
