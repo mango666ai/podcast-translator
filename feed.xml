@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
-    <title>Dove的学习记录</title>
-    <description>英文播客 AI 翻译中文版，声音克隆自原主持人。</description>
+    <title>Dove的AI译站</title>
+    <description>英文播客 AI 翻译中文版，声音克隆自原主持人。聚焦全球AI一线构建者分享与访谈，欢迎留言推荐视频内容。</description>
     <language>zh-cn</language>
     <link>https://mango666ai.github.io/podcast-translator</link>
     <itunes:author>DoveInBeta</itunes:author>
