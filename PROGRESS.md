@@ -52,12 +52,16 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 - 飞书任务队列接入：原配置的应用（appId `cli_a922...`，"芒果"）访问这张多维表格报 `91403 无权限`；用户澄清应该用"总店长"账号 + 名为 Doven 的应用（appId `cli_a92330864c785bde`）访问。已用 `lark-cli config init --name Doven` 配置该应用（secret 走 stdin，未明文落地），并引导总店长账号完成设备码授权，改用 `--profile Doven` 后成功读取到表格内容：
   - 表里有 4 条记录（含 1 条重复提交），对应 3 个不重复视频：`Unzc731iCUY`（MIT《How to Speak》）、`1_jlukb7gm4`（Alex Lieberman，*How I AI*）、`tivaWTTVRhY`（Dianne Penn/Anthropic，*Lenny's Podcast*）。
   - **发现不一致**：`Unzc731iCUY` 在飞书里标记"已完成"（2026-06-10），但 GitHub 仓库（`feed.xml`/`episodes/`）里完全没有这期的任何痕迹——用户确认这是旧链路（`run_jobs.py`→`test_pipeline.py`）留下的过时/测试数据，不代表真发布过。三个视频都已重新登记进 `podcast_status.csv`（`queued`），飞书这条"已完成"以后不再作为已处理的依据。
-- 用户离开前交代：接下来自主处理，完成后汇报进度和需要决策的点。已开始处理下一集 `Unzc731iCUY`（单人讲座，MIT 教授 Patrick Winston）：YouTube 英文自动字幕转出 210 段，DeepSeek 翻译 210/210 全部成功，字幕/双语稿/节目笔记已生成，抽查质量正常。**尚未做声音克隆/配音**——这一步要花 MiniMax 额度，留给用户回来后决策（是否克隆 Winston 的声音、出小样确认）。
+- 用户离开前交代：接下来自主处理，完成后汇报进度和需要决策的点。三条队列全部推进到"翻译完成"这一步（转写+DeepSeek翻译+字幕+双语稿+节目笔记，全部免费、不涉及决策）：
+  - `Unzc731iCUY`（MIT《How to Speak》，Patrick Winston 主讲）：210/210 段翻译成功，单人讲座，不需要 speaker_rules。
+  - `1_jlukb7gm4`（Alex Lieberman，*How I AI*）：217/217 段翻译成功，双人对话，`speaker_rules.json` 已建好（59轮发言→54条规则），嘉宾32.3分钟/主持人10.6分钟，跟原视频43分钟时长对得上。
+  - `tivaWTTVRhY`（Dianne Penn/Anthropic，*Lenny's Podcast*，93分钟全场最长）：435/435 段翻译成功，双人对话，`speaker_rules.json` 已建好（146轮发言→108条规则），嘉宾52.1分钟/主持人41.7分钟，跟93.8分钟总时长对得上。
+  - 三条抽查内容质量都正常，**均未做声音克隆/配音**——这一步要花 MiniMax 额度，是留给用户的决策点（是否要给这3集各建新声线、出小样确认）。
+  - 代码修复 + 第9集发布内容已提交推送（`648611a`），三条队列的处理进度也已提交推送（`1b5758a`）。
 - 下一步：
-  1. 用户回来后确认：`Unzc731iCUY` 是否继续做声音克隆+配音小样（单人讲座，只需 1 个新声线）。
-  2. 继续处理 `1_jlukb7gm4`（Alex Lieberman，双人对话，预计需要 2 个新声线）和 `tivaWTTVRhY`（Dianne Penn，双人对话，93分钟，预计需要 2 个新声线）的转写+翻译（免费部分可以继续做，声音克隆等用户确认）。
-  3. 提交并推送本次代码修复（`llm_openai.py`/`youtube_dub.py`/新增 `build_speaker_rules.py`）+ 第9集发布内容 + `podcast_status.csv`/`feed.xml` 更新。
-  4. 待办：飞书多维表格作为看板要不要在这次处理完之后手动同步一下状态（目前实际执行仍在本地 `podcast_status.csv`，飞书暂未回写）。
+  1. 用户回来后决策：这3集是否要继续建声音克隆（`Unzc731iCUY` 需1个新声线；`1_jlukb7gm4`/`tivaWTTVRhY` 各需2个）+ 出小样确认。
+  2. 小样确认后按"每天发一集"的节奏排期发布，不要一次性全部推 RSS。
+  3. 待办：飞书多维表格作为看板要不要手动同步一下这3条的最新状态（目前实际执行仍在本地 `podcast_status.csv`，飞书暂未回写；且已知飞书里 `Unzc731iCUY` 的"已完成"是过时数据，回写前要注意别被旧状态覆盖了新记录）。
 
 ---
 
