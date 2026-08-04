@@ -87,7 +87,11 @@ def _speed_label(speed: float) -> str:
 def extract_json(text: str):
     m = re.search(r"```(?:json)?\s*([\s\S]+?)```", text)
     blob = m.group(1) if m else re.search(r"\{[\s\S]+\}", text).group(0)
-    return json.loads(blob)
+    try:
+        return json.loads(blob)
+    except json.JSONDecodeError:
+        from json_repair import repair_json
+        return json.loads(repair_json(blob))
 
 
 def translate(segs: list, title: str, source: str = "") -> list:
@@ -103,8 +107,22 @@ def translate(segs: list, title: str, source: str = "") -> list:
             f'```json\n{{"segments":[{{"i":0,"zh":"中文"}}]}}\n```\n'
             f"原文：\n{lines}"
         )
-        data = extract_json(call_gpt(prompt, json_mode=True))
-        zh = {d["i"]: d.get("zh", "") for d in data.get("segments", [])}
+        for attempt in range(1, 4):
+            try:
+                data = extract_json(call_gpt(prompt, json_mode=True))
+                items = data.get("segments", [])
+                zh = {}
+                for k, d in enumerate(items):
+                    try:
+                        idx = int(d.get("i", k))
+                    except (TypeError, ValueError):
+                        idx = k
+                    zh[idx] = d.get("zh", "")
+                break
+            except (json.JSONDecodeError, AttributeError, KeyError, TypeError) as e:
+                if attempt == 3:
+                    raise
+                print(f"  ⚠️ 批次解析失败(第{attempt}次)：{e}，重试")
         for j, s in enumerate(batch):
             out.append({**s, "text_zh": zh.get(j, "")})
         print(f"  翻译 {min(i + BATCH, len(segs))}/{len(segs)} 段")

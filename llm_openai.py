@@ -54,9 +54,11 @@ def call_deepseek(prompt: str, *, json_mode: bool = False, timeout: float = 240)
     if json_mode:
         prompt = prompt.rstrip() + "\n\n只输出合法 JSON，不要 Markdown 代码块，不要解释。"
 
+    kwargs = {"response_format": {"type": "json_object"}} if json_mode else {}
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
+        **kwargs,
     )
     text = response.choices[0].message.content or ""
     if not text.strip():

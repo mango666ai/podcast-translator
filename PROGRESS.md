@@ -26,7 +26,38 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 **已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
 
-**当前可以直接开工的下一件事**：用 DeepSeek 跑第 9 集 `P3KDebPTUrw` 的正式翻译，替换掉之前用 YouTube 自动中文字幕做的测试版。新机器需要重新下载原视频音频（`youtube_demo/` 没同步），但两个声线 `P3KDebPTUrw_host_20260719` / `P3KDebPTUrw_andrew_20260719` 可直接复用。
+**当前可以直接开工的下一件事**：第 9 集 `P3KDebPTUrw` 的正式 DeepSeek 翻译已完成（见下方 2026-08-04 条目），下一步是建 `speaker_rules.json` 后出多声线小样，待你确认。
+
+---
+
+## 2026-08-04 · 新机器环境从零搭建；第 9 集正式 DeepSeek 翻译完成；修复翻译批次 JSON 解析脆弱性
+
+- 本次完成：
+  - 新机器（`~/AIcoding` 本地磁盘，非 exFAT 外接盘）从零搭建：克隆 `VideoLingo`、建 Python 3.11 venv、装齐 whisperX/pyannote.audio/edge-tts/openai 等全部依赖、装 `yt-dlp`；`.env` 由用户手动填入 `DEEPSEEK_API_KEY` / `MINIMAX_API_KEY` / `MINIMAX_GROUP_ID`。
+  - 第 9 集 `P3KDebPTUrw`（Lenny's Podcast，嘉宾 Andrew Ambrosino，OpenAI Codex 桌面应用负责人）：视频无手写字幕，用 YouTube 英文自动字幕（`json3`）代替 whisperX 本地转写（69 分钟音频走 CPU whisperX 太慢，工作流文档 §3.2 允许此替代），转出 432 段。已登记进 [podcast_status.csv](podcast_status.csv)。
+  - 用 DeepSeek 正式翻译全片 432 段，生成中文字幕 SRT、双语对照稿、六段式节目笔记（跑在 `youtube_dub/P3KDebPTUrw__OpenAI合并Codex与ChatGPT/` 下，属于 gitignore 的中间产物）。
+  - 翻译过程中发现并修复了 [llm_openai.py](llm_openai.py)/[youtube_dub.py](youtube_dub.py) 的真实 bug：432 段要拆 18 批调用 DeepSeek，只要有一批 JSON 解析失败（如 DeepSeek 输出未转义引号，或返回的字段名/类型跟约定的 `{"i":0,"zh":"..."}` 不完全一致），之前的代码会让**已经翻译成功的批次也全部作废**（`translate()` 整体失败没有任何重试或部分保存）。修复：`call_deepseek()` 的 `json_mode` 现在带上 DeepSeek 的 `response_format={"type":"json_object"}` 强约束；`extract_json()` 加 `json_repair` 兜底解析；每批翻译加 3 次重试，且对 `i` 字段缺失/类型不对做了容错（缺失时按批内位置兜底）。修复后一次性跑通 432/432 段，无需人工介入。
+- 验证结果：
+  - `py_compile` 通过；`test_translate.py` 冒烟测试（6 段）通过。
+  - 432/432 段翻译成功，抽查双语对照稿质量正常（含纠正了 YouTube 自动字幕把 "OpenAI" 听写错成 "Opening Eye" 的错误，翻译时根据上下文译回了"OpenAI"）。
+- 说话人切分（多声线配音的前置条件）：
+  - 先尝试 `pyannote.audio` 自动 diarization（§3.6 的目标方案），但 `pyannote/speaker-diarization-community-1` 是 HF gated 模型，需要用户去 hf.co 接受条款+生成 token；用户当场遇到 HF 网站 418 报错，多次重试未解决，放弃此路线。
+  - 改用**文本层面的 LLM 判断**，绕开了整个音频模型/HF token 依赖：`youtube_multivoice_dub.py` 本来就只需要「时间段→speaker 标签」就能合成多声线音频，从不读取原始音频做声纹分析。新写 [build_speaker_rules.py](build_speaker_rules.py)：把 YouTube 自动字幕自带的 `>>` 说话人切换标记切成 186 个发言轮次，丢给 DeepSeek 按对话内容（谁在提问/谁在讲自己经历）判断每轮是主持人还是嘉宾，合并同说话人的相邻轮次生成 99 条 `speaker_rules.json` 规则。抽查内容与标注结果一致，时长分布也合理（嘉宾 Andrew 53 分钟 vs 主持人 Lenny 20 分钟，符合访谈类播客比例）。
+  - 过程中发现并修复一个真实 bug：YouTube 滚动字幕的相邻轮次时间戳会重叠（例如一轮 `0.3-7.9s`，下一轮 `6.3-14.9s`），`youtube_multivoice_dub.py` 的 `_speaker_for()` 按时间点查找规则时命中重叠区间里排在前面的规则，导致小样前几段说话人分配错位（实测复现）。修复：`build_speaker_rules.py` 的 `merge_rules()` 现在把每轮的 `end` 裁到下一轮的 `start`，消除重叠，规则区间互不相交。修复后小样交替正确（main/host/main/host…）。
+  - 已用前 10 段生成多声线小样 `youtube_dub/P3KDebPTUrw__OpenAI合并Codex与ChatGPT/P3KDebPTUrw__中文配音小样_多声线.mp3`，发给用户试听中，**未获确认前不生成全片完整音频**（避免不经确认烧 MiniMax 额度）。
+- 用户确认小样效果 OK 后，跑通全片：
+  - `youtube_multivoice_dub.py` 对全部 432 段生成完整音频：`youtube_dub/P3KDebPTUrw__OpenAI合并Codex与ChatGPT/P3KDebPTUrw__OpenAI合并Codex与ChatGPT__完整中文音频_多声线原声还原0.82.mp3`，`ffprobe` 确认 `duration=4632.35s`（约77分12秒）/ `size=39740229`。
+  - 已发布：复制改名为 `episodes/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.mp3`，SRT 复制到 `transcripts/` 同名，`feed.xml` 新增条目（标题《OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河》），`python -m xml.etree.ElementTree` 校验格式合法。`podcast_status.csv` 状态改为 `published_multivoice`。
+  - **第9集是当前流程里唯一直接发布的一集**——用户明确了新的发布节奏：之后新处理的集数先留在本地攒着，不一次性推 RSS，每天只发一集（见决策日志）。
+- 飞书任务队列接入：原配置的应用（appId `cli_a922...`，"芒果"）访问这张多维表格报 `91403 无权限`；用户澄清应该用"总店长"账号 + 名为 Doven 的应用（appId `cli_a92330864c785bde`）访问。已用 `lark-cli config init --name Doven` 配置该应用（secret 走 stdin，未明文落地），并引导总店长账号完成设备码授权，改用 `--profile Doven` 后成功读取到表格内容：
+  - 表里有 4 条记录（含 1 条重复提交），对应 3 个不重复视频：`Unzc731iCUY`（MIT《How to Speak》）、`1_jlukb7gm4`（Alex Lieberman，*How I AI*）、`tivaWTTVRhY`（Dianne Penn/Anthropic，*Lenny's Podcast*）。
+  - **发现不一致**：`Unzc731iCUY` 在飞书里标记"已完成"（2026-06-10），但 GitHub 仓库（`feed.xml`/`episodes/`）里完全没有这期的任何痕迹——用户确认这是旧链路（`run_jobs.py`→`test_pipeline.py`）留下的过时/测试数据，不代表真发布过。三个视频都已重新登记进 `podcast_status.csv`（`queued`），飞书这条"已完成"以后不再作为已处理的依据。
+- 用户离开前交代：接下来自主处理，完成后汇报进度和需要决策的点。已开始处理下一集 `Unzc731iCUY`（单人讲座，MIT 教授 Patrick Winston）：YouTube 英文自动字幕转出 210 段，DeepSeek 翻译 210/210 全部成功，字幕/双语稿/节目笔记已生成，抽查质量正常。**尚未做声音克隆/配音**——这一步要花 MiniMax 额度，留给用户回来后决策（是否克隆 Winston 的声音、出小样确认）。
+- 下一步：
+  1. 用户回来后确认：`Unzc731iCUY` 是否继续做声音克隆+配音小样（单人讲座，只需 1 个新声线）。
+  2. 继续处理 `1_jlukb7gm4`（Alex Lieberman，双人对话，预计需要 2 个新声线）和 `tivaWTTVRhY`（Dianne Penn，双人对话，93分钟，预计需要 2 个新声线）的转写+翻译（免费部分可以继续做，声音克隆等用户确认）。
+  3. 提交并推送本次代码修复（`llm_openai.py`/`youtube_dub.py`/新增 `build_speaker_rules.py`）+ 第9集发布内容 + `podcast_status.csv`/`feed.xml` 更新。
+  4. 待办：飞书多维表格作为看板要不要在这次处理完之后手动同步一下状态（目前实际执行仍在本地 `podcast_status.csv`，飞书暂未回写）。
 
 ---
 

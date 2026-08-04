@@ -14,6 +14,16 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河</title>
+      <description>来源：Lenny's Podcast：Why OpenAI is merging Codex and ChatGPT，Andrew Ambrosino（OpenAI Codex 桌面应用产品与工程负责人）。原始视频：https://www.youtube.com/watch?v=P3KDebPTUrw。AI 中文译制版：本集为多声线还原版，主持人 Lenny 与嘉宾 Andrew 使用不同克隆声线，可能存在少量语气或断句不自然。OpenAI 内部近 100% 员工每周使用 Codex，不只是工程师。Andrew 认为 AI 时代产品开发流程已彻底反转：实现不再是成本，品味和策划成为关键；他还谈到为什么顶尖模型仍不擅长设计、Codex 团队如何用"区域防守"策略分工，以及为什么规划应该"近期详细、远期模糊"。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/P3KDebPTUrw</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/P3KDebPTUrw</guid>
+      <pubDate>Tue, 04 Aug 2026 12:25:57 +0000</pubDate>
+      <itunes:duration>4632</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.mp3" length="39740229" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.srt" type="text/srt" />
+    </item>
+    <item>
       <title>Brat 封面设计师经历：没有完成状态的设计</title>
       <description>来源：Figma Config 2026：Death of the finished state，Brent David Freaney（Special Offer）。原始视频：https://www.youtube.com/watch?v=Yz03ERsfDDM。AI 中文译制版：本集为多声线原声还原版，主持人 Damian 与主讲人 Brent 使用不同声线，家庭录像/引用片段也做了区分；可能存在少量语气或断句不自然。Special Offer 艺术总监 Brent 从 MTV、《The Real World》、粉丝网站和互联网社区讲起，复盘 Charli XCX《Brat》封面如何从长期图像收藏、绿色素材、字体探索和协作信任中诞生，并提出“设计没有真正完成状态”：观众和粉丝的回应，也是设计流程的一部分。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/Yz03ERsfDDM</link>
