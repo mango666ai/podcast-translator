@@ -8,14 +8,21 @@
 | --- | --- | --- | --- | --- |
 | `Yz03ERsfDDM_brent_20260717` | Brent David Freaney（主讲人） | 第8集 Brat封面设计师经历 | 2026-07-17 | 原视频 Brent 演讲段，约 2 分钟 |
 | `Yz03ERsfDDM_damian_20260719` | Damian（主持人） | 第8集 Brat封面设计师经历 | 2026-07-19 | 原视频开场主持段 |
-| `P3KDebPTUrw_host_20260719` | 主持人 | 第9集（`P3KDebPTUrw`，未发布） | 2026-07-19 | 原视频主持段 |
-| `P3KDebPTUrw_andrew_20260719` | Andrew（嘉宾） | 第9集（`P3KDebPTUrw`，未发布） | 2026-07-19 | 原视频嘉宾段 |
+| `P3KDebPTUrw_host_20260719` | Lenny（主持人，*Lenny's Podcast*） | 第9集（`P3KDebPTUrw`，已发布） | 2026-07-19 | 原视频主持段 |
+| `P3KDebPTUrw_andrew_20260719` | Andrew Ambrosino（嘉宾） | 第9集（`P3KDebPTUrw`，已发布） | 2026-07-19 | 原视频嘉宾段 |
+| `Unzc731iCUY_winston_20260805` | Patrick Winston（主讲人，MIT教授） | `Unzc731iCUY` How to Speak（单人讲座） | 2026-08-05 | 原视频 320-410s 讲座片段，90秒 |
+| `v1jlukb7gm4_host_20260805` | How I AI 播客主持人 | `1_jlukb7gm4` Alex Lieberman访谈 | 2026-08-05 | 原视频 1290-1380s 主持段，90秒 |
+| `v1jlukb7gm4_alex_20260805` | Alex Lieberman（嘉宾） | `1_jlukb7gm4` Alex Lieberman访谈 | 2026-08-05 | 原视频 760-850s 嘉宾段，90秒 |
+| `tivaWTTVRhY_dianne_20260805` | Dianne Penn（嘉宾，Anthropic） | `tivaWTTVRhY` Dianne Penn访谈 | 2026-08-05 | 原视频 2680-2770s 嘉宾段，90秒 |
+| （复用）`P3KDebPTUrw_host_20260719` | Lenny（主持人） | `tivaWTTVRhY` Dianne Penn访谈 | — | 同一主持人，复用第9集已克隆声线，未新建 |
 
 ## 命名约定
 
 ```
 <video_id>_<人物英文名或角色>_<YYYYMMDD>
 ```
+
+⚠️ MiniMax 要求 `voice_id` **首字符必须是字母**。如果 `video_id` 本身是数字开头（如 `1_jlukb7gm4`），克隆会报 `2013 invalid params, voice_id first character`，需要加个字母前缀（如 `v1jlukb7gm4_...`），见下方 `v1jlukb7gm4_*` 两条。
 
 ## 新建声线
 
