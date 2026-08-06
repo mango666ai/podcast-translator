@@ -14,6 +14,16 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>AI 内容生产不像 AI：Alex Lieberman 的内容机器拆解</title>
+      <description>来源：How I AI（主理人 Claire Vo）：The AI content machine that turns ideas into posts that don't sound like slop，Alex Lieberman（Tenex 联合创始人，Morning Brew 联合创始人）。原始发布日期：2026-07-20。原始视频：https://youtube.com/watch?v=1_jlukb7gm4。AI 中文译制版：本集为多声线还原版，主持人 Claire Vo 与嘉宾 Alex Lieberman 使用不同克隆声线，可能存在少量语气或断句不自然。Alex 现场拆解了自己的"内容机器"：用"神谕"扫描内部系统和网络找选题，用 AI 模拟采访挖出真实想法，再用风格文件保持"像本人"的声音。他认为 AI 不会拉低优秀创作者的上限，只会拉高差内容的下限；后 AI 时代，分发渠道和个人品牌才是真正的护城河。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/1_jlukb7gm4</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/1_jlukb7gm4</guid>
+      <pubDate>Thu, 06 Aug 2026 10:00:00 +0000</pubDate>
+      <itunes:duration>3066</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice.mp3" length="32282361" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice.srt" type="text/srt" />
+    </item>
+    <item>
       <title>OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河</title>
       <description>来源：Lenny's Podcast：Why OpenAI is merging Codex and ChatGPT，Andrew Ambrosino（OpenAI Codex 桌面应用产品与工程负责人）。原始视频：https://www.youtube.com/watch?v=P3KDebPTUrw。AI 中文译制版：本集为多声线还原版，主持人 Lenny 与嘉宾 Andrew 使用不同克隆声线，可能存在少量语气或断句不自然。OpenAI 内部近 100% 员工每周使用 Codex，不只是工程师。Andrew 认为 AI 时代产品开发流程已彻底反转：实现不再是成本，品味和策划成为关键；他还谈到为什么顶尖模型仍不擅长设计、Codex 团队如何用"区域防守"策略分工，以及为什么规划应该"近期详细、远期模糊"。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/P3KDebPTUrw</link>
