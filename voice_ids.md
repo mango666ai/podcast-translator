@@ -15,6 +15,10 @@
 | `v1jlukb7gm4_alex_20260805` | Alex Lieberman（嘉宾） | `1_jlukb7gm4` Alex Lieberman访谈 | 2026-08-05 | 原视频 760-850s 嘉宾段，90秒 |
 | `tivaWTTVRhY_dianne_20260805` | Dianne Penn（嘉宾，Anthropic） | `tivaWTTVRhY` Dianne Penn访谈 | 2026-08-05 | 原视频 2680-2770s 嘉宾段，90秒 |
 | （复用）`P3KDebPTUrw_host_20260719` | Lenny（主持人） | `tivaWTTVRhY` Dianne Penn访谈 | — | 同一主持人，复用第9集已克隆声线，未新建 |
+| `gSUMFvc8br0_host_20260811` | Nuel Singhal（主持人，*The Skip*） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 449-529s 主持段，80秒 |
+| `gSUMFvc8br0_sharmeen_20260811` | Sharmeen Chapp（Midjourney首位产品岗） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 20-110s 嘉宾段，90秒 |
+| `gSUMFvc8br0_jz_20260811` | Jiaona Zhang（Laurel CPO） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 1830-1920s 嘉宾段，90秒 |
+| `gSUMFvc8br0_henrik_20260811` | Henrik Berggren（Mutiny产品设计负责人） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 790-880s 嘉宾段，90秒 |
 
 ## 命名约定
 
