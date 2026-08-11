@@ -39,10 +39,19 @@ def group_turns(segs: list) -> list:
     return turns
 
 
+def _preview(text: str, head: int = 300, tail: int = 300) -> str:
+    # 长发言轮次（如主持人一段开场白里混了自我介绍+读广告+串场）只看开头
+    # 200字很容易漏掉后面才出现的身份线索（"我是主持人XXX"）；开头+结尾各取一段
+    # 大幅降低这种漏判概率。
+    if len(text) <= head + tail:
+        return text
+    return f"{text[:head]} …(中间省略)… {text[-tail:]}"
+
+
 def label_turns(turns: list, speakers: list) -> dict:
     labels = [s["label"] for s in speakers]
     roster = "\n".join(f"- {s['label']}：{s['name']}" for s in speakers)
-    lines = "\n".join(f"[{i}] {t['text'][:200]}" for i, t in enumerate(turns))
+    lines = "\n".join(f"[{i}] {_preview(t['text'])}" for i, t in enumerate(turns))
     prompt = (
         f"下面是一段播客对话按发言轮次切分的文本，说话人一共 {len(speakers)} 位：\n{roster}\n"
         f"请按顺序判断每一轮是谁在说话，只看对话内容和上下文逻辑（谁在提问、谁在讲自己的经历/工作、"

@@ -98,37 +98,58 @@ def extract_json(text: str):
         return json.loads(repair_json(blob))
 
 
+def _translate_batch(batch: list, title: str, source: str) -> list:
+    """翻译单批（<=BATCH段）。3次重试后仍对不上编号，说明这批内容太长导致
+    DeepSeek 回复被截断，对半拆开各自递归重试，缩小单次请求的输出量。"""
+    lines = "\n".join(f"[{j}] {s.get('text', '').strip()}" for j, s in enumerate(batch))
+    prompt = (
+        f"你是专业视频翻译。把下面英文演讲片段译成自然、口语化、适合朗读配音的中文，意译为主、保留信息点。\n"
+        f"视频主题：{title}\n"
+        f"来源信息：{source or '未知'}\n"
+        f"按序号一一对应，**只**返回 JSON（无其他文字）：\n"
+        f'```json\n{{"segments":[{{"i":0,"zh":"中文"}}]}}\n```\n'
+        f"原文：\n{lines}"
+    )
+    zh = None
+    for attempt in range(1, 4):
+        try:
+            data = extract_json(call_gpt(prompt, json_mode=True))
+            items = data.get("segments", [])
+            zh = {}
+            for k, d in enumerate(items):
+                try:
+                    idx = int(d.get("i", k))
+                except (TypeError, ValueError):
+                    idx = k
+                zh[idx] = d.get("zh", "")
+            expected = set(range(len(batch)))
+            got = set(zh.keys())
+            if got != expected:
+                missing = sorted(expected - got)
+                extra = sorted(got - expected)
+                raise ValueError(f"序号对不上，缺失{missing}，多余{extra}（DeepSeek 返回的 i 编号有误）")
+            blank = [j for j in expected if not zh[j].strip() and batch[j].get("text", "").strip()]
+            if blank:
+                raise ValueError(f"原文非空但译文为空：编号{blank}")
+            break
+        except (json.JSONDecodeError, AttributeError, KeyError, TypeError, ValueError) as e:
+            zh = None
+            if attempt == 3:
+                if len(batch) > 1:
+                    print(f"  ⚠️ 批次({len(batch)}段)连续3次失败：{e}，拆成两半分别重试")
+                    mid = len(batch) // 2
+                    return _translate_batch(batch[:mid], title, source) + \
+                        _translate_batch(batch[mid:], title, source)
+                raise
+            print(f"  ⚠️ 批次解析失败(第{attempt}次)：{e}，重试")
+    return [{**s, "text_zh": zh.get(j, "")} for j, s in enumerate(batch)]
+
+
 def translate(segs: list, title: str, source: str = "") -> list:
     out = []
     for i in range(0, len(segs), BATCH):
         batch = segs[i:i + BATCH]
-        lines = "\n".join(f"[{j}] {s.get('text', '').strip()}" for j, s in enumerate(batch))
-        prompt = (
-            f"你是专业视频翻译。把下面英文演讲片段译成自然、口语化、适合朗读配音的中文，意译为主、保留信息点。\n"
-            f"视频主题：{title}\n"
-            f"来源信息：{source or '未知'}\n"
-            f"按序号一一对应，**只**返回 JSON（无其他文字）：\n"
-            f'```json\n{{"segments":[{{"i":0,"zh":"中文"}}]}}\n```\n'
-            f"原文：\n{lines}"
-        )
-        for attempt in range(1, 4):
-            try:
-                data = extract_json(call_gpt(prompt, json_mode=True))
-                items = data.get("segments", [])
-                zh = {}
-                for k, d in enumerate(items):
-                    try:
-                        idx = int(d.get("i", k))
-                    except (TypeError, ValueError):
-                        idx = k
-                    zh[idx] = d.get("zh", "")
-                break
-            except (json.JSONDecodeError, AttributeError, KeyError, TypeError) as e:
-                if attempt == 3:
-                    raise
-                print(f"  ⚠️ 批次解析失败(第{attempt}次)：{e}，重试")
-        for j, s in enumerate(batch):
-            out.append({**s, "text_zh": zh.get(j, "")})
+        out.extend(_translate_batch(batch, title, source))
         print(f"  翻译 {min(i + BATCH, len(segs))}/{len(segs)} 段")
     return out
 
