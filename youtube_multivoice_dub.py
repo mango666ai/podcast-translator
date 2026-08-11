@@ -33,11 +33,11 @@ def _synthesize_with_retry(text: str, out: Path, *, voice: str, speed: float, at
     raise last_error
 
 
-def _speaker_for(start: float, rules: list[dict]) -> str:
+def _speaker_for(start: float, rules: list[dict], default_speaker: str) -> str:
     for rule in rules:
         if rule["start"] <= start < rule["end"]:
             return rule["speaker"]
-    return "main"
+    return default_speaker
 
 
 def main():
@@ -45,9 +45,9 @@ def main():
     ap.add_argument("bilingual_json")
     ap.add_argument("--out", required=True)
     ap.add_argument("--speed", type=float, default=1.0)
-    ap.add_argument("--main-voice", required=True)
-    ap.add_argument("--host-voice", default="Elegant_Man")
-    ap.add_argument("--clip-voice", default="Calm_Woman")
+    ap.add_argument("--voices", required=True,
+                     help='JSON object mapping speaker label -> MiniMax voice_id, '
+                          'e.g. \'{"host":"...","main":"..."}\'; supports any number of speakers')
     ap.add_argument("--rules", required=True, help="JSON list of {start,end,speaker}")
     ap.add_argument("--label", default="multivoice")
     args = ap.parse_args()
@@ -55,19 +55,18 @@ def main():
     bilingual_path = Path(args.bilingual_json)
     segments = json.loads(bilingual_path.read_text(encoding="utf-8"))
     rules = json.loads(Path(args.rules).read_text(encoding="utf-8"))
-    voices = {
-        "main": args.main_voice,
-        "host": args.host_voice,
-        "clip": args.clip_voice,
-    }
+    voices = json.loads(args.voices)
+    if not voices:
+        raise SystemExit("✗ --voices 不能为空")
+    default_speaker = next(iter(voices))
 
     seg_dir = bilingual_path.parent / f"seg_{args.label}"
     seg_dir.mkdir(exist_ok=True)
 
     paths = []
     for i, seg in enumerate(segments):
-        speaker = _speaker_for(float(seg.get("start", 0)), rules)
-        voice = voices.get(speaker, args.main_voice)
+        speaker = _speaker_for(float(seg.get("start", 0)), rules, default_speaker)
+        voice = voices.get(speaker, voices[default_speaker])
         out = seg_dir / f"{bilingual_path.stem}__{args.label}__{speaker}__seg_{i:04d}.mp3"
         paths.append(out)
         if out.exists() and out.stat().st_size > 0:
