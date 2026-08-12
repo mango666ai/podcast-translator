@@ -14,6 +14,16 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>三位产品负责人的AI一线心法：领导力不再看团队规模</title>
+      <description>来源：The Skip（主持人 Nuel Singhal）：Lessons From Three Product Leaders Living in the Future，嘉宾 Sharmeen Chapp（Midjourney首位产品岗）/ Jiaona Zhang（Laurel CPO）/ Henrik Berggren（Mutiny产品设计负责人）。原始发布日期：2026-08-05。原始视频：https://www.youtube.com/watch?v=gSUMFvc8br0。AI 中文译制版：本集为多声线还原版，主持人与三位嘉宾各自使用不同克隆声线，可能存在少量语气或断句不自然。三位产品负责人现场拆解各自公司如何把AI引入组织：AI彻底颠覆了"团队规模决定影响力"的传统领导力定义；用公开渠道展示AI交互能促进集体学习、快速纠错；把非技术团队成员赋能为构建者需要清晰的护栏和设计系统。无论你是产品经理、技术负责人，还是关心AI落地的人，都能从这场一线对话里获得实用参考。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/gSUMFvc8br0</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/gSUMFvc8br0</guid>
+      <pubDate>Thu, 13 Aug 2026 10:00:00 +0000</pubDate>
+      <itunes:duration>4318</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice.mp3" length="42110361" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice.srt" type="text/srt" />
+    </item>
+    <item>
       <title>如何演讲：MIT 传奇教授 Patrick Winston 的沟通心法</title>
       <description>来源：MIT OpenCourseWare：How to Speak。原始发布日期：2019-12-20。原始视频：https://www.youtube.com/watch?v=Unzc731iCUY。AI 中文译制版：本集为单声线克隆版，声音克隆自 Patrick Winston 本人，可能存在少量语气或断句不自然。这是 MIT 计算机科学教授 Patrick Winston 的经典演讲，讲如何在任何场合更自信、更有说服力地表达自己：从开场的"赋能承诺"、循环阐述核心观点、用"建栅栏"区分自己与他人的想法，到如何用道具、提问和收尾致谢让听众真正记住你说的话。无论你是学生、职场新人还是经验丰富的演讲者，都能从中获得启发。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/Unzc731iCUY</link>
