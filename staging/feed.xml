@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
+  <channel>
+    <title>Dove的AI译站（待审核）</title>
+    <description>试听专用：新处理的集数先发布在这里，确认没问题后才会转到正式播客 Dove的AI译站。</description>
+    <language>zh-cn</language>
+    <link>https://mango666ai.github.io/podcast-translator/staging</link>
+    <itunes:author>DoveInBeta</itunes:author>
+    <itunes:owner>
+      <itunes:name>DoveInBeta</itunes:name>
+      <itunes:email>mmmmango666@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
+    <itunes:category text="Education" />
+  </channel>
+</rss>
