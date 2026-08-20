@@ -18,6 +18,9 @@
 | `gSUMFvc8br0_host_20260811` | Nuel Singhal（主持人，*The Skip*） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 449-529s 主持段，80秒 |
 | `gSUMFvc8br0_sharmeen_20260811` | Sharmeen Chapp（Midjourney首位产品岗） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 20-110s 嘉宾段，90秒 |
 | `gSUMFvc8br0_jz_20260811` | Jiaona Zhang（Laurel CPO） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 1830-1920s 嘉宾段，90秒 |
+| `fWa7uxyhVDE_michael_20260819` | Michael Truell（Cursor/Anysphere联合创始人兼CEO） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 30-120s 开场段，90秒 |
+| `fWa7uxyhVDE_kevin_20260819` | Kevin（Cursor团队成员） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 810-900s 段落，90秒 |
+| `fWa7uxyhVDE_tamas_20260819` | Tamas/Thomas（Cursor团队成员，字幕拼写不一致） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 1180-1270s 段落，90秒 |
 | `gSUMFvc8br0_henrik_20260811` | Henrik Berggren（Mutiny产品设计负责人） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 790-880s 嘉宾段，90秒 |
 
 ## 命名约定

@@ -13,5 +13,15 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
+    <item>
+      <title>【待确认】Cursor开场主题演讲：从山洞创业到代理时代</title>
+      <description>来源：Cursor Compile 26：Opening Keynote，Michael Truell（Cursor/Anysphere联合创始人兼CEO）等团队成员。原始视频：https://www.youtube.com/watch?v=fWa7uxyhVDE。AI 中文译制版：本集为多声线还原版，Michael Truell、Kevin（云代理产品团队）、Tamas（Graphite联合创始人）分别使用不同克隆声线，可能存在少量语气或断句不自然。Michael Truell分享Cursor从四人山洞创业到如今超95%用户把它当编码代理使用的转型历程，并预告了云代理、移动端操作、Git平台Origin以及计算量提升10-20倍的下一代模型。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/fWa7uxyhVDE</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/fWa7uxyhVDE</guid>
+      <pubDate>Thu, 20 Aug 2026 03:27:17 +0000</pubDate>
+      <itunes:duration>1795</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/fWa7uxyhVDE-cursor-opening-keynote-zh-multivoice.mp3" length="18118161" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/fWa7uxyhVDE-cursor-opening-keynote-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
