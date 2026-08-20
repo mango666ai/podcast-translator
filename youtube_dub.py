@@ -98,6 +98,24 @@ def extract_json(text: str):
         return json.loads(repair_json(blob))
 
 
+def _norm_words(text: str) -> set:
+    return set(re.findall(r"[a-zA-Z']+", text.lower()))
+
+
+def _echo_mismatch(echo: str, original: str) -> bool:
+    """回显校验：echo 应该是 original 开头几个词的复述。用词汇重叠率做模糊匹配，
+    避免大小写/标点/意译措辞差异导致误判；重叠太低说明这条译文其实对应的是
+    另一句原文（DeepSeek 内部编号错位，即使数量凑齐、内容非空也测不出来）。"""
+    echo_words = _norm_words(echo)
+    if not echo_words:
+        return bool(_norm_words(original))
+    orig_words = _norm_words(original[:120])
+    if not orig_words:
+        return False
+    overlap = len(echo_words & orig_words) / len(echo_words)
+    return overlap < 0.3
+
+
 def _translate_batch(batch: list, title: str, source: str) -> list:
     """翻译单批（<=BATCH段）。3次重试后仍对不上编号，说明这批内容太长导致
     DeepSeek 回复被截断，对半拆开各自递归重试，缩小单次请求的输出量。"""
@@ -107,7 +125,8 @@ def _translate_batch(batch: list, title: str, source: str) -> list:
         f"视频主题：{title}\n"
         f"来源信息：{source or '未知'}\n"
         f"按序号一一对应，**只**返回 JSON（无其他文字）：\n"
-        f'```json\n{{"segments":[{{"i":0,"zh":"中文"}}]}}\n```\n'
+        f'```json\n{{"segments":[{{"i":0,"echo":"该条原文开头5-8个英文单词，一字不改地抄写","zh":"中文"}}]}}\n```\n'
+        f"echo 字段是自查手段，必须原样摘抄对应原文的开头部分，不能翻译、不能改写、不能对应错序号。\n"
         f"原文：\n{lines}"
     )
     zh = None
@@ -116,12 +135,14 @@ def _translate_batch(batch: list, title: str, source: str) -> list:
             data = extract_json(call_gpt(prompt, json_mode=True))
             items = data.get("segments", [])
             zh = {}
+            echoes = {}
             for k, d in enumerate(items):
                 try:
                     idx = int(d.get("i", k))
                 except (TypeError, ValueError):
                     idx = k
                 zh[idx] = d.get("zh", "")
+                echoes[idx] = d.get("echo", "")
             expected = set(range(len(batch)))
             got = set(zh.keys())
             if got != expected:
@@ -131,6 +152,12 @@ def _translate_batch(batch: list, title: str, source: str) -> list:
             blank = [j for j in expected if not zh[j].strip() and batch[j].get("text", "").strip()]
             if blank:
                 raise ValueError(f"原文非空但译文为空：编号{blank}")
+            mismatched = [
+                j for j in expected
+                if batch[j].get("text", "").strip() and _echo_mismatch(echoes.get(j, ""), batch[j]["text"])
+            ]
+            if mismatched:
+                raise ValueError(f"回显对不上原文，疑似内部编号错位：编号{mismatched}")
             break
         except (json.JSONDecodeError, AttributeError, KeyError, TypeError, ValueError) as e:
             zh = None
