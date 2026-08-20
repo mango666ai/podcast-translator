@@ -14,6 +14,16 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>Cursor开场主题演讲：从山洞创业到代理时代</title>
+      <description>来源：Cursor Compile 26：Opening Keynote，Michael Truell（Cursor/Anysphere联合创始人兼CEO）等团队成员。原始视频：https://www.youtube.com/watch?v=fWa7uxyhVDE。AI 中文译制版：本集为多声线还原版，Michael Truell、Kevin（云代理产品团队）、Tamas（Graphite联合创始人）分别使用不同克隆声线，可能存在少量语气或断句不自然。Michael Truell分享Cursor从四人山洞创业到如今超95%用户把它当编码代理使用的转型历程，并预告了云代理、移动端操作、Git平台Origin以及计算量提升10-20倍的下一代模型。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/fWa7uxyhVDE</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/fWa7uxyhVDE</guid>
+      <pubDate>Thu, 20 Aug 2026 03:27:17 +0000</pubDate>
+      <itunes:duration>1795</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/fWa7uxyhVDE-cursor-opening-keynote-zh-multivoice.mp3" length="18118161" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/fWa7uxyhVDE-cursor-opening-keynote-zh-multivoice.srt" type="text/srt" />
+    </item>
+    <item>
       <title>三位产品负责人的AI一线心法：领导力不再看团队规模</title>
       <description>来源：The Skip（主持人 Nuel Singhal）：Lessons From Three Product Leaders Living in the Future，嘉宾 Sharmeen Chapp（Midjourney首位产品岗）/ Jiaona Zhang（Laurel CPO）/ Henrik Berggren（Mutiny产品设计负责人）。原始发布日期：2026-08-05。原始视频：https://www.youtube.com/watch?v=gSUMFvc8br0。AI 中文译制版：本集为多声线还原版，主持人与三位嘉宾各自使用不同克隆声线，可能存在少量语气或断句不自然。三位产品负责人现场拆解各自公司如何把AI引入组织：AI彻底颠覆了"团队规模决定影响力"的传统领导力定义；用公开渠道展示AI交互能促进集体学习、快速纠错；把非技术团队成员赋能为构建者需要清晰的护栏和设计系统。无论你是产品经理、技术负责人，还是关心AI落地的人，都能从这场一线对话里获得实用参考。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/gSUMFvc8br0</link>
