@@ -26,7 +26,22 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 **已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
 
-**当前状态**：Cursor Compile 26 第1集(`fWa7uxyhVDE`)已发布；发现并修复第二个独立的翻译bug（语义错位，非截断），已发布的4集全部核查并修复；正在筹备后续84集的批量处理（builder身份分类+发布排期已就绪）。
+**当前状态**：85集批量队列已开始铺开，Cursor Compile 26 共5集处理完（1集正式发布+4集在staging待审核，用户已在小宇宙订阅staging源）；staging→正式播客的转正流程已写入 [播客工作循环.md](播客工作循环.md) §3.9，换设备/换会话也能照做。
+
+---
+
+## 2026-08-21 · Cursor Compile剩余4集处理完成并放入staging；staging转正流程写入标准文档
+
+- 按 [待处理视频_发布排期.md](待处理视频_发布排期.md) 继续处理 Day1第2集+Day2全部3集：`ByOF8qByGHU`（Farhan Thawar/Shopify，单人）、`I8YnwUV2C9w`（Baseten研究团队，2人接力）、`zxvyO5vnknI`（Sam Lambert/PlanetScale，单人）、`Z5M33oh-SAU`（Ben Geist/Ramp，单人）。全部走完整链路（下载字幕→DeepSeek翻译→声音克隆→MiniMax TTS→放入staging），**未直接发布到正式RSS**，等用户试听确认。
+  - 翻译阶段 echo 校验（8-20新加的那道检验）在这4集里多次真实触发并自动纠正了编号错位重试，验证了这个修复在新集数上确实生效。
+  - 顺手修了一个新发现的小bug：`write_notes_if_needed()` 遇到 DeepSeek 把 `highlights` 某一项返回成 dict（而非字符串）时会直接崩溃报 `AttributeError`；改成先做类型兼容再拼字符串。
+- 用户表态"已经认领这个播客"（在小宇宙订阅了staging源），但明确没时间逐集试听，要求先把"怎么把一集从staging转成正式发布"的操作步骤写进文档，保证换设备/换新对话也能执行。已写入 [播客工作循环.md](播客工作循环.md) §3.9（含改名规则、两份feed.xml怎么改、podcast_status.csv字段、commit粒度的完整步骤），并在 [../决策日志.md](../决策日志.md) 记了这条决策。
+- 过程中发现并修复一个真实的发布链路bug：`.gitignore` 的 `!episodes/*.mp3` 例外规则**不会**泛化到 `staging/episodes/*.mp3`（gitignore 通配符例外不跨子目录生效），导致 staging 音频此前一直只存在于本地、从未真正推送到 GitHub——staging RSS 的 `enclosure` 链接实际是死链。已加 `!staging/episodes/*.mp3` 修复并验证（`curl` 直接读 `staging/feed.xml` 确认可访问、`raw.githubusercontent.com` 上的4个新集条目标题都能正常获取）。
+- 环境问题：`git push` 反复 `SSL_ERROR_SYSCALL`/超时，排查后确认是**间歇性丢包**而非GitHub真的挂了（`curl` 连续测试有时几百毫秒200、有时直接超时；`nc` 测试TCP层能连通）。解决方式：把一次性推4个大commit（共约59MB音频）改成逐个 `git push origin <commit-hash>:main` 分开推，全部成功。此应对方式已写入 §3.9 末尾备查。
+- 验证结果：4集完整音频均已生成并 `ffprobe` 确认时长/体积；`staging/feed.xml` 已推送到 GitHub 并用 `curl` 验证可正常读取到全部4条新item的标题。
+- 下一步：
+  1. 用户试听 staging 里的4集，确认后按 §3.9-B 逐集转正式（含改pubDate为排期表里的实际时段）。
+  2. 继续处理排期表 Day3 起的 Figma Config 集数。
 
 ---
 
