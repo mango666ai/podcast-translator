@@ -33,5 +33,15 @@
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.mp3" length="8914581" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>智能体与基础设施：PlanetScale CEO Sam Lambert谈AI驱动的数据库运维</title>
+      <description>来源：Cursor Compile 26：Agents and Infrastructure，Sam Lambert（PlanetScale CEO）。原始发布日期：2026-06-24。原始视频：https://www.youtube.com/watch?v=zxvyO5vnknI。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Sam Lambert通过现场演示展示智能体如何自动优化数据库性能、处理分片等复杂运维任务，并分享PlanetScale如何设计安全机制防止智能体误操作生产环境。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/zxvyO5vnknI</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/zxvyO5vnknI</guid>
+      <pubDate>Sat, 22 Aug 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>2177</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.mp3" length="21281157" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

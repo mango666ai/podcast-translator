@@ -25,6 +25,7 @@
 | `ByOF8qByGHU_farhan_20260821` | Farhan Thawar（Shopify工程负责人，单人演讲） | `ByOF8qByGHU` 工程师现在的工作是什么 | 2026-08-21 | 原视频 60-150s 段，90秒 |
 | `I8YnwUV2C9w_researcher1_20260821` | Baseten研究员1号（开场，讲背景/动机） | `I8YnwUV2C9w` 内存问题 | 2026-08-21 | 原视频 30-120s 段，90秒 |
 | `I8YnwUV2C9w_charlie_20260821` | Charlie（Baseten研究员，讲具体方法） | `I8YnwUV2C9w` 内存问题 | 2026-08-21 | 原视频 300-390s 段，90秒 |
+| `zxvyO5vnknI_sam_20260821` | Sam Lambert（PlanetScale CEO，单人演讲） | `zxvyO5vnknI` 智能体与基础设施 | 2026-08-21 | 原视频 40-130s 段，90秒 |
 
 ## 命名约定
 
