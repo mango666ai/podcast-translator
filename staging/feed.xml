@@ -43,5 +43,15 @@
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.mp3" length="21281157" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.srt" type="text/srt" />
     </item>
+    <item>
+      <title>智能效率：Ramp研究工程师Ben Geist谈如何用更少Token做更多推理</title>
+      <description>来源：Cursor Compile 26：Intelligence Efficiency，Ben Geist（Ramp机器学习研究工程师）。原始发布日期：2026-06-29。原始视频：https://www.youtube.com/watch?v=Z5M33oh-SAU。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Ben Geist指出当前LLM智能增长呈对数曲线而成本呈指数增长，分享多智能体共享上下文缓存、稀疏注意力重排序、潜在空间记忆注入三个研究方向，其中潜在空间压缩方案可比RAG减少372倍输入token。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</guid>
+      <pubDate>Sat, 22 Aug 2026 12:00:00 +0000</pubDate>
+      <itunes:duration>1033</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.mp3" length="9477657" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

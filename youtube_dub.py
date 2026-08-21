@@ -260,7 +260,8 @@ def write_notes_if_needed(bil: list, title: str, source: str, path: Path, url: s
 
     timestamps = build_timestamps(bil, title)
     ts_block = "\n".join(f"- {t} {label}" for t, label in timestamps) or "（本集较短，暂不提供时间戳）"
-    highlights_block = "\n".join(f"- {h}" for h in data.get("highlights", []) if h.strip())
+    highlights = [h if isinstance(h, str) else str(h.get("text", h)) for h in data.get("highlights", [])]
+    highlights_block = "\n".join(f"- {h}" for h in highlights if h.strip())
     source_block = source or "来源待确认"
     if publish_date:
         source_block += f"\n原始发布日期：{publish_date}"
