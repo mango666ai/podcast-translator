@@ -23,5 +23,15 @@
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.mp3" length="22160925" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.srt" type="text/srt" />
     </item>
+    <item>
+      <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>
+      <description>来源：Cursor Compile 26：The Memory Problem，Baseten研究团队（含Charlie）。原始发布日期：2026-06-29。原始视频：https://www.youtube.com/watch?v=I8YnwUV2C9w。AI 中文译制版：本集为多声线还原版，两位研究员分别使用不同克隆声线，可能存在少量语气或断句不自然。Baseten研究团队分享KV缓存压缩研究：如何在无损全量缓存与高度压缩之间找到中间层方案，通过摊销压缩、交叉注意力学习压缩KV缓存，逐步逼近长期代理场景下的无限上下文检索。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</guid>
+      <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
+      <itunes:duration>938</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.mp3" length="8914581" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

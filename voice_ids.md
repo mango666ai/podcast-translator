@@ -23,6 +23,8 @@
 | `fWa7uxyhVDE_tamas_20260819` | Tamas/Thomas（Cursor团队成员，字幕拼写不一致） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 1180-1270s 段落，90秒 |
 | `gSUMFvc8br0_henrik_20260811` | Henrik Berggren（Mutiny产品设计负责人） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 790-880s 嘉宾段，90秒 |
 | `ByOF8qByGHU_farhan_20260821` | Farhan Thawar（Shopify工程负责人，单人演讲） | `ByOF8qByGHU` 工程师现在的工作是什么 | 2026-08-21 | 原视频 60-150s 段，90秒 |
+| `I8YnwUV2C9w_researcher1_20260821` | Baseten研究员1号（开场，讲背景/动机） | `I8YnwUV2C9w` 内存问题 | 2026-08-21 | 原视频 30-120s 段，90秒 |
+| `I8YnwUV2C9w_charlie_20260821` | Charlie（Baseten研究员，讲具体方法） | `I8YnwUV2C9w` 内存问题 | 2026-08-21 | 原视频 300-390s 段，90秒 |
 
 ## 命名约定
 
