@@ -13,5 +13,15 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
+    <item>
+      <title>工程师现在的工作是什么：Shopify工程负责人Farhan Thawar谈AI时代的角色转变</title>
+      <description>来源：Cursor Compile 26：What Is Your Job Now，Farhan Thawar（Shopify工程负责人）。原始发布日期：2026-06-24。原始视频：https://www.youtube.com/watch?v=ByOF8qByGHU。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Farhan Thawar探讨AI如何重新定义工程师的工作：价值从编写代码转向品味与判断力，软件开发生命周期的瓶颈从编码转移到代码审查，并分享了Shopify部署Cursor后从工程师扩展到财务、人力等非技术部门的实践，以及AI时代招聘的新思路。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</guid>
+      <pubDate>Fri, 21 Aug 2026 10:00:00 +0000</pubDate>
+      <itunes:duration>2244</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.mp3" length="22160925" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

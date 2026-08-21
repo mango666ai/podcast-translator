@@ -22,6 +22,7 @@
 | `fWa7uxyhVDE_kevin_20260819` | Kevin（Cursor团队成员） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 810-900s 段落，90秒 |
 | `fWa7uxyhVDE_tamas_20260819` | Tamas/Thomas（Cursor团队成员，字幕拼写不一致） | `fWa7uxyhVDE` Cursor开场主题演讲 | 2026-08-19 | 原视频 1180-1270s 段落，90秒 |
 | `gSUMFvc8br0_henrik_20260811` | Henrik Berggren（Mutiny产品设计负责人） | `gSUMFvc8br0` 三位产品负责人的AI一线心法（4人对谈） | 2026-08-11 | 原视频 790-880s 嘉宾段，90秒 |
+| `ByOF8qByGHU_farhan_20260821` | Farhan Thawar（Shopify工程负责人，单人演讲） | `ByOF8qByGHU` 工程师现在的工作是什么 | 2026-08-21 | 原视频 60-150s 段，90秒 |
 
 ## 命名约定
 
