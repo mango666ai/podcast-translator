@@ -2,7 +2,7 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
     <title>Dove的AI译站</title>
-    <description>英文播客 AI 翻译中文版，声音克隆自原主持人。聚焦全球AI一线构建者分享与访谈，欢迎留言推荐视频内容。</description>
+    <description>聚焦全球AI一线构建者的分享与访谈，AI翻译成中文播客，声音克隆自原讲者。欢迎留言推荐你想听的内容。</description>
     <language>zh-cn</language>
     <link>https://mango666ai.github.io/podcast-translator</link>
     <itunes:author>DoveInBeta</itunes:author>
@@ -15,7 +15,36 @@
     <itunes:category text="Education" />
     <item>
       <title>Cursor开场主题演讲：从山洞创业到代理时代</title>
-      <description>来源：Cursor Compile 26：Opening Keynote，Michael Truell（Cursor/Anysphere联合创始人兼CEO）等团队成员。原始视频：https://www.youtube.com/watch?v=fWa7uxyhVDE。AI 中文译制版：本集为多声线还原版，Michael Truell、Kevin（云代理产品团队）、Tamas（Graphite联合创始人）分别使用不同克隆声线，可能存在少量语气或断句不自然。Michael Truell分享Cursor从四人山洞创业到如今超95%用户把它当编码代理使用的转型历程，并预告了云代理、移动端操作、Git平台Origin以及计算量提升10-20倍的下一代模型。</description>
+      <description>来源：
+Cursor Compile 26：Opening Keynote，Michael Truell（Cursor/Anysphere联合创始人兼CEO）等团队成员
+原始视频：https://www.youtube.com/watch?v=fWa7uxyhVDE
+
+本期播客简介：
+本期播客是Cursor Compile 26的开场主题演讲，由联合创始人兼CEO Michael Truell分享Cursor的起源、发展历程以及未来的三大重要发布。演讲涵盖了Cursor从最初的AI编程工具到以代理为中心的产品转型，包括云代理、移动应用、Git平台Origin以及下一代模型的预览。内容既有创业故事，也有具体的技术和产品细节，适合对AI编程和开发者工具感兴趣的朋友收听。
+
+本期嘉宾：
+Michael Truell（Cursor/Anysphere联合创始人兼CEO）、Kevin（负责云代理产品团队，全名未在原视频中明确）、Tamas（Graphite联合创始人，2025年1月加入Cursor，全名未在原视频中明确）
+
+时间戳：
+- 00:00 开场回顾创业
+- 04:43 Cursor成编码代理
+- 09:18 可扩展与定制
+- 11:42 模型在线学习
+- 14:00 云端代理开发
+- 18:33 截图反馈机制
+- 20:53 Origin平台发布
+- 23:21 模型规模与训练
+
+精彩内容：
+- Cursor的起源：从四个程序员在2022年底躲进山洞写代码，到如今成为AI编程的重要工具。
+- 产品转型：Cursor已从辅助功能为主转向以代理为中心，超过95%的用户将Cursor用作编码代理，代理使用量是自动补全的五倍。
+- 云代理发布：代理拥有自己的开发环境，可自主运行、测试和交付，支持移动端操作和远程控制。
+- Git平台Origin：为代理和开发者设计的Git平台，解决合并冲突、修复CI失败，并自动审查PR，已开启等待名单。
+- 下一代模型预告：新模型规模大、从零训练，计算能力提升10-20倍，将超越编程领域，成为更通用的智能模型。
+- 社区与生态：从最初20个用户到现在的大型活动，Cursor强调开发者核心，不断扩展插件、CLI和SDK，让产品更可定制和可扩展。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。注意：克隆声音可能存在语气或断句不自然，敬请谅解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/fWa7uxyhVDE</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/fWa7uxyhVDE</guid>
       <pubDate>Thu, 20 Aug 2026 03:27:17 +0000</pubDate>
@@ -25,7 +54,37 @@
     </item>
     <item>
       <title>三位产品负责人的AI一线心法：领导力不再看团队规模</title>
-      <description>来源：The Skip（主持人 Nuel Singhal）：Lessons From Three Product Leaders Living in the Future，嘉宾 Sharmeen Chapp（Midjourney首位产品岗）/ Jiaona Zhang（Laurel CPO）/ Henrik Berggren（Mutiny产品设计负责人）。原始发布日期：2026-08-05。原始视频：https://www.youtube.com/watch?v=gSUMFvc8br0。AI 中文译制版：本集为多声线还原版，主持人与三位嘉宾各自使用不同克隆声线，可能存在少量语气或断句不自然。三位产品负责人现场拆解各自公司如何把AI引入组织：AI彻底颠覆了"团队规模决定影响力"的传统领导力定义；用公开渠道展示AI交互能促进集体学习、快速纠错；把非技术团队成员赋能为构建者需要清晰的护栏和设计系统。无论你是产品经理、技术负责人，还是关心AI落地的人，都能从这场一线对话里获得实用参考。</description>
+      <description>来源：
+The Skip：Lessons From Three Product Leaders Living in the Future，Sharmeen Chapp（Midjourney）/ Jiaona Zhang（Laurel）/ Henrik Berggren（Mutiny）
+原始发布日期：2026-08-05
+原始视频：https://www.youtube.com/watch?v=gSUMFvc8br0
+
+本期播客简介：
+本期播客聚焦于AI在真实业务中的价值与挑战。主持人Nuel Singhal邀请三位来自不同公司的产品负责人，分享他们如何将AI引入组织，以及在此过程中学到的经验与教训。你将听到关于产品管理角色转变、非技术团队赋能、以及如何在速度与质量之间取得平衡的深度讨论。无论你是产品经理、技术负责人，还是对AI应用感兴趣的人，这期节目都能为你提供一线视角和实用建议。
+
+本期嘉宾：
+主持人：Nuel Singhal（The Skip播客主持人）。嘉宾：Sharmeen Chapp（Midjourney首席产品官）；Jiaona Zhang（Laurel首席产品官）；Henrik Berggren（Mutiny负责产品和设计）。
+
+时间戳：
+- 00:00 领导力的转变
+- 16:38 快速上线赢得客户
+- 22:01 如何应对变革恐惧
+- 27:17 公开构建内部代理
+- 32:39 三大杠杆：激励
+- 37:58 拆分产品负责人职责
+- 48:33 AI提高天花板还是地板
+- 59:06 产品核心未变
+
+精彩内容：
+- AI彻底颠覆了传统领导力定义，团队规模不再决定影响力。
+- 通过公开渠道展示AI交互，可以促进集体学习并快速纠错。
+- 有效的激励机制（如黑客松和现金奖励）能激发销售团队对构建AI功能的热情。
+- 将非技术团队成员赋能为构建者，需要清晰的护栏和设计系统。
+- 产品负责人需平衡自下而上的客户理解与自上而下的战略愿景。
+- 利用AI工具管理信息过载，并培养团队在快速变化中的判断力。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然，敬请谅解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/gSUMFvc8br0</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/gSUMFvc8br0</guid>
       <pubDate>Thu, 13 Aug 2026 10:00:00 +0000</pubDate>
@@ -35,7 +94,37 @@
     </item>
     <item>
       <title>如何演讲：MIT 传奇教授 Patrick Winston 的沟通心法</title>
-      <description>来源：MIT OpenCourseWare：How to Speak。原始发布日期：2019-12-20。原始视频：https://www.youtube.com/watch?v=Unzc731iCUY。AI 中文译制版：本集为单声线克隆版，声音克隆自 Patrick Winston 本人，可能存在少量语气或断句不自然。这是 MIT 计算机科学教授 Patrick Winston 的经典演讲，讲如何在任何场合更自信、更有说服力地表达自己：从开场的"赋能承诺"、循环阐述核心观点、用"建栅栏"区分自己与他人的想法，到如何用道具、提问和收尾致谢让听众真正记住你说的话。无论你是学生、职场新人还是经验丰富的演讲者，都能从中获得启发。</description>
+      <description>来源：
+MIT OpenCourseWare：How to Speak
+原始发布日期：2019-12-20
+原始视频：https://www.youtube.com/watch?v=Unzc731iCUY
+
+本期播客简介：
+本期播客来自MIT OpenCourseWare的经典演讲《如何演讲》。主讲人帕特里克·温斯顿教授将分享一系列实用的演讲技巧，从开场白的设计、内容组织，到幻灯片的使用和收尾方式，帮助你在任何场合更自信、更有说服力地表达自己。无论你是学生、职场新人还是经验丰富的演讲者，都能从中获得启发。
+
+本期嘉宾：
+主持人/主讲人：帕特里克·温斯顿（Patrick Winston），麻省理工学院（MIT）人工智能与计算机科学教授，曾长期教授MIT最受欢迎的课程之一。
+
+时间戳：
+- 07:43 提供地标性时刻
+- 13:04 场地大小要合适
+- 18:38 课堂上的道具例子
+- 24:15 糟糕的会议经历
+- 30:07 道具运用的范例
+- 50:40 意外成名的拱门研究
+- 56:01 适应期后的玩笑时机
+- 61:20 向观众致敬的收尾
+
+精彩内容：
+- 开场应以'赋能承诺'开始，告诉听众他们将在演讲结束时知道什么。
+- 演讲内容应循环三次，因为听众中随时有20%的人走神。
+- 用'建栅栏'的方法区分自己的观点与相似观点，避免误解。
+- 利用'口头标点'（如列举提纲）帮助听众重新跟上思路。
+- 提问是恢复注意力的有效工具，但问题难度要适中。
+- 选择演讲时间时，上午11点最佳；地点光线要充足，且场地应提前踩点。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。请注意，由于是机器翻译和克隆，可能偶尔出现语气或断句不自然的情况，建议结合上下文理解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/Unzc731iCUY</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/Unzc731iCUY</guid>
       <pubDate>Wed, 12 Aug 2026 10:00:00 +0000</pubDate>
@@ -45,7 +134,39 @@
     </item>
     <item>
       <title>AI 再次走向垂直化：Anthropic 首位技术 PM 的产品心法</title>
-      <description>来源：Lenny's Podcast：Why AI is going vertical (again)，Dianne Penn（Anthropic AI Research and Labs 产品负责人）。原始发布日期：2026-07-26。原始视频：https://www.youtube.com/watch?v=tivaWTTVRhY。AI 中文译制版：本集为多声线还原版，主持人 Lenny 与嘉宾 Dianne Penn 使用不同克隆声线（主持人复用第9集已克隆声线），可能存在少量语气或断句不自然。Dianne 2023 年加入 Anthropic，成为首位技术产品经理，参与推出从 Claude 2 到 Fable 的每一代模型，并孵化 Claude Code、MCP、Skills 等产品。她回顾了 Anthropic 早期自下而上的实验文化、Opus 3 发布带来的信心转折，并谈到在指数级变化的前沿，产品经理的角色如何从写 PRD 转向做评估、把用户反馈以可操作的方式传递给研究团队。</description>
+      <description>来源：
+Lenny's Podcast：Why AI is going vertical (again)，Dianne Penn（Anthropic）
+原始发布日期：2026-07-26
+原始视频：https://www.youtube.com/watch?v=tivaWTTVRhY
+
+本期播客简介：
+本期播客邀请到Anthropic产品负责人Dianne Penn，深入探讨AI技术的快速演进及其对产品开发的深刻影响。从Anthropic的早期挣扎到如今的行业领先，Dianne分享了关键转折点、实验室的创新机制，以及产品经理角色的变化。她强调适应性、第一性原理思考的重要性，并讨论了前沿模型带来的安全挑战与机遇。对于关注AI前沿动态和产品策略的听众，本期内容不容错过。
+
+本期嘉宾：
+主持人：Lenny（Lenny's Podcast创始人）；嘉宾：Dianne Penn（Anthropic AI研究和实验室团队产品负责人，2023年加入，成为首位技术产品经理，参与推出从Claude 2到Fable的每一代模型，并孵化Claude Code、MCP、Skills等产品）。
+
+时间戳：
+- 00:00 AI与编程的初识
+- 08:00 企业级功能的痛点
+- 16:02 指数中的学习与决策
+- 24:03 大赌注与10倍效应
+- 31:59 长期思考与雄心
+- 40:13 通用型人才的标准
+- 48:18 PRD在模糊问题中的价值
+- 56:12 深入探索而非浅尝辄止
+- 64:07 Claude的思考方式
+- 72:09 判断力的积累与提升
+
+精彩内容：
+- Anthropic早期文化：自下而上的实验精神，如金门大桥特征的可视化展示。
+- Opus 3的发布被视为转折点，让团队建立了打造前沿模型的信心。
+- Opus 4.5与Claude Code的相互促进，推动了智能体式编码的普及。
+- 产品经理角色的变化：评估成为新的PRD，以可操作方式将用户反馈传递给研究。
+- AI的指数发展：适应性、第一性原理思考和对更大胆的想象至关重要。
+- 实验室的运作：小团队、自下而上的文化，孵化出颠覆性产品。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。请注意，由于AI生成，可能存在语气或断句不自然的情况，建议结合原文理解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/tivaWTTVRhY</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/tivaWTTVRhY</guid>
       <pubDate>Mon, 10 Aug 2026 08:20:17 +0000</pubDate>
@@ -55,7 +176,34 @@
     </item>
     <item>
       <title>AI 内容生产不像 AI：Alex Lieberman 的内容机器拆解</title>
-      <description>来源：How I AI（主理人 Claire Vo）：The AI content machine that turns ideas into posts that don't sound like slop，Alex Lieberman（Tenex 联合创始人，Morning Brew 联合创始人）。原始发布日期：2026-07-20。原始视频：https://youtube.com/watch?v=1_jlukb7gm4。AI 中文译制版：本集为多声线还原版，主持人 Claire Vo 与嘉宾 Alex Lieberman 使用不同克隆声线，可能存在少量语气或断句不自然。Alex 现场拆解了自己的"内容机器"：用"神谕"扫描内部系统和网络找选题，用 AI 模拟采访挖出真实想法，再用风格文件保持"像本人"的声音。他认为 AI 不会拉低优秀创作者的上限，只会拉高差内容的下限；后 AI 时代，分发渠道和个人品牌才是真正的护城河。</description>
+      <description>来源：
+How I AI：The AI content machine that turns ideas into posts that don't sound like slop，Alex Lieberman
+原始发布日期：2026-07-20
+原始视频：https://youtube.com/watch?v=1_jlukb7gm4
+
+本期播客简介：
+本期播客邀请到 Tenex 联合创始人 Alex Lieberman，分享他如何利用AI构建内容生产机器，将团队员工的创作能力最大化，同时避免产出AI垃圾内容。他展示了一套从创意挖掘、内容生成到多渠道分发的完整流程，并讨论了在后AI时代，企业如何通过内容创作建立竞争优势。对于希望用AI提升内容生产效率的个人或团队，这期节目提供了非常实用的参考。
+
+本期嘉宾：
+主持人：Claire Vo，《How I AI》主理人，产品负责人兼AI发烧友。嘉宾：Alex Lieberman，Tenex 联合创始人兼联合管理合伙人，Morning Brew联合创始人。
+
+时间戳：
+- 00:00 创作的时间困境
+- 08:05 AI降低创作上限
+- 15:58 编码采访大师技巧
+- 19:35 从差异中提取教训
+- 31:42 占领互联网活动
+- 38:55 加入父母圆桌会议
+
+精彩内容：
+- Alex Lieberman展示了内容机器的工作流程，包括“神谕”从内部系统和网络来源生成内容创意，以及用AI模拟采访者来挖掘个人见解。
+- 他强调了流程优先的方法，建议先梳理现有工作流程，再决定AI的介入点，并认为AI可以提高差内容的下限，但不会降低优秀作家的上限。
+- 内容机器通过风格指南和声音模型来个性化输出，并利用反馈循环不断优化，确保内容质量。
+- Alex分享了10x公司内部举办的“创作者杯”挑战，鼓励员工发帖，并解释了如何通过这种方式推动团队参与内容创作。
+- 他认为企业应鼓励员工建立个人品牌，而不是限制他们，因为传播渠道在后AI时代是宝贵的护城河。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。请注意，由于AI翻译和克隆，可能存在语气或断句不自然，建议结合原视频理解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/1_jlukb7gm4</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/1_jlukb7gm4</guid>
       <pubDate>Thu, 06 Aug 2026 10:00:00 +0000</pubDate>
@@ -65,7 +213,33 @@
     </item>
     <item>
       <title>OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河</title>
-      <description>来源：Lenny's Podcast：Why OpenAI is merging Codex and ChatGPT，Andrew Ambrosino（OpenAI Codex 桌面应用产品与工程负责人）。原始视频：https://www.youtube.com/watch?v=P3KDebPTUrw。AI 中文译制版：本集为多声线还原版，主持人 Lenny 与嘉宾 Andrew 使用不同克隆声线，可能存在少量语气或断句不自然。OpenAI 内部近 100% 员工每周使用 Codex，不只是工程师。Andrew 认为 AI 时代产品开发流程已彻底反转：实现不再是成本，品味和策划成为关键；他还谈到为什么顶尖模型仍不擅长设计、Codex 团队如何用"区域防守"策略分工，以及为什么规划应该"近期详细、远期模糊"。</description>
+      <description>来源：
+Lenny's Podcast：Why OpenAI is merging Codex and ChatGPT，Andrew Ambrosino（OpenAI Codex桌面应用负责人）
+原始视频：https://www.youtube.com/watch?v=P3KDebPTUrw
+
+本期播客简介：
+本期播客邀请到OpenAI Codex应用的产品与工程负责人Andrew Ambrosino，深入探讨了AI如何重塑产品开发流程、OpenAI内部如何构建Codex，以及为何设计和高品味在AI时代变得至关重要。Andrew从设计师转型为工程师再转型为产品经理，他的独特视角为听众揭示了AI驱动产品工作的前沿实践。无论你是产品经理、工程师还是设计师，这期节目都将为你提供关于AI未来工作方式的深刻洞见。
+
+本期嘉宾：
+嘉宾：Andrew Ambrosino，OpenAI Codex桌面应用的产品与工程负责人，负责Codex的开发和产品策略。主持人：Lenny（Lenny's Podcast主理人），未在原视频中明确其全名。
+
+时间戳：
+- 00:00 OpenAI全员用Codex
+- 11:56 设计滞后的原因
+- 30:27 IC与管理层关系
+- 37:10 Codex形态演变
+- 48:58 品味与浏览器使用
+- 60:58 微小失败与迭代
+
+精彩内容：
+- OpenAI几乎100%的员工每周使用Codex，使用量自1月以来增长6倍，周活跃用户超500万。
+- Andrew认为产品开发流程已彻底反转：实现不再是成本，品味和策划成为关键。
+- AI在真实设计上仍不擅长，原因在于设计难以量化评估，且涉及文化因素和新颖性。
+- Codex团队采取‘区域防守’策略，产品人员分散覆盖潜在漏洞，强调角色重叠与自由探索。
+- Andrew提出，规划应保持近期详细、远期模糊，因为模型能力变化快，产品需要根据模型进步反复迭代。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然，敬请谅解。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/P3KDebPTUrw</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/P3KDebPTUrw</guid>
       <pubDate>Tue, 04 Aug 2026 12:25:57 +0000</pubDate>

@@ -15,7 +15,37 @@
     <itunes:category text="Education" />
     <item>
       <title>工程师现在的工作是什么：Shopify工程负责人Farhan Thawar谈AI时代的角色转变</title>
-      <description>来源：Cursor Compile 26：What Is Your Job Now，Farhan Thawar（Shopify工程负责人）。原始发布日期：2026-06-24。原始视频：https://www.youtube.com/watch?v=ByOF8qByGHU。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Farhan Thawar探讨AI如何重新定义工程师的工作：价值从编写代码转向品味与判断力，软件开发生命周期的瓶颈从编码转移到代码审查，并分享了Shopify部署Cursor后从工程师扩展到财务、人力等非技术部门的实践，以及AI时代招聘的新思路。</description>
+      <description>来源：
+Cursor Compile 26：What Is Your Job Now，Farhan Thawar（Shopify工程负责人）
+原始发布日期：2026-06-24
+原始视频：https://www.youtube.com/watch?v=ByOF8qByGHU
+
+本期播客简介：
+本期节目，我们跟随 Shopify 工程负责人 Farhan Thawar，探讨 AI 如何重新定义工程师的工作。他分享了在 AI 辅助编码成为常态的今天，工程师的价值如何从编写代码转向品味与判断力，以及软件开发生命周期中瓶颈的转移。无论是管理者还是开发者，都能从中获得关于团队协作、绩效评估和未来招聘的深刻洞见。
+
+本期嘉宾：
+Farhan Thawar，Shopify 工程负责人（原视频中未明确主持人身份）。
+
+时间戳：
+- 00:00 AI改变工程师角色
+- 06:54 基础设施优化与规模
+- 09:19 AI使用者出乎意料
+- 14:03 Token最大化新常态
+- 16:23 快速原型化的优势
+- 20:56 只让用最大模型
+- 23:16 招聘AI人才之困
+- 25:29 拥抱AI生态变化
+
+精彩内容：
+- AI 正在彻底改变软件开发生命周期，工程师的时间分配从编码转向规划与验证。
+- Farhan 提出‘AI 反应力’的概念，即工程师应缩短遇到问题到使用 AI 解决问题的距离。
+- Shopify 部署 Cursor 后，不仅工程师在使用，财务、人力等非技术部门也将其作为与 AI 交互的窗口。
+- 通过一个真实案例说明‘学习才是产物，而不是代码’的理念。
+- 指出 AI 写代码将瓶颈转移到代码审查等环节，并引入了‘LLM 委员会’来辅助审查。
+- 对 AI 时代招聘的思考：通过分阶段（无 AI、可选 AI、强制 AI）来评估候选人的能力。
+
+播客信息补充：
+AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然之处，敬请谅解。</description>
       <link>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</link>
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</guid>
       <pubDate>Fri, 21 Aug 2026 10:00:00 +0000</pubDate>
@@ -25,7 +55,37 @@
     </item>
     <item>
       <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>
-      <description>来源：Cursor Compile 26：The Memory Problem，Baseten研究团队（含Charlie）。原始发布日期：2026-06-29。原始视频：https://www.youtube.com/watch?v=I8YnwUV2C9w。AI 中文译制版：本集为多声线还原版，两位研究员分别使用不同克隆声线，可能存在少量语气或断句不自然。Baseten研究团队分享KV缓存压缩研究：如何在无损全量缓存与高度压缩之间找到中间层方案，通过摊销压缩、交叉注意力学习压缩KV缓存，逐步逼近长期代理场景下的无限上下文检索。</description>
+      <description>来源：
+Cursor Compile 26：The Memory Problem，Baseten研究团队（含Charlie）
+原始发布日期：2026-06-29
+原始视频：https://www.youtube.com/watch?v=I8YnwUV2C9w
+
+本期播客简介：
+本期节目聚焦大语言模型推理中的内存问题，探讨如何在长期代理型用例中实现无损检索与上下文管理。来自Baseten研究团队的成员分享了他们对KV缓存压缩的研究，提出通过摊销压缩与迭代压缩实现无限上下文的新思路。节目值得关注，因为它涉及提升模型长期记忆能力的核心技术，对AI代理的实际应用有重要影响。
+
+本期嘉宾：
+本期主持人包括Baseten研究团队的成员，具体姓名未在原视频中明确。其中一位后续发言者被称为Charlie，负责介绍压缩方法细节。
+
+时间戳：
+- 00:00 内存问题开篇
+- 01:16 三大主要组成
+- 02:33 按上下文与摊销成本
+- 06:15 可变KV缓存压缩
+- 08:39 实现无限上下文
+- 09:47 KL散度稳定方法
+- 11:07 注意力分数计算
+- 12:23 上下文与梯度下降
+
+精彩内容：
+- 内存问题被分为无损KV缓存与高度压缩内存两个极端，中间层缺失成为长期代理的瓶颈。
+- 研究者提出在KVK空间进行压缩，并通过选择与综合、按上下文与摊销成本的2x2矩阵来分类现有方法。
+- 新方法利用交叉注意力机制学习压缩KV缓存，训练目标为压缩与完整KV缓存下的KL散度。
+- 迭代压缩稳定性通过计算后续块上的KL散度实现，可支持16至32次压缩迭代。
+- 压缩后的KV缓存可被视为一个MLP，从上下文中构造，实现了从上下文直接生成权重的样本高效学习。
+- 未来方向包括结合梯度下降与压缩，以进一步优化权重生成过程。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。本节目由AI自动生成中文翻译，可能存在语气或断句不自然，请听众理解。</description>
       <link>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</link>
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</guid>
       <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
@@ -35,7 +95,35 @@
     </item>
     <item>
       <title>智能体与基础设施：PlanetScale CEO Sam Lambert谈AI驱动的数据库运维</title>
-      <description>来源：Cursor Compile 26：Agents and Infrastructure，Sam Lambert（PlanetScale CEO）。原始发布日期：2026-06-24。原始视频：https://www.youtube.com/watch?v=zxvyO5vnknI。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Sam Lambert通过现场演示展示智能体如何自动优化数据库性能、处理分片等复杂运维任务，并分享PlanetScale如何设计安全机制防止智能体误操作生产环境。</description>
+      <description>来源：
+Cursor Compile 26：Agents and Infrastructure，Sam Lambert（PlanetScale CEO）
+原始发布日期：2026-06-24
+原始视频：https://www.youtube.com/watch?v=zxvyO5vnknI
+
+本期播客简介：
+本期播客中，PlanetScale CEO Sam Lambert 深入探讨了智能体如何改变基础设施的角色。他通过现场演示，展示了智能体如何自动优化数据库性能、处理分片等复杂任务，并强调了基础设施建设中的安全性和可回滚性。对于关注 AI 与基础设施融合的听众来说，这是一期不容错过的实战分享。
+
+本期嘉宾：
+Sam Lambert，PlanetScale CEO
+
+时间戳：
+- 00:00 开场介绍
+- 04:37 子智能体运行
+- 09:06 删除列恢复难题
+- 11:15 分片实现挑战
+- 15:48 vindexes定义
+- 17:58 旧应用改造
+- 22:29 智能体调用自动化
+
+精彩内容：
+- 智能体如何自动完成数据库优化，包括索引调整和查询重写
+- PlanetScale 如何通过安全机制阻止智能体误操作，保护生产环境
+- 数据库分片的挑战及智能体如何加速这一过程
+- 基础设施平台应如何设计工具，以便智能体安全高效地操作
+- 智能体与人类协作的未来：从创建到运维的转变
+
+播客信息补充：
+AI 中文译制版，声音克隆自原视频/主持人。请注意，由于 AI 翻译和克隆技术，可能存在语气或断句不自然的情况。</description>
       <link>https://mango666ai.github.io/podcast-translator/staging/ep/zxvyO5vnknI</link>
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/zxvyO5vnknI</guid>
       <pubDate>Sat, 22 Aug 2026 09:00:00 +0000</pubDate>
@@ -45,7 +133,35 @@
     </item>
     <item>
       <title>智能效率：Ramp研究工程师Ben Geist谈如何用更少Token做更多推理</title>
-      <description>来源：Cursor Compile 26：Intelligence Efficiency，Ben Geist（Ramp机器学习研究工程师）。原始发布日期：2026-06-29。原始视频：https://www.youtube.com/watch?v=Z5M33oh-SAU。AI 中文译制版：声音克隆自原讲者，可能存在少量语气或断句不自然。Ben Geist指出当前LLM智能增长呈对数曲线而成本呈指数增长，分享多智能体共享上下文缓存、稀疏注意力重排序、潜在空间记忆注入三个研究方向，其中潜在空间压缩方案可比RAG减少372倍输入token。</description>
+      <description>来源：
+Cursor Compile 26：Intelligence Efficiency，Ben Geist（Ramp机器学习研究工程师）
+原始发布日期：2026-06-29
+原始视频：https://www.youtube.com/watch?v=Z5M33oh-SAU
+
+本期播客简介：
+本期节目探讨如何通过提升上下文效率来最大化大语言模型的智能效率。主讲人Ben Geist从三张图表出发，指出当前LLM的智能增长呈对数曲线，而成本呈指数增长，并分享了他认为可以将曲线变得更线性的三个研究方向：多智能体系统、稀疏注意力机制和潜在空间记忆注入。对于关注AI成本效益与实用优化的从业者，本期内容值得一听。
+
+本期嘉宾：
+Ben Geist，机器学习研究工程师，任职于Ramp公司。主持人信息未在原视频中明确。
+
+时间戳：
+- 00:00 智能效率引言
+- 01:20 收益递减与代币
+- 05:21 RAG与记忆的局限
+- 06:40 多智能体系统模型
+- 09:23 token的上下文选择
+- 12:04 记忆作为模态
+- 13:33 少372倍的token
+
+精彩内容：
+- 智能与代币并不等价，当前LLM的智能增长正面临收益递减。
+- 通过多智能体间共享全局上下文缓存，可减少21%-31%的总token使用量，同时保持准确率。
+- DeepSeek的稀疏注意力机制实际上可作为重排序器模型，其上下文检索能力媲美最先进的专门模型。
+- 研究者将文档压缩为16个潜在空间表示直接注入冻结的LLM，在TriviaQA上超过RAG-50，且输入token减少372倍。
+- 提升智能效率的关键在于在潜在空间中提供精准上下文，其圣杯是低延迟、可扩展且对基础模型切换成本低。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人。部分语气或断句可能不自然，建议对照原文理解。</description>
       <link>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</link>
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</guid>
       <pubDate>Sat, 22 Aug 2026 12:00:00 +0000</pubDate>
