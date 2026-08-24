@@ -13,46 +13,7 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
-    <item>
-      <title>工程师现在的工作是什么：Shopify工程负责人Farhan Thawar谈AI时代的角色转变</title>
-      <description>来源：
-Cursor Compile 26：What Is Your Job Now，Farhan Thawar（Shopify工程负责人）
-原始发布日期：2026-06-24
-原始视频：https://www.youtube.com/watch?v=ByOF8qByGHU
-
-本期播客简介：
-本期节目，我们跟随 Shopify 工程负责人 Farhan Thawar，探讨 AI 如何重新定义工程师的工作。他分享了在 AI 辅助编码成为常态的今天，工程师的价值如何从编写代码转向品味与判断力，以及软件开发生命周期中瓶颈的转移。无论是管理者还是开发者，都能从中获得关于团队协作、绩效评估和未来招聘的深刻洞见。
-
-本期嘉宾：
-Farhan Thawar，Shopify 工程负责人（原视频中未明确主持人身份）。
-
-时间戳：
-- 00:00 AI改变工程师角色
-- 06:54 基础设施优化与规模
-- 09:19 AI使用者出乎意料
-- 14:03 Token最大化新常态
-- 16:23 快速原型化的优势
-- 20:56 只让用最大模型
-- 23:16 招聘AI人才之困
-- 25:29 拥抱AI生态变化
-
-精彩内容：
-- AI 正在彻底改变软件开发生命周期，工程师的时间分配从编码转向规划与验证。
-- Farhan 提出‘AI 反应力’的概念，即工程师应缩短遇到问题到使用 AI 解决问题的距离。
-- Shopify 部署 Cursor 后，不仅工程师在使用，财务、人力等非技术部门也将其作为与 AI 交互的窗口。
-- 通过一个真实案例说明‘学习才是产物，而不是代码’的理念。
-- 指出 AI 写代码将瓶颈转移到代码审查等环节，并引入了‘LLM 委员会’来辅助审查。
-- 对 AI 时代招聘的思考：通过分阶段（无 AI、可选 AI、强制 AI）来评估候选人的能力。
-
-播客信息补充：
-AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然之处，敬请谅解。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/ByOF8qByGHU</guid>
-      <pubDate>Fri, 21 Aug 2026 10:00:00 +0000</pubDate>
-      <itunes:duration>2244</itunes:duration>
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.mp3" length="22160925" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.srt" type="text/srt" />
-    </item>
+    
     <item>
       <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>
       <description>来源：
