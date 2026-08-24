@@ -26,7 +26,21 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 **已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
 
-**当前状态**：85集批量队列已开始铺开，Cursor Compile 26 共5集处理完（1集正式发布+4集在staging待审核，用户已在小宇宙订阅staging源）；staging→正式播客的转正流程已写入 [播客工作循环.md](播客工作循环.md) §3.9，换设备/换会话也能照做。
+**当前状态**：Cursor Compile 26 共5集全部转正式发布（用户试听确认后按§3.9-B流程转正）；单集RSS简介改为复用六段式笔记，播客整体简介/封面正在改版中；新加入5条Zara推荐的候选视频，插播优先于Figma Config排期。
+
+---
+
+## 2026-08-24 · Cursor Compile 5集全部转正式发布；单集RSS简介结构修复；播客品牌视觉改版进行中；加入5条Zara推荐候选
+
+- 用户试听完staging里的4集（`ByOF8qByGHU`/`I8YnwUV2C9w`/`zxvyO5vnknI`/`Z5M33oh-SAU`）确认无问题，按 [播客工作循环.md](播客工作循环.md) §3.9-B 逐集转正式发布（`episodes/`+`transcripts/`+`feed.xml`+`podcast_status.csv`，pubDate对齐排期表的日期时段），每集单独commit+push，全部成功。Cursor Compile 26 这一批5集（含之前已发布的`fWa7uxyhVDE`）全部上线。
+- 用户反馈"每集简介没有层次"：排查发现六段式节目笔记一直在正常生成，但从未真正写进RSS `<description>`——发布出去的实际是每次手动拼的一段扁平文字。修复：新增 [notes_to_description.py](notes_to_description.py)，直接解析`.md`笔记的`## 标题`结构转成分段纯文本，回填了现有全部10集的`<description>`（含staging里的4集，随后一起转正）。已写入§3.5标准流程：以后必须调这个函数生成，不能手写。
+- 播客整体简介调整：先按"人格化"方向改了一版，用户看完实际文字后不喜欢，改回信息型风格，只做了内容重排序（内容是什么放最前）+ 轻微精简，定稿："聚焦全球AI一线构建者的分享与访谈，AI翻译成中文播客，声音克隆自原讲者。欢迎留言推荐你想听的内容。"
+- 封面设计：原封面文字过小、图形像占位符。做了两轮方向探索（① 麦克风+地球经纬线图标 ② 参考用户提供的"译站"大字宋体+右上角"AI行业"标签的深蓝色版本，并用PIL重新以高分辨率复刻+试了4种背景配色），**尚未定稿**，等用户选定配色后替换`cover.png`。
+- 新增5条Zara推荐的候选视频，登记进`podcast_status.csv`（状态`queued`）并插入 [待处理视频_发布排期.md](待处理视频_发布排期.md) 的"插播"区块（优先于Figma Config排期）：Stanford《Economics of Generative AI》(Apoorv Agrawal，Altimeter Capital合伙人——**投资人身份，非builder标准，用户明确要求收录**)、Lulu Cheng Meservey访谈(Rostra创始人)、Cursor人才负责人Adam Ward谈高密度团队搭建、Paper创始人Stephen Haney的YC Design Review、OpenAI团队谈Hugging Face安全事件。§3.5来源规范补充：个人推荐的视频要在来源里注明推荐人，已在`podcast_status.csv`的`next_action`列标记，处理时别漏。
+- 下一步：
+  1. 封面配色定稿后替换`cover.png`并推送。
+  2. 继续处理"插播"区块的5条Zara推荐视频（Stanford经济学课→Lulu Cheng Meservey→Adam Ward→Paper→OpenAI/HuggingFace，按插播区块顺序），完成后再回到Figma Config排期。
+  3. 是否要把六段式简介结构回溯应用到最早那7-8集老视频（本地没有笔记文件，需要先补生成），待用户决定要不要做。
 
 ---
 
