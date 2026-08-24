@@ -14,6 +14,44 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     <item>
+      <title>智能体与基础设施：PlanetScale CEO Sam Lambert谈AI驱动的数据库运维</title>
+      <description>来源：
+Cursor Compile 26：Agents and Infrastructure，Sam Lambert（PlanetScale CEO）
+原始发布日期：2026-06-24
+原始视频：https://www.youtube.com/watch?v=zxvyO5vnknI
+
+本期播客简介：
+本期播客中，PlanetScale CEO Sam Lambert 深入探讨了智能体如何改变基础设施的角色。他通过现场演示，展示了智能体如何自动优化数据库性能、处理分片等复杂任务，并强调了基础设施建设中的安全性和可回滚性。对于关注 AI 与基础设施融合的听众来说，这是一期不容错过的实战分享。
+
+本期嘉宾：
+Sam Lambert，PlanetScale CEO
+
+时间戳：
+- 00:00 开场介绍
+- 04:37 子智能体运行
+- 09:06 删除列恢复难题
+- 11:15 分片实现挑战
+- 15:48 vindexes定义
+- 17:58 旧应用改造
+- 22:29 智能体调用自动化
+
+精彩内容：
+- 智能体如何自动完成数据库优化，包括索引调整和查询重写
+- PlanetScale 如何通过安全机制阻止智能体误操作，保护生产环境
+- 数据库分片的挑战及智能体如何加速这一过程
+- 基础设施平台应如何设计工具，以便智能体安全高效地操作
+- 智能体与人类协作的未来：从创建到运维的转变
+
+播客信息补充：
+AI 中文译制版，声音克隆自原视频/主持人。请注意，由于 AI 翻译和克隆技术，可能存在语气或断句不自然的情况。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/zxvyO5vnknI</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/zxvyO5vnknI</guid>
+      <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
+      <itunes:duration>2177</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.mp3" length="21281157" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.srt" type="text/srt" />
+    </item>
+    <item>
       <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>
       <description>来源：
 Cursor Compile 26：The Memory Problem，Baseten研究团队（含Charlie）
