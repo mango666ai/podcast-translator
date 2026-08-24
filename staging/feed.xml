@@ -16,43 +16,6 @@
     
     
     
-    <item>
-      <title>智能效率：Ramp研究工程师Ben Geist谈如何用更少Token做更多推理</title>
-      <description>来源：
-Cursor Compile 26：Intelligence Efficiency，Ben Geist（Ramp机器学习研究工程师）
-原始发布日期：2026-06-29
-原始视频：https://www.youtube.com/watch?v=Z5M33oh-SAU
-
-本期播客简介：
-本期节目探讨如何通过提升上下文效率来最大化大语言模型的智能效率。主讲人Ben Geist从三张图表出发，指出当前LLM的智能增长呈对数曲线，而成本呈指数增长，并分享了他认为可以将曲线变得更线性的三个研究方向：多智能体系统、稀疏注意力机制和潜在空间记忆注入。对于关注AI成本效益与实用优化的从业者，本期内容值得一听。
-
-本期嘉宾：
-Ben Geist，机器学习研究工程师，任职于Ramp公司。主持人信息未在原视频中明确。
-
-时间戳：
-- 00:00 智能效率引言
-- 01:20 收益递减与代币
-- 05:21 RAG与记忆的局限
-- 06:40 多智能体系统模型
-- 09:23 token的上下文选择
-- 12:04 记忆作为模态
-- 13:33 少372倍的token
-
-精彩内容：
-- 智能与代币并不等价，当前LLM的智能增长正面临收益递减。
-- 通过多智能体间共享全局上下文缓存，可减少21%-31%的总token使用量，同时保持准确率。
-- DeepSeek的稀疏注意力机制实际上可作为重排序器模型，其上下文检索能力媲美最先进的专门模型。
-- 研究者将文档压缩为16个潜在空间表示直接注入冻结的LLM，在TriviaQA上超过RAG-50，且输入token减少372倍。
-- 提升智能效率的关键在于在潜在空间中提供精准上下文，其圣杯是低延迟、可扩展且对基础模型切换成本低。
-
-播客信息补充：
-AI中文译制版，声音克隆自原视频/主持人。部分语气或断句可能不自然，建议对照原文理解。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/Z5M33oh-SAU</guid>
-      <pubDate>Sat, 22 Aug 2026 12:00:00 +0000</pubDate>
-      <itunes:duration>1033</itunes:duration>
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.mp3" length="9477657" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.srt" type="text/srt" />
-    </item>
+    
   </channel>
 </rss>
