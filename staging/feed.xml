@@ -14,46 +14,7 @@
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover.png" />
     <itunes:category text="Education" />
     
-    <item>
-      <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>
-      <description>来源：
-Cursor Compile 26：The Memory Problem，Baseten研究团队（含Charlie）
-原始发布日期：2026-06-29
-原始视频：https://www.youtube.com/watch?v=I8YnwUV2C9w
-
-本期播客简介：
-本期节目聚焦大语言模型推理中的内存问题，探讨如何在长期代理型用例中实现无损检索与上下文管理。来自Baseten研究团队的成员分享了他们对KV缓存压缩的研究，提出通过摊销压缩与迭代压缩实现无限上下文的新思路。节目值得关注，因为它涉及提升模型长期记忆能力的核心技术，对AI代理的实际应用有重要影响。
-
-本期嘉宾：
-本期主持人包括Baseten研究团队的成员，具体姓名未在原视频中明确。其中一位后续发言者被称为Charlie，负责介绍压缩方法细节。
-
-时间戳：
-- 00:00 内存问题开篇
-- 01:16 三大主要组成
-- 02:33 按上下文与摊销成本
-- 06:15 可变KV缓存压缩
-- 08:39 实现无限上下文
-- 09:47 KL散度稳定方法
-- 11:07 注意力分数计算
-- 12:23 上下文与梯度下降
-
-精彩内容：
-- 内存问题被分为无损KV缓存与高度压缩内存两个极端，中间层缺失成为长期代理的瓶颈。
-- 研究者提出在KVK空间进行压缩，并通过选择与综合、按上下文与摊销成本的2x2矩阵来分类现有方法。
-- 新方法利用交叉注意力机制学习压缩KV缓存，训练目标为压缩与完整KV缓存下的KL散度。
-- 迭代压缩稳定性通过计算后续块上的KL散度实现，可支持16至32次压缩迭代。
-- 压缩后的KV缓存可被视为一个MLP，从上下文中构造，实现了从上下文直接生成权重的样本高效学习。
-- 未来方向包括结合梯度下降与压缩，以进一步优化权重生成过程。
-
-播客信息补充：
-AI中文译制版，声音克隆自原视频/主持人。本节目由AI自动生成中文翻译，可能存在语气或断句不自然，请听众理解。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/I8YnwUV2C9w</guid>
-      <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
-      <itunes:duration>938</itunes:duration>
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.mp3" length="8914581" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.srt" type="text/srt" />
-    </item>
+    
     <item>
       <title>智能体与基础设施：PlanetScale CEO Sam Lambert谈AI驱动的数据库运维</title>
       <description>来源：
