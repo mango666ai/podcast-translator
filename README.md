@@ -87,8 +87,8 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 
 | 项目 | 地址 |
 |------|------|
-| 任务队列（多维表格） | https://m0c4oiqy715.feishu.cn/base/OucDbcF7MaNObBs1WANcmEAQnke |
-| 产物云盘文件夹 | https://m0c4oiqy715.feishu.cn/drive/folder/ZEtzfLmtYlsv4Ddoi3WcH0AYnnp |
+| 任务队列（多维表格） | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
+| 产物云盘文件夹 | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
 
 ---
 

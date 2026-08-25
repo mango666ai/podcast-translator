@@ -12,15 +12,23 @@
     python upload_feishu.py work/<job_id> --title "Lex x Sam Altman"
 """
 
+import os
 import sys
 import json
 import argparse
 import subprocess
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 # 飞书云盘 - 播客翻译 文件夹
-FOLDER_TOKEN = "ZEtzfLmtYlsv4Ddoi3WcH0AYnnp"
-FEISHU_PROFILE = "cli_a92330864c785bde"
+# 本仓库是 public，标识不写死在代码里，改从 .env 读（.env 已 gitignore）。
+# 具体值记在私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md。
+load_dotenv(Path(__file__).parent / ".env")
+
+FOLDER_TOKEN   = os.getenv("FEISHU_FOLDER_TOKEN", "")
+FEISHU_PROFILE = os.getenv("FEISHU_PROFILE", "")
+FEISHU_DOMAIN  = os.getenv("FEISHU_DOMAIN", "")
 
 # 要上传的文件（优先级顺序）
 UPLOAD_TARGETS = [
@@ -118,7 +126,7 @@ def main():
 
     if uploaded:
         print(f"\n飞书云盘文件夹：")
-        print(f"  https://m0c4oiqy715.feishu.cn/drive/folder/{FOLDER_TOKEN}")
+        print(f"  https://{FEISHU_DOMAIN}/drive/folder/{FOLDER_TOKEN}")
         print(f"\n已上传文件：")
         for f in uploaded:
             print(f"  ✓ {f['remote']}")
@@ -133,7 +141,7 @@ def main():
     with open(record_path, "w", encoding="utf-8") as f:
         json.dump({
             "folder_token": FOLDER_TOKEN,
-            "folder_url": f"https://m0c4oiqy715.feishu.cn/drive/folder/{FOLDER_TOKEN}",
+            "folder_url": f"https://{FEISHU_DOMAIN}/drive/folder/{FOLDER_TOKEN}",
             "title": title_prefix,
             "files": uploaded,
         }, f, ensure_ascii=False, indent=2)

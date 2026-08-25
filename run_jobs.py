@@ -8,7 +8,7 @@
     python run_jobs.py --dry-run    # 只打印任务，不实际处理
 
 飞书表格：
-    https://m0c4oiqy715.feishu.cn/base/OucDbcF7MaNObBs1WANcmEAQnke
+    （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md）
 
 设置 macOS 定时运行（每5分钟）：
     crontab -e
@@ -25,9 +25,14 @@ from pathlib import Path
 from datetime import datetime
 
 # ── 飞书配置 ────────────────────────────────────────────
-BASE_TOKEN   = "OucDbcF7MaNObBs1WANcmEAQnke"
-TABLE_ID     = "tblVsPdsuqoX5RLf"
-FEISHU_PROFILE = "cli_a92330864c785bde"
+# 本仓库是 public，标识不写死在代码里，改从 .env 读（.env 已 gitignore）。
+# 具体值记在私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md。
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent / ".env")
+
+BASE_TOKEN     = os.getenv("FEISHU_BASE_TOKEN", "")
+TABLE_ID       = os.getenv("FEISHU_TABLE_ID", "")
+FEISHU_PROFILE = os.getenv("FEISHU_PROFILE", "")
 
 # 字段名
 F_URL       = "播客URL"

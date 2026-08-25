@@ -128,7 +128,7 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
   - `youtube_multivoice_dub.py` 对全部 432 段生成完整音频：`youtube_dub/P3KDebPTUrw__OpenAI合并Codex与ChatGPT/P3KDebPTUrw__OpenAI合并Codex与ChatGPT__完整中文音频_多声线原声还原0.82.mp3`，`ffprobe` 确认 `duration=4632.35s`（约77分12秒）/ `size=39740229`。
   - 已发布：复制改名为 `episodes/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.mp3`，SRT 复制到 `transcripts/` 同名，`feed.xml` 新增条目（标题《OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河》），`python -m xml.etree.ElementTree` 校验格式合法。`podcast_status.csv` 状态改为 `published_multivoice`。
   - **第9集是当前流程里唯一直接发布的一集**——用户明确了新的发布节奏：之后新处理的集数先留在本地攒着，不一次性推 RSS，每天只发一集（见决策日志）。
-- 飞书任务队列接入：原配置的应用（appId `cli_a922...`，"芒果"）访问这张多维表格报 `91403 无权限`；用户澄清应该用"总店长"账号 + 名为 Doven 的应用（appId `cli_a92330864c785bde`）访问。已用 `lark-cli config init --name Doven` 配置该应用（secret 走 stdin，未明文落地），并引导总店长账号完成设备码授权，改用 `--profile Doven` 后成功读取到表格内容：
+- 飞书任务队列接入：原配置的应用（appId `cli_a922...`，"芒果"）访问这张多维表格报 `91403 无权限`；用户澄清应该用"总店长"账号 + 名为 Doven 的应用（appId （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md））访问。已用 `lark-cli config init --name Doven` 配置该应用（secret 走 stdin，未明文落地），并引导总店长账号完成设备码授权，改用 `--profile Doven` 后成功读取到表格内容：
   - 表里有 4 条记录（含 1 条重复提交），对应 3 个不重复视频：`Unzc731iCUY`（MIT《How to Speak》）、`1_jlukb7gm4`（Alex Lieberman，*How I AI*）、`tivaWTTVRhY`（Dianne Penn/Anthropic，*Lenny's Podcast*）。
   - **发现不一致**：`Unzc731iCUY` 在飞书里标记"已完成"（2026-06-10），但 GitHub 仓库（`feed.xml`/`episodes/`）里完全没有这期的任何痕迹——用户确认这是旧链路（`run_jobs.py`→`test_pipeline.py`）留下的过时/测试数据，不代表真发布过。三个视频都已重新登记进 `podcast_status.csv`（`queued`），飞书这条"已完成"以后不再作为已处理的依据。
 - 用户离开前交代：接下来自主处理，完成后汇报进度和需要决策的点。三条队列全部推进到"翻译完成"这一步（转写+DeepSeek翻译+字幕+双语稿+节目笔记，全部免费、不涉及决策）：
@@ -339,11 +339,11 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 | 项目 | 值 |
 |------|---|
-| 飞书应用 | `cli_a92330864c785bde` |
-| 任务队列（多维表格） | https://m0c4oiqy715.feishu.cn/base/OucDbcF7MaNObBs1WANcmEAQnke |
+| 飞书应用 | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
+| 任务队列（多维表格） | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
 | 云盘文件夹 | 播客翻译 |
-| folder_token | `ZEtzfLmtYlsv4Ddoi3WcH0AYnnp` |
-| 文件夹链接 | https://m0c4oiqy715.feishu.cn/drive/folder/ZEtzfLmtYlsv4Ddoi3WcH0AYnnp |
+| folder_token | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
+| 文件夹链接 | （见私有笔记仓库 aicoding-notes/project5_podcast/PROJECT_MAP.md） |
 
 ## 技术链路（当前完整版）
 
