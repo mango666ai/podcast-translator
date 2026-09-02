@@ -138,5 +138,46 @@ AI中文译制版，声音克隆自原视频/主持人，可能存在语气或�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.mp3" length="43274781" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>高人才密度团队搭建法：Cursor人才负责人Adam Ward谈反直觉招聘原则</title>
+      <description>来源：
+Lenny's Podcast：The playbook for building high talent density teams，Adam Ward（Cursor人才负责人）
+原始发布日期：2026-08-09
+原始视频：https://www.youtube.com/watch?v=zegYJ6dhIg4
+Zara推荐
+
+本期播客简介：
+本期播客邀请到Cursor人才负责人Adam Ward，他分享了打造高人才密度团队的实战方法。节目从常见的招聘误区“厄运漏斗”说起，指出大多数公司虽把人才视为第一要务，却在招聘流程中系统性地错失顶尖人才。Adam提出了一种反直觉的思路：不依赖海量筛选，而是像高管招聘那样，精准定义顶尖人才画像，主动绘制并激活全球前50名候选人。他还探讨了当前市场对FDE等新岗位的需求变化，以及如何通过关怀与持续跟进，让优秀人才愿意加入。对于任何希望系统性提升招聘质量、长期建设精英团队的创始人与HR，这期内容都极具参考价值。
+
+本期嘉宾：
+Adam Ward，现任Cursor人才负责人。他曾与人共同创立独立招聘公司Growth by Design，后被Cursor全资收购。此前，他在Pinterest领导全球招聘（公司从200人扩展至2000人以上），并在Facebook带领65人招聘团队（技术团队从1000人扩至10000人）。
+
+时间戳：
+- 00:00 厄运漏斗的误区
+- 15:16 招聘中的理性单元
+- 22:59 系统性思维受重视
+- 30:43 社交信誉与人才发掘
+- 38:28 提升候选人体验
+- 46:12 双向选择的力量
+- 53:55 快速复盘决策
+- 69:17 招聘去交易化
+
+精彩内容：
+- “厄运漏斗”陷阱：多数公司通过漏斗筛选候选人，最终雇佣的是“剩下的人”，而非顶尖20%。
+- 顶级招聘先定义范围：明确“前1%”所需的技能和经验，再主动绘制全球符合条件的前50人名单。
+- 发现人才的关键问题：不要问“谁最优秀”，而要问“谁与设计师合作最默契”等具体问题，以便定位。
+- 网络挖掘：通过信任的人脉网络，进行一对一访谈与持续跟进，逐步找到并激活顶尖人才。
+- 新兴岗位FDE：前向部署工程师需求激增，而过度专业化角色减少，设计/工程岗位融合趋势明显。
+- “关心是免费的”：候选人满意度最高的因素是他们感受到公司真正想要自己，因此持续关怀是长期留住人才的核心。
+
+播客信息补充：
+本集为AI中文译制版，声音克隆自原视频/主持人。可能存在语气或断句不自然，敬请谅解。原视频出自Lenny's Podcast，原文名称：The playbook for building high talent density teams。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/zegYJ6dhIg4</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/zegYJ6dhIg4</guid>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
+      <itunes:duration>6425</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.mp3" length="55318113" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

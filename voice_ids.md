@@ -33,6 +33,12 @@
 | `DFImJfJGXl0_david_20260825` | David Senra（主持人，Founders播客） | `DFImJfJGXl0` 如何打造狂热粉丝 | 2026-08-25 | 原视频 2291-2376s 段，85秒 |
 | `NYFGCESmikA_lex_20260826` | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈（拆成5集：`_p1`~`_p5`共用这个声线） | 2026-08-26 | 原视频 30-120s 段，90秒 |
 | `NYFGCESmikA_dhh_20260826` | DHH / David Heinemeier Hansson（嘉宾，Ruby on Rails创始人/37signals联合创始人兼CTO） | `NYFGCESmikA` DHH访谈（5集共用） | 2026-08-26 | 原视频 228-312s 段，84秒 |
+| `zegYJ6dhIg4_adam_20260826` | Adam Ward（嘉宾，Cursor人才负责人） | `zegYJ6dhIg4` 高人才密度团队搭建法 | 2026-08-26 | 原视频 720-810s 段，90秒 |
+| （复用）`P3KDebPTUrw_host_20260719` | Lenny（主持人，*Lenny's Podcast*） | `zegYJ6dhIg4` 高人才密度团队搭建法 | — | 同一主持人，复用第9集已克隆声线，未新建 |
+| `P06RgnUKXI_stephen_20260826` | Stephen Haney（嘉宾，Paper创始人） | `P06RgnUKX_I` 智能体时代的设计 | 2026-08-26 | 原视频 2791-2881s 段，90秒 |
+| `P06RgnUKXI_aaron_20260826` | Aaron Epstein（主持人，YC General Partner） | `P06RgnUKX_I` 智能体时代的设计 | 2026-08-26 | 原视频 2253-2309s 段，56秒 |
+| `v87DyyMV0kCY_eric_20260826` | Eric Wallace（讲者，OpenAI） | `87DyyMV0kCY` OpenAI入侵HuggingFace事件 | 2026-08-26 | 原视频 30-120s 段，90秒 |
+| `v87DyyMV0kCY_michael_20260826` | Michael Dalton（讲者，OpenAI） | `87DyyMV0kCY` OpenAI入侵HuggingFace事件 | 2026-08-26 | 原视频 810-900s 段，90秒 |
 
 ## 命名约定
 
