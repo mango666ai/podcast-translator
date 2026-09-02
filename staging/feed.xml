@@ -17,5 +17,46 @@
     
     
     
+    <item>
+      <title>生成式AI经济学：硅谷投资人拆解AI价值链的钱去哪了</title>
+      <description>来源：
+Stanford Online：Economics of Generative AI，Apoorv Agrawal（Stanford客座讲师/Altimeter Capital合伙人）
+原始发布日期：2026-07-17
+原始视频：https://www.youtube.com/watch?v=LNSvp-9b-J0
+Zara推荐
+
+本期播客简介：
+本期播客聚焦生成式AI的经济学，探讨AI价值链中资金流向与实际盈利能力的错配。主讲人基于一张倒置三角形图表，分析半导体、基础设施与应用层之间的价值分布，并讨论其与互联网、移动及云时代模式的异同。节目适合关注AI产业投资逻辑与商业模式的听众。
+
+本期嘉宾：
+本期主讲人为Apoorv Agrawal，斯坦福大学客座讲师，同时担任Altimeter Capital合伙人。未在原视频中明确其他嘉宾信息。
+
+时间戳：
+- 00:09 课程开场与参与引导
+- 06:14 英伟达与数据中心投入
+- 12:15 AWS与TPU业务划分
+- 18:02 资本支出指引热议
+- 23:58 小测验：公司提示
+- 27:00 资金流向半导体
+- 29:58 消费产品网络效应
+- 33:02 订阅与广告模式探讨
+
+精彩内容：
+- 主讲人提出AI生态呈倒三角形结构，底层半导体占据主要收入，而应用层收入占比极小，与传统云生态相反。
+- AI应用边际成本高昂，需持续消耗GPU，导致即使收入规模大仍难以盈利。
+- ChatGPT、Gemini等AI应用的用户规模与变现能力仍有很大提升空间，广告可能成为关键解锁点。
+- 主讲人讨论了英伟达在AI芯片市场的垄断地位及其对生态的影响，并提及ASIC芯片项目的潜在影响。
+- 预测AI资本支出周期可能比云时代更长，因为基础设施构建难度更大。
+- 课程将邀请OpenAI、Anthropic等公司嘉宾，探讨盈利模式、竞争格局等核心问题。
+
+播客信息补充：
+AI 中文译制版，声音克隆自原视频/主持人。注意：可能存在语气或断句不自然，请以原视频内容为准。原始视频来自Stanford Online课程《Economics of Generative AI》，由Apoorv Agrawal主讲。课堂互动环节里多位不同学生的提问共用同一个克隆声线，不代表同一个人。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/LNSvp-9b-J0</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/LNSvp-9b-J0</guid>
+      <pubDate>Tue, 25 Aug 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>2200</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.mp3" length="18351117" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>

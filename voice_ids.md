@@ -27,6 +27,8 @@
 | `I8YnwUV2C9w_charlie_20260821` | Charlie（Baseten研究员，讲具体方法） | `I8YnwUV2C9w` 内存问题 | 2026-08-21 | 原视频 300-390s 段，90秒 |
 | `zxvyO5vnknI_sam_20260821` | Sam Lambert（PlanetScale CEO，单人演讲） | `zxvyO5vnknI` 智能体与基础设施 | 2026-08-21 | 原视频 40-130s 段，90秒 |
 | `Z5M33ohSAU_ben_20260821` | Ben Geist（Ramp机器学习研究工程师，单人演讲） | `Z5M33oh-SAU` 智能效率 | 2026-08-21 | 原视频 40-130s 段，90秒；video_id含连字符，voice_id去掉连字符 |
+| `LNSvp9bJ0_instructor_20260825` | Apoorv Agrawal（主讲人，Stanford客座讲师/Altimeter Capital合伙人） | `LNSvp-9b-J0` 生成式AI经济学 | 2026-08-25 | 原视频 60-150s 段，90秒 |
+| `LNSvp9bJ0_student_20260825` | 课堂学生提问（多个不同学生共用一个声线，边缘案例见决策日志） | `LNSvp-9b-J0` 生成式AI经济学 | 2026-08-25 | 原视频 751-826s 段，75秒 |
 
 ## 命名约定
 
