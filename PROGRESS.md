@@ -26,7 +26,22 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 **已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
 
-**当前状态**：Cursor Compile 26 共5集全部转正式发布（用户试听确认后按§3.9-B流程转正）；单集RSS简介改为复用六段式笔记，播客整体简介/封面正在改版中；新加入5条Zara推荐的候选视频，插播优先于Figma Config排期。
+**当前状态**：Cursor Compile 26 共5集全部转正式发布；Zara推荐的5条中3条已在staging（Stanford经济学课/Lulu Cheng Meservey/Adam Ward），2条卡在MiniMax额度用尽（Paper的YC Design Review 397/479段、OpenAI-HuggingFace事件 90/169段，充值后可直接续跑）；新插入DHH超长访谈(5h17m)按官方章节拆成5集，第1/5集已在staging，第2-5集还没开始配音。
+
+---
+
+## 2026-08-26 · Zara推荐5条处理中途MiniMax额度用尽；新增DHH超长访谈拆分处理经验
+
+- 处理Zara推荐的5条候选：`LNSvp-9b-J0`(Stanford经济学课)、`DFImJfJGXl0`(Lulu Cheng Meservey)、`zegYJ6dhIg4`(Adam Ward/Cursor)三条已完整生成并放入staging；`P06RgnUKX_I`(Paper/YC Design Review)卡在397/479段、`87DyyMV0kCY`(OpenAI-HuggingFace事件)卡在90/169段，均因MiniMax账户额度用尽中断——`_synthesize_with_retry`已有的重试机制对"额度用尽"这类不会自愈的错误也重试了2次+等待，属预期内的无效重试，不是bug。**已生成的片段有缓存（`seg_full/`），充值后重跑相同命令会跳过已完成部分只补剩余的**，不会浪费已花的额度。
+- 用户临时插入一个新任务：Lex Fridman Podcast #501（DHH访谈，5小时17分钟），因为太长专门问了怎么拆分。用官方YouTube章节标记（`yt-dlp --print "%(chapters)j"`）作为切分依据，按用户选择的"全部内容保留、拆成4-5集"方案，切成5集（`NYFGCESmikA_p1`~`_p5`，60-72分钟/集），实现方式：
+  - 下载一次完整字幕+音频，转成完整分段JSON后按章节边界切割，**每部分的时间戳都做了localize（减去该part的起始offset）**，保证字幕/时间戳/节目笔记时间点在每一集里都是从0开始，不会因为原视频总时长5小时而出现"01:30:00"这种在单集里读不懂的时间戳。
+  - 声音克隆只做一次（Lex Fridman + DHH各一个voice_id），5个part共用，不用每集重新克隆。
+  - 发现并绕过一个真实的代码短板：`build_speaker_rules.py` 的 `label_turns()` 会把全部说话人轮次一次性塞进一个prompt发给DeepSeek，**没有像翻译层那样做batch+超限重试拆分**；这集1008轮发言一次性请求导致DeepSeek输出被截断，JSON解析连续失败3次后直接崩溃退出（无兜底）。当前是靠"反正已经把长节目按part拆开了"顺便绕开了这个坑（每个part只有150-250轮，在正常范围内），**没有修复`build_speaker_rules.py`本身**——如果以后遇到不方便拆分的超长单集（比如轮次很多但总时长不到60分钟不想拆），这个函数还是会在轮次数过多时崩溃，属于遗留技术债，待后续视频再触发时再修。
+  - 第1/5集(`NYFGCESmikA_p1`)已完整生成放入staging；第2-5集只完成了翻译+字幕，TTS配音因MiniMax额度用尽还没开始。
+- 下一步（额度恢复后）：
+  1. 续跑 `P06RgnUKX_I`、`87DyyMV0kCY` 的TTS（命令见 `youtube_dub/<对应目录>` 里保留的分段JSON，直接重跑上次的 `youtube_multivoice_dub.py` 命令即可，注意voice_ids已经克隆好不用重建）。
+  2. 处理DHH访谈第2-5集的配音。
+  3. 全部完成后用户试听staging，确认后按§3.9-B逐集转正式。
 
 ---
 
