@@ -99,5 +99,44 @@ AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/DFImJfJGXl0-lulu-cheng-meservey-cult-following-zh-multivoice.mp3" length="69849837" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/DFImJfJGXl0-lulu-cheng-meservey-cult-following-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>DHH谈AI编程与开源的未来（第1/5集）｜Lex Fridman播客#501</title>
+      <description>来源：
+Lex Fridman Podcast #501：DHH（Ruby on Rails/Basecamp创始人）访谈 第1/5部分（开场～Building Omarchy Linux distro，原视频00:00-01:00:06）
+原始发布日期：2026-08-26
+原始视频：https://www.youtube.com/watch?v=NYFGCESmikA
+
+本期播客简介：
+本期节目是Lex Fridman与DHH（大卫·海涅迈尔·汉森）的深度对话的第一部分。DHH是Ruby on Rails的创始人、37signals的CTO，也是新开源操作系统Omarchy的创造者。在近期的AI革命中，DHH从怀疑者转变为热情的拥抱者，本集我们将听他回顾过去几个月AI编程工具的飞速发展，分享他如何用AI代理编写代码，以及他对开源项目维护、软件开发的未来等话题的独到见解。这是一次信息量大且发人深省的讨论，适合对AI编程和开源感兴趣的听众。
+
+本期嘉宾：
+主持人：Lex Fridman（人工智能研究者、播客主持人）；嘉宾：David Heinemeier Hansson（DHH），Ruby on Rails创始人、37signals CTO、Omarchy Linux发行版创造者。
+
+时间戳：
+- 00:00 AI时代的分量
+- 10:04 AI编程体验
+- 15:09 开源与AI结合
+- 20:18 组织的瓶颈
+- 35:41 开源琐事消失
+- 45:57 编程语言演进
+- 51:06 氛围编程者
+- 56:07 提示词工程热潮
+
+精彩内容：
+- DHH认为过去九个月AI的发展浓缩了数十年的进步，他对此感到无比兴奋和幸运。
+- DHH描述了从聊天机器人到智能体，再到子智能体的演进，并分享了他在Omarchy项目中实现100%代码由AI编写，自己只负责审查和决策的体验。
+- DHH认为AI在开源项目的维护中利大于弊，智能体生成的拉取请求质量甚至超过人类程序员，并且减轻了维护者的负担。
+- DHH坚信AI不仅能执行任务，还能产生创新想法，他回应了那些认为AI只是复读机的批评。
+- DHH谈到了个人开发者利用AI工具，甚至可以按需定制软件，并分享了他为Linux重写写作应用的经历。
+
+播客信息补充：
+AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然；原视频为Lex Fridman Podcast #501，本部分为开场至01:00:06。原节目长达5小时17分钟，按官方章节拆成5集发布，本集是第1集，后续4集陆续更新。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1</guid>
+      <pubDate>Wed, 26 Aug 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>4358</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.mp3" length="43274781" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
