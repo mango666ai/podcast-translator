@@ -29,6 +29,10 @@
 | `Z5M33ohSAU_ben_20260821` | Ben Geist（Ramp机器学习研究工程师，单人演讲） | `Z5M33oh-SAU` 智能效率 | 2026-08-21 | 原视频 40-130s 段，90秒；video_id含连字符，voice_id去掉连字符 |
 | `LNSvp9bJ0_instructor_20260825` | Apoorv Agrawal（主讲人，Stanford客座讲师/Altimeter Capital合伙人） | `LNSvp-9b-J0` 生成式AI经济学 | 2026-08-25 | 原视频 60-150s 段，90秒 |
 | `LNSvp9bJ0_student_20260825` | 课堂学生提问（多个不同学生共用一个声线，边缘案例见决策日志） | `LNSvp-9b-J0` 生成式AI经济学 | 2026-08-25 | 原视频 751-826s 段，75秒 |
+| `DFImJfJGXl0_lulu_20260825` | Lulu Cheng Meservey（嘉宾，Rostra创始人） | `DFImJfJGXl0` 如何打造狂热粉丝 | 2026-08-25 | 原视频 10-95s 段，85秒 |
+| `DFImJfJGXl0_david_20260825` | David Senra（主持人，Founders播客） | `DFImJfJGXl0` 如何打造狂热粉丝 | 2026-08-25 | 原视频 2291-2376s 段，85秒 |
+| `NYFGCESmikA_lex_20260826` | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈（拆成5集：`_p1`~`_p5`共用这个声线） | 2026-08-26 | 原视频 30-120s 段，90秒 |
+| `NYFGCESmikA_dhh_20260826` | DHH / David Heinemeier Hansson（嘉宾，Ruby on Rails创始人/37signals联合创始人兼CTO） | `NYFGCESmikA` DHH访谈（5集共用） | 2026-08-26 | 原视频 228-312s 段，84秒 |
 
 ## 命名约定
 

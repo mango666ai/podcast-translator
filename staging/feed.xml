@@ -58,5 +58,46 @@ AI 中文译制版，声音克隆自原视频/主持人。注意：可能存在�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.mp3" length="18351117" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>如何打造狂热粉丝：Rostra创始人Lulu Cheng Meservey谈传播策略</title>
+      <description>来源：
+Founders播客：How to Build a Cult Following，Lulu Cheng Meservey（Rostra创始人，前Substack/Activision Blizzard传播负责人）× David Senra
+原始发布日期：2026-08-12
+原始视频：https://www.youtube.com/watch?v=DFImJfJGXl0
+Zara推荐
+
+本期播客简介：
+本期播客聚焦如何打造品牌狂热粉丝，嘉宾Lulu Cheng Meservey分享了她从中国农村到挪威、加拿大，最终在美国成为顶尖科技传播专家的非凡经历。她讲述了如何通过直接沟通和富有感染力的宣言，帮助创始人们建立用户运动，推动企业成功。这期内容不仅适合创业者，也适合任何希望打造个人品牌或社区的人。
+
+本期嘉宾：
+Lulu Cheng Meservey（Rostra创始人，前Substack和Activision Blizzard传播负责人），主持人David Senra（Founders播客主持人）。
+
+时间戳：
+- 00:02 从中国到挪威的奇遇
+- 06:31 帮创始人建立运动
+- 19:41 争议与反常规
+- 32:51 人的部分是关键
+- 39:23 讲故事是最强权力
+- 52:26 美与吸引力
+- 58:59 拒绝走捷径
+- 72:05 坚持原则积累复利
+
+精彩内容：
+- Lulu分享了她如何从不懂公关到成为顶尖科技创始人公关顾问的成长历程。
+- 她强调创始人应直接沟通，绕开传统媒体，以建立自己的叙事主权。
+- 好的宣言能激发人们的热情，帮助创始人吸引追随者，对抗行业巨头。
+- Lulu以反叛乱为类比，说明如何用激情和清晰愿景击败资源更强大的对手。
+- 她指出AI公司面临的公众信任挑战，并批评埃里克·施密特的沟通方式。
+- Lulu认为，创始人必须是最坚信自己愿景的人，才能激发他人加入。
+
+播客信息补充：
+AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然，请理解。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/DFImJfJGXl0</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/DFImJfJGXl0</guid>
+      <pubDate>Tue, 25 Aug 2026 18:00:00 +0000</pubDate>
+      <itunes:duration>6795</itunes:duration>
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/DFImJfJGXl0-lulu-cheng-meservey-cult-following-zh-multivoice.mp3" length="69849837" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/DFImJfJGXl0-lulu-cheng-meservey-cult-following-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
