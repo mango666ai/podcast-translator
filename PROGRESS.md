@@ -30,6 +30,20 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 ---
 
+## 2026-09-02 · 修复LNSvp-9b-J0音量偏小问题；调研TTS/声音克隆替代方案（降成本）
+
+- 用户反馈"最近几集音量偏小"，实测比对（`ffmpeg -af volumedetect`）发现**只有`LNSvp-9b-J0`（Stanford经济学课）一集**真的偏小（讲师/学生两个声线mean_volume都是-28~-32dB，比正常集数低6-9dB），其余几集（Lulu Cheng Meservey/Adam Ward/DHH第1集）测出来都正常。根因推测：原始YouTube课堂录音本身录音增益偏低，克隆声线+MiniMax合成后延续了这个偏低响度。
+  修复：`tts_minimax.py` 的 `_concat()`（单声线/多声线两条链路共用这一个函数）拼接步骤加了 `ffmpeg loudnorm=I=-16:TP=-1.5:LRA=11`，统一目标响度到-16 LUFS，对所有未来集数都生效，不是只修这一集。`LNSvp-9b-J0` 复用已有`seg_full/`缓存重新拼接（没有重新烧TTS额度），响度从mean-28.8dB/max-11.1dB 修复到 mean-16.2dB/max-1.5dB，已替换staging里的文件。
+- 用户提出MiniMax太贵，要求调研替代的声音克隆+TTS方案。调研并实测了3家：
+  - **火山引擎**：声音复刻单独收费138元/个（一旦调用合成即锁定），且API是按"项目"分权限的复杂鉴权体系——实测拿到的API Key调用声音复刻接口时报`resource not granted`，需要确认key和"已开通"服务是不是同一个项目下，目前**未跑通**。
+  - **阿里云百炼CosyVoice**：调研阶段看起来最优（声音复刻免费、合成2元/万字符、鉴权简单的Bearer token），但实测发现声音复刻接口**不支持直接传base64音频**，必须提供一个真实可访问的公网音频URL；而且这个URL**必须是国内网络能访问到的**——测试时用GitHub raw链接（`raw.githubusercontent.com`）返回`download audio failed`，因为国内云服务访问GitHub经常被限制。标准解法是搭一个阿里云OSS bucket做音频中转，但这需要额外开通OSS+新建AccessKey，比预期的"直接换key"多一层工作量，**目前卡在这一步，等用户决定要不要开OSS**。
+  - 顺带对比了腾讯云（声音复刻一句话版28-39元/个+6.2-6.8元/万字，基础版更便宜但要买亿级字符资源包起投）、讯飞开放平台（走企业批量授权模式，起投几千元，不适合零散场景）、Fish Audio/ElevenLabs（海外服务，克隆免费只按字符收费，但涉及外币支付）、GPT-SoVITS/Fish-Speech开源自部署（完全免费但需要GPU，现有环境是纯CPU）。
+- 下一步：
+  1. 等用户决定CosyVoice要不要配OSS继续跑通，跑通前所有集数仍用MiniMax（额度恢复后）生成，不要中途混用未验证方案。
+  2. 见下方"2026-08-26"条目未完成事项（`P06RgnUKX_I`/`87DyyMV0kCY`补TTS、DHH访谈第2-5集配音）。
+
+---
+
 ## 2026-08-26 · Zara推荐5条处理中途MiniMax额度用尽；新增DHH超长访谈拆分处理经验
 
 - 处理Zara推荐的5条候选：`LNSvp-9b-J0`(Stanford经济学课)、`DFImJfJGXl0`(Lulu Cheng Meservey)、`zegYJ6dhIg4`(Adam Ward/Cursor)三条已完整生成并放入staging；`P06RgnUKX_I`(Paper/YC Design Review)卡在397/479段、`87DyyMV0kCY`(OpenAI-HuggingFace事件)卡在90/169段，均因MiniMax账户额度用尽中断——`_synthesize_with_retry`已有的重试机制对"额度用尽"这类不会自愈的错误也重试了2次+等待，属预期内的无效重试，不是bug。**已生成的片段有缓存（`seg_full/`），充值后重跑相同命令会跳过已完成部分只补剩余的**，不会浪费已花的额度。
