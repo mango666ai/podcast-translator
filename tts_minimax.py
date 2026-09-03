@@ -213,6 +213,7 @@ def _concat(seg_paths: list, output: Path):
     subprocess.run([
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
         "-i", str(list_file),
+        "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
         "-acodec", "libmp3lame", "-q:a", "2",
         str(output),
     ], capture_output=True)
