@@ -24,6 +24,7 @@ import time
 import argparse
 import subprocess
 import asyncio
+import re
 import requests
 from pathlib import Path
 from dotenv import load_dotenv
@@ -48,6 +49,26 @@ VOICES = {
 
 PREVIEW_TEXT = "欢迎收听今天的播客节目。我们今天要讨论的是人工智能的未来发展方向，以及它将如何改变我们的工作和生活方式。这是一个非常值得深入探讨的话题。"
 
+# 字幕里混进来但不该被念出来的标记：
+#   `>>`   YouTube 自动字幕的说话人切换符（DeepSeek 翻译时会原样保留），
+#          MiniMax 会念成「大于大于」。它在 build_speaker_rules.py / 
+#          build_multivoice_segments_from_json3.py 里仍然有用（切说话人轮次），
+#          所以只在送进 TTS 的这一步剥掉，不要在上游删。
+#   [音乐] [笑声] …  非语音音效标注，念出来就成了旁白读「笑声」。
+_SPEAKER_MARK_RE = re.compile(r"(?:^|(?<=\s))>>+\s*")
+_NONSPEECH_RE = re.compile(
+    r"[\[［(（]\s*(?:音乐|背景音乐|笑声|笑|大笑|掌声|鼓掌|哼声|哼一声|哼|停顿|沉默|"
+    r"music|laughter|laughs|applause|silence|pause)\s*[\]］)）]",
+    re.IGNORECASE,
+)
+
+
+def clean_for_tts(text: str) -> str:
+    """剥掉不该被念出来的字幕标记。所有 TTS 链路都从 synthesize() 走，所以这里是唯一收口点。"""
+    text = _SPEAKER_MARK_RE.sub("", text)
+    text = _NONSPEECH_RE.sub("", text)
+    return re.sub(r"\s+", " ", text).strip()
+
 
 # ─────────────────────────────────────────
 # 核心合成函数
@@ -60,6 +81,10 @@ def synthesize(text: str, out_path: Path, voice: str = "Wise_Woman", speed: floa
     """
     if not MINIMAX_API_KEY or MINIMAX_API_KEY == "换成你重新生成的新key":
         raise ValueError("MINIMAX_API_KEY 未设置，请更新 .env 文件")
+
+    text = clean_for_tts(text)
+    if not text:
+        raise ValueError("清洗后文本为空，调用方应改为写静音段")
 
     headers = {
         "Authorization": f"Bearer {MINIMAX_API_KEY}",

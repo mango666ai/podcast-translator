@@ -45,42 +45,91 @@ def _preview(text: str, head: int = 300, tail: int = 300) -> str:
     # 大幅降低这种漏判概率。
     if len(text) <= head + tail:
         return text
+    if tail <= 0:
+        return f"{text[:head]}…"
     return f"{text[:head]} …(中间省略)… {text[-tail:]}"
 
 
-def label_turns(turns: list, speakers: list) -> dict:
+BATCH = 50
+
+
+def _label_batch(turns: list, speakers: list, offset: int, context: list) -> dict:
+    """标注单批（<=BATCH 轮）。3 次仍解析失败就对半拆开递归重试，缩小单次输出量——
+    和 youtube_dub._translate_batch 同一套路数。context 是上一批末尾几轮的
+    「轮次→speaker」结论，只读，用来保持对话线索不断。"""
     labels = [s["label"] for s in speakers]
+    default_label = labels[-1]
     roster = "\n".join(f"- {s['label']}：{s['name']}" for s in speakers)
     lines = "\n".join(f"[{i}] {_preview(t['text'])}" for i, t in enumerate(turns))
+    ctx = ""
+    if context:
+        ctx = "已经判定好的上文（只作参考，不要重复标注）：\n" + "\n".join(
+            f"（{spk}）{_preview(txt, 120, 0)}" for spk, txt in context
+        ) + "\n\n"
     prompt = (
         f"下面是一段播客对话按发言轮次切分的文本，说话人一共 {len(speakers)} 位：\n{roster}\n"
         f"请按顺序判断每一轮是谁在说话，只看对话内容和上下文逻辑（谁在提问、谁在讲自己的经历/工作、"
         f"被别人怎么称呼/提到）。\n"
+        f"本批共 {len(turns)} 轮，序号 0 到 {len(turns) - 1}，必须每一轮都给出结论。\n"
         f"按序号一一对应，**只**返回 JSON（无其他文字）：\n"
         f'```json\n{{"turns":[{{"i":0,"speaker":"{labels[0]}"}}]}}\n```\n'
         f"speaker 只能是这些取值之一：{', '.join(labels)}。\n\n"
-        f"对话：\n{lines}"
+        f"{ctx}对话：\n{lines}"
     )
-    default_label = labels[-1]
     for attempt in range(1, 4):
         try:
             text = call_gpt(prompt, json_mode=True)
             m_start = text.find("{")
             m_end = text.rfind("}")
+            if m_start < 0 or m_end < 0:
+                raise ValueError("返回里找不到 JSON（多半是输出被截断）")
             data = json.loads(text[m_start:m_end + 1])
-            result = {}
+            local = {}
             for k, d in enumerate(data.get("turns", [])):
                 try:
                     idx = int(d.get("i", k))
                 except (TypeError, ValueError):
                     idx = k
                 speaker = d.get("speaker", default_label)
-                result[idx] = speaker if speaker in labels else default_label
-            return result
-        except (json.JSONDecodeError, ValueError) as e:
-            if attempt == 3:
-                raise
-            print(f"  ⚠️ 说话人标注解析失败(第{attempt}次)：{e}，重试")
+                local[idx] = speaker if speaker in labels else default_label
+            missing = [i for i in range(len(turns)) if i not in local]
+            if missing:
+                raise ValueError(f"缺少轮次 {missing[:8]}{'…' if len(missing) > 8 else ''}")
+            return {offset + i: local[i] for i in range(len(turns))}
+        except (json.JSONDecodeError, ValueError, KeyError, TypeError) as e:
+            if attempt < 3:
+                print(f"  ⚠️ 说话人标注解析失败(第{attempt}次)：{e}，重试")
+                continue
+            if len(turns) > 1:
+                mid = len(turns) // 2
+                print(f"  ⚠️ 批次({len(turns)}轮)连续3次失败：{e}，拆成两半分别重试")
+                left = _label_batch(turns[:mid], speakers, offset, context)
+                right_ctx = [(left[offset + mid - 1], turns[mid - 1]["text"])]
+                return {**left, **_label_batch(turns[mid:], speakers, offset + mid, right_ctx)}
+            # 单轮还失败：不让整集崩掉，沿用上一轮的说话人并记账
+            fallback = context[-1][0] if context else default_label
+            print(f"  ⚠️ 第 {offset} 轮标注失败({e})，沿用上一轮 speaker={fallback}")
+            FALLBACK_TURNS.append(offset)
+            return {offset: fallback}
+
+
+FALLBACK_TURNS: list = []
+
+
+def label_turns(turns: list, speakers: list) -> dict:
+    """分批标注。原来是把全部轮次塞进一个 prompt——DHH 那集 1008 轮直接把
+    DeepSeek 的输出撑到截断，JSON 连续解析失败后整集崩溃退出。"""
+    FALLBACK_TURNS.clear()
+    result = {}
+    context: list = []
+    for i in range(0, len(turns), BATCH):
+        batch = turns[i:i + BATCH]
+        result.update(_label_batch(batch, speakers, i, context))
+        context = [(result[j], turns[j]["text"]) for j in range(max(i, i + len(batch) - 3), i + len(batch))]
+        print(f"  标注 {min(i + BATCH, len(turns))}/{len(turns)} 轮")
+    if FALLBACK_TURNS:
+        print(f"  ⚠️ 有 {len(FALLBACK_TURNS)} 轮是兜底沿用上一轮的：{FALLBACK_TURNS[:20]}")
+    return result
 
 
 def merge_rules(turns: list, labels: dict, default_label: str) -> list:

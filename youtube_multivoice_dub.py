@@ -9,7 +9,8 @@ import json
 import time
 from pathlib import Path
 
-from tts_minimax import synthesize, _concat, _make_silence
+from tts_minimax import synthesize, _concat, _make_silence, clean_for_tts
+from tts_cache import cache_hit, mark_synthesized
 
 
 HERE = Path(__file__).parent
@@ -50,6 +51,8 @@ def main():
                           'e.g. \'{"host":"...","main":"..."}\'; supports any number of speakers')
     ap.add_argument("--rules", required=True, help="JSON list of {start,end,speaker}")
     ap.add_argument("--label", default="multivoice")
+    ap.add_argument("--trust-legacy-cache", action="store_true",
+                    help="没有 .txt 指纹的旧缓存也直接复用（默认不复用，会重新合成）")
     args = ap.parse_args()
 
     bilingual_path = Path(args.bilingual_json)
@@ -69,17 +72,24 @@ def main():
         voice = voices.get(speaker, voices[default_speaker])
         out = seg_dir / f"{bilingual_path.stem}__{args.label}__{speaker}__seg_{i:04d}.mp3"
         paths.append(out)
-        if out.exists() and out.stat().st_size > 0:
+
+        text = clean_for_tts(seg.get("text_zh", ""))
+        hit, why = cache_hit(out, text, voice=voice, speed=args.speed,
+                             trust_legacy=args.trust_legacy_cache)
+        if hit:
             print(f"  [{i + 1}/{len(segments)}] cached {speaker}/{voice}")
             continue
+        if why:
+            print(f"  [{i + 1}/{len(segments)}] 缓存失效（{why}），重新合成")
 
-        text = seg.get("text_zh", "").strip()
         if not text:
             _make_silence(out)
+            mark_synthesized(out, text, voice=voice, speed=args.speed)
             print(f"  [{i + 1}/{len(segments)}] silence")
             continue
 
         _synthesize_with_retry(text, out, voice=voice, speed=args.speed)
+        mark_synthesized(out, text, voice=voice, speed=args.speed)
         print(f"  [{i + 1}/{len(segments)}] {speaker}/{voice}")
 
     _concat(paths, Path(args.out))
