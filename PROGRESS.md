@@ -22,7 +22,7 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 **不会同步、但可以重新生成的中间产物**（已 gitignore）：`youtube_transcripts/`、`youtube_dub/`、`youtube_demo/`、`work/`。已发布的 8 集成品音频在仓库 `episodes/` 里，不受影响。
 
-**接手先读**：[播客工作循环.md](播客工作循环.md)（标准流程，唯一真相源）→ 本文件最新一条进度 → [../决策日志.md](../决策日志.md)（为什么这样定）
+**接手先读**：[播客工作循环.md](播客工作循环.md)（标准流程，唯一真相源）→ 本文件最新一条进度 → [../决策日志.md](../决策日志.md)（为什么这样定）→ [技术债.md](技术债.md)（哪些坑是当时绕过去、没修的）
 
 **已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
 

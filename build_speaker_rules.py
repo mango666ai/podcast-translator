@@ -49,6 +49,10 @@ def _preview(text: str, head: int = 300, tail: int = 300) -> str:
 
 
 def label_turns(turns: list, speakers: list) -> dict:
+    # ⚠️ 技术债（见 技术债.md #1）：这里把全部轮次一次性塞进单个 prompt，没有分批。
+    # 轮次多时（实测 1008 轮必崩）DeepSeek 回复被截断，3 次重试都是同样的超大请求，
+    # 注定失败后直接 raise，无兜底。修复范式照搬 youtube_dub.py 的 _translate_batch()：
+    # 固定分批 + 每批重试 + 失败对半拆开递归。注意分批会削弱跨批的上下文线索。
     labels = [s["label"] for s in speakers]
     roster = "\n".join(f"- {s['label']}：{s['name']}" for s in speakers)
     lines = "\n".join(f"[{i}] {_preview(t['text'])}" for i, t in enumerate(turns))
