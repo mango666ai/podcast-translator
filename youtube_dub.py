@@ -187,9 +187,11 @@ def _fmt(t: float) -> str:
 
 
 def write_srt(bil: list, path: Path):
+    from tts_minimax import clean_for_tts
     out = []
     for i, s in enumerate(bil, 1):
-        out += [str(i), f"{_fmt(s['start'])} --> {_fmt(s['end'])}", s.get("text_zh", "").strip(), ""]
+        # 和送进 TTS 的文本用同一套清洗，字幕和配音才不会一个有 `>>` 一个没有
+        out += [str(i), f"{_fmt(s['start'])} --> {_fmt(s['end'])}", clean_for_tts(s.get("text_zh", "")), ""]
     path.write_text("\n".join(out), encoding="utf-8")
 
 
@@ -325,6 +327,8 @@ def main():
     ap.add_argument("--demo", action="store_true", help=f"生成小样：默认前 {DEFAULT_DEMO_SEGMENTS} 段")
     ap.add_argument("--sample", type=int, default=0, help="只配前 N 段（0=全片）")
     ap.add_argument("--no-audio", action="store_true", help="只出中文字幕，不配音（免费）")
+    ap.add_argument("--trust-legacy-cache", action="store_true",
+                    help="没有 .txt 指纹的旧缓存也直接复用（默认不复用，会重新合成）")
     a = ap.parse_args()
 
     tj = TRANS_DIR / f"{a.video_id}.json"
@@ -368,20 +372,28 @@ def main():
     if a.no_audio:
         print("（--no-audio：跳过配音）"); return
 
-    from tts_minimax import synthesize, _concat, _make_silence
+    from tts_minimax import synthesize, _concat, _make_silence, clean_for_tts
+    from tts_cache import cache_hit, mark_synthesized
     seg_dir = job / "seg"; seg_dir.mkdir(exist_ok=True)
     n = DEFAULT_DEMO_SEGMENTS if a.demo and not a.sample else (a.sample or len(bil))
     paths = []
     speed_tag = f"speed_{a.speed:.2f}"
     for i, s in enumerate(bil[:n]):
         out = seg_dir / f"{prefix}__{speed_tag}__seg_{i:04d}.mp3"; paths.append(out)
-        if out.exists() and out.stat().st_size > 0:
+        t = clean_for_tts(s.get("text_zh", ""))
+        hit, why = cache_hit(out, t, voice=a.voice, speed=a.speed,
+                             trust_legacy=a.trust_legacy_cache)
+        if hit:
             continue
-        t = s.get("text_zh", "").strip()
+        if why:
+            print(f"  TTS {i + 1}/{n} 缓存失效（{why}），重新合成")
         if not t:
-            _make_silence(out); continue
+            _make_silence(out)
+            mark_synthesized(out, t, voice=a.voice, speed=a.speed)
+            continue
         try:
             _synthesize_with_retry(synthesize, t, out, voice=a.voice, speed=a.speed)
+            mark_synthesized(out, t, voice=a.voice, speed=a.speed)
             print(f"  TTS {i + 1}/{n} speed={a.speed}")
         except Exception as e:
             print(f"  TTS {i + 1} 失败: {e}")
