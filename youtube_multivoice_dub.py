@@ -2,22 +2,36 @@
 Multi-voice Chinese dubbing for already translated YouTube episodes.
 
 This keeps the existing translation/SRT workflow intact, but lets one episode
-route different time ranges to different MiniMax voices.
+route different time ranges to different voices.
+
+--provider 选 TTS 供应商：minimax（默认，历史集数都是它生成的）或 cosyvoice
+（阿里云百炼，声音复刻免费+合成2元/万字符，成本低得多）。两家的 voice_id 格式和
+克隆流程都不一样，**同一集不要混用**，否则一集里前后声音会不一致。
 """
 import argparse
 import json
 import time
 from pathlib import Path
 
-from tts_minimax import synthesize, _concat, _make_silence, clean_for_tts
+from tts_minimax import synthesize as synthesize_minimax
+from tts_minimax import _concat, _make_silence, clean_for_tts
 from tts_cache import cache_hit, mark_synthesized
+
+
+def _get_synthesize(provider: str):
+    if provider == "minimax":
+        return synthesize_minimax
+    if provider == "cosyvoice":
+        from tts_cosyvoice import synthesize as synthesize_cosyvoice  # 延迟导入，没装 dashscope 也能跑 minimax
+        return synthesize_cosyvoice
+    raise SystemExit(f"✗ 未知 provider：{provider}")
 
 
 HERE = Path(__file__).parent
 OUT_ROOT = HERE / "youtube_dub"
 
 
-def _synthesize_with_retry(text: str, out: Path, *, voice: str, speed: float, attempts: int = 3):
+def _synthesize_with_retry(synthesize, text: str, out: Path, *, voice: str, speed: float, attempts: int = 3):
     last_error = None
     for attempt in range(1, attempts + 1):
         try:
@@ -47,10 +61,14 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--speed", type=float, default=1.0)
     ap.add_argument("--voices", required=True,
-                     help='JSON object mapping speaker label -> MiniMax voice_id, '
+                     help='JSON object mapping speaker label -> voice_id, '
                           'e.g. \'{"host":"...","main":"..."}\'; supports any number of speakers')
     ap.add_argument("--rules", required=True, help="JSON list of {start,end,speaker}")
     ap.add_argument("--label", default="multivoice")
+    ap.add_argument("--provider", default="minimax", choices=["minimax", "cosyvoice"],
+                    help="TTS 供应商；同一集不要中途换，会导致前后声音不一致")
+    ap.add_argument("--limit-seconds", type=float, default=0,
+                    help="只合成到原视频这个时间点为止（做试听小样用，0=全片）")
     ap.add_argument("--trust-legacy-cache", action="store_true",
                     help="没有 .txt 指纹的旧缓存也直接复用（默认不复用，会重新合成）")
     args = ap.parse_args()
@@ -62,6 +80,11 @@ def main():
     if not voices:
         raise SystemExit("✗ --voices 不能为空")
     default_speaker = next(iter(voices))
+    synthesize = _get_synthesize(args.provider)
+
+    if args.limit_seconds:
+        segments = [s for s in segments if float(s.get("start", 0)) < args.limit_seconds]
+        print(f"⚠️ 试听模式：只合成前 {args.limit_seconds:.0f} 秒（{len(segments)} 段）")
 
     seg_dir = bilingual_path.parent / f"seg_{args.label}"
     seg_dir.mkdir(exist_ok=True)
@@ -88,7 +111,7 @@ def main():
             print(f"  [{i + 1}/{len(segments)}] silence")
             continue
 
-        _synthesize_with_retry(text, out, voice=voice, speed=args.speed)
+        _synthesize_with_retry(synthesize, text, out, voice=voice, speed=args.speed)
         mark_synthesized(out, text, voice=voice, speed=args.speed)
         print(f"  [{i + 1}/{len(segments)}] {speaker}/{voice}")
 
