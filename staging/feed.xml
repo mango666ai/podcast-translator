@@ -131,12 +131,12 @@ Lex Fridman Podcast #501：DHH（Ruby on Rails/Basecamp创始人）访谈 第1/5
 
 播客信息补充：
 AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然；原视频为Lex Fridman Podcast #501，本部分为开场至01:00:06。原节目长达5小时17分钟，按官方章节拆成5集发布，本集是第1集，后续4集陆续更新。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1</guid>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1-cosyvoice</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p1-cosyvoice</guid>
       <pubDate>Wed, 26 Aug 2026 09:00:00 +0000</pubDate>
       <itunes:duration>3284</itunes:duration>
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.mp3" length="43888317" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.mp3" length="43888317" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.srt" type="text/srt" />
     </item>
     <item>
       <title>高人才密度团队搭建法：Cursor人才负责人Adam Ward谈反直觉招聘原则</title>
