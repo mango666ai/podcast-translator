@@ -13,6 +13,11 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
     <itunes:category text="Education" />
+    <image>
+      <url>https://mango666ai.github.io/podcast-translator/cover-v2.png</url>
+      <title>Dove的AI译站</title>
+      <link>https://mango666ai.github.io/podcast-translator</link>
+    </image>
     <item>
       <title>智能效率：Ramp研究工程师Ben Geist谈如何用更少Token做更多推理</title>
       <description>来源：

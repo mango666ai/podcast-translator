@@ -13,6 +13,11 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
     <itunes:category text="Education" />
+    <image>
+      <url>https://mango666ai.github.io/podcast-translator/cover-v2.png</url>
+      <title>Dove的AI译站（待审核）</title>
+      <link>https://mango666ai.github.io/podcast-translator/staging</link>
+    </image>
     
     
     
