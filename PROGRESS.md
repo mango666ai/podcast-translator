@@ -156,6 +156,21 @@ JSON 连续解析失败 3 次后 `raise` 整集崩退。改成和 `youtube_dub._
 
 ---
 
+## 2026-09-10 · DHH第2-5集处理中；修复两个CosyVoice链路的隐蔽bug
+
+- **定时任务的教训**：9/9 设了 22:30 的定时任务处理 DHH 第2-5集，任务确实触发了（`lastRunAt` 有记录），但**卡在第一条 Bash 命令上一动没动**——无人值守时弹了权限确认框没人点。创建定时任务的工具其实提示过"建议先 Run now 预授权"，当时没照做。以后设涉及大量命令执行的定时任务，要么先手动跑一次授权，要么别指望它能无人值守跑完。
+- **bug 1：CosyVoice 合成会无限挂起**。dashscope SDK 走 WebSocket 且没有超时参数，连接挂住时 `call()` 永远不返回——实测 p2 跑到第 18 段卡死，进程还活着但 13 分钟不出新片段。修复：`tts_cosyvoice.synthesize()` 把调用放进线程 + 120 秒超时，超时抛异常交给已有的 `_synthesize_with_retry` 重试。
+- **bug 2（更隐蔽）：ffmpeg concat 静默截断**。`_make_silence()` 固定生成 32kHz 静音（当年按 MiniMax 输出定的），换 CosyVoice（24kHz）后，静音段成了 concat 里唯一的"异类"，**拼到那一段就停止，但退出码是 0、不报任何错**。p2 实测 63 分钟的内容只拼出 17 分钟，如果不是顺手核对时长根本发现不了。修复三处：
+  1. `_make_silence()` 改用 24kHz，与 `_concat` 的 `-ar` 对齐
+  2. `_concat` 显式加 `-ar 24000 -ac 1`，强制统一参数
+  3. `_concat` 拼完核对总时长，偏差超 2% 直接抛异常——这类静默失败只能靠比对发现
+- **存量内容完整性核查**：把所有集数的"片段时长合计 vs 成品时长"跑了一遍比对，11 集全部吻合（唯一差异是 `DFImJfJGXl0` 的 -162 秒，那是主动删 5 段敏感内容造成的，符合预期）。这个 bug 只在 CosyVoice 时代触发，MiniMax 时代静音和正文都是 32kHz 不会中招，**存量已发布内容没受影响**。
+- 新增 [stage_episode.py](stage_episode.py)：把"入 staging"这步（复制音频字幕、用 `notes_to_description` 生成简介、拼 feed item、带单集封面、算真实 duration/size、更新 CSV、校验 XML）固化成一条命令，之前每集手工做容易漏项。
+- 进度：p2 已完成入 staging（63.1 分钟）；p3 配音进行中；p4/p5 翻译已完成待配音。四集翻译全部完成。
+- 下一步：p3/p4/p5 配音完成后逐集入 staging；用户试听后决定转正式。
+
+---
+
 ## 2026-09-02 · 修复LNSvp-9b-J0音量偏小问题；调研TTS/声音克隆替代方案（降成本）
 
 - 用户反馈"最近几集音量偏小"，实测比对（`ffmpeg -af volumedetect`）发现**只有`LNSvp-9b-J0`（Stanford经济学课）一集**真的偏小（讲师/学生两个声线mean_volume都是-28~-32dB，比正常集数低6-9dB），其余几集（Lulu Cheng Meservey/Adam Ward/DHH第1集）测出来都正常。根因推测：原始YouTube课堂录音本身录音增益偏低，克隆声线+MiniMax合成后延续了这个偏低响度。
