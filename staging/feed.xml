@@ -230,5 +230,46 @@ Lex Fridman Podcast #501：DHH访谈 第4/5部分（Fatherhood～Future of progr
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p4-dhh-fatherhood-linux-desktop-zh-cosyvoice.mp3" length="38585445" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p4-dhh-fatherhood-linux-desktop-zh-cosyvoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>DHH谈政治、长寿与哲学思辨（第5/5集）｜Lex Fridman播客#501</title>
+      <description>来源：
+Lex Fridman Podcast #501：DHH访谈 第5/5部分（Politics and immigration～结尾，原视频04:22:17-05:15:xx）
+原始发布日期：2026-08-26
+原始视频：https://www.youtube.com/watch?v=NYFGCESmikA
+
+本期播客简介：
+这是 Lex Fridman Podcast 与 DHH（David Heinemeier Hansson）访谈的第五部分，围绕大规模移民、民族自决、政治禁忌与舆论窗口展开，随后延伸到社交媒体时代的立场表达、跨阵营对话以及长寿、酒精、生命有限性等哲学话题。DHH 结合丹麦与美国的生活经验，讨论为何一些话题成为禁忌、人们如何被算法推向蓝队或红队，以及如何保持能对话的分歧。
+
+本期嘉宾：
+主持人：Lex Fridman（未在原视频中明确更多身份信息）；嘉宾：DHH（David Heinemeier Hansson），Basecamp 联合创始人、Ruby on Rails 创建者，丹麦裔、长期生活于美国。
+
+时间戳：
+- 00:16 移民与非法移民话题
+- 09:28 日本族裔比例争议
+- 13:55 融入丹麦文化之难
+- 22:57 争议讨论的代价
+- 27:29 Linux社区政治争论
+- 36:24 酒精问题作为切入点
+- 40:54 传统分工与做饭
+- 45:25 哥本哈根可颂标准
+
+精彩内容：
+- DHH 认为欧洲大规模移民长期是禁忌话题，丹麦自上世纪90年代起率先展开讨论，舆论窗口是被愿意承担名声风险的人一次次推开的。
+- 他引用丹麦移民统计数据称，来自英法美等国的移民平均每年为丹麦带来约25000美元净收益，而索马里移民平均每年造成约28000美元成本，主张按净贡献筛选移民。
+- 他批评欧洲在民族自决问题上的双重标准：没人会告诉日本东京必须改变族群比例，却把欧洲人主张自决轻易扣上种族主义帽子。
+- 他谈到2020年前后的政治断层线让一些多年朋友不再往来，并主张自由派与保守派应保持合作与接触，不要把每一次政治分歧都变成生死攸关的冲突。
+- 他怀念威廉·F·巴克利与黑豹党成员能在电视上理性对话的时代，认为分歧本身有趣且是成长方式，而社交媒体奖励互动量导致围攻与取消文化。
+- 他提到妻子 Jamie 将科技圈极端长寿追求比作女性厌食症，并分享 Amachi 日历中‘记住你终将死去’的彩蛋，强调接受生命有限、跳出过度优化。
+
+播客信息补充：
+本节目为 AI 中文译制版，声音克隆自原视频主持人/嘉宾，可能存在语气或断句不自然之处，请听众结合原视频理解。内容对应 Lex Fridman Podcast #501 第5/5部分，原视频约 04:22:17 至 05:15:xx。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p5</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p5</guid>
+      <pubDate>Thu, 10 Sep 2026 18:00:00 +0000</pubDate>
+      <itunes:duration>3035</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p5-dhh-politics-longevity-philosophy-zh-cosyvoice.mp3" length="27552501" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p5-dhh-politics-longevity-philosophy-zh-cosyvoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
