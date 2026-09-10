@@ -20,6 +20,7 @@ import csv
 import re
 import shutil
 import subprocess
+import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -32,6 +33,23 @@ STATUS_CSV = HERE / "podcast_status.csv"
 COVER = "https://mango666ai.github.io/podcast-translator/cover-v2.png"
 RAW_BASE = "https://raw.githubusercontent.com/mango666ai/podcast-translator/main"
 PAGES_BASE = "https://mango666ai.github.io/podcast-translator"
+
+
+def wait_until_stable(path: Path, checks: int = 3, interval: float = 3.0):
+    """确认文件不再增长再动它。踩过一次：监控循环用 `[ -f 文件 ]` 判断 ffmpeg 拼接
+    完成，但文件一创建就存在、之后还要写一分多钟，结果把只写了 2332s 的半成品
+    当成 3570s 的成品复制进了 staging。"""
+    last = -1
+    stable = 0
+    while stable < checks:
+        size = path.stat().st_size
+        if size == last and size > 0:
+            stable += 1
+        else:
+            stable = 0
+            last = size
+        if stable < checks:
+            time.sleep(interval)
 
 
 def audio_duration(path: Path) -> int:
@@ -71,6 +89,7 @@ def main():
     args = ap.parse_args()
 
     audio_src, srt_src = Path(args.audio), Path(args.srt)
+    wait_until_stable(audio_src)
     audio_dst = STAGING / "episodes" / f"{args.slug}.mp3"
     srt_dst = STAGING / "transcripts" / f"{args.slug}.srt"
     audio_dst.parent.mkdir(parents=True, exist_ok=True)

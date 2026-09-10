@@ -147,5 +147,47 @@ Lex Fridman Podcast #501：DHH访谈 第2/5部分（The end of manual programmin
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.mp3" length="34383021" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>DHH谈最佳AI编程模型与视频生成（第3/5集）｜Lex Fridman播客#501</title>
+      <description>来源：
+Lex Fridman Podcast #501：DHH访谈 第3/5部分（Voice prompting vs typing～AI video generation and filmmaking，原视频02:07:06-03:10:28）
+原始发布日期：2026-08-26
+原始视频：https://www.youtube.com/watch?v=NYFGCESmikA
+
+本期播客简介：
+这是 Lex Fridman Podcast 与 DHH 访谈的第三部分，聚焦 AI 编程模型的实际使用与视频/多媒体生成。DHH 分享了他用多种模型（Fable、Opus、Grok、DeepSeek 等）完成真实工程的体验，包括把 Python 库翻译成 Rust、用语音做意识流提示、以及让智能体诊断 Linux 系统问题。内容既有可操作的模型对比，也有对 AI 编程工作流的反思，适合关注 AI 编程实践、模型选型和操作系统自动化的听众。
+
+本期嘉宾：
+嘉宾：DHH（David Heinemeier Hansson），Basecamp 联合创始人兼 CTO、Ruby on Rails 创建者，同时也是 Omarchy（Arch Linux 发行版）的作者。主持人：Lex Fridman，Lex Fridman Podcast 主持人。DHH 所属公司 Basecamp 及 Omarchy 项目信息在原视频中明确。
+
+时间戳：
+- 00:09 等待时间预加载
+- 11:14 智能体理解意图
+- 16:34 操作系统对话改造
+- 22:00 模型领导力之争
+- 27:25 付费换性能提升
+- 32:43 Claude 多代理框架
+- 49:05 AI 可变娱乐体验
+- 54:28 一对一智能体协作
+
+精彩内容：
+- DHH 分享将 Python 库 Terminal Text Effects 翻译成零依赖 Rust 可执行文件的过程，多个模型参与，最终实现约 46 倍执行速度提升。
+- 对比 Fable、Opus 5、Grok 4.6、DeepSeek 等模型在真实翻译任务中的表现、耗时与按 token 计费的成本差异。
+- DHH 习惯用 Fable 做规划和审查，用 Opus 5 等模型实现，并让不同来源的模型互相审查代码，形成多模型协作工作流。
+- 他使用名为 Plaude 的挂载式语音设备进行长时间意识流提示，认为语音在早期设计阶段特别有效，但自己仍更喜欢打字。
+- Omarchy 预装 OBS、Kdenlive、Cut 等视频工具，DHH 用 Cut 快速剪辑片段，并谈到预装软件与 Linux 社区“臃肿”争议的冲突。
+- 智能体可诊断 Linux 系统崩溃、定位到具体源代码行并生成 bug 报告，DHH 认为这正在消除 Linux 的使用痛苦，并可能带来 Linux 的全面统治。
+- DHH 将智能体引入 Basecamp，把任务以卡片/待办形式分配给它们，认为为异步沟通优化的协作工具比聊天界面更适合智能体工作流。
+
+播客信息补充：
+本期为 AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然的情况。原视频为 Lex Fridman Podcast #501 与 DHH 访谈的第 3/5 部分，时间约 02:07:06-03:10:28。内容涉及模型名称、价格和性能数据均为 DHH 个人体验与表述，具体以原视频为准。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p3</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p3</guid>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 +0000</pubDate>
+      <itunes:duration>3570</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.mp3" length="33588453" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
