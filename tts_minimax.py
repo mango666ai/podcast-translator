@@ -220,9 +220,11 @@ def run_job(job_dir: Path, voice: str):
 
 
 def _make_silence(out_path: Path, duration: float = 0.3):
+    # 采样率跟 _concat 的 -ar 保持一致（24000）。以前写死 32000 是按 MiniMax 的输出定的，
+    # 换 CosyVoice（24kHz）后就成了 concat 里唯一的"异类"，导致拼接静默截断。
     subprocess.run([
         "ffmpeg", "-y", "-f", "lavfi",
-        "-i", f"anullsrc=r=32000:cl=mono",
+        "-i", "anullsrc=r=24000:cl=mono",
         "-t", str(duration), "-q:a", "9",
         str(out_path),
     ], capture_output=True)
@@ -235,14 +237,40 @@ def _concat(seg_paths: list, output: Path):
         for p in seg_paths:
             f.write(f"file '{p.resolve()}'\n")
 
+    # ⚠️ 必须显式指定 -ar/-ac：concat 遇到采样率/声道数突变会**静默截断**，
+    # 不报错、退出码还是 0，只是输出短一大截。踩过一次——MiniMax 出 32kHz、
+    # CosyVoice 出 24kHz，而 _make_silence() 固定生成 32kHz 静音，混在一起时
+    # 拼到那个静音段就停了（p2 实测 63 分钟只拼出 17 分钟）。
     subprocess.run([
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
         "-i", str(list_file),
+        "-ar", "24000", "-ac", "1",
         "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
         "-acodec", "libmp3lame", "-q:a", "2",
         str(output),
     ], capture_output=True)
     list_file.unlink(missing_ok=True)
+
+    # 拼完核对总时长：ffmpeg 静默截断时退出码正常，只能靠比对时长发现
+    expected = sum(_probe_duration(p) for p in seg_paths)
+    actual = _probe_duration(output)
+    if expected and abs(actual - expected) > max(5.0, expected * 0.02):
+        raise RuntimeError(
+            f"拼接结果时长异常：期望约 {expected:.0f}s，实际 {actual:.0f}s。"
+            f"通常是某个片段的采样率/声道数与其它不一致导致 concat 提前结束。"
+        )
+
+
+def _probe_duration(path: Path) -> float:
+    r = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+        capture_output=True, text=True,
+    )
+    try:
+        return float(r.stdout.strip())
+    except ValueError:
+        return 0.0
 
 
 # ─────────────────────────────────────────

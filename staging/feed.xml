@@ -107,5 +107,45 @@ Adam Ward，现任Cursor人才负责人。他曾与人共同创立独立招聘�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.mp3" length="55318113" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>DHH谈手工编程的终结（第2/5集）｜Lex Fridman播客#501</title>
+      <description>来源：
+Lex Fridman Podcast #501：DHH访谈 第2/5部分（The end of manual programming～Obsessing about speed，原视频01:00:06-02:07:06）
+原始发布日期：2026-08-26
+原始视频：https://www.youtube.com/watch?v=NYFGCESmikA
+
+本期播客简介：
+这是 Lex Fridman Podcast #501 中 DHH（David Heinemeier Hansson）访谈的第 2/5 部分，原视频约 01:00:06 至 02:07:06。DHH 讲述自己从手工精雕 Ruby/Rails 代码转向与 AI 智能体协作编程的转变过程，讨论为什么手工写漂亮代码的经济回报正在递减，以及程序员面对职业焦虑时应如何调整心态。他还分享了实际工作中怎么用终端、多机、语音等工具同时跑多个智能体，并给出对年轻开发者的务实建议。
+
+本期嘉宾：
+嘉宾：David Heinemeier Hansson（DHH），Ruby on Rails 创造者、Basecamp 联合创始人兼 CTO、HEY 创始人、畅销书作者。主持人：Lex Fridman，播客 Lex Fridman Podcast 主持人、MIT 研究相关背景，未在原视频中明确其当前具体所属公司。
+
+时间戳：
+- 11:23 AI 时代的手工编程
+- 17:05 别预测未来模型
+- 22:55 寻找人类的永恒性
+- 28:48 艺术史的启示
+- 34:30 终端与标签页工作流
+- 40:21 Hunk 与代码 diff 工具
+- 57:21 操作系统的根基地位
+
+精彩内容：
+- DHH 说自己 25 年来对每行代码的审慎较真，其经济回报正在迅速递减，因为原先那套前提正在被智能体改变。
+- 他认为好的代码仍然值得写，但价值变成了让智能体更容易理解、演进和修改，避免代码库变成无法维护的泥球。
+- DHH 用 Commodore 64 和《荒野大镖客》里的牛仔文化作类比，说明对手工编程的浪漫化是一种怀旧。
+- 他把 AI 生成代码比作毕加索从写实转向立体主义，自己则回到最初想做东西、想看到不存在的产品成真的冲动。
+- DHH 认为专注当下比预测两年后的技术更重要，错过前沿一年回来后大概两周就能追上，不必陷入 FOMO。
+- 他描述了实际工作配置的变化：从 TextMate 到 Neovim、从单线程到多机多智能体、用 Tailscale 和 Herder 调度，甚至用语音交互。
+
+播客信息补充：
+本节目为 Lex Fridman Podcast #501 的 DHH 访谈第 2/5 部分，原视频对应时间段约 01:00:06 至 02:07:06，主题围绕“手工编程的终结”与对速度的痴迷。本条为 AI 中文译制版，声音克隆自原视频/主持人；由于是机器合成，可能存在语气或断句不自然的情况，请以原视频音频为准。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p2</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p2</guid>
+      <pubDate>Thu, 10 Sep 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>3784</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.mp3" length="34383021" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
