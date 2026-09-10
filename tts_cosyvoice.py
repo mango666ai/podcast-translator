@@ -14,6 +14,8 @@ tts_minimax.clean_for_tts()——那边注释里写明了它是所有 TTS 链路
 """
 
 import os
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FuturesTimeout
 from pathlib import Path
 
 import dashscope
@@ -29,6 +31,8 @@ DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
 # ⚠️ 换这个常量时，clone_cosyvoice_voice.py 的 TARGET_MODEL 必须同步改：
 # 声音复刻时指定的 target_model 和合成时用的 model 必须一致，否则 voice_id 用不了。
 MODEL = "cosyvoice-v3.5-plus"
+# 单段合成的超时上限（秒）。正常一段 10-30 秒文本几秒就返回，给足冗余即可。
+CALL_TIMEOUT = 120
 
 
 def synthesize(text: str, out_path: Path, voice: str, speed: float = 0.82) -> bool:
@@ -48,7 +52,14 @@ def synthesize(text: str, out_path: Path, voice: str, speed: float = 0.82) -> bo
         format=AudioFormat.MP3_24000HZ_MONO_256KBPS,
         speech_rate=speed,
     )
-    audio = synth.call(text)
+    # SDK 走 WebSocket 且没有超时参数，连接挂住时 call() 会无限阻塞——实测跑批量时
+    # 卡死过一次（进程还活着但十几分钟不出新片段）。放到线程里加超时，超时就抛异常，
+    # 交给调用方的 _synthesize_with_retry 重试。
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        try:
+            audio = pool.submit(synth.call, text).result(timeout=CALL_TIMEOUT)
+        except FuturesTimeout:
+            raise RuntimeError(f"CosyVoice 合成超时（>{CALL_TIMEOUT}s，voice={voice}）")
     if not audio:
         raise RuntimeError(f"CosyVoice 未返回音频（voice={voice}）")
 
