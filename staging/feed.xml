@@ -189,5 +189,46 @@ Lex Fridman Podcast #501：DHH访谈 第3/5部分（Voice prompting vs typing～
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.mp3" length="33588453" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>DHH谈育儿、Linux桌面之争与编程的未来（第4/5集）｜Lex Fridman播客#501</title>
+      <description>来源：
+Lex Fridman Podcast #501：DHH访谈 第4/5部分（Fatherhood～Future of programming，原视频03:10:28-04:22:17）
+原始发布日期：2026-08-26
+原始视频：https://www.youtube.com/watch?v=NYFGCESmikA
+
+本期播客简介：
+本期是 Lex Fridman Podcast 与 DHH（David Heinemeier Hansson）访谈的第 4 部分，话题从育儿、为人父母的意义出发，延伸到 AI 时代的历史观、社交媒体成瘾与算法操控，再转向 AI 编程工具（Claude、Codex、Kimi、Grok 等）的竞争与取舍，最后讨论 Linux 桌面、开源、AI 安全以及 Linus Torvalds、PewDiePie 等人物的影响。适合关心技术、编程、AI 工具生态与开源文化的听众。
+
+本期嘉宾：
+嘉宾：DHH（David Heinemeier Hansson），37signals 联合创始人兼 CTO，Ruby on Rails 创建者，Omarchy Linux 发行版作者。主持人：Lex Fridman，Lex Fridman Podcast 主持人，未在原视频中明确其所属公司。
+
+时间戳：
+- 00:07 血脉之爱与育儿
+- 12:32 错失翻盘的机会
+- 18:48 OpenCode与Kimi体验
+- 30:57 等待agent操作系统
+- 37:03 严厉与使命规模
+- 49:11 不记仇的自我认同
+- 61:25 欣赏当下所拥有的
+- 67:34 开源Claude的局限
+
+精彩内容：
+- DHH 谈为人父母：养育孩子是一种牺牲，但也是活在这个星球上的巅峰体验之一。
+- DHH 用《第四次转折》和历史周期论回应 AI 时代的焦虑：每一代人都觉得自己的危机独一无二，但历史更像一个圆。
+- DHH 自述对 X 上瘾，算法摸清的是人的暴露偏好而非真实喜好，他选择定期戒断、主动把信息流调向更积极的内容。
+- DHH 比较 AI 编程工具：Anthropic 的 Claude 写作与编程框架仍强，Codex 擅长挑错，但 Anthropic 切断 Open Code 订阅、拒读 agents.md 等做法显得小心眼。
+- DHH 认为 Linux 是 agentic 操作系统的完美选择，苹果封闭生态反而在 AI 与开发场景中成为劣势，Linus Torvalds 也欢迎 AI 进入内核。
+- DHH 称 Grok 4 Quattro 是他职业生涯中最伟大的软件发布之一，虽然亲手敲的代码最少，但成就感来自团队协作与像找到瓶中精灵一样实现愿望。
+
+播客信息补充：
+本节目为 AI 中文译制版，声音克隆自原视频主持人/嘉宾，可能存在语气或断句不自然之处，仅供中文听众参考。原视频来源：Lex Fridman Podcast #501 的 DHH 访谈第 4/5 部分，时间约 03:10:28-04:22:17。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p4</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/NYFGCESmikA_p4</guid>
+      <pubDate>Thu, 10 Sep 2026 15:00:00 +0000</pubDate>
+      <itunes:duration>4157</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/NYFGCESmikA-p4-dhh-fatherhood-linux-desktop-zh-cosyvoice.mp3" length="38585445" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/NYFGCESmikA-p4-dhh-fatherhood-linux-desktop-zh-cosyvoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
