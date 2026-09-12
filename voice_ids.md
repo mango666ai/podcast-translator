@@ -31,8 +31,22 @@
 | `LNSvp9bJ0_student_20260825` | 课堂学生提问（多个不同学生共用一个声线，边缘案例见决策日志） | `LNSvp-9b-J0` 生成式AI经济学 | 2026-08-25 | 原视频 751-826s 段，75秒 |
 | `DFImJfJGXl0_lulu_20260825` | Lulu Cheng Meservey（嘉宾，Rostra创始人） | `DFImJfJGXl0` 如何打造狂热粉丝 | 2026-08-25 | 原视频 10-95s 段，85秒 |
 | `DFImJfJGXl0_david_20260825` | David Senra（主持人，Founders播客） | `DFImJfJGXl0` 如何打造狂热粉丝 | 2026-08-25 | 原视频 2291-2376s 段，85秒 |
-| `NYFGCESmikA_lex_20260826` | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈（拆成5集：`_p1`~`_p5`共用这个声线） | 2026-08-26 | 原视频 30-120s 段，90秒 |
-| `NYFGCESmikA_dhh_20260826` | DHH / David Heinemeier Hansson（嘉宾，Ruby on Rails创始人/37signals联合创始人兼CTO） | `NYFGCESmikA` DHH访谈（5集共用） | 2026-08-26 | 原视频 228-312s 段，84秒 |
+| ~~`NYFGCESmikA_lex_20260826`~~ | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈 | 2026-08-26 | **MiniMax 声线，已弃用**（该系列已全部改用下方 CosyVoice 版本重做） |
+| ~~`NYFGCESmikA_dhh_20260826`~~ | DHH / David Heinemeier Hansson | `NYFGCESmikA` DHH访谈 | 2026-08-26 | **MiniMax 声线，已弃用**，同上 |
+
+### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
+
+⚠️ CosyVoice 的 voice_id **不能自己指定**，由服务端返回（格式 `<target_model>-<prefix>-<hash>`）；
+克隆时的 `target_model` 必须和合成时 `tts_cosyvoice.MODEL` 一致，否则用不了。
+
+| voice_id | 对应人物 | 所属集 | 创建日期 | 参考音频来源 |
+| --- | --- | --- | --- | --- |
+| `cosyvoice-v3.5-plus-lex-11ca4951025e4a999610ff336d2402ed` | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈 `_p1`~`_p5` 共用 | 2026-09-08 | 原视频 30-50s 段，20秒 |
+| `cosyvoice-v3.5-plus-dhh-7607b9815c7e46cc9b89a217102c1d82` | DHH / David Heinemeier Hansson（嘉宾，Ruby on Rails创始人/37signals联合创始人兼CTO） | `NYFGCESmikA` DHH访谈 `_p1`~`_p5` 共用 | 2026-09-08 | 原视频 228-248s 段，20秒 |
+| `cosyvoice-v3-flash-lex-62f3faa70dcd4e1891b731a7c48e069a` | Lex Fridman | （仅模型对比测试用，未用于成片） | 2026-09-08 | 同上 |
+| `cosyvoice-v3-flash-dhh-179607d514554509a226c8cbbcf508b2` | DHH | （仅模型对比测试用，未用于成片） | 2026-09-08 | 同上 |
+| `cosyvoice-v2-lexfridman-1fcfff19cad84f7b839138a860ef6012` | Lex Fridman | （仅早期测试用，未用于成片） | 2026-09-08 | 同上 |
+| `cosyvoice-v2-dhhansson-c23f23b6ee5c4fd594748fdaf7ee7ab1` | DHH | （仅早期测试用，未用于成片） | 2026-09-08 | 同上 |
 | `zegYJ6dhIg4_adam_20260826` | Adam Ward（嘉宾，Cursor人才负责人） | `zegYJ6dhIg4` 高人才密度团队搭建法 | 2026-08-26 | 原视频 720-810s 段，90秒 |
 | （复用）`P3KDebPTUrw_host_20260719` | Lenny（主持人，*Lenny's Podcast*） | `zegYJ6dhIg4` 高人才密度团队搭建法 | — | 同一主持人，复用第9集已克隆声线，未新建 |
 | `P06RgnUKXI_stephen_20260826` | Stephen Haney（嘉宾，Paper创始人） | `P06RgnUKX_I` 智能体时代的设计 | 2026-08-26 | 原视频 2791-2881s 段，90秒 |
@@ -62,3 +76,7 @@ python clone_minimax_voice.py <参考音频.mp3> \
 
 - 预置音色（`Wise_Woman`/`Calm_Woman`/`Elegant_Man` 等）只能用于临时 demo，正式发布一律用原声克隆，见 [播客工作循环.md](播客工作循环.md) §3.6。
 - 第 8 集里"家庭录像/引用片段"当时临时用了预置音色 `Calm_Woman` 区分，属于待改进项。
+- ⚠️ **新建声线后必须当场回来更新这张表**。2026-09 踩过一次：DHH 那 5 集用的 v3.5-plus 声线
+  是做模型对比时用临时脚本建的，建完直接投入生产却忘了登记，导致有 5 集成片所依赖的
+  voice_id 一度只存在于命令历史里，换设备就找不回来了（`*_voice_clone.json` 在 gitignore
+  的目录下，不随 git 走，这张表是唯一的记录）。
