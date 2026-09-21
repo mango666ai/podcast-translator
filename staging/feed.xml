@@ -65,5 +65,45 @@ Adam Ward，现任Cursor人才负责人。他曾与人共同创立独立招聘�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.mp3" length="55318113" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>智能体时代的设计：Paper创始人Stephen Haney×YC</title>
+      <description>来源：
+YC Design Review：How To Design In The Agent Era，Stephen Haney（Paper创始人）× Aaron Epstein（YC General Partner）
+原始发布日期：2026-08-07
+原始视频：https://www.youtube.com/watch?v=P06RgnUKX_I
+
+本期播客简介：
+本期播客邀请Paper创始人Steven Haney，探讨AI原生设计工具如何应对智能体时代的设计挑战。节目讨论了Paper如何利用HTML/CSS作为渲染引擎，让智能体与设计师高效协作，并现场演示了智能体驱动设计的具体流程。同时，他们分享了识别和修正AI生成设计痕迹的实用建议。无论你是设计师、开发者，还是对AI工具感兴趣的创业者，这期节目都能为你提供启发。
+
+本期嘉宾：
+主持人：Aaron Epstein，YC General Partner；嘉宾：Steven Haney，Paper创始人。
+
+时间戳：
+- 00:00 智能体提速与人的价值
+- 14:12 让智能体调用工具
+- 18:58 编辑与拖拽复制
+- 33:05 避免AI堆砌感
+- 37:55 支付产品案例
+- 47:20 打破局面的方法
+- 52:09 公司成长的挑战
+
+精彩内容：
+- Paper采用HTML和CSS作为渲染引擎，使智能体能够直接处理设计文件，减少token消耗并提高准确率。
+- 现场演示了通过Conductor和GPT 5.5智能体生成设计变体，并在Paper中实时编辑和优化。
+- 讨论了如何通过降低字体重量、减少字体大小种类等简单调整来消除AI设计痕迹。
+- Paper的Shader库和图像生成功能帮助设计师快速创建品牌素材，并支持多种模型切换。
+- Paper支持将设计导出为React组件代码，或直接让智能体将设计集成到代码库中，简化设计到开发的交接。
+- 介绍了Paper Mono字体，用于品牌和代码场景，作为营销预算的一部分而非产品开发。
+
+播客信息补充：
+本期为AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然，敬请谅解。节目内容与观点不代表本台立场。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/P06RgnUKX_I</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/P06RgnUKX_I</guid>
+      <pubDate>Mon, 21 Sep 2026 10:00:00 +0000</pubDate>
+      <itunes:duration>4596</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.mp3" length="39960285" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
