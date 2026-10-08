@@ -5,10 +5,10 @@
 ## 2026-10-08 · 修正正式资源路径并清理确定冗余的公开副本
 
 - **当前状态**：正式 RSS 23 集，staging 3 集，放弃 2 集；正式条目已不再引用 `staging/` 资源。
-- **本次完成**：逐一比对哈希后，将 `Z5M33oh-SAU`、`I8YnwUV2C9w`、`ByOF8qByGHU` 的正式音频/字幕 URL 切到 `episodes/` 与 `transcripts/`；删除这三集及 DHH p1-p4、《生成式 AI 经济学》、《智能体与基础设施》共 18 个与正式文件逐字节一致的 staging 副本。
-- **验证结果**：两份 RSS XML 可解析；`podcast_doctor.py` 从 `0 error / 29 warning` 降至 `0 error / 5 warning`。
-- **未完成 / 风险**：剩余 5 个未引用文件不是可直接判定的同内容副本：Brat 封面设计旧单声线音频 1 个、早期 How I AI EP01 短音频/文本 2 个、Cursor Opening Keynote 与正式版内容不同的 staging 音频/字幕 2 个；在确认是否保留回滚价值前不删除。
-- **下一步**：核对剩余 5 个历史版本的差异和用途后再决定保留或删除；继续按排期执行三集一次性转正，并试听确认《智能体与基础设施》返修版。
+- **本次完成**：逐一比对哈希后，将 `Z5M33oh-SAU`、`I8YnwUV2C9w`、`ByOF8qByGHU` 的正式音频/字幕 URL 切到 `episodes/` 与 `transcripts/`；删除这三集及 DHH p1-p4、《生成式 AI 经济学》、《智能体与基础设施》共 18 个与正式文件逐字节一致的 staging 副本。另根据修复提交 `221f3f1` 确认 Cursor Opening Keynote 的 staging 音频/字幕是语义错位修复前旧版，一并删除。
+- **验证结果**：两份 RSS XML 可解析；`podcast_doctor.py` 从 `0 error / 29 warning` 降至 `0 error / 3 warning`。
+- **未完成 / 风险**：剩余 3 个未引用文件均为早期实验材料：Brat 封面设计旧单声线音频 1 个，以及 How I AI EP01 的 77.9 秒短音频与文本 2 个；是否作为历史样本保留待你确认。
+- **下一步**：确认剩余 3 个早期实验文件保留或删除；继续按排期执行三集一次性转正，并试听确认《智能体与基础设施》返修版。
 
 ---
 
