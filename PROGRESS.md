@@ -2,6 +2,23 @@
 
 ---
 
+## 2026-10-08 · Codex 接手核对、清理放弃内容、安排三集错峰发布
+
+- **当前状态**：正式 RSS 23 集；staging 3 集；放弃 2 集。`main` 与 `origin/main` 同步，接手时工作树干净。
+- **本次完成**：
+  - 对照 Git 提交、`feed.xml`、`staging/feed.xml`、`podcast_status.csv` 和实际 MP3/SRT，确认 2026-09-21 的四项结果：生成式 AI 经济学已发布；DHH p5 已撤出正式 feed；Paper/YC 与 OpenAI/HuggingFace 已完成并进入 staging。
+  - 用户确认彻底撤下 Lulu 与 DHH p5：两条状态统一为 `abandoned` + `published=no`；删除 DHH p5 遗留在 public 仓库 staging 目录的 MP3/SRT。Lulu 已无被 Git 跟踪的公开音频/字幕。
+  - 三集错峰转正式：Adam Ward（2026-10-08 18:00 CST）、Paper/YC（2026-10-09 09:00 CST）、OpenAI/HuggingFace（2026-10-09 18:00 CST）。每集仍须单独 commit + push。
+  - 更新 README 与标准工作循环：补入 CosyVoice v3.5-plus、文本层说话人识别、缓存指纹、旧缓存续跑注意事项，以及放弃内容的公开文件清理要求。
+- **验证结果**：两份 RSS XML 可解析，当前所有 RSS 引用的 MP3/SRT 均存在；3 个 staging MP3 实测时长分别为 6424.7s、4596.2s、2659.1s。
+- **未完成 / 风险**：
+  - 2026-09-03 登记的 4 个存量缺陷尚未修复：`P3KDebPTUrw`、`tivaWTTVRhY`、`ByOF8qByGHU`、`zxvyO5vnknI`。检查这些正式 MP3 自问题登记后无后续提交，不能视为已处理。
+  - `_echo_mismatch()` 仍只验证 echo 与英文原文，不能证明 `zh` 字段未在批内错位；继续批量生产前应修复此盲区。
+  - 新封面 `cover-v3.png` 仍待用户定稿；约 80 集候选尚未开始。
+- **下一步**：按上述时间逐集转正式并验证远端；之后优先修复 4 集存量缺陷与翻译校验盲区，再继续批量队列。
+
+---
+
 ## 🔄 换设备接手清单（2026-07-21 最后同步）
 
 **两个仓库都要拉：**
@@ -16,17 +33,17 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git  # 依赖，提�
 
 | 项 | 怎么办 |
 | --- | --- |
-| `podcast_addon/.env` | 新建，填 `DEEPSEEK_API_KEY`（翻译主通道，**必须**）、`MINIMAX_API_KEY` + `MINIMAX_GROUP_ID`（配音，**必须**）。key 只在旧机器的本地 `.env` 里，需要自己复制过来或去官网重新生成 |
+| `podcast_addon/.env` | 新建，填 `DEEPSEEK_API_KEY`（翻译主通道）；按所选 TTS 填 `DASHSCOPE_API_KEY`（CosyVoice）或 `MINIMAX_API_KEY` + `MINIMAX_GROUP_ID`。key 只在本地 `.env`，不得提交 |
 | Python venv | 按 [SETUP.md](SETUP.md) 重建（约 10 分钟，whisperX 首次会下 ~3GB 模型） |
 | `cookies.txt` | 部分 YouTube 视频需要，用浏览器插件导出，或用 `yt-dlp --cookies-from-browser chrome` |
 
-**不会同步、但可以重新生成的中间产物**（已 gitignore）：`youtube_transcripts/`、`youtube_dub/`、`youtube_demo/`、`work/`。已发布的 8 集成品音频在仓库 `episodes/` 里，不受影响。
+**不会同步、但可以重新生成的中间产物**（已 gitignore）：`youtube_transcripts/`、`youtube_dub/`、`youtube_demo/`、`work/`。正式成品在 `episodes/`，待审成品在 `staging/episodes/`。
 
 **接手先读**：[播客工作循环.md](播客工作循环.md)（标准流程，唯一真相源）→ 本文件最新一条进度 → [../决策日志.md](../决策日志.md)（为什么这样定）→ [技术债.md](技术债.md)（哪些坑是当时绕过去、没修的）
 
-**已建好的克隆声线不会丢**：4 个 MiniMax voice_id 存在云端账号里，已登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后直接引用即可，**不需要重新克隆、不用再花额度**。
+**已建好的克隆声线不会丢**：MiniMax 与 CosyVoice voice_id 均登记在 [voice_ids.md](voice_ids.md)（随 git 同步），换设备后可直接引用；CosyVoice voice_id 必须与创建时的模型一致。
 
-**当前状态**：Cursor Compile 26 共5集全部转正式发布；Zara推荐的5条中3条已在staging（Stanford经济学课/Lulu Cheng Meservey/Adam Ward），2条卡在MiniMax额度用尽（Paper的YC Design Review 397/479段、OpenAI-HuggingFace事件 90/169段，充值后可直接续跑）；新插入DHH超长访谈(5h17m)按官方章节拆成5集，第1/5集已在staging，第2-5集还没开始配音。
+**当前状态（2026-10-08）**：正式 23 集；staging 3 集（Adam Ward、Paper/YC、OpenAI/HuggingFace，已排定错峰转正）；放弃 2 集（Lulu、DHH p5）；约 80 集候选未开始。DHH 系列实际发布 p1-p4，p5 放弃。
 
 ---
 

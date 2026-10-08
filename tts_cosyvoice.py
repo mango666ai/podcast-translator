@@ -6,7 +6,7 @@ youtube_dub.py / youtube_multivoice_dub.py 只要换个 provider 就能切过来
 
 成本对比（2026-09 实测/查证）：
   MiniMax：按次计费，额度用尽会直接中断
-  CosyVoice：声音复刻**免费**（最多1000个音色/账号），合成 2元/万字符
+  CosyVoice：声音复刻**免费**（最多1000个音色/账号）；当前 v3.5-plus 为 1.5元/万字符
 
 文本清洗（剥掉 `>>`、`[音乐]` 这类不该念出来的标记）复用
 tts_minimax.clean_for_tts()——那边注释里写明了它是所有 TTS 链路的唯一收口点，
