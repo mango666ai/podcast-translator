@@ -2,6 +2,26 @@
 
 ---
 
+## 2026-10-08 · 固化 Codex 生产门禁、校准四集返修方案、扩展封面候选
+
+- **当前状态**：正式 RSS 23 集，staging 3 集，放弃 2 集；三集计划仍在 staging，尚未发生转正。此前生成的“一次执行”Codex 建议卡错误使用 `DAILY + COUNT=1`，界面显示“每天”，且本机没有对应的已启用 automation；现将三个时点更正为待人工逐集执行。
+- **本次完成**：
+  - 新增 `CODEX_RUNBOOK.md`，把开工、翻译、缓存、TTS、staging、发布、Git 和收工门禁，以及历次事故与防线固化给后续 Codex。
+  - 新增 `audit_translation.py`：检查空译文、时间轴倒退、相邻重复与异常扩写；在四集真实 JSON 上校准，能直接标出 `tivaWTTVRhY` 的高扩写区和 `zxvyO5vnknI` 的 `#89/#92` 重复。语义错位仍需人工 EN/ZH 对照，工具不冒充完整语义证明。
+  - 新增 `podcast_doctor.py`：交叉检查正式/staging feed、公开文件、enclosure 大小和 `podcast_status.csv`；当前 26 个 feed 条目无硬错误，同时发现 23 个未引用旧产物，以及 4 个正式条目的音频与字幕（共 8 条 URL）仍引用 staging 目录的历史遗留，共 31 个警告。
+  - `publish_from_staging.py` 新增 `--dry-run` 和写入前完整预检：检查 staging 产物、状态行、重复正式条目、URL 替换及两份 XML，预检通过后才修改文件。
+  - 基于 `cover-v3.png` 生成三版同视觉语言候选：Swiss editorial、orbital radio、archival print；均未替换正式封面。
+- **四集返修结论**：
+  - `P3KDebPTUrw`：当前 JSON 可作基准，问题在旧音频缓存；整集重新合成最稳妥，禁止信任 legacy cache。
+  - `tivaWTTVRhY`：当前 JSON 在约 `#154–#173` 有明显整段扩写，先按完整批次重译、人工核对，再重建对应 TTS。
+  - `ByOF8qByGHU`：约 `#83–#100` 是语义错位，静态重复检测不足以覆盖；必须按完整批次重译并人工逐条对照，再重建 TTS。
+  - `zxvyO5vnknI`：`#89/#92` 的相邻重复可自动检出，但不能只改单条；应返修覆盖该区域的完整批次。
+- **验证结果**：三个 Python 文件通过 AST 语法解析；`podcast_doctor.py` 当前为 0 error；Adam Ward 转正命令的 `--dry-run` 通过且未修改文件；`git diff --check` 通过。
+- **未完成 / 风险**：四集尚未实际重译或重合成；3 集 staging 尚未转正式；23 个孤立旧产物和 4 个正式条目引用 staging 路径尚未清理；`zh` 语义对应仍没有可完全自动证明的方案；封面待用户选择。
+- **下一步**：到点人工逐集转正并验证；随后优先按上述顺序返修四集，每集单独试听、commit、push，再恢复批量生产。
+
+---
+
 ## 2026-10-08 · Codex 接手核对、清理放弃内容、安排三集错峰发布
 
 - **当前状态**：正式 RSS 23 集；staging 3 集；放弃 2 集。`main` 与 `origin/main` 同步，接手时工作树干净。

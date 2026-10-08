@@ -13,7 +13,8 @@
 
 1. **必须先完整读取本仓库根目录的 [`PRD_SUMMARY.md`](PRD_SUMMARY.md)**（项目目标、范围、当前完成度、最大阻塞）——脱敏版，随本仓库 git 同步，任何 clone 都能读到。
 2. **[`播客工作循环.md`](播客工作循环.md)**（标准流程，唯一真相源）和 [`PROGRESS.md`](PROGRESS.md)（做到哪里）。
-3. 完整的内部文档在私有笔记仓库 `aicoding-notes/project5_podcast/`：`PRD.md`、`PROJECT_MAP.md`、`决策日志.md`、`成本拆解.md`。能访问就读，访问不到按 `PRD_SUMMARY.md` 工作即可。
+3. Codex 还必须完整读取 [`CODEX_RUNBOOK.md`](CODEX_RUNBOOK.md)（执行门禁与历史事故防线）。
+4. 完整的内部文档在私有笔记仓库 `aicoding-notes/project5_podcast/`：`PRD.md`、`PROJECT_MAP.md`、`决策日志.md`、`成本拆解.md`。能访问就读，访问不到按 `PRD_SUMMARY.md` 工作即可。
 
 ## 决策日志（强制）
 

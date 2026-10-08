@@ -12,6 +12,7 @@ podcast:transcript 的 URL 从 staging/ 路径换成正式路径，结果正式 
 
 import argparse
 import csv
+import io
 import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -42,17 +43,29 @@ def slug_from_item(item: str) -> str:
     return m.group(1)
 
 
-def update_status(video_id: str, multivoice: bool):
+def updated_status_text(video_id: str, multivoice: bool) -> str:
     rows = list(csv.reader(STATUS_CSV.open(encoding="utf-8")))
     header, body = rows[0], rows[1:]
     col = {h: i for i, h in enumerate(header)}
+    found = False
     for r in body:
         if r[col["video_id"]] == video_id:
+            found = True
             r[col["status"]] = "published_multivoice" if multivoice else "published"
             r[col["published"]] = "yes"
             r[col["next_action"]] = "已正式发布到RSS"
-    with STATUS_CSV.open("w", encoding="utf-8", newline="") as f:
-        csv.writer(f).writerows([header] + body)
+    if not found:
+        raise SystemExit(f"✗ podcast_status.csv 里找不到 {video_id}")
+    output = io.StringIO(newline="")
+    csv.writer(output).writerows([header] + body)
+    return output.getvalue()
+
+
+def parse_xml(text: str, label: str) -> None:
+    try:
+        ET.fromstring(text)
+    except ET.ParseError as exc:
+        raise SystemExit(f"✗ {label} XML 无效：{exc}") from exc
 
 
 def main():
@@ -60,18 +73,21 @@ def main():
     ap.add_argument("video_id")
     ap.add_argument("--pub-date", required=True)
     ap.add_argument("--multivoice", action="store_true")
+    ap.add_argument("--dry-run", action="store_true", help="只做全部预检，不复制或改写文件")
     args = ap.parse_args()
 
     staging_feed = STAGING / "feed.xml"
-    item, remaining = extract_item(staging_feed.read_text(encoding="utf-8"), args.video_id)
+    staging_text = staging_feed.read_text(encoding="utf-8")
+    item, remaining = extract_item(staging_text, args.video_id)
     slug = slug_from_item(item)
 
-    # 搬文件
+    assets = []
     for sub, ext in (("episodes", "mp3"), ("transcripts", "srt")):
         src = STAGING / sub / f"{slug}.{ext}"
         dst = HERE / sub / f"{slug}.{ext}"
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
+        if not src.exists() or src.stat().st_size == 0:
+            raise SystemExit(f"✗ staging 产物不存在或为空：{src}")
+        assets.append((src, dst))
 
     # 三处 URL 全部要从 staging 换成正式，漏一处就会指回 staging 目录
     item = (item
@@ -81,17 +97,29 @@ def main():
     import re
     item = re.sub(r"<pubDate>[^<]*</pubDate>", f"<pubDate>{args.pub_date}</pubDate>", item)
 
-    staging_feed.write_text(remaining, encoding="utf-8")
     feed = HERE / "feed.xml"
-    feed.write_text(feed.read_text(encoding="utf-8").replace("    <item>", item + "    <item>", 1),
-                    encoding="utf-8")
+    formal_text = feed.read_text(encoding="utf-8")
+    if f"/ep/{args.video_id}<" in formal_text:
+        raise SystemExit(f"✗ {args.video_id} 已经在正式 feed 中")
+    updated_feed = formal_text.replace("    <item>", item + "    <item>", 1)
+    status_text = updated_status_text(args.video_id, args.multivoice)
 
-    ET.parse(feed)
-    ET.parse(staging_feed)
     if "/staging/" in item:
         raise SystemExit("✗ 转正后的 item 里仍残留 staging 路径，请检查")
+    parse_xml(updated_feed, "正式 feed")
+    parse_xml(remaining, "staging feed")
 
-    update_status(args.video_id, args.multivoice)
+    if args.dry_run:
+        print(f"✓ 预检通过：{args.video_id} 可转正式（slug={slug}），未修改文件")
+        return
+
+    for src, dst in assets:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+    staging_feed.write_text(remaining, encoding="utf-8")
+    feed.write_text(updated_feed, encoding="utf-8")
+    STATUS_CSV.write_text(status_text, encoding="utf-8")
+
     print(f"✓ {args.video_id} 已转正式发布（slug={slug}）")
 
 

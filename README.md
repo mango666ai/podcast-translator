@@ -20,7 +20,7 @@ source ../VideoLingo/.venv/bin/activate
 # 完整命令与验收项见《播客工作循环.md》
 ```
 
-实际生产链路由 `youtube_transcribe.py`、`youtube_dub.py`、`build_speaker_rules.py`、`youtube_multivoice_dub.py`、`stage_episode.py` 和 `publish_from_staging.py` 组成。
+实际生产链路由 `youtube_transcribe.py`、`youtube_dub.py`、`build_speaker_rules.py`、`youtube_multivoice_dub.py`、`stage_episode.py` 和 `publish_from_staging.py` 组成。Codex 执行门禁见 [CODEX_RUNBOOK.md](CODEX_RUNBOOK.md)；翻译后用 `audit_translation.py`，发布前后用 `podcast_doctor.py`。
 
 ⚠️ `run_jobs.py` 仍连接旧的 `test_pipeline.py` 链路，当前只能视作遗留工具，不能代表正式生产流程已经全自动化。
 
@@ -78,6 +78,8 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `youtube_transcribe.py` | 批量 YouTube 下载 + 英文转写，用于 8 个视频的第一阶段 |
 | `youtube_dub.py` | 基于转写调用 OpenAI GPT 生成中文字幕 / 中文配音小样 / 完整中文音频 |
 | `stage_episode.py` / `publish_from_staging.py` | staging 入库与转正式发布 |
+| `audit_translation.py` | 双语分段静态质量审计（不替代人工语义复核） |
+| `podcast_doctor.py` | RSS、状态表和公开产物一致性检查 |
 | `podcast_status.csv` | 逐集机器状态表 |
 | `.env` | API Keys（不提交）：DeepSeek、MiniMax、DashScope 等 |
 | `cookies.txt` | YouTube cookies（不提交）|

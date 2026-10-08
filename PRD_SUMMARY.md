@@ -31,6 +31,8 @@
 
 当前最高优先级风险是**翻译与缓存正确性**：DeepSeek 可能出现批内 `zh` 编号错位，而现有 echo 校验不能完整证明译文对应关系；历史 TTS 缓存若没有文本指纹，也可能把旧译文音频复用到新稿。已确认有 4 个存量节目仍待返修，详见 `PROGRESS.md` 和 `技术债.md`。
 
+Codex 执行本项目还必须遵守 `CODEX_RUNBOOK.md`；翻译后运行 `audit_translation.py`，发布前后运行 `podcast_doctor.py`。自动检查用于拦截已知故障，不替代 EN/ZH 人工对照与 staging 试听。
+
 续跑旧集数时，不得默认信任无指纹缓存；只有人工确认缓存对应当前译文后才可显式使用 `--trust-legacy-cache`。
 
 ## 发布前强制检查
