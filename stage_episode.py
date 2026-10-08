@@ -30,7 +30,7 @@ from notes_to_description import notes_md_to_description
 HERE = Path(__file__).parent
 STAGING = HERE / "staging"
 STATUS_CSV = HERE / "podcast_status.csv"
-COVER = "https://mango666ai.github.io/podcast-translator/cover-v2.png"
+COVER = "https://mango666ai.github.io/podcast-translator/cover-v3.png"
 RAW_BASE = "https://raw.githubusercontent.com/mango666ai/podcast-translator/main"
 PAGES_BASE = "https://mango666ai.github.io/podcast-translator"
 

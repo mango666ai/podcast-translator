@@ -11,10 +11,10 @@
       <itunes:email>mmmmango666@gmail.com</itunes:email>
     </itunes:owner>
     <itunes:explicit>false</itunes:explicit>
-    <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+    <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v3.png" />
     <itunes:category text="Education" />
     <image>
-      <url>https://mango666ai.github.io/podcast-translator/cover-v2.png</url>
+      <url>https://mango666ai.github.io/podcast-translator/cover-v3.png</url>
       <title>Dove的AI译站（待审核）</title>
       <link>https://mango666ai.github.io/podcast-translator/staging</link>
     </image>
@@ -61,7 +61,7 @@ Adam Ward，现任Cursor人才负责人。他曾与人共同创立独立招聘�
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/zegYJ6dhIg4</guid>
       <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
       <itunes:duration>6425</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v3.png" />
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.mp3" length="55318113" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.srt" type="text/srt" />
     </item>
@@ -101,7 +101,7 @@ YC Design Review：How To Design In The Agent Era，Stephen Haney（Paper创始�
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/P06RgnUKX_I</guid>
       <pubDate>Mon, 21 Sep 2026 10:00:00 +0000</pubDate>
       <itunes:duration>4596</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v3.png" />
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.mp3" length="39960285" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.srt" type="text/srt" />
     </item>
@@ -142,7 +142,7 @@ AI中文译制版，声音克隆自原视频/主持人。请注意，由于自�
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/87DyyMV0kCY</guid>
       <pubDate>Mon, 21 Sep 2026 12:00:00 +0000</pubDate>
       <itunes:duration>2659</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v3.png" />
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.mp3" length="23066613" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.srt" type="text/srt" />
     </item>

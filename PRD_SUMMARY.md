@@ -29,7 +29,7 @@
 - 多说话人节目当前优先用字幕中的 `>>` 发言轮次 + DeepSeek 文本判断生成 speaker rules；完全音频 diarization 尚未接通。
 - 生产流程是对话驱动的新链路；`run_jobs.py` 仍指向旧链路，不能视为端到端自动化。
 
-当前最高优先级风险是**翻译与缓存正确性**：DeepSeek 可能出现批内 `zh` 编号错位，而现有 echo 校验不能完整证明译文对应关系；历史 TTS 缓存若没有文本指纹，也可能把旧译文音频复用到新稿。已确认有 4 个存量节目仍待返修，详见 `PROGRESS.md` 和 `技术债.md`。
+当前最高优先级风险是**翻译与缓存正确性**：DeepSeek 可能出现批内 `zh` 编号错位，而现有 echo 校验不能完整证明译文对应关系；历史 TTS 缓存若没有文本指纹，也可能把旧译文音频复用到新稿。原 4 个存量节目中，`zxvyO5vnknI` 已于 2026-10-08 完成试点返修，另 3 个仍待处理，详见 `PROGRESS.md` 和 `技术债.md`。
 
 Codex 执行本项目还必须遵守 `CODEX_RUNBOOK.md`；翻译后运行 `audit_translation.py`，发布前后运行 `podcast_doctor.py`。自动检查用于拦截已知故障，不替代 EN/ZH 人工对照与 staging 试听。
 

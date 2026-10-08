@@ -80,6 +80,8 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `stage_episode.py` / `publish_from_staging.py` | staging 入库与转正式发布 |
 | `audit_translation.py` | 双语分段静态质量审计（不替代人工语义复核） |
 | `podcast_doctor.py` | RSS、状态表和公开产物一致性检查 |
+| `repair_translation_batch.py` | 按完整批次返修错位/扩写译文并保留本地备份 |
+| `publish_once.py` | 供本机 launchd 使用的幂等一次性转正入口 |
 | `podcast_status.csv` | 逐集机器状态表 |
 | `.env` | API Keys（不提交）：DeepSeek、MiniMax、DashScope 等 |
 | `cookies.txt` | YouTube cookies（不提交）|

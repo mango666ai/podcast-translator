@@ -16,6 +16,7 @@ youtube_dub/
 youtube_demo/
 预览_新模板示例/
 logs/*.log
+.scheduled_publish/
 episodes/._*
 transcripts/._*
 shownotes/._*
