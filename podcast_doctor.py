@@ -94,7 +94,10 @@ def main() -> int:
 
     referenced = {path.resolve() for assets in (*formal.values(), *staging.values()) for path in assets.values()}
     for directory in ("episodes", "transcripts", "staging/episodes", "staging/transcripts"):
-        for path in (HERE / directory).iterdir():
+        asset_dir = HERE / directory
+        if not asset_dir.exists():
+            continue
+        for path in asset_dir.iterdir():
             if path.is_file() and path.resolve() not in referenced:
                 warnings.append(f"未被 feed 引用: {path.relative_to(HERE)}")
 
