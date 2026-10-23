@@ -3,7 +3,7 @@
 把英文播客一键转成中文 MP3，供通勤收听。
 
 - 🗣 whisperX / YouTube 英文字幕转写 + DeepSeek 意译
-- 🔊 MiniMax 或 CosyVoice 原声克隆中文配音
+- 🔊 MiniMax / CosyVoice 原声克隆中文配音；私密试播可使用 Qwen 标准音色
 - 📖 六段式节目笔记进入 RSS 简介
 - 📄 双语 SRT 字幕
 - 🎧 staging RSS 试听确认后再转正式
@@ -69,7 +69,8 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 |------|------|
 | `run_jobs.py` | 旧任务队列编排器，尚未接入当前生产链路 |
 | `test_pipeline.py` | 旧链路：下载 → 转录 → 翻译 |
-| `tts_minimax.py` / `tts_cosyvoice.py` | 两个正式 TTS 供应商适配层 |
+| `tts_minimax.py` / `tts_cosyvoice.py` | 两个正式发布 TTS 供应商适配层 |
+| `tts_qwen.py` | Qwen 标准音色适配层；当前只用于获批的 Lex 私密试播，不代表公开发布授权 |
 | `intro_compose.py` | OpenAI GPT 生成简介 + TTS → 拼接 final.mp3 |
 | `generate_srt.py` | 生成中文 / 双语 SRT 字幕 |
 | `add_chapters.py` | 写入 ID3 章节标记 |

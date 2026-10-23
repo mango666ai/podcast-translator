@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-10-23 · Lex #398 私密试听小样已交付
+
+- **当前状态**：`feature/lex-pilot` 已打通“结构化导入 → DeepSeek 翻译 → 翻译审计 → 非仿真标准中文多声线 TTS”的阶段 1；约 5 分钟范围的私密小样已生成，未加入 staging 或正式 RSS。
+- **本次完成**：新增 Qwen Audio 3.0 TTS Plus 适配层 `tts_qwen.py`，并接入 `youtube_multivoice_dub.py --provider qwen`；Lex Fridman 使用官方男声 `longanlufeng`，Mark Zuckerberg 使用官方女声 `longanlingxin`，以明确区别于原节目真人声音。输出 20 段、成品 257.976 秒（约 4 分 18 秒）、2,321,469 bytes，SHA-256 为 `795c6d21ff8cbf0062e9ef0b7b33d234e1405f057e12d02c9aa2acb6fadb328a`。
+- **验证结果**：20/20 分段均生成 MP3 与文本指纹；成品为 MP3、24 kHz、单声道；Lex 导入器与 Qwen 适配层共 8 项单元测试通过；翻译审计保持 `0 error / 0 warning`。
+- **未完成 / 阻塞**：等待用户试听小样并决定通过、调整或停止。版权说明不能替代内容再发布授权；在权利路径未确认前，Lex 工件继续仅限本地私密使用。
+- **下一步**：用户确认小样听感后，才翻译并合成 #398 整集；未确认前不扩大到其他 Lex 节目，也不公开发布。
+
+---
+
 ## 2026-10-23 · Lex #398 试播阶段 1：导入链路完成，TTS 小样阻塞
 
 - **当前状态**：已从最新 `main` 创建 `feature/lex-pilot`；只产生本地私密工件，未加入 staging/正式 RSS，未扩展到其他 Lex 节目。

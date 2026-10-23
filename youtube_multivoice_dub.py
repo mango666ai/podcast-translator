@@ -24,6 +24,9 @@ def _get_synthesize(provider: str):
     if provider == "cosyvoice":
         from tts_cosyvoice import synthesize as synthesize_cosyvoice  # 延迟导入，没装 dashscope 也能跑 minimax
         return synthesize_cosyvoice
+    if provider == "qwen":
+        from tts_qwen import synthesize as synthesize_qwen
+        return synthesize_qwen
     raise SystemExit(f"✗ 未知 provider：{provider}")
 
 
@@ -65,7 +68,7 @@ def main():
                           'e.g. \'{"host":"...","main":"..."}\'; supports any number of speakers')
     ap.add_argument("--rules", required=True, help="JSON list of {start,end,speaker}")
     ap.add_argument("--label", default="multivoice")
-    ap.add_argument("--provider", default="minimax", choices=["minimax", "cosyvoice"],
+    ap.add_argument("--provider", default="minimax", choices=["minimax", "cosyvoice", "qwen"],
                     help="TTS 供应商；同一集不要中途换，会导致前后声音不一致")
     ap.add_argument("--limit-seconds", type=float, default=0,
                     help="只合成到原视频这个时间点为止（做试听小样用，0=全片）")
