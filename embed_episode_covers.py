@@ -111,6 +111,7 @@ def update_enclosure_length(feed: Path, url: str, size: int) -> None:
 
 
 def embed_cover(mp3: Path, cover: Path) -> dict[str, object]:
+    original_mode = mp3.stat().st_mode
     before_pcm = _pcm_hash(mp3)
     before_duration = _duration(mp3)
 
@@ -141,6 +142,10 @@ def embed_cover(mp3: Path, cover: Path) -> dict[str, object]:
         if _extract_cover_hash(output, temp_dir) != _sha256(cover):
             raise RuntimeError(f"{mp3}: embedded cover differs from {cover}")
 
+        # Preserve Git's existing executable bit exactly.  Several historical
+        # MP3s accidentally carry mode 100755; changing cover metadata must not
+        # also create an unrelated mode-only diff.
+        os.chmod(output, original_mode)
         os.replace(output, mp3)
 
     return {
