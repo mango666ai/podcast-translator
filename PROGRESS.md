@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-10-23 · 26 集正式 MP3 完成内嵌播客封面
+
+- **当前状态**：正式 RSS 26 集、staging 0 集；26/26 个 RSS 引用 MP3 均已内嵌原始 `cover-v2.png`，两个未被 feed 引用的历史实验 MP3 未处理。
+- **本次完成**：新增 `embed_episode_covers.py`，通过 ffmpeg 复制原音频流、写入 ID3v2.3 front-cover，并同步每集 RSS enclosure `length`；按“1 集 canary → 剩余 25 集”执行，每集单独 commit + push。工具已修正为保留原文件的 Git 模式位。
+- **验证结果**：26/26 个 MP3 均恰有 1 个 `attached_pic`；每集处理时均校验解码 PCM SHA-256 不变、时长误差 ≤ 0.01 秒，且提取图哈希等于 `cover-v2.png` 的 `0f4c4a2154a57425a5e4b8c51205b84f5837cb92f3fb86fa10b3b19aaf6398f4`。`podcast_doctor.py` 为 `0 error / 3 个已知孤立产物 warning`。
+- **未完成 / 风险**：播客客户端/GitHub CDN 可能暂时缓存旧 MP3；原图约 2.2 MB，26 个新 Git blob 会增加仓库历史体积。Lex 私密试听仍阻塞于非仿真中文 TTS 通道。
+- **下一步**：等订阅端缓存刷新后抽查封面展示；Lex 先恢复一条可用的标准中文 TTS，交付约 5 分钟私密小样，用户确认听感后才继续整集。
+
+---
+
 ## 2026-10-23 · Spec 获批并回填 26 集版权说明
 
 - **当前状态**：用户批准 `SPEC_LEX_PILOT_COVER_COPYRIGHT.md`；Lex 工作在独立 `feature/lex-pilot` 分支，正式 RSS 仍为 26 集。
