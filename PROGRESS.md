@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-10-23 · Spec 获批并回填 26 集版权说明
+
+- **当前状态**：用户批准 `SPEC_LEX_PILOT_COVER_COPYRIGHT.md`；Lex 工作在独立 `feature/lex-pilot` 分支，正式 RSS 仍为 26 集。
+- **本次完成**：现有 26/26 集 `<description>` 末尾追加统一版权与 AI 译制说明；`notes_md_to_description()` 已改为未来新集自动追加且不重复；新增可重复执行的回填脚本和测试。
+- **验证结果**：3 项单元测试通过；回填脚本第二次执行为 `changed=0`；两份 XML 可解析；`podcast_doctor.py` 为 `0 error / 3 个已知孤立产物 warning`。
+- **未完成 / 阻塞**：历史 MP3 尚未嵌入封面；Lex 私密试听的非仿真 TTS 通道仍阻塞。版权声明不等于内容或声音授权。
+- **下一步**：先用原始 `cover-v2.png` 处理 1 集 MP3 canary，验证音频流未重编码、PCM 哈希不变、封面可识别和 RSS length 同步后再继续。
+
+---
+
 ## 2026-10-23 · 完成 Lex 试播、历史封面与版权说明 spec 草案
 
 - **当前状态**：仅完成需求澄清和 spec，尚未创建 Lex 功能分支、修改 MP3、生成试播或更新 RSS。
