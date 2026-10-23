@@ -7,6 +7,21 @@ import re
 import sys
 from pathlib import Path
 
+COPYRIGHT_NOTICE = (
+    "版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，"
+    "仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利"
+    "归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，"
+    "请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。"
+)
+
+
+def append_copyright_notice(description: str) -> str:
+    """追加一次统一版权说明；可安全重复调用。"""
+    description = description.rstrip()
+    if COPYRIGHT_NOTICE in description:
+        return description
+    return f"{description}\n\n{COPYRIGHT_NOTICE}" if description else COPYRIGHT_NOTICE
+
 
 def notes_md_to_description(md_text: str) -> str:
     """输入 write_notes_if_needed() 产出的完整 .md 文本，输出保留六段结构、
@@ -31,7 +46,7 @@ def notes_md_to_description(md_text: str) -> str:
         if not text:
             continue
         blocks.append(f"{title}：\n{text}")
-    return "\n\n".join(blocks)
+    return append_copyright_notice("\n\n".join(blocks))
 
 
 def main():

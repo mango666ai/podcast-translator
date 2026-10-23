@@ -22,6 +22,36 @@
 
 ---
 
+## 2026-10-23 · 撤下 DHH 育儿节目
+
+- **当前状态**：正式 RSS 25 集、staging 0 集、放弃 3 集；DHH 系列公开保留第 1–3 集，第 4–5 集均已撤下。
+- **本次完成**：按用户要求从正式 RSS 删除《DHH谈育儿、Linux桌面之争与编程的未来（第4/5集）》；删除仓库中的正式 MP3 与 SRT；`podcast_status.csv` 更新为 `abandoned`、`published=no`，记录原因为小宇宙持续审核不通过。
+- **验证结果**：两份 RSS XML 可解析；正式 feed 已无 `NYFGCESmikA_p4`；仓库工作树已无该集公开 MP3/SRT；`podcast_doctor.py` 无硬错误。
+- **未完成 / 风险**：GitHub、CDN 和播客客户端可能短暂保留缓存；普通提交会从当前分支移除文件，但历史 commit 仍保留旧 blob，未进行破坏性的 Git 历史重写。
+- **下一步**：推送后核对 GitHub 当前分支和线上 RSS 已撤下该集；如小宇宙仍显示旧条目，等待其重新抓取 RSS 或在平台后台手动刷新。
+
+---
+
+## 2026-10-23 · 26 集正式 MP3 完成内嵌播客封面
+
+- **当前状态**：正式 RSS 26 集、staging 0 集；26/26 个 RSS 引用 MP3 均已内嵌原始 `cover-v2.png`，两个未被 feed 引用的历史实验 MP3 未处理。
+- **本次完成**：新增 `embed_episode_covers.py`，通过 ffmpeg 复制原音频流、写入 ID3v2.3 front-cover，并同步每集 RSS enclosure `length`；按“1 集 canary → 剩余 25 集”执行，每集单独 commit + push。工具已修正为保留原文件的 Git 模式位。
+- **验证结果**：26/26 个 MP3 均恰有 1 个 `attached_pic`；每集处理时均校验解码 PCM SHA-256 不变、时长误差 ≤ 0.01 秒，且提取图哈希等于 `cover-v2.png` 的 `0f4c4a2154a57425a5e4b8c51205b84f5837cb92f3fb86fa10b3b19aaf6398f4`。`podcast_doctor.py` 为 `0 error / 3 个已知孤立产物 warning`。
+- **未完成 / 风险**：播客客户端/GitHub CDN 可能暂时缓存旧 MP3；原图约 2.2 MB，26 个新 Git blob 会增加仓库历史体积。Lex 私密试听仍阻塞于非仿真中文 TTS 通道。
+- **下一步**：等订阅端缓存刷新后抽查封面展示；Lex 先恢复一条可用的标准中文 TTS，交付约 5 分钟私密小样，用户确认听感后才继续整集。
+
+---
+
+## 2026-10-23 · Spec 获批并回填 26 集版权说明
+
+- **当前状态**：用户批准 `SPEC_LEX_PILOT_COVER_COPYRIGHT.md`；Lex 工作在独立 `feature/lex-pilot` 分支，正式 RSS 仍为 26 集。
+- **本次完成**：现有 26/26 集 `<description>` 末尾追加统一版权与 AI 译制说明；`notes_md_to_description()` 已改为未来新集自动追加且不重复；新增可重复执行的回填脚本和测试。
+- **验证结果**：3 项单元测试通过；回填脚本第二次执行为 `changed=0`；两份 XML 可解析；`podcast_doctor.py` 为 `0 error / 3 个已知孤立产物 warning`。
+- **未完成 / 阻塞**：历史 MP3 尚未嵌入封面；Lex 私密试听的非仿真 TTS 通道仍阻塞。版权声明不等于内容或声音授权。
+- **下一步**：先用原始 `cover-v2.png` 处理 1 集 MP3 canary，验证音频流未重编码、PCM 哈希不变、封面可识别和 RSS length 同步后再继续。
+
+---
+
 ## 2026-10-23 · 完成 Lex 试播、历史封面与版权说明 spec 草案
 
 - **当前状态**：仅完成需求澄清和 spec，尚未创建 Lex 功能分支、修改 MP3、生成试播或更新 RSS。
