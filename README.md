@@ -79,6 +79,7 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `youtube_dub.py` | 基于转写调用 OpenAI GPT 生成中文字幕 / 中文配音小样 / 完整中文音频 |
 | `stage_episode.py` / `publish_from_staging.py` | staging 入库与转正式发布 |
 | `audit_translation.py` | 双语分段静态质量审计（不替代人工语义复核） |
+| `lex_import.py` | 从 `lexfridman-cn` 元数据和 Lex 官网逐字稿导入单集，保留说话人、时间轴和来源追溯 |
 | `podcast_doctor.py` | RSS、状态表和公开产物一致性检查 |
 | `repair_translation_batch.py` | 按完整批次返修错位/扩写译文并保留本地备份 |
 | `publish_once.py` | 供本机 launchd 使用的幂等一次性转正入口 |
