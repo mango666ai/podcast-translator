@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-11-11（夜）· 《三位产品负责人》标准音色版上线；P3KDebPTUrw 因预算上限中断
+
+- `gSUMFvc8br0` 已替换（3555.0s，旧版 4227s）：重译第 4 批，firecrawl.dev 改口语；说话人用身份锚点重建（与 pyannote 四人分离 249/249）；音色主持人 Nuel `longcheng_v3`、Henrik `longtian_v3`、Sharmeen `longxiaoxia_v3`、JZ `loongbella_v3`（两女声相似度 0.43，为候选中最低）。验收 7 项全过。
+- `P3KDebPTUrw`：翻译、说话人均已修好（音色 Lenny `longcheng_v3`、Andrew `longtian_v3`），合成到 337/432 段时 DashScope 返回 `BudgetLimitExceeded`（用户在阿里云设置的预算上限已到），需调高或重置预算后续跑；已合成分段带指纹，续跑只补剩余段。
+- 至此有缺陷的 14 集中 13 集已用标准音色修好上线；`fWa7uxyhVDE` 体检无缺陷保持原样。
+
+---
+
 ## 2026-11-11（夜）· 声纹复核新增身份锚点；fWa7uxyhVDE 体检无缺陷
 
 - **身份锚点**：`speaker_voice_check.py` 新增 `--anchor label=段号,...`。`gSUMFvc8br0` 四人对谈中，以文字规则为起点的声纹复核收敛错误（一致率 38.6%，把 Sharmeen 的自我介绍判给了 JZ）；改用自我介绍/点名段做锚点后，与 pyannote 四人分离长段一致 249/249（8 月旧规则 65.9%）。

@@ -57,6 +57,11 @@
 | Patrick Winston（`Unzc731iCUY`，单声线） | `longsanshu_v3` | 龙三叔 · 沉稳质感男 | `Unzc731iCUY` | 原声约 158Hz，老教授授课 |
 | Lex Fridman（`NYFGCESmikA_p1–p3`） | `longtian_v3` | 龙天 · 磁性理智男 | `NYFGCESmikA_p1` | DHH 访谈各集共用 |
 | DHH（`NYFGCESmikA_p1–p3`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `NYFGCESmikA_p1` | DHH 访谈各集共用 |
+| Nuel Singhal（The Skip 主持人，`gSUMFvc8br0`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `gSUMFvc8br0` | |
+| Henrik Berggren（`gSUMFvc8br0`） | `longtian_v3` | 龙天 · 磁性理智男 | `gSUMFvc8br0` | |
+| Sharmeen Chapp（`gSUMFvc8br0`） | `longxiaoxia_v3` | 龙小夏 · 沉稳权威女 | `gSUMFvc8br0` | 与 JZ 女声相似度 0.43 |
+| Jiaona Zhang（JZ，`gSUMFvc8br0`） | `loongbella_v3` | Bella3.0 · 精准干练女 | `gSUMFvc8br0` | |
+| Andrew Ambrosino（`P3KDebPTUrw`） | `longtian_v3` | 龙天 · 磁性理智男 | `P3KDebPTUrw` | Lenny 沿用 `longcheng_v3` |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 
