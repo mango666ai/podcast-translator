@@ -78,6 +78,20 @@ def audit(path: Path, *, cross_min_chars: int = 12, cross_min_cjk: int = 8) -> t
             if len(shared) >= cross_min_chars and chinese_chars(shared) >= cross_min_cjk:
                 total_dup += len(shared)
                 warnings.append(f"#{i + 1}↔#{k + 1}: 译文重合 {len(shared)} 字「{shared[:20]}…」，疑似同一句话译了两遍")
+    # 换说法的重复：模型把下一段的意思提前译进本段，下一段又换个说法再译一遍，两段字面不同，
+    # 跨段重合（最长公共子串）抓不到。比较前段结尾与后段开头各 14 个汉字的二元组 Jaccard 相似度。
+    # 2026-11-11 在 zegYJ6dhIg4、tivaWTTVRhY、87DyyMV0kCY、DHH 等集各找到 1–2 处；也会误报（原话本身重复、
+    # 并列句式），所以只报警，由人工逐条确认后登记到 <id>__audit_reviewed.json。
+    def _bg(t):
+        return {t[i:i + 2] for i in range(len(t) - 1)}
+    zh_cjk = [re.sub(r"[^\u3400-\u9fff]", "", str(seg.get("text_zh", ""))) for seg in data]
+    for i in range(len(zh_cjk) - 1):
+        a, b = zh_cjk[i][-14:], zh_cjk[i + 1][:14]
+        if len(a) >= 8 and len(b) >= 8:
+            A, B = _bg(a), _bg(b)
+            sim = len(A & B) / max(1, len(A | B))
+            if sim >= 0.4:
+                warnings.append(f"#{i + 1}→#{i + 2}: 首尾相似 {sim:.2f}「{a}」/「{b}」，疑似换说法把同一句译了两遍")
     if total_dup:
         warnings.append(f"跨段重合合计约 {total_dup} 字（按 4 字/秒估算约 {total_dup / 4 / 60:.1f} 分钟重复朗读）")
 

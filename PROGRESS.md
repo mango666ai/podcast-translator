@@ -2,6 +2,15 @@
 
 ---
 
+## 2026-11-11（夜）· 新增"首尾相似"检查，补修两集已上线节目
+
+- **问题**：跨段重合（最长公共子串）抓不到"换说法的重复"——模型把下一段的意思提前译入本段，下一段又换个说法再译一遍。此前只能靠人工偶然发现（`zegYJ6dhIg4` #224/#225、DHH p2 #249/#250）。
+- **改动**：`audit_translation.py` 新增"首尾相似"警告（前段结尾与后段开头各 14 个汉字的二元组 Jaccard ≥ 0.4）；`episode_acceptance.py` 把它与跨段重合一起作为阻断项，人工确认的误报登记在 `<id>__audit_reviewed.json`。
+- **全量扫描结果**：9 处疑似，6 处为真重复（`87DyyMV0kCY` #54/#55、`tivaWTTVRhY` #119/#120、DHH p1 #63/#64 与 #141/#142、DHH p2 #63/#64、`P3KDebPTUrw` #259/#260），3 处误报已登记（`tivaWTTVRhY` #398→#399 原文两人都说了同一句、DHH p1 #246→#247 半句接续、DHH p2 #117→#118 并列句式）。
+- **补修**：`87DyyMV0kCY`、`tivaWTTVRhY` 只重合成改动的 1 段，重新验收 7 项全过并替换上线。其余 9 集已上线节目扫描为 0。
+
+---
+
 ## 2026-11-11（夜·二）· 《闻声识人》改版：抓人开场 + 芒果与播客推荐 + Claude B′ 形象
 
 - **当前状态**：同一工程 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren` 已改为 11 个场景、209.9 秒；`hyperframes check` 0 error，仅余 1 条经核实的测量误差提示（片尾字幕在 201.76s 采样点读不到元素，实际连续显示约 6 秒）；预览仍在 `http://localhost:3003/#project/wensheng-shiren`，未渲染。
