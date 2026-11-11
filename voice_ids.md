@@ -48,6 +48,8 @@
 | 课堂提问学生（`LNSvp-9b-J0`） | `longtian_v3` | 龙天 · 磁性理智男 | `LNSvp-9b-J0` | 多位学生共用；与主讲人音色相似度 0.42 |
 | Baseten 研究员一号（`I8YnwUV2C9w`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `I8YnwUV2C9w` | 0–263s 主讲 |
 | Charlie（`I8YnwUV2C9w`） | `longtian_v3` | 龙天 · 磁性理智男 | `I8YnwUV2C9w` | 263s 起主讲 |
+| Eric Wallace（`87DyyMV0kCY`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `87DyyMV0kCY` | 原声约 135Hz |
+| Michael Dalton（`87DyyMV0kCY`） | `longtian_v3` | 龙天 · 磁性理智男 | `87DyyMV0kCY` | 原声约 103Hz |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 

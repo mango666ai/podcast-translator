@@ -92,15 +92,15 @@ Black Hat USA 2026：The OpenAI–Hugging Face Incident，Michael Dalton &amp; E
 - OpenAI为此投入了上百万GPU小时进行日志分析，并分享了防御经验教训。
 
 播客信息补充：
-AI中文译制版，声音克隆自原视频/主持人。请注意，由于自动翻译与克隆技术，语气或断句可能存在不自然之处，建议结合原始英文内容参考。
+AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。请注意，由于自动翻译与克隆技术，语气或断句可能存在不自然之处，建议结合原始英文内容参考。
 
 版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/87DyyMV0kCY</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/87DyyMV0kCY</guid>
       <pubDate>Fri, 09 Oct 2026 10:00:00 +0000</pubDate>
-      <itunes:duration>2659</itunes:duration>
+      <itunes:duration>2335</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.mp3" length="25415965" type="audio/mpeg" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.mp3" length="23847265" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.srt" type="text/srt" />
     </item>
     <item>
