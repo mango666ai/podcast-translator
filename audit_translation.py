@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """对双语分段做发布前静态审计。
 
-它能抓空译文、时间轴异常、相邻重复、异常扩写和待清理标记；不能证明语义一定
-对齐，所以通过审计仍不等于可以跳过抽听。
+它能抓空译文、时间轴异常、相邻重复、跨段重合（同一句话在相邻两段各译一遍）、
+异常扩写和待清理标记；不能证明语义一定对齐，所以通过审计仍不等于可以跳过抽听。
 """
 
 from __future__ import annotations
@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from difflib import SequenceMatcher
 from pathlib import Path
 
 
@@ -21,7 +22,15 @@ def chinese_chars(text: str) -> int:
     return len(re.findall(r"[\u3400-\u9fff]", text))
 
 
-def audit(path: Path) -> tuple[list[str], list[str]]:
+def cross_segment_overlap(a: str, b: str) -> str:
+    """两段译文（已 compact）的最长公共子串。"""
+    if not a or not b:
+        return ""
+    m = SequenceMatcher(None, a, b, autojunk=False).find_longest_match(0, len(a), 0, len(b))
+    return a[m.a:m.a + m.size]
+
+
+def audit(path: Path, *, cross_min_chars: int = 12, cross_min_cjk: int = 8) -> tuple[list[str], list[str]]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, list):
         return ["顶层必须是分段数组"], []
@@ -53,6 +62,22 @@ def audit(path: Path) -> tuple[list[str], list[str]]:
         ratio = chinese_chars(zh) / max(en_letters, 1)
         if en_letters >= 12 and ratio > 0.85:
             warnings.append(f"#{index}: 中英长度比异常 ({ratio:.2f})，可能把半句扩写成整段")
+
+    # 跨段重合：DeepSeek 翻译半句时把下一段内容提前译入，下一段再译一遍，成品连念两遍。
+    # 相邻完全相同的检查抓不到它（只是大段重合而非整段相同）。阈值比翻译阶段的自动重试
+    # （youtube_dub.cross_segment_overlaps，15 字/10 汉字）更松，宁可多报让人看。
+    compacted = [compact(str(seg.get("text_zh", ""))) for seg in data]
+    total_dup = 0
+    for i in range(len(compacted)):
+        for k in (i + 1, i + 2):
+            if k >= len(compacted):
+                break
+            shared = cross_segment_overlap(compacted[i], compacted[k])
+            if len(shared) >= cross_min_chars and chinese_chars(shared) >= cross_min_cjk:
+                total_dup += len(shared)
+                warnings.append(f"#{i + 1}↔#{k + 1}: 译文重合 {len(shared)} 字「{shared[:20]}…」，疑似同一句话译了两遍")
+    if total_dup:
+        warnings.append(f"跨段重合合计约 {total_dup} 字（按 4 字/秒估算约 {total_dup / 4 / 60:.1f} 分钟重复朗读）")
 
     return errors, warnings
 

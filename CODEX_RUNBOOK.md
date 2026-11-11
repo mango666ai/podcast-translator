@@ -18,9 +18,9 @@
    python3 audit_translation.py <双语分段.json> --strict
    ```
 
-   自动审计只能发现高风险片段，不能证明语义对应；警告必须逐条复核，且至少抽看开头、中段、结尾和所有异常区间。
-3. 返修旧节目时禁止传 `--trust-legacy-cache`。无 `.txt` 指纹的分段缓存一律视为不可信。
-4. 合成后核对：分段数、指纹数、ffmpeg 成品时长、字幕末尾时间；文件出现不代表 ffmpeg 已写完。
+   自动审计只能发现高风险片段，不能证明语义对应；警告必须逐条复核，且至少抽看开头、中段、结尾和所有异常区间。"译文重合"警告表示同一句话在相邻两段各译了一遍，成品会连念两遍，必须按完整批次重译。
+3. 返修旧节目时禁止传 `--trust-legacy-cache`。无 `.txt` 指纹的分段缓存一律视为不可信。续跑中断的新集也一样：缓存目录里 mp3 数多于 `.txt` 数，就说明有旧缓存，先跑 `python3 scan_tts_cache.py <双语分段.json> --seg-dir <seg目录> --rules <rules> --voices '<json>' --speed <s>`，报"需要处理"就不能拼接。
+4. 合成后核对：分段数、指纹数（`scan_tts_cache.py` 必须报"缓存干净"）、ffmpeg 成品时长、字幕末尾时间；文件出现不代表 ffmpeg 已写完。
 5. 多说话人节目检查 `>>` 轮次规则；送入 TTS 和 SRT 的文本都必须经过 `clean_for_tts()`。
 
 ## 发布门禁
@@ -48,6 +48,8 @@
 | echo 正确但中文批内错位 | `audit_translation.py` + 异常区间人工 EN/ZH 对照；不把 echo 当语义证明 |
 | 只按序号命中旧 TTS 缓存 | 文本/voice/speed 指纹；返修禁用 legacy cache |
 | `>>`、音乐/笑声标记被念出 | `clean_for_tts()` 作为统一入口 |
+| 续跑信任修复前的旧缓存，`>>` 仍被念出（P06RgnUKX_I，2026-09-21） | 拼接前 `scan_tts_cache.py`；旧缓存一律重合成 |
+| 半句分段诱导 DeepSeek 把下一段提前译入，成品连念两遍 | 提示词限定只译本条；`cross_segment_overlaps()` 自动重试；`audit_translation.py` 跨段重合警告；`json3_to_segments.py --soft-chars` 尽量在句末切段 |
 | CosyVoice WebSocket 永久挂起 | 120 秒超时和重试 |
 | 24k/32k 混拼静默截断 | 统一采样参数 + 成品时长校验 |
 | ffmpeg 尚未写完就复制 | `wait_until_stable()` |

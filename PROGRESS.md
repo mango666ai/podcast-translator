@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-11-11 · 查实《智能体时代的设计》重复朗读与「大于大于」，修流水线并重译问题批次
+
+- **当前状态**：翻译层修复已合入；`P06RgnUKX_I` 本地双语分段已重译并通过审计，**正式 MP3/SRT 尚未替换**，整集重新合成卡在 MiniMax 余额不足。
+- **根因**：①重复内容来自翻译层：转写按 260 字符机械切段，479 段里 211 段在半句处断开，DeepSeek 翻译半句时把下一段内容提前译入，下一段再译一遍，成品同一句话连念两遍。该集 28 处、约 619 字（≈2.5 分钟）；`87DyyMV0kCY` 54 处/790 字，`zegYJ6dhIg4` 42 处/2723 字（≈11 分钟），`NYFGCESmikA_p1` 16 处/364 字。echo 校验、相邻完全重复检查、长度比检查都抓不到。②「大于大于」：2026-09-02 MiniMax 额度用尽时该集卡在 397/479 段，2026-09-21 续跑用 `--trust-legacy-cache` 复用了 9 月 3 日 `clean_for_tts()` 修复之前生成的 378 段（#20–#397），其中 52 段会把 `>>`/[笑声] 念出来。③与换模型无关：该集全程 MiniMax 克隆声线（101 个新指纹全部匹配 MiniMax voice_id），翻译一直是 `deepseek-chat`。
+- **本次完成**：`youtube_dub.py` 提示词明确"只译本条、半句就译半句"，新增 `cross_segment_overlaps()`（相邻段最长公共子串 ≥15 字且汉字 ≥10 即重试该批）；`audit_translation.py` 新增跨段重合警告（阈值 12 字/8 汉字）并汇总估算重复时长；`json3_to_segments.py` 新增 `--soft-chars`（默认 150）让分段尽量落在句末，该集半句结尾从 44% 降到 36%；新增 `scan_tts_cache.py` 体检分段缓存（无指纹旧缓存、会念出标记的段、指纹不符、时长异常）。用新代码重译第 2、4、5、7、16、17、19 批，170 段更新，备份在 `youtube_dub/<job>/*.before-batch-*.json`。
+- **验证结果**：重译后 `audit_translation.py` 为 0 error / 1 warning（#375 长度比 0.89，人工核对为正常意译）；跨段重合 0 处；人工对照 #33/34、#47/48、#85/86、#114/115、#170/171、#394/395、#419/420、#465/466、#471–473 均已各译各段。`scan_tts_cache.py` 对该集报 378 段无指纹、52 段会念出标记。MiniMax 单句探测返回 `insufficient balance`。
+- **未完成 / 阻塞**：整集 TTS 重合成（禁用旧缓存）等待选择通道：充值 MiniMax 沿用原声线，或改用 CosyVoice v3.5-plus 免费复刻两位声线（约 3 万字符、几元）。正式 MP3/SRT、RSS enclosure、封面内嵌均待重合成后处理。`87DyyMV0kCY`、`zegYJ6dhIg4` 有同类重复，排入返修。
+- **下一步**：定 TTS 通道 → `youtube_multivoice_dub.py` 整集合成（不加 `--trust-legacy-cache`）→ `scan_tts_cache.py` 复检 → 拼接并核对时长 → 替换 `episodes/`/`transcripts/` → `embed_episode_covers.py --video-id P06RgnUKX_I` → 更新 RSS `length`/`itunes:duration` → `podcast_doctor.py` → 单独 commit/push。
+
+---
+
 ## 2026-10-23 · 撤下 DHH 育儿节目
 
 - **当前状态**：正式 RSS 25 集、staging 0 集、放弃 3 集；DHH 系列公开保留第 1–3 集，第 4–5 集均已撤下。

@@ -116,6 +116,40 @@ def _echo_mismatch(echo: str, original: str) -> bool:
     return overlap < 0.3
 
 
+def _compact_zh(text: str) -> str:
+    return re.sub(r"[^\w\u3400-\u9fff]", "", text)
+
+
+def cross_segment_overlaps(zh_list: list, *, min_chars: int = 15, min_cjk: int = 10,
+                           lookahead: int = 2) -> list:
+    """找相邻段落之间「同一句话被译了两遍」的情况。
+
+    转写分段是按字符数机械切的，很多段在半句处断开；DeepSeek 翻译 [j] 时会顺手把
+    [j+1] 的内容也补全译进来，到 [j+1] 又完整译一遍，成品里同一句话就连念两遍
+    （2026-11-11 在《智能体时代的设计》里确认，一集 28 处、约 2.5 分钟）。
+    echo 校验看不出来（序号对应是对的），相邻完全相同检查也看不出来（只是大段重合）。
+    判定：两段中文的最长公共子串 ≥ min_chars 且其中汉字 ≥ min_cjk。
+    产品名/术语（如 Artifactory、PlanetScale）反复出现是正常的，所以要求有足够多汉字。
+    → [(j, k, 重合字数, 重合文本)]
+    """
+    from difflib import SequenceMatcher
+    hits = []
+    comp = [_compact_zh(z or "") for z in zh_list]
+    for j in range(len(comp)):
+        a = comp[j]
+        if len(a) < min_chars:
+            continue
+        for k in range(j + 1, min(j + 1 + lookahead, len(comp))):
+            b = comp[k]
+            if len(b) < min_chars:
+                continue
+            m = SequenceMatcher(None, a, b, autojunk=False).find_longest_match(0, len(a), 0, len(b))
+            shared = a[m.a:m.a + m.size]
+            if m.size >= min_chars and len(re.findall(r"[\u3400-\u9fff]", shared)) >= min_cjk:
+                hits.append((j, k, m.size, shared))
+    return hits
+
+
 def _translate_batch(batch: list, title: str, source: str) -> list:
     """翻译单批（<=BATCH段）。3次重试后仍对不上编号，说明这批内容太长导致
     DeepSeek 回复被截断，对半拆开各自递归重试，缩小单次请求的输出量。"""
@@ -124,6 +158,10 @@ def _translate_batch(batch: list, title: str, source: str) -> list:
         f"你是专业视频翻译。把下面英文演讲片段译成自然、口语化、适合朗读配音的中文，意译为主、保留信息点。\n"
         f"视频主题：{title}\n"
         f"来源信息：{source or '未知'}\n"
+        f"这些片段是同一段连续讲话被机械切开的，很多条在半句处开始或结束。"
+        f"每条**只翻译它自己包含的英文**：半句就译成半句，由下一条接着说；"
+        f"不要为了让句子完整而把下一条的内容提前译进本条，也不要把上一条已经译过的内容再重复一遍。"
+        f"上下文可以用来理解语义，但译文范围必须严格对应本条原文。\n"
         f"按序号一一对应，**只**返回 JSON（无其他文字）：\n"
         f'```json\n{{"segments":[{{"i":0,"echo":"该条原文开头5-8个英文单词，一字不改地抄写","zh":"中文"}}]}}\n```\n'
         f"echo 字段是自查手段，必须原样摘抄对应原文的开头部分，不能翻译、不能改写、不能对应错序号。\n"
@@ -158,6 +196,10 @@ def _translate_batch(batch: list, title: str, source: str) -> list:
             ]
             if mismatched:
                 raise ValueError(f"回显对不上原文，疑似内部编号错位：编号{mismatched}")
+            overlaps = cross_segment_overlaps([zh[j] for j in range(len(batch))])
+            if overlaps:
+                desc = "；".join(f"[{j}]↔[{k}] {n}字「{t[:12]}…」" for j, k, n, t in overlaps[:4])
+                raise ValueError(f"相邻段落译文大段重合，疑似把下一段内容提前译入：{desc}")
             break
         except (json.JSONDecodeError, AttributeError, KeyError, TypeError, ValueError) as e:
             zh = None
