@@ -2,6 +2,17 @@
 
 ---
 
+## 2026-11-11（夜）· 对外发布版科普视频《闻声识人》完成预览，待决定渲染
+
+- **当前状态**：HyperFrames 工程 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren`（仓库外，不提交），`hyperframes check` 0 error / 0 warning，本地预览 `http://localhost:3003/#project/wensheng-shiren`；尚未渲染 MP4（需用户批准）。
+- **内容**：9 个场景、172 秒、1920×1080，脚本按 SCRIPT_v2（AI 第一人称，屏风 / 书童 Whisper / 刻印师声纹模型 / 叠印比对 / 先猜再改 / 局限 / 回扣），宣纸水墨风，角色全部自绘 SVG，不含任何排查背景。
+- **对外发布合规处理**：字体为 Google Fonts 的马善政毛笔楷书与 Noto Serif SC（SIL OFL），从 HyperFrames 编译器缓存中按用字挑出 56 个切片放进工程并写本地 @font-face；旁白为 DashScope qwen-audio-3.0-tts-plus 官方标准女声 longanlingxin，32 句，统一到约 -16.6 LUFS；配乐为 Python 原创合成的五声音阶拨弦（固定随机种子），已按旁白时间压低 9 dB 并在 1.8 kHz 让位，整体约 -32 LUFS；画面右上角常驻“旁白为 AI 合成语音”，片尾“AI 合成配音 · 程序原创配乐 · 开源字体”。
+- **条款核对**：阿里云百炼《服务特别说明》规定“通过模型体验生成的内容仅可用于体验模型效果……不得进行任何商业化目的使用”，并要求不得去除“AI 生成”标识；正式 API 调用的生成内容未见商用限制，但“模型体验”是否包含免费额度没有定义，发布前应确认账号按量付费调用或取得书面答复。同一说明要求声音复刻只能上传本人声音、复刻后“仅支持您为体验目的使用”——这与播客流水线复刻节目真人声线并公开发布相冲突，需另行决策。
+- **未做**：carve.mjs 需 npm 安装 @hyperframes/core（外部包），未执行，改为在合成阶段离线避让；faceless-explainer 工作流未安装，沿用 general-video。
+- **下一步**：用户看预览后决定渲染或修改。
+
+---
+
 ## 2026-11-11（晚）· 讲解视频《播客流水线与声纹识别》完成预览，待决定渲染
 
 - **当前状态**：HyperFrames 工程在 `/Users/caimengge/AIcoding/project5_podcast/videos/voice-pipeline-explainer`（仓库外，未提交），`hyperframes check` 全部通过，本地预览 `http://localhost:3002/#project/voice-pipeline-explainer`；尚未渲染 MP4。
