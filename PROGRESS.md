@@ -4,14 +4,16 @@
 
 ## 2026-11-11（下午）· 《智能体时代的设计》返修版上线：CosyVoice 重合成 + 说话人规则重建
 
-- **当前状态**：`P06RgnUKX_I` 正式 MP3/SRT 已替换为返修版，RSS `length`/`itunes:duration` 已同步；待用户试听确认。pyannote 声纹分离模型尚未接入。
+- **当前状态**：`P06RgnUKX_I` 正式 MP3/SRT 已替换为返修版，RSS `length`/`itunes:duration` 已同步；说话人规则已用 pyannote 复核并修正 12 段后再次替换上线；待用户试听确认。
 - **本次完成**：
   - TTS 从 MiniMax（余额不足）改为 CosyVoice v3.5-plus，语速 0.92；新复刻两位声线，样本各 20 秒、只含本人声音，登记于 `voice_ids.md`。原 MiniMax Stephen 样本（2791–2881s）中 2812–2857s 实为主持人 Aaron 提问，声线混了两人，已标弃用。
   - 说话人规则重建：旧规则 2026-09-02 由分批修复前的 `build_speaker_rules.py` 生成（292 轮一次塞进提示词、每轮只给前 200 字符、无校验），散布着主持人/嘉宾判反。用当前代码重跑后与旧版有 112 段分歧，新版修好了后半段主持人提问，却把 2148–2189s 一段对话整体判反。最终用混合裁决：两版一致的沿用（367 段）；分歧段中声纹置信度高的按声纹（61 段，librosa MFCC + GMM，参照为 2812s 主持人提问与 2857s 嘉宾回答，在两版一致的长段上准确率约 89–91%）；有内容但声纹不确定的 27 段按上下文人工判定；纯插话按声纹或新版。全集 479 段中 81 段换了声线。旧规则备份 `youtube_dub/P06RgnUKX_I__speaker_rules.before-20261111.json`，LLM 新版存 `.llm-v2-20261111.json`。
   - 字幕：线上旧 SRT 每句前带 `>>`，新 SRT 经 `clean_for_tts()` 清洗，`>>` 为 0。
 - **验证结果**：`scan_tts_cache.py` 报"缓存干净"（479/479 有匹配指纹，0 旧缓存）；成品 4073.0s（旧版 4596s，缩短约 8.7 分钟，来自去重与语速 0.82→0.92），24kHz 单声道，响度 -16.6 LUFS；封面嵌入校验 PCM 不变；`podcast_doctor.py` 0 error / 3 个已知 warning。人工未试听。
-- **未完成 / 阻塞**：①用户试听返修版。②pyannote：HuggingFace 登录与重置密码卡在 hCaptcha 加载失败；ModelScope 的 `pyannote/speaker-diarization-community-1` 免登录且文件大小与 HF 官方逐字节一致，可作替代来源，下载后用它复核本集说话人规则。③`zegYJ6dhIg4`、`87DyyMV0kCY` 同类跨段重复待返修。
-- **下一步**：接入 pyannote 后先在本集比对混合规则，若有差异只重合成换声线的段落；然后按同法返修 Adam Ward 集。
+- **pyannote 接入**：HuggingFace 登录与重置密码卡在 hCaptcha 加载失败，改从 ModelScope 下载 pyannote 官方组织发布的 `speaker-diarization-community-1`（免登录；10 个模型文件与 HF 官方逐字节同大小，下载后逐个校验 ModelScope 公布的 sha256），放在 `~/.cache/modelscope/pyannote/speaker-diarization-community-1`。本机 torchcodec 不可用，以内存波形传入；本集 56 分钟音频用 MPS 跑约 8 分钟。
+- **pyannote 复核结论**：它在长段落上很准，但会把夹在长段中间的两三秒短问句吞进旁边的人（16 句短问句只认出 5 句；测过 ±3 秒时间偏移，不是字幕时间戳问题）。因此只采纳"≥5 秒、纯度≥0.9、非问句非插话"的判断，修正 12 段后只重合成这 12 段。长段（≥3 秒、纯度≥0.8）与 pyannote 一致率：9 月旧规则 77.6%，LLM 新版 85.1%，最终版 93.1%。最终版相对 9 月旧规则共 94 段换了声线。新增 `diarize_pyannote.py`（`run` 跑分离，`apply` 预览/写入修正）。
+- **未完成 / 阻塞**：①用户试听返修版，重点听主持人与嘉宾的声线分配。②1906s、2252s 两处文字与声纹线索矛盾，未改动。③`zegYJ6dhIg4`、`87DyyMV0kCY` 同类跨段重复待返修，返修时一并用 `diarize_pyannote.py` 重建说话人规则。
+- **下一步**：用户试听本集；然后按同法返修 Adam Ward 集。
 
 ---
 

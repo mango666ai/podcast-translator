@@ -79,6 +79,7 @@ git clone --depth 1 https://github.com/Huanshere/VideoLingo.git VideoLingo
 | `youtube_dub.py` | 基于转写调用 OpenAI GPT 生成中文字幕 / 中文配音小样 / 完整中文音频 |
 | `stage_episode.py` / `publish_from_staging.py` | staging 入库与转正式发布 |
 | `audit_translation.py` | 双语分段静态质量审计，含跨段重合检查（不替代人工语义复核） |
+| `diarize_pyannote.py` | pyannote 声纹分离，复核并修正说话人规则（长段听声纹，问句插话听文字） |
 | `scan_tts_cache.py` | 拼接前体检分段缓存：无指纹旧缓存、会念出 `>>` 的段、指纹不符、时长异常 |
 | `podcast_doctor.py` | RSS、状态表和公开产物一致性检查 |
 | `repair_translation_batch.py` | 按完整批次返修错位/扩写译文并保留本地备份 |
