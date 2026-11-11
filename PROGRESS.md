@@ -10,7 +10,8 @@
 - **音色**：主持人 `longcheng_v3`、嘉宾 `longtian_v3`（cosyvoice-v3-flash 系统音色，6 个候选里声纹最不像的一对，相似度 0.33），AI 提示用女声 `longanwen_v3`；语速 1.0。
 - **流水线改动**：`tts_cosyvoice.py` 系统音色自动走 cosyvoice-v3-flash；`youtube_multivoice_dub.py` 新增 `--ai-notice`，并按配音实际时长生成成品同名字幕（修掉旧字幕沿用英文原视频时间轴、越往后越偏的问题，P06 旧字幕结束于 55:48 而音频 67:54）；`audit_translation.py` 新增"译文含网址"警告；新增 `pick_voice_sample.py`（克隆时代的样本挑选，现仅供私密试播）、`episode_acceptance.py`（7 项验收清单）、`replace_published.py`（替换上线、嵌封面、写 AIGC 元数据隐式标识、同步 RSS）；`speaker_voice_check.py` 支持早期集放在 `youtube_demo/_audio/` 的原音频。
 - **验收结果**：`episode_acceptance.py` 7 项全过（翻译审计 0 error/跨段 0、字幕无 >>、开头有 AI 提示、缓存干净、24kHz 单声道 -17.5 LUFS、字幕与音频对齐、声纹复核达标）。缓存体检的"疑似拖长"检查抓到了 #496 网址问题。
-- **未完成**：①用户试听样片后决定是否上线（上线时同步把该集简介的"声音克隆自原视频/主持人"改为标准音色说明）。②其余历史集按同法逐集修复，`P3KDebPTUrw` 原音频需重新下载。③《智能体时代的设计》今天上线的是 CosyVoice 克隆版，也需按新策略改为标准音色。
+- **上线**：用户试听开头后要求把 AI 提示挪到结尾（已改为默认放结尾，1:34:37 起），确认后用 `replace_published.py` 替换正式 MP3/SRT（52,605,644 bytes，5684s），写入封面与 AIGC 元数据隐式标识，RSS 时长 6425→5684，简介改为“所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人”；`podcast_doctor.py` 0 error。
+- **未完成**：①（已完成）②其余历史集按同法逐集修复，`P3KDebPTUrw` 原音频需重新下载。③《智能体时代的设计》今天上线的是 CosyVoice 克隆版，也需按新策略改为标准音色。
 
 ---
 
