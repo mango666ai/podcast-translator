@@ -46,6 +46,8 @@
 | Dianne Penn（`tivaWTTVRhY` 嘉宾） | `longxiaoxia_v3` | 龙小夏 · 沉稳权威女 | `tivaWTTVRhY` | 与提示女声相似度 0.36、与 `longcheng_v3` 0.21 |
 | Apoorv Agrawal（`LNSvp-9b-J0` 主讲人） | `longanzhi_v3` | 龙安智 · 睿智轻熟男 | `LNSvp-9b-J0` | 原声基频约 125Hz |
 | 课堂提问学生（`LNSvp-9b-J0`） | `longtian_v3` | 龙天 · 磁性理智男 | `LNSvp-9b-J0` | 多位学生共用；与主讲人音色相似度 0.42 |
+| Baseten 研究员一号（`I8YnwUV2C9w`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `I8YnwUV2C9w` | 0–263s 主讲 |
+| Charlie（`I8YnwUV2C9w`） | `longtian_v3` | 龙天 · 磁性理智男 | `I8YnwUV2C9w` | 263s 起主讲 |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 
