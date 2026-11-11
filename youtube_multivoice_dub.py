@@ -69,6 +69,9 @@ def main():
                     help="TTS 供应商；同一集不要中途换，会导致前后声音不一致")
     ap.add_argument("--limit-seconds", type=float, default=0,
                     help="只合成到原视频这个时间点为止（做试听小样用，0=全片）")
+    ap.add_argument("--ai-notice", default="",
+                    help="开头的 AI 合成语音提示文本（《人工智能生成合成内容标识办法》要求音频含语音提示）")
+    ap.add_argument("--notice-voice", default="longanwen_v3", help="AI 提示所用音色（与节目里的声音区分开）")
     ap.add_argument("--trust-legacy-cache", action="store_true",
                     help="没有 .txt 指纹的旧缓存也直接复用（默认不复用，会重新合成）")
     args = ap.parse_args()
@@ -115,8 +118,55 @@ def main():
         mark_synthesized(out, text, voice=voice, speed=args.speed)
         print(f"  [{i + 1}/{len(segments)}] {speaker}/{voice}")
 
-    _concat(paths, Path(args.out))
+    lead = []
+    if args.ai_notice:
+        nsyn = _get_synthesize("cosyvoice") if args.provider != "minimax" else synthesize
+        nout = seg_dir / f"{bilingual_path.stem}__{args.label}__ai_notice.mp3"
+        hit, _ = cache_hit(nout, args.ai_notice, voice=args.notice_voice, speed=1.0)
+        if not hit:
+            _synthesize_with_retry(nsyn, args.ai_notice, nout, voice=args.notice_voice, speed=1.0)
+            mark_synthesized(nout, args.ai_notice, voice=args.notice_voice, speed=1.0)
+        gap = seg_dir / "_gap_0.8s.mp3"
+        if not gap.exists():
+            import subprocess
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
+                            "-t", "0.8", "-acodec", "libmp3lame", "-q:a", "2", str(gap)], check=True)
+        lead = [nout, gap]
+        print(f"  AI 提示：{args.ai_notice}")
+
+    _concat(lead + paths, Path(args.out))
+    _write_dubbed_srt(lead, paths, segments, Path(args.out), args.ai_notice)
     print(f"done: {args.out}")
+
+
+def _write_dubbed_srt(lead, paths, segments, out_mp3: Path, notice: str):
+    """按成品音频的真实时间写中文字幕。
+
+    旧做法 write_srt() 用的是英文原视频的时间轴，中文配音长短不同，越往后偏得越多
+    （P06RgnUKX_I：字幕最后一条在 55:48，音频却有 67:54）。这里用每个分段文件的实测时长
+    累加，并按成品总时长线性校正 MP3 帧填充带来的累计误差。
+    """
+    from tts_minimax import _probe_duration
+    files = list(lead) + list(paths)
+    durs = [_probe_duration(p) for p in files]
+    total = _probe_duration(out_mp3)
+    scale = total / sum(durs) if sum(durs) else 1.0
+    def fmt(t):
+        ms = int(round(t * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s_, ms = divmod(ms, 1000)
+        return f"{h:02d}:{m:02d}:{s_:02d},{ms:03d}"
+    cues, t = [], 0.0
+    texts = ([notice, None] if lead else []) + [clean_for_tts(s.get("text_zh", "")) for s in segments]
+    for text, d in zip(texts, durs):
+        d *= scale
+        if text:
+            cues.append((t, t + d, text))
+        t += d
+    lines = []
+    for i, (a, b, text) in enumerate(cues, 1):
+        lines += [str(i), f"{fmt(a)} --> {fmt(b)}", text, ""]
+    srt = out_mp3.with_suffix(".srt")
+    srt.write_text("\n".join(lines), encoding="utf-8")
+    print(f"字幕（按配音实际时间）：{srt}，{len(cues)} 条，校正系数 {scale:.4f}")
 
 
 if __name__ == "__main__":

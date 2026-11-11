@@ -31,6 +31,13 @@ DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
 # ⚠️ 换这个常量时，clone_cosyvoice_voice.py 的 TARGET_MODEL 必须同步改：
 # 声音复刻时指定的 target_model 和合成时用的 model 必须一致，否则 voice_id 用不了。
 MODEL = "cosyvoice-v3.5-plus"
+# 官方系统（标准）音色：公开节目不再克隆真人嘉宾声音（2026-11-11 决策），改用平台预置音色。
+# v3.5-plus 没有列出系统音色，系统音色走 cosyvoice-v3-flash。voice 以 "cosyvoice-" 开头的是复刻音色，其余视为系统音色。
+STANDARD_MODEL = "cosyvoice-v3-flash"
+
+
+def model_for(voice: str) -> str:
+    return MODEL if voice.startswith("cosyvoice-") else STANDARD_MODEL
 # 单段合成的超时上限（秒）。正常一段 10-30 秒文本几秒就返回，给足冗余即可。
 CALL_TIMEOUT = 120
 
@@ -47,7 +54,7 @@ def synthesize(text: str, out_path: Path, voice: str, speed: float = 0.82) -> bo
 
     dashscope.api_key = DASHSCOPE_API_KEY
     synth = SpeechSynthesizer(
-        model=MODEL,
+        model=model_for(voice),
         voice=voice,
         format=AudioFormat.MP3_24000HZ_MONO_256KBPS,
         speech_rate=speed,

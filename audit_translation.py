@@ -58,6 +58,8 @@ def audit(path: Path, *, cross_min_chars: int = 12, cross_min_cjk: int = 8) -> t
         if zh and compact(zh) == previous_zh and len(compact(zh)) >= 8:
             warnings.append(f"#{index}: 与上一段译文完全重复")
         previous_zh = compact(zh)
+        if re.search(r"[A-Za-z0-9-]+\.(com|ai|io|org|net|co|app|dev)\b", zh):
+            warnings.append(f"#{index}: 译文含网址，TTS 会逐字母念出（自动字幕常把网址听错），改成口语说法")
         en_letters = len(re.findall(r"[A-Za-z]", en))
         ratio = chinese_chars(zh) / max(en_letters, 1)
         if en_letters >= 12 and ratio > 0.85:

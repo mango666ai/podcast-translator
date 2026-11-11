@@ -49,6 +49,8 @@
 | `cosyvoice-v2-dhhansson-c23f23b6ee5c4fd594748fdaf7ee7ab1` | DHH | （仅早期测试用，未用于成片） | 2026-09-08 | 同上 |
 | `cosyvoice-v3.5-plus-p06stephen-8107552a0ffc40e5abb93ba779f1d755` | Stephen Haney（嘉宾，Paper创始人） | `P06RgnUKX_I` 智能体时代的设计（2026-11-11 返修版） | 2026-11-11 | 原视频 2791.0-2811.5s，20.5秒，只含 Stephen 本人（`youtube_transcripts/_audio/P06RgnUKX_I_stephen_cv20.mp3`） |
 | `cosyvoice-v3.5-plus-p06aaron-f0d72273f17a4df6a1a355df490f51c0` | Aaron Epstein（主持人，YC General Partner） | `P06RgnUKX_I` 智能体时代的设计（2026-11-11 返修版） | 2026-11-11 | 原视频 2812.8-2832.8s，20秒，主持人提问段（`youtube_transcripts/_audio/P06RgnUKX_I_aaron_cv20.mp3`） |
+| `cosyvoice-v3.5-plus-lenny-bf1d995fce604d3cab14b79db1105ec4` | Lenny Rachitsky（主持人，*Lenny's Podcast*） | `zegYJ6dhIg4`、`tivaWTTVRhY`、`P3KDebPTUrw` 等 Lenny 节目共用 | 2026-11-11 | `zegYJ6dhIg4` 原视频 1116.9–1136.9s，20 秒，`pick_voice_sample.py` 自动挑选、已排除广告与音乐段（`youtube_transcripts/_audio/zegYJ6dhIg4_host_cv20.mp3`） |
+| `cosyvoice-v3.5-plus-zegadam-3ce65b390e804432b412890135a8d5ed` | Adam Ward（嘉宾，Cursor 人才负责人） | `zegYJ6dhIg4` 高人才密度团队搭建法（2026-11-11 返修版） | 2026-11-11 | 原视频 792.9–812.9s，20 秒（`youtube_transcripts/_audio/zegYJ6dhIg4_main_cv20.mp3`） |
 | `zegYJ6dhIg4_adam_20260826` | Adam Ward（嘉宾，Cursor人才负责人） | `zegYJ6dhIg4` 高人才密度团队搭建法 | 2026-08-26 | 原视频 720-810s 段，90秒 |
 | （复用）`P3KDebPTUrw_host_20260719` | Lenny（主持人，*Lenny's Podcast*） | `zegYJ6dhIg4` 高人才密度团队搭建法 | — | 同一主持人，复用第9集已克隆声线，未新建 |
 | ~~`P06RgnUKXI_stephen_20260826`~~ | Stephen Haney（嘉宾，Paper创始人） | `P06RgnUKX_I` 智能体时代的设计 | 2026-08-26 | 原视频 2791-2881s 段，90秒。**已弃用**：该样本 2812-2857s 实为主持人 Aaron 提问，声线混了两个人；2026-11-11 返修改用上方 CosyVoice 版本 |

@@ -64,6 +64,15 @@ def _speaker_at(rules: list[dict], t: float, default: str) -> str:
     return default
 
 
+def find_audio(video_id: str) -> Path:
+    """原音频：新集在 youtube_transcripts/_audio/，2026-08 前的早期集在 youtube_demo/_audio/。"""
+    for d in (TRANS_DIR / "_audio", HERE / "youtube_demo" / "_audio"):
+        for ext in (".mp3", ".m4a", ".webm", ".wav"):
+            if (d / f"{video_id}{ext}").exists():
+                return d / f"{video_id}{ext}"
+    return TRANS_DIR / "_audio" / f"{video_id}.mp3"
+
+
 def load_audio(audio: Path):
     import soundfile as sf
     with tempfile.TemporaryDirectory() as tmp:
@@ -135,7 +144,7 @@ def voice_check(video_id: str, rules: list[dict], *, segments: list[dict] | None
     import numpy as np
 
     segments = segments or json.loads((TRANS_DIR / f"{video_id}.json").read_text(encoding="utf-8"))
-    audio = audio or TRANS_DIR / "_audio" / f"{video_id}.mp3"
+    audio = audio or find_audio(video_id)
     if not EMB_MODEL.exists():
         raise FileNotFoundError(f"声纹模型不存在：{EMB_MODEL}")
     if not audio.exists():

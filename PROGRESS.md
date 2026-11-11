@@ -2,6 +2,18 @@
 
 ---
 
+## 2026-11-11（晚）· 改用标准音色 + AI 语音提示，Adam Ward 集样片验收通过（未上线）
+
+- **决策**：公开节目不再克隆真人嘉宾声音，改用平台官方标准音色，每集开头加 AI 合成语音提示（见决策日志与《播客工作循环》§3.6）。
+- **样片**：`zegYJ6dhIg4`《高人才密度团队搭建法》成品 `youtube_dub/zegYJ6dhIg4__高人才密度团队搭建法/zegYJ6dhIg4__高人才密度团队搭建法__完整中文音频_标准音色.mp3`（5684.4s ≈ 94.7 分钟，线上旧版 6425s）与同名 .srt；尚未替换线上，等用户试听。
+- **本集修复**：重译第 2、3、4、6、9、11、13、18 批（跨段重合 37 处/2662 字 → 0）；人工修 #224/#225 一处换说法的重复（跨段重合检查抓不到，靠长度比警告发现）；去掉 3 处被自动字幕听错并被 TTS 逐字母念出的网址（#19、#494、#496）；声纹复核改判 3 段、插话 12 段，长段声纹归队与文字规则一致率 100%、两人声纹中心相似度 0.21。
+- **音色**：主持人 `longcheng_v3`、嘉宾 `longtian_v3`（cosyvoice-v3-flash 系统音色，6 个候选里声纹最不像的一对，相似度 0.33），AI 提示用女声 `longanwen_v3`；语速 1.0。
+- **流水线改动**：`tts_cosyvoice.py` 系统音色自动走 cosyvoice-v3-flash；`youtube_multivoice_dub.py` 新增 `--ai-notice`，并按配音实际时长生成成品同名字幕（修掉旧字幕沿用英文原视频时间轴、越往后越偏的问题，P06 旧字幕结束于 55:48 而音频 67:54）；`audit_translation.py` 新增"译文含网址"警告；新增 `pick_voice_sample.py`（克隆时代的样本挑选，现仅供私密试播）、`episode_acceptance.py`（7 项验收清单）、`replace_published.py`（替换上线、嵌封面、写 AIGC 元数据隐式标识、同步 RSS）；`speaker_voice_check.py` 支持早期集放在 `youtube_demo/_audio/` 的原音频。
+- **验收结果**：`episode_acceptance.py` 7 项全过（翻译审计 0 error/跨段 0、字幕无 >>、开头有 AI 提示、缓存干净、24kHz 单声道 -17.5 LUFS、字幕与音频对齐、声纹复核达标）。缓存体检的"疑似拖长"检查抓到了 #496 网址问题。
+- **未完成**：①用户试听样片后决定是否上线（上线时同步把该集简介的"声音克隆自原视频/主持人"改为标准音色说明）。②其余历史集按同法逐集修复，`P3KDebPTUrw` 原音频需重新下载。③《智能体时代的设计》今天上线的是 CosyVoice 克隆版，也需按新策略改为标准音色。
+
+---
+
 ## 2026-11-11（夜）· 对外发布版科普视频《闻声识人》完成预览，待决定渲染
 
 - **当前状态**：HyperFrames 工程 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren`（仓库外，不提交），`hyperframes check` 0 error / 0 warning，本地预览 `http://localhost:3003/#project/wensheng-shiren`；尚未渲染 MP4（需用户批准）。
