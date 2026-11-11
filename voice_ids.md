@@ -52,6 +52,9 @@
 | Michael Dalton（`87DyyMV0kCY`） | `longtian_v3` | 龙天 · 磁性理智男 | `87DyyMV0kCY` | 原声约 103Hz |
 | How I AI 主持人（`1_jlukb7gm4`） | `loongbella_v3` | Bella3.0 · 精准干练女 | `1_jlukb7gm4` | How I AI 节目共用；与 Dianne 的女声区分 |
 | Alex Lieberman（`1_jlukb7gm4`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `1_jlukb7gm4` | 与主持人声纹相似度很低 |
+| Farhan Thawar（`ByOF8qByGHU`，单声线） | `longanzhi_v3` | 龙安智 · 睿智轻熟男 | `ByOF8qByGHU` | 原声约 161Hz |
+| Ben Geist（`Z5M33oh-SAU`，单声线） | `longanzhi_v3` | 龙安智 · 睿智轻熟男 | `Z5M33oh-SAU` | 原声约 144Hz |
+| Patrick Winston（`Unzc731iCUY`，单声线） | `longsanshu_v3` | 龙三叔 · 沉稳质感男 | `Unzc731iCUY` | 原声约 158Hz，老教授授课 |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 
