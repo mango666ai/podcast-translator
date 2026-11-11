@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-11-11（夜）· 声纹复核新增身份锚点；fWa7uxyhVDE 体检无缺陷
+
+- **身份锚点**：`speaker_voice_check.py` 新增 `--anchor label=段号,...`。`gSUMFvc8br0` 四人对谈中，以文字规则为起点的声纹复核收敛错误（一致率 38.6%，把 Sharmeen 的自我介绍判给了 JZ）；改用自我介绍/点名段做锚点后，与 pyannote 四人分离长段一致 249/249（8 月旧规则 65.9%）。
+- **`fWa7uxyhVDE`（Cursor 开场演讲）**：翻译仅 1 处正确网址（cursor.com/origin，原讲者本就念出），声纹复核与现有规则 100% 一致、无改判；按"无缺陷不改"的决定保持原样。
+- **`P3KDebPTUrw`**：原音频缺失，已用 yt-dlp（不带浏览器 cookie）重新下载；规则重建后与 pyannote 长段一致 98.2%（旧规则 78.6%），剩余 5 处为短问句/插话。
+
+---
+
 ## 2026-11-11（夜·七）· 《闻声识人》渲染完成，发布文案已写
 
 - **当前状态**：成片 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren/renders/闻声识人_v1_20261111.mp4`（仓库外，未提交），1920×1080、30fps、180.8 秒、H.264 + AAC 48k 立体声、47.5 MB，SHA-256 `17bce88f9e7495b0060a7fe7a74f6acb68516aca68cb32e8d89f4fb01b5c18ef`。发布文案 `videos/wensheng-shiren/发布文案.md`。

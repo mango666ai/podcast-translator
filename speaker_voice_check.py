@@ -139,7 +139,7 @@ def embed_spans(spans, y, sr):
 
 
 def voice_check(video_id: str, rules: list[dict], *, segments: list[dict] | None = None,
-                audio: Path | None = None) -> tuple[list[dict], dict]:
+                audio: Path | None = None, anchors: dict[str, list[int]] | None = None) -> tuple[list[dict], dict]:
     """→ (声纹修正后的规则, 报告)。规则按字幕分段重新生成，每段一个起点，相邻同人合并。"""
     import numpy as np
 
@@ -173,7 +173,21 @@ def voice_check(video_id: str, rules: list[dict], *, segments: list[dict] | None
             out[lab] = c / np.linalg.norm(c)
         return out
 
-    assign = [text_lab[i] for i in long_idx]
+    if anchors:
+        # 身份锚点（2026-11-11）：多人对谈且文字规则错得多时，以文字为起点会收敛错
+        # （gSUMFvc8br0 四人对谈一致率仅 38.6%，把 Sharmeen 的自我介绍判给了 JZ）。
+        # 指定每人内容上确定无疑的段落（如自我介绍），用它们的声纹做初始中心。
+        seed = {}
+        for lab, nums in anchors.items():
+            vecs = [embs[n - 1] for n in nums if 0 < n <= len(embs) and embs[n - 1] is not None]
+            if not vecs:
+                raise RuntimeError(f"锚点 {lab} 没有可用声纹（段号 {nums}）")
+            c = np.mean(vecs, axis=0)
+            seed[lab] = c / np.linalg.norm(c)
+        labels_all = sorted(set(labels_all) | set(seed))
+        assign = [max(seed, key=lambda lab: float(x @ seed[lab])) for x in X]
+    else:
+        assign = [text_lab[i] for i in long_idx]
     for _ in range(20):
         centroids = _centroids(assign)
         new_assign = [max(labels_all, key=lambda lab: float(x @ centroids[lab])) for x in X]
@@ -268,10 +282,13 @@ def main() -> None:
     ap.add_argument("--segments", type=Path, help="字幕分段 JSON，默认 youtube_transcripts/<id>.json")
     ap.add_argument("--audio", type=Path, help="原音频，默认 youtube_transcripts/_audio/<id>.mp3")
     ap.add_argument("--write", action="store_true", help="用修正结果覆盖 --rules（自动备份）")
+    ap.add_argument("--anchor", action="append", default=[],
+                    help="身份锚点 label=段号,段号（段号从 1 开始），多人对谈时用自我介绍等确定段落做声纹起点")
     args = ap.parse_args()
     rules = json.loads(args.rules.read_text(encoding="utf-8"))
     segments = json.loads(args.segments.read_text(encoding="utf-8")) if args.segments else None
-    new_rules, report = voice_check(args.video_id, rules, segments=segments, audio=args.audio)
+    anchors = {a.split("=")[0]: [int(x) for x in a.split("=")[1].split(",")] for a in args.anchor} or None
+    new_rules, report = voice_check(args.video_id, rules, segments=segments, audio=args.audio, anchors=anchors)
     print_report(report)
     rep_path = args.rules.with_name(f"{args.video_id}__speaker_voice_report.json")
     rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
