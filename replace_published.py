@@ -69,6 +69,8 @@ def main() -> int:
     # 简介里旧的"声音克隆自原视频/主持人"说明同步改为标准音色说明（2026-11-11 起公开节目不再克隆真人声音）
     new_item, n_voice = re.subn(r"声音克隆自[^。]*。", "所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。", new_item)
     new_item, n2 = re.subn(r"克隆声线", "标准音色", new_item)
+    new_item, n3 = re.subn(r"克隆技术", "语音合成技术", new_item)
+    n2 += n3
     n_voice += n2
     if n_voice:
         print(f"  简介声音说明已更新 {n_voice} 处")
