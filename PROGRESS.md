@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-11-11（夜）· 《生成式 AI 经济学》标准音色版上线
+
+- **结果**：`LNSvp-9b-J0` 已替换（1915.4s，线上旧版 2200s），简介声音说明由 `replace_published.py` 自动改为标准音色说明；`podcast_doctor.py` 0 error。
+- **翻译**：重译第 1、3、4、6 批，跨段重合 22 处 → 0；#143↔#144 为并列句式误报（Alphabet/Meta 各自人均变现数字），登记在 `youtube_dub/LNSvp-9b-J0__audit_reviewed.json`，验收清单据此扣除。
+- **说话人**：`build_speaker_rules.py` 重建（声纹改判 20 段），另人工改判 3 段短句（#31、#79 "Go ahead."、#100 "Last question." 是主讲人点学生发言，字幕 `>>` 误导换人规则），为此新增 `set_speaker.py`。pyannote 独立复核长段一致：旧规则 87.6% → 新规则 121/121。
+- **音色**：主讲人 `longanzhi_v3`（龙安智），提问学生统一 `longtian_v3`（龙天），结尾提示 `longanwen_v3`。
+- **流水线改动**：`episode_acceptance.py` 支持人工复核过的误报清单；`replace_published.py` 自动更新简介中"声音克隆自…"的说明。
+
+---
+
 ## 2026-11-11（夜）· 《AI 再次走向垂直化》标准音色版上线
 
 - **结果**：`tivaWTTVRhY` 正式 MP3/SRT 已替换（4920.7s，线上旧版 7654s），RSS 时长与简介声音说明已同步，`podcast_doctor.py` 0 error。

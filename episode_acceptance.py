@@ -53,7 +53,13 @@ def main() -> int:
 
     a = run([sys.executable, "audit_translation.py", str(bil), "--max-details", "500"]).stdout
     errs = int(re.search(r"(\d+) error", a).group(1))
-    cross = len(re.findall(r"译文重合", a))
+    # 人工核对过的误报登记在 youtube_dub/<id>__audit_reviewed.json：{"#143↔#144": "理由", ...}
+    reviewed_path = HERE / "youtube_dub" / f"{args.video_id}__audit_reviewed.json"
+    reviewed = json.loads(reviewed_path.read_text(encoding="utf-8")) if reviewed_path.exists() else {}
+    cross_items = re.findall(r"WARN\s+(#\d+↔#\d+): 译文重合", a)
+    cross = len([c for c in cross_items if c not in reviewed])
+    if reviewed:
+        print(f"    已人工确认的误报：{', '.join(f'{k}（{v}）' for k, v in reviewed.items())}")
     other = [l.strip() for l in a.splitlines() if "WARN" in l and "译文重合" not in l and "合计" not in l]
     results.append(("翻译审计 0 error、跨段重合 0", errs == 0 and cross == 0, f"error {errs}，跨段重合 {cross}，其他警告 {len(other)}（需人工看过）"))
 
