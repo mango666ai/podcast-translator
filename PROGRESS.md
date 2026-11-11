@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-11-11（夜·七）· 《闻声识人》渲染完成，发布文案已写
+
+- **当前状态**：成片 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren/renders/闻声识人_v1_20261111.mp4`（仓库外，未提交），1920×1080、30fps、180.8 秒、H.264 + AAC 48k 立体声、45.2 MB，SHA-256 `e865c58f8589698a90ce3dc413a4450bf52aea47a6984f340aea3b9636b243d5`。发布文案 `videos/wensheng-shiren/发布文案.md`。
+- **验证结果**：ffprobe 时长与合成时长一致；整体响度 -13.8 LUFS；无超过 3 秒的静音；从成片抽 9 帧与预览一致。渲染用 delivery 画质，耗时 6 分钟。
+- **未完成**：尚未发布；发布时需勾选平台 AI 生成内容声明。
+
+---
+
 ## 2026-11-11（夜·六）· 《闻声识人》结尾去掉说明小字后重新居中
 
 - **当前状态**：180.8 秒，`hyperframes check` 0 error / 0 warning；预览 `http://localhost:3003/#project/wensheng-shiren`，未渲染。
