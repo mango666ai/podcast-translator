@@ -6,6 +6,9 @@
 把它切成一轮一轮的发言，丢给 DeepSeek 按对话内容判断这轮是谁在说即可。支持任意人数
 （2人对话、3人以上的圆桌/访谈都用同一套逻辑）。
 
+默认最后一步会调用 speaker_voice_check.py 用声纹逐段复核（需要原音频和本机声纹模型），
+纯文字结果另存为 <out>.text.json。
+
 用法（用 VideoLingo/.venv 的 python3.11 跑）：
   "$VENV_PY" build_speaker_rules.py <video_id> \
       --speakers '[{"label":"host","name":"Lenny（主持人）"},{"label":"main","name":"Andrew Ambrosino（嘉宾）"}]' \
@@ -158,6 +161,8 @@ def main():
     ap.add_argument("--speakers", required=True,
                      help='JSON list: [{"label":"host","name":"人名/身份说明"}, ...]，至少2人')
     ap.add_argument("--out", required=True)
+    ap.add_argument("--no-voice-check", action="store_true",
+                    help="跳过声纹复核，只用文字判断（不推荐；见 speaker_voice_check.py）")
     args = ap.parse_args()
 
     speakers = json.loads(args.speakers)
@@ -173,6 +178,24 @@ def main():
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
+
+    # 默认最后一步：用声纹逐段复核文字判断（2026-11-11 起）。文字判断在一来一回的长对话里
+    # 会整段判反，声纹复核在 P06RgnUKX_I 上把长段准确率从 90.7% 提到 98.4%，且对输入的
+    # 文字错误很鲁棒（故意改错 45% 仍收敛到 98.8%）。复核失败时保留文字结果并明确报警，
+    # 不让流程中断，但也不静默。
+    if not args.no_voice_check:
+        text_out = out.with_name(out.stem + ".text.json")
+        text_out.write_text(json.dumps(rules, ensure_ascii=False, indent=2), encoding="utf-8")
+        try:
+            from speaker_voice_check import voice_check, print_report
+            rules, report = voice_check(args.video_id, rules, segments=segs)
+            print_report(report)
+            rep_path = out.with_name(f"{args.video_id}__speaker_voice_report.json")
+            rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"  纯文字版 → {text_out.name}；复核报告 → {rep_path.name}")
+        except (FileNotFoundError, RuntimeError, ImportError) as e:
+            print(f"  ⚠️⚠️ 声纹复核没有执行（{e}），以下规则只经过文字判断，合成前必须人工抽查说话人")
+
     out.write_text(json.dumps(rules, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✓ {len(rules)} 条规则 → {out}")
     for r in rules[:10]:
