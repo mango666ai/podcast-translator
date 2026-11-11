@@ -4,7 +4,8 @@
 
 ## 2026-11-11（夜·七）· 《闻声识人》渲染完成，发布文案已写
 
-- **当前状态**：成片 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren/renders/闻声识人_v1_20261111.mp4`（仓库外，未提交），1920×1080、30fps、180.8 秒、H.264 + AAC 48k 立体声、45.2 MB，SHA-256 `e865c58f8589698a90ce3dc413a4450bf52aea47a6984f340aea3b9636b243d5`。发布文案 `videos/wensheng-shiren/发布文案.md`。
+- **当前状态**：成片 `/Users/caimengge/AIcoding/project5_podcast/videos/wensheng-shiren/renders/闻声识人_v1_20261111.mp4`（仓库外，未提交），1920×1080、30fps、180.8 秒、H.264 + AAC 48k 立体声、47.5 MB，SHA-256 `17bce88f9e7495b0060a7fe7a74f6acb68516aca68cb32e8d89f4fb01b5c18ef`。发布文案 `videos/wensheng-shiren/发布文案.md`。
+- **修正**：第 8 场「开头那道题」卡片原先还是旧版的 0.64 /「同一个人」，与旁白（0.37，不是同一个人）矛盾；已改为单条 0.37 +「不是同一个人」并重新渲染。
 - **验证结果**：ffprobe 时长与合成时长一致；整体响度 -13.8 LUFS；无超过 3 秒的静音；从成片抽 9 帧与预览一致。渲染用 delivery 画质，耗时 6 分钟。
 - **未完成**：尚未发布；发布时需勾选平台 AI 生成内容声明。
 
