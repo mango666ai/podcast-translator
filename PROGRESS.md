@@ -2,6 +2,16 @@
 
 ---
 
+## 2026-11-11（晚）· 讲解视频《播客流水线与声纹识别》完成预览，待决定渲染
+
+- **当前状态**：HyperFrames 工程在 `/Users/caimengge/AIcoding/project5_podcast/videos/voice-pipeline-explainer`（仓库外，未提交），`hyperframes check` 全部通过，本地预览 `http://localhost:3002/#project/voice-pipeline-explainer`；尚未渲染 MP4。
+- **内容**：8 个场景、163 秒、1920×1080、中文配音加逐句字幕：症状（含旧版第 23 段把 `>>` 念成“大于”的 3.6 秒原声）→ 三个问题都已修复 → 流水线全貌 → 跨段重复 → 旧缓存 → 说话人判断难点 → 机器怎么听（Whisper 词级时间、256 维声纹与相似度、逐句比对）→ 结果。数字全部取自本文件 2026-11-11 的实测。
+- **制作要点**：旁白用 DashScope qwen-audio-3.0-tts-plus 官方标准女声 longanlingxin（非仿真），29 句逐句合成，统一增益到约 -16 LUFS；中文字体用本机宋体与苹方按用字截成子集 woff 放在工程内，保证渲染字形一致；字幕放在各场景子合成内由时间线控制。
+- **过程中的问题**：faceless-explainer 工作流安装被权限规则拦截（外部代码），改用本机已装的 general-video；`hyperframes skills update` 因 Node 不走系统代理连不上 GitHub，按本机已安装的技能文件执行。检查中修掉了 7 处文字重叠、字号低于 28px、两处停留过短、一段 3.8 秒画面静止和三处排版断行。
+- **未完成**：等用户看预览后决定直接渲染还是修改；渲染后可再决定是否发布分享链接。
+
+---
+
 ## 2026-11-11（傍晚）· 声纹逐段复核验证通过并接进说话人规则默认流程
 
 - **当前状态**：`build_speaker_rules.py` 默认最后一步调用新增的 `speaker_voice_check.py` 做声纹复核；上午加的 `diarize_pyannote.py`（整集分离）已被取代并删除。按用户定的顺序：本集验证通过 → 改流水线（本次）→ 逐集修复历史节目、每集验收。
