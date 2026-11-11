@@ -50,6 +50,8 @@
 | Charlie（`I8YnwUV2C9w`） | `longtian_v3` | 龙天 · 磁性理智男 | `I8YnwUV2C9w` | 263s 起主讲 |
 | Eric Wallace（`87DyyMV0kCY`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `87DyyMV0kCY` | 原声约 135Hz |
 | Michael Dalton（`87DyyMV0kCY`） | `longtian_v3` | 龙天 · 磁性理智男 | `87DyyMV0kCY` | 原声约 103Hz |
+| How I AI 主持人（`1_jlukb7gm4`） | `loongbella_v3` | Bella3.0 · 精准干练女 | `1_jlukb7gm4` | How I AI 节目共用；与 Dianne 的女声区分 |
+| Alex Lieberman（`1_jlukb7gm4`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `1_jlukb7gm4` | 与主持人声纹相似度很低 |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 

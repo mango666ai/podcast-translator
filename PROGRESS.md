@@ -5,7 +5,7 @@
 ## 2026-11-11（夜）· 返修队列进度：阿里云账户欠费，合成中断
 
 - **已用标准音色重做上线（5 集）**：`zegYJ6dhIg4`、`tivaWTTVRhY`、`LNSvp-9b-J0`、`I8YnwUV2C9w`、`87DyyMV0kCY`。
-- **`1_jlukb7gm4`（Alex Lieberman）进行中**：已重译第 1、4 批，2 处网址改口语（#16 firecrawl.dev、#107 customer.io/howiai；#105 的 Customer.io 是品牌名保留），说话人规则已重建（声纹与文字长段 100% 一致，改判 1 段；#197 "Do you bribe?" 为陌生声音，按提问保留主持人）。音色定为主持人 `loongbella_v3`、Alex `longcheng_v3`。整集合成时 DashScope 返回 `Arrearage: Access denied, please make sure your account is in good standing`，账户欠费，需用户充值后从断点续跑（已合成分段带指纹，续跑会命中缓存）。
+- **`1_jlukb7gm4`（Alex Lieberman）已上线**（充值后续跑，2618.7s，线上旧版 3616s，验收 7 项全过）：已重译第 1、4 批，2 处网址改口语（#16 firecrawl.dev、#107 customer.io/howiai；#105 的 Customer.io 是品牌名保留），说话人规则已重建（声纹与文字长段 100% 一致，改判 1 段；#197 "Do you bribe?" 为陌生声音，按提问保留主持人）。音色定为主持人 `loongbella_v3`、Alex `longcheng_v3`。整集合成时 DashScope 返回 `Arrearage: Access denied, please make sure your account is in good standing`，账户欠费，需用户充值后从断点续跑（已合成分段带指纹，续跑会命中缓存）。
 - **剩余队列**（审计结果）：`NYFGCESmikA_p1`（第 2、7、10 批）、`NYFGCESmikA_p2`（第 4、13 批 + 1 处网址）、`NYFGCESmikA_p3`（第 1、14 批）、`gSUMFvc8br0`（第 4 批 + 1 处网址，4 人对谈）、`ByOF8qByGHU`（第 3、4、6 批，单声线）、`Z5M33oh-SAU`（第 2 批）、`Unzc731iCUY`（第 8、9 批）、`P3KDebPTUrw`（第 11 批 + 网址；原音频缺失需重新下载）；`fWa7uxyhVDE` 仅 1 处网址，待确认旧音频是否逐字母念出。少量"跨段重合"可能是误报，修时逐条人工核对。
 
 ---

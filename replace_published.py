@@ -70,6 +70,8 @@ def main() -> int:
     new_item, n_voice = re.subn(r"声音克隆自[^。]*。", "所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。", new_item)
     new_item, n2 = re.subn(r"克隆声线", "标准音色", new_item)
     new_item, n3 = re.subn(r"克隆技术", "语音合成技术", new_item)
+    new_item, n4 = re.subn(r"(翻译)(和|与)克隆", r"\1\2语音合成", new_item)
+    n3 += n4
     n2 += n3
     n_voice += n2
     if n_voice:
