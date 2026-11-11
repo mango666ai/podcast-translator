@@ -34,6 +34,17 @@
 | ~~`NYFGCESmikA_lex_20260826`~~ | Lex Fridman（主持人） | `NYFGCESmikA` DHH访谈 | 2026-08-26 | **MiniMax 声线，已弃用**（该系列已全部改用下方 CosyVoice 版本重做） |
 | ~~`NYFGCESmikA_dhh_20260826`~~ | DHH / David Heinemeier Hansson | `NYFGCESmikA` DHH访谈 | 2026-08-26 | **MiniMax 声线，已弃用**，同上 |
 
+## 标准音色分配（2026-11-11 起公开节目一律使用，不再克隆真人声音）
+
+阿里云百炼 cosyvoice-v3-flash 官方系统音色。同一位主持人跨集固定同一音色；同一集内各说话人的音色用同一句话试合成后比声纹相似度，取最不像的组合；性别与原说话人一致。
+
+| 用途 | 音色 | 官方名称 / 风格 | 首次使用 | 备注 |
+| --- | --- | --- | --- | --- |
+| AI 合成提示（每集结尾） | `longanwen_v3` | 龙安温 · 优雅知性女 | 2026-11-11 | 所有节目共用，须与节目内声音区分 |
+| Lenny Rachitsky（Lenny's Podcast 主持人） | `longcheng_v3` | 龙橙 · 智慧青年男 | `zegYJ6dhIg4` | Lenny 节目共用（`zegYJ6dhIg4`、`tivaWTTVRhY`、`P3KDebPTUrw` 等） |
+| Adam Ward（`zegYJ6dhIg4` 嘉宾） | `longtian_v3` | 龙天 · 磁性理智男 | `zegYJ6dhIg4` | 与 `longcheng_v3` 声纹相似度 0.33 |
+| Dianne Penn（`tivaWTTVRhY` 嘉宾） | `longxiaoxia_v3` | 龙小夏 · 沉稳权威女 | `tivaWTTVRhY` | 与提示女声相似度 0.36、与 `longcheng_v3` 0.21 |
+
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 
 ⚠️ CosyVoice 的 voice_id **不能自己指定**，由服务端返回（格式 `<target_model>-<prefix>-<hash>`）；
