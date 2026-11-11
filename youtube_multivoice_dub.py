@@ -72,6 +72,8 @@ def main():
     ap.add_argument("--ai-notice", default="",
                     help="开头的 AI 合成语音提示文本（《人工智能生成合成内容标识办法》要求音频含语音提示）")
     ap.add_argument("--notice-voice", default="longanwen_v3", help="AI 提示所用音色（与节目里的声音区分开）")
+    ap.add_argument("--notice-position", default="end", choices=["start", "end"],
+                    help="AI 提示放在开头还是结尾；用户 2026-11-11 选定放结尾（规定允许开头、结尾或中间适当位置）")
     ap.add_argument("--trust-legacy-cache", action="store_true",
                     help="没有 .txt 指纹的旧缓存也直接复用（默认不复用，会重新合成）")
     args = ap.parse_args()
@@ -131,15 +133,19 @@ def main():
             import subprocess
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
                             "-t", "0.8", "-acodec", "libmp3lame", "-q:a", "2", str(gap)], check=True)
-        lead = [nout, gap]
-        print(f"  AI 提示：{args.ai_notice}")
+        lead = [nout, gap] if args.notice_position == "start" else [gap, nout]
+        print(f"  AI 提示（{args.notice_position}）：{args.ai_notice}")
 
-    _concat(lead + paths, Path(args.out))
-    _write_dubbed_srt(lead, paths, segments, Path(args.out), args.ai_notice)
+    if args.notice_position == "end":
+        files = paths + lead
+    else:
+        files = lead + paths
+    _concat(files, Path(args.out))
+    _write_dubbed_srt(lead, paths, segments, Path(args.out), args.ai_notice, args.notice_position)
     print(f"done: {args.out}")
 
 
-def _write_dubbed_srt(lead, paths, segments, out_mp3: Path, notice: str):
+def _write_dubbed_srt(lead, paths, segments, out_mp3: Path, notice: str, position: str = "start"):
     """按成品音频的真实时间写中文字幕。
 
     旧做法 write_srt() 用的是英文原视频的时间轴，中文配音长短不同，越往后偏得越多
@@ -147,7 +153,13 @@ def _write_dubbed_srt(lead, paths, segments, out_mp3: Path, notice: str):
     累加，并按成品总时长线性校正 MP3 帧填充带来的累计误差。
     """
     from tts_minimax import _probe_duration
-    files = list(lead) + list(paths)
+    seg_texts = [clean_for_tts(s.get("text_zh", "")) for s in segments]
+    if position == "end":
+        files = list(paths) + list(lead)
+        texts = seg_texts + ([None, notice] if lead else [])
+    else:
+        files = list(lead) + list(paths)
+        texts = ([notice, None] if lead else []) + seg_texts
     durs = [_probe_duration(p) for p in files]
     total = _probe_duration(out_mp3)
     scale = total / sum(durs) if sum(durs) else 1.0
@@ -155,7 +167,6 @@ def _write_dubbed_srt(lead, paths, segments, out_mp3: Path, notice: str):
         ms = int(round(t * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s_, ms = divmod(ms, 1000)
         return f"{h:02d}:{m:02d}:{s_:02d},{ms:03d}"
     cues, t = [], 0.0
-    texts = ([notice, None] if lead else []) + [clean_for_tts(s.get("text_zh", "")) for s in segments]
     for text, d in zip(texts, durs):
         d *= scale
         if text:

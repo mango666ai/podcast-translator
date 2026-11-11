@@ -60,8 +60,10 @@ def main() -> int:
     srt_text = srt.read_text(encoding="utf-8")
     gt = srt_text.count(">>")
     results.append(("字幕无 >>", gt == 0, f"{gt} 处"))
-    first = srt_text.split("\n\n")[0]
-    results.append(("开头有 AI 合成提示", "AI" in first and "合成" in first, first.splitlines()[-1][:60] if first else "无字幕"))
+    cues = [c for c in srt_text.strip().split("\n\n") if c.strip()]
+    edge = [c.splitlines()[-1] for c in (cues[:1] + cues[-1:])] if cues else []
+    hit = next((t for t in edge if "AI" in t and "合成" in t), "")
+    results.append(("开头或结尾有 AI 合成提示", bool(hit), hit[:60] or "开头和结尾都没有"))
     last = re.findall(r"--> (\d+):(\d+):(\d+),(\d+)", srt_text)
     srt_end = int(last[-1][0]) * 3600 + int(last[-1][1]) * 60 + int(last[-1][2]) if last else 0
 
