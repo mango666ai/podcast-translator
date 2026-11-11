@@ -14,9 +14,11 @@
    参照段。最早试过盲目层次聚类，会把 327 段分成一组、2 段离群值分成另一组，完全没按人分。
 4. 每段与各中心比相似度：领先第二名足够多（margin）就采用声纹结论，否则保留文字判断。
 5. 一两个词的插话（Mhm/Yeah）时间窗太短，声纹判断不了。两人对话时，字幕里以 `>>` 开头
-   就表示换了人说话，所以这类段定为"和相邻有把握段相反的那个人"：优先看下一段（下一段
-   也以 `>>` 开头且声纹有把握），否则看上一段。比让 LLM 猜稳定，LLM 每次跑结果都不一样
-   （P06 两次运行在 25 个插话上互相矛盾）。
+   就表示换了人说话，所以这类段定为"和相邻有把握段相反的那个人"：优先看上一段（插话通常
+   是在回应上一句），上一段没把握或是陌生声音时才看下一段（下一段也须以 `>>` 开头）。
+   比让 LLM 猜稳定，LLM 每次跑结果都不一样（P06 两次运行在 25 个插话上互相矛盾）。
+   注意 YouTube 的 `>>` 本身约有 9% 标错（停顿处误插），所以有声纹的段一律以声纹为准，
+   换人规则只用于声纹判断不了的短插话。
 6. 和所有人声纹都不像的段（如 YC 招生口播，相似度只有 0.06/0.14）标为"陌生声音"写进报告，
    声线保留文字判断，也不拿它当插话的参照。
 
@@ -202,10 +204,10 @@ def voice_check(video_id: str, rules: list[dict], *, segments: list[dict] | None
         for i in range(1, len(segments)):
             if embs[i] is not None or not starts_turn[i]:
                 continue
-            if i + 1 < len(segments) and starts_turn[i + 1] and confident[i + 1]:
-                want = other[final[i + 1]]
-            elif confident[i - 1]:
+            if confident[i - 1]:
                 want = other[final[i - 1]]
+            elif i + 1 < len(segments) and starts_turn[i + 1] and confident[i + 1]:
+                want = other[final[i + 1]]
             else:
                 continue
             if final[i] != want:
