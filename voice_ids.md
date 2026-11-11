@@ -55,6 +55,8 @@
 | Farhan Thawar（`ByOF8qByGHU`，单声线） | `longanzhi_v3` | 龙安智 · 睿智轻熟男 | `ByOF8qByGHU` | 原声约 161Hz |
 | Ben Geist（`Z5M33oh-SAU`，单声线） | `longanzhi_v3` | 龙安智 · 睿智轻熟男 | `Z5M33oh-SAU` | 原声约 144Hz |
 | Patrick Winston（`Unzc731iCUY`，单声线） | `longsanshu_v3` | 龙三叔 · 沉稳质感男 | `Unzc731iCUY` | 原声约 158Hz，老教授授课 |
+| Lex Fridman（`NYFGCESmikA_p1–p3`） | `longtian_v3` | 龙天 · 磁性理智男 | `NYFGCESmikA_p1` | DHH 访谈各集共用 |
+| DHH（`NYFGCESmikA_p1–p3`） | `longcheng_v3` | 龙橙 · 智慧青年男 | `NYFGCESmikA_p1` | DHH 访谈各集共用 |
 
 ### CosyVoice 声线（阿里云百炼，2026-09 起改用这套）
 

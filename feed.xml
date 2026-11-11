@@ -49,15 +49,15 @@ Lex Fridman Podcast #501：DHH（Ruby on Rails/Basecamp创始人）访谈 第1/5
 - DHH谈到了个人开发者利用AI工具，甚至可以按需定制软件，并分享了他为Linux重写写作应用的经历。
 
 播客信息补充：
-AI中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然；原视频为Lex Fridman Podcast #501，本部分为开场至01:00:06。原节目长达5小时17分钟，按官方章节拆成5集发布，本集是第1集，后续4集陆续更新。
+AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。原节目长达5小时17分钟，按官方章节拆成5集发布，本集是第1集，后续4集陆续更新。
 
 版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p1</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p1</guid>
       <pubDate>Wed, 09 Sep 2026 20:00:00 +0000</pubDate>
-      <itunes:duration>3284</itunes:duration>
+      <itunes:duration>3187</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.mp3" length="46237813" type="audio/mpeg" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.mp3" length="32167428" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.srt" type="text/srt" />
     </item>
     <item>
@@ -266,15 +266,15 @@ Lex Fridman Podcast #501：DHH访谈 第3/5部分（Voice prompting vs typing～
 - DHH 将智能体引入 Basecamp，把任务以卡片/待办形式分配给它们，认为为异步沟通优化的协作工具比聊天界面更适合智能体工作流。
 
 播客信息补充：
-本期为 AI 中文译制版，声音克隆自原视频/主持人，可能存在语气或断句不自然的情况。原视频为 Lex Fridman Podcast #501 与 DHH 访谈的第 3/5 部分，时间约 02:07:06-03:10:28。内容涉及模型名称、价格和性能数据均为 DHH 个人体验与表述，具体以原视频为准。
+本期为 AI 中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。原视频为 Lex Fridman Podcast #501 与 DHH 访谈的第 3/5 部分，时间约 02:07:06-03:10:28。内容涉及模型名称、价格和性能数据均为 DHH 个人体验与表述，具体以原视频为准。
 
 版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p3</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p3</guid>
       <pubDate>Fri, 11 Sep 2026 01:00:00 +0000</pubDate>
-      <itunes:duration>3570</itunes:duration>
+      <itunes:duration>3654</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.mp3" length="35937853" type="audio/mpeg" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.mp3" length="36194851" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.srt" type="text/srt" />
     </item>
     <item>
@@ -308,15 +308,15 @@ Lex Fridman Podcast #501：DHH访谈 第2/5部分（The end of manual programmin
 - 他描述了实际工作配置的变化：从 TextMate 到 Neovim、从单线程到多机多智能体、用 Tailscale 和 Herder 调度，甚至用语音交互。
 
 播客信息补充：
-本节目为 Lex Fridman Podcast #501 的 DHH 访谈第 2/5 部分，原视频对应时间段约 01:00:06 至 02:07:06，主题围绕“手工编程的终结”与对速度的痴迷。本条为 AI 中文译制版，声音克隆自原视频/主持人；由于是机器合成，可能存在语气或断句不自然的情况，请以原视频音频为准。
+本节目为 Lex Fridman Podcast #501 的 DHH 访谈第 2/5 部分，原视频对应时间段约 01:00:06 至 02:07:06，主题围绕“手工编程的终结”与对速度的痴迷。本条为 AI 中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。
 
 版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p2</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/NYFGCESmikA_p2</guid>
       <pubDate>Thu, 10 Sep 2026 01:00:00 +0000</pubDate>
-      <itunes:duration>3784</itunes:duration>
+      <itunes:duration>3777</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.mp3" length="36732421" type="audio/mpeg" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.mp3" length="37435103" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.srt" type="text/srt" />
     </item>
     <item>
