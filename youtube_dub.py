@@ -15,6 +15,7 @@ YouTube 转写 → 中文字幕 + 中文配音（复用 podcast_addon 的翻译/
   "$VENV_PY" youtube_dub.py <video_id> --sample 12        # 翻译全片 + 只配前 12 段做样本
   "$VENV_PY" youtube_dub.py <video_id> --voice Wise_Woman --speed 0.82
 """
+from sentence_segments import mid_sentence_count, regroup_sentences
 import sys
 import re
 import json
@@ -376,7 +377,11 @@ def main():
     tj = TRANS_DIR / f"{a.video_id}.json"
     if not tj.exists():
         sys.exit(f"✗ 找不到转写 {tj}（先跑 youtube_transcribe.py）")
-    segs = json.loads(tj.read_text(encoding="utf-8"))
+    raw_segs = json.loads(tj.read_text(encoding="utf-8"))
+    # 按整句重切再翻译：半句断开的段落会诱导模型把下一段提前译入（见 sentence_segments.py）
+    segs = regroup_sentences(raw_segs)
+    print(f"分段：转写 {len(raw_segs)} 段（半句断开 {mid_sentence_count(raw_segs)}）"
+          f"→ 整句 {len(segs)} 段（半句断开 {mid_sentence_count(segs)}，多为插话打断）")
     title = display_title(a.video_id)
     source = _source_from_status(a.video_id)
     url = _url_from_status(a.video_id)
@@ -390,7 +395,8 @@ def main():
     bilp = job / f"{prefix}__双语分段.json"
     if bilp.exists():
         bil = json.loads(bilp.read_text(encoding="utf-8"))
-        if not (a.demo or a.sample or a.no_audio) and len(bil) < len(segs):
+        # 旧任务的翻译按原始转写分段，段数和整句分段不同；只有比两者都少才算没译完
+        if not (a.demo or a.sample or a.no_audio) and len(bil) < min(len(segs), len(raw_segs)):
             print(f"⚠️ 已有翻译只有 {len(bil)}/{len(segs)} 段，完整音频模式将重做全片翻译")
             bil = translate(segs, title, source)
             bilp.write_text(json.dumps(bil, ensure_ascii=False, indent=2), encoding="utf-8")

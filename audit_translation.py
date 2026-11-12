@@ -85,13 +85,23 @@ def audit(path: Path, *, cross_min_chars: int = 12, cross_min_cjk: int = 8) -> t
     def _bg(t):
         return {t[i:i + 2] for i in range(len(t) - 1)}
     zh_cjk = [re.sub(r"[^\u3400-\u9fff]", "", str(seg.get("text_zh", ""))) for seg in data]
+    # 2026-11-12 加宽：提前译入的内容常常不在前段最末尾 14 字，而是前段后半截整句（例：《智能体时代
+    # 的设计》#194 把 #195 的「调轻字重、只用三种字号」先说了一遍）。再比一次：后段开头至多 40 个汉字
+    # 的二元组，有多少落在前段末尾 1.5 倍长度的窗口里（覆盖率 ≥0.35）。
     for i in range(len(zh_cjk) - 1):
         a, b = zh_cjk[i][-14:], zh_cjk[i + 1][:14]
+        sim = 0.0
         if len(a) >= 8 and len(b) >= 8:
             A, B = _bg(a), _bg(b)
             sim = len(A & B) / max(1, len(A | B))
-            if sim >= 0.4:
-                warnings.append(f"#{i + 1}→#{i + 2}: 首尾相似 {sim:.2f}「{a}」/「{b}」，疑似换说法把同一句译了两遍")
+        head = zh_cjk[i + 1][:40]
+        cover = 0.0
+        if len(head) >= 10:
+            H = _bg(head)
+            cover = len(_bg(zh_cjk[i][-int(len(head) * 1.5):]) & H) / max(1, len(H))
+        if sim >= 0.4 or cover >= 0.35:
+            tail = zh_cjk[i][-int(max(len(head), 14) * 1.5):]
+            warnings.append(f"#{i + 1}→#{i + 2}: 首尾相似 {max(sim, cover):.2f}「…{tail[-24:]}」/「{head[:24]}…」，疑似换说法把同一句译了两遍")
     if total_dup:
         warnings.append(f"跨段重合合计约 {total_dup} 字（按 4 字/秒估算约 {total_dup / 4 / 60:.1f} 分钟重复朗读）")
 

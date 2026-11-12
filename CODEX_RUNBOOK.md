@@ -49,7 +49,7 @@
 | 只按序号命中旧 TTS 缓存 | 文本/voice/speed 指纹；返修禁用 legacy cache |
 | `>>`、音乐/笑声标记被念出 | `clean_for_tts()` 作为统一入口 |
 | 续跑信任修复前的旧缓存，`>>` 仍被念出（P06RgnUKX_I，2026-09-21） | 拼接前 `scan_tts_cache.py`；旧缓存一律重合成 |
-| 半句分段诱导 DeepSeek 把下一段提前译入，成品连念两遍 | 提示词限定只译本条；`cross_segment_overlaps()` 自动重试；`audit_translation.py` 跨段重合警告；`json3_to_segments.py --soft-chars` 尽量在句末切段 |
+| 半句分段诱导 DeepSeek 把下一段提前译入，成品连念两遍 | 提示词限定只译本条；`cross_segment_overlaps()` 自动重试；`audit_translation.py` 跨段重合警告；`json3_to_segments.py --soft-chars` 尽量在句末切段；翻译前 `sentence_segments.regroup_sentences()` 按整句重切（根治）；已发布节目用 `audit_translation.py` 加宽的首尾相似检查找出、`fix_dup_pairs.py` 只重写前段 |
 | CosyVoice WebSocket 永久挂起 | 120 秒超时和重试 |
 | 24k/32k 混拼静默截断 | 统一采样参数 + 成品时长校验 |
 | ffmpeg 尚未写完就复制 | `wait_until_stable()` |
