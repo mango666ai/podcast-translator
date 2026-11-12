@@ -8,7 +8,7 @@
 用法：
   "$VENV_PY" stage_episode.py <video_id> \
       --audio <完整音频.mp3> \
-      --srt <中文字幕.srt> \
+      --srt <完整中文音频_*.srt，配音成品同名那份，不是 __中文字幕.srt> \
       --notes <简介与亮点.md> \
       --slug <英文短名，不带扩展名> \
       --title "单集标题" \
@@ -61,6 +61,26 @@ def audio_duration(path: Path) -> int:
     return int(round(float(r.stdout.strip())))
 
 
+def check_srt(srt: Path, audio_dur: float):
+    """字幕必须是配音成品那份（`…__完整中文音频_*.srt`，按配音实际时长生成）。
+    2026-11-12 踩过：早期各集挂的是 `__中文字幕.srt`，按原视频时间排，比中文配音短十几分钟，
+    小宇宙里字幕越往后越对不上；而且里面还有 90 处 `>>` 说话人标记。"""
+    text = srt.read_text(encoding="utf-8")
+    ends = re.findall(r"--> (\d+):(\d+):(\d+)[,.](\d+)", text)
+    if not ends:
+        raise SystemExit(f"✗ {srt.name} 里没有字幕时间轴")
+    h, m, s_, ms = map(int, ends[-1])
+    srt_end = h * 3600 + m * 60 + s_ + ms / 1000
+    problems = []
+    if abs(srt_end - audio_dur) > 3:
+        problems.append(f"字幕结束 {srt_end:.0f}s，音频 {audio_dur:.0f}s，差 {abs(srt_end - audio_dur):.0f}s"
+                        "——多半传成了按原视频时间排的 __中文字幕.srt，应传配音同名的 .srt")
+    if ">>" in text:
+        problems.append(f"字幕里有 {text.count('>>')} 处 `>>`")
+    if problems:
+        raise SystemExit("✗ 字幕不能入 staging：" + "；".join(problems))
+
+
 def update_status(video_id: str):
     rows = list(csv.reader(STATUS_CSV.open(encoding="utf-8")))
     header, body = rows[0], rows[1:]
@@ -90,6 +110,9 @@ def main():
 
     audio_src, srt_src = Path(args.audio), Path(args.srt)
     wait_until_stable(audio_src)
+    check_srt(srt_src, float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                             "-of", "default=noprint_wrappers=1:nokey=1", str(audio_src)],
+                                            capture_output=True, text=True).stdout.strip()))
     audio_dst = STAGING / "episodes" / f"{args.slug}.mp3"
     srt_dst = STAGING / "transcripts" / f"{args.slug}.srt"
     audio_dst.parent.mkdir(parents=True, exist_ok=True)
