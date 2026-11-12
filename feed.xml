@@ -390,16 +390,16 @@ Sam Lambert，PlanetScale CEO
 - 智能体与人类协作的未来：从创建到运维的转变
 
 播客信息补充：
-AI 中文译制版，声音克隆自原视频/主持人。请注意，由于 AI 翻译和克隆技术，可能存在语气或断句不自然的情况。
+AI 中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。请注意，由于 AI 翻译和语音合成技术，可能存在语气或断句不自然的情况。
 
 版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
       <link>https://mango666ai.github.io/podcast-translator/ep/zxvyO5vnknI</link>
       <guid>https://mango666ai.github.io/podcast-translator/ep/zxvyO5vnknI</guid>
       <pubDate>Fri, 21 Aug 2026 12:00:00 +0000</pubDate>
-      <itunes:duration>1769</itunes:duration>
+      <itunes:duration>1742</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.mp3" length="17851597" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh-v202611121626.mp3" length="18562009" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/zxvyO5vnknI-sam-lambert-agents-infrastructure-zh-v202611121626.srt" type="text/srt" />
     </item>
     <item>
       <title>内存问题：Baseten研究团队谈KV缓存压缩与无限上下文</title>

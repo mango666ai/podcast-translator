@@ -102,6 +102,17 @@ def audit(path: Path, *, cross_min_chars: int = 12, cross_min_cjk: int = 8) -> t
         if sim >= 0.4 or cover >= 0.35:
             tail = zh_cjk[i][-int(max(len(head), 14) * 1.5):]
             warnings.append(f"#{i + 1}→#{i + 2}: 首尾相似 {max(sim, cover):.2f}「…{tail[-24:]}」/「{head[:24]}…」，疑似换说法把同一句译了两遍")
+    # 2026-11-12 再加隔一段的比较：译文整体错位一段时，前段把后两段的内容都提前译了，重复出现在
+    # 隔一段的位置（例：《智能体与基础设施》旧译文 #9/#10 提前译了 #11/#12，相邻比较全部漏掉，
+    # 整集转写才发现）。全部节目回扫 7 处，1 处真重复、6 处是原话本身的重复或呼应。
+    for k in range(2, len(zh_cjk)):
+        head = zh_cjk[k][:40]
+        if len(head) < 10:
+            continue
+        H = _bg(head)
+        cover = len(_bg(zh_cjk[k - 2]) & H) / len(H)
+        if cover >= 0.35:
+            warnings.append(f"#{k - 1}→#{k + 1}: 首尾相似（隔一段）{cover:.2f}「{head[:24]}…」，疑似译文错位、同一内容译了两遍")
     if total_dup:
         warnings.append(f"跨段重合合计约 {total_dup} 字（按 4 字/秒估算约 {total_dup / 4 / 60:.1f} 分钟重复朗读）")
 
