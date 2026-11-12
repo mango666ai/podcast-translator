@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""把返修后的成品替换到正式发布位置：MP3 / SRT 覆盖到 feed 引用的同名文件，嵌入封面，
-同步 RSS 的 enclosure length 与 itunes:duration，最后跑 podcast_doctor。URL 不变，订阅端无需改动。
+"""把返修后的成品替换到正式发布位置：MP3 / SRT 换成带版本号的新文件名（旧文件删除），嵌入封面，
+同步 RSS 的 enclosure url/length、字幕 url 与 itunes:duration，最后跑 podcast_doctor。guid 不变，仍是同一集。
+
+为什么要换文件名：2026-11-12 用户在小宇宙听《智能体时代的设计》，原 URL 覆盖后小宇宙仍显示旧版时长
+（76 分钟），前半段还是旧音频。客户端/平台按 URL 缓存，同 URL 覆盖不可靠，所以每次替换都换新 URL。
 
 先跑 episode_acceptance.py，通过后再用本脚本。用法：
   "$VENV_PY" replace_published.py <video_id> --audio <成品mp3> --srt <中文字幕.srt>
+  "$VENV_PY" replace_published.py <video_id> --rename-only   # 只把已替换过的文件挪到新版本号 URL
 """
 from __future__ import annotations
 
@@ -13,6 +17,7 @@ import shutil
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -21,12 +26,49 @@ FEED = HERE / "feed.xml"
 NS = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd", "podcast": "https://podcastindex.org/namespace/1.0"}
 
 
+def versioned(name: str, tag: str) -> str:
+    """<slug>.mp3 / <slug>-v202611121530.mp3 → <slug>-v<tag>.mp3"""
+    stem, ext = name.rsplit(".", 1)
+    base = re.sub(r"-v\d{8,12}$", "", stem)
+    return f"{base}-v{tag}.{ext}"
+
+
+def move_to_new_version(item, tag: str) -> tuple[Path, Path | None]:
+    """把这一集的 MP3（和字幕）改成新版本号文件名，并改写 feed 里对应的 URL。返回新路径。"""
+    feed_text = FEED.read_text(encoding="utf-8")
+    moved = []
+    for el, attr, sub in ((item.find("enclosure"), "url", "episodes"),
+                          (item.find("podcast:transcript", NS), "url", "transcripts")):
+        if el is None:
+            moved.append(None)
+            continue
+        old_url = el.get(attr)
+        old_name = Path(urlparse(old_url).path).name
+        new_name = versioned(old_name, tag)
+        new_url = old_url[: -len(old_name)] + new_name
+        if feed_text.count(f'"{old_url}"') != 1:
+            raise SystemExit(f"✗ feed 里 {old_url} 出现次数不是 1，停下人工看")
+        old_path, new_path = HERE / sub / old_name, HERE / sub / new_name
+        if old_path != new_path:
+            old_path.rename(new_path)
+            feed_text = feed_text.replace(f'"{old_url}"', f'"{new_url}"')
+            el.set(attr, new_url)
+        moved.append(new_path)
+    FEED.write_text(feed_text, encoding="utf-8")
+    ET.parse(FEED)
+    return moved[0], moved[1]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("video_id")
-    ap.add_argument("--audio", type=Path, required=True)
-    ap.add_argument("--srt", type=Path, required=True)
+    ap.add_argument("--audio", type=Path)
+    ap.add_argument("--srt", type=Path)
+    ap.add_argument("--rename-only", action="store_true", help="不换内容，只挪到新版本号文件名")
     args = ap.parse_args()
+    if not args.rename_only and not (args.audio and args.srt):
+        ap.error("需要 --audio 和 --srt（或用 --rename-only）")
+    tag = datetime.now().strftime("%Y%m%d%H%M")
     root = ET.parse(FEED).getroot()
     item = next((it for it in root.find("channel").findall("item")
                  if (it.findtext("guid") or "").rstrip("/").endswith(f"/{args.video_id}")), None)
@@ -35,11 +77,18 @@ def main() -> int:
     mp3 = HERE / "episodes" / Path(urlparse(item.find("enclosure").get("url")).path).name
     tr = item.find("podcast:transcript", NS)
     srt = HERE / "transcripts" / Path(urlparse(tr.get("url")).path).name if tr is not None else None
-    if srt is not None and args.srt.read_text(encoding="utf-8").count(">>"):
-        raise SystemExit("✗ 字幕里还有 >>，先修")
+    if not args.rename_only:
+        # 和入 staging 同一道检查：字幕要和配音时长对齐、不能有 >>
+        from stage_episode import audio_duration, check_srt
+        check_srt(args.srt, audio_duration(args.audio))
+    if args.rename_only:
+        mp3, srt = move_to_new_version(item, tag)
+        print(f"✓ 已改名 {mp3.name}" + (f" 与 {srt.name}" if srt else ""))
+        return 0
     shutil.copy2(args.audio, mp3)
     if srt is not None:
         shutil.copy2(args.srt, srt)
+    mp3, srt = move_to_new_version(item, tag)
     out = subprocess.run([sys.executable, "embed_episode_covers.py", "--video-id", args.video_id],
                          capture_output=True, text=True, cwd=HERE)
     if out.returncode != 0:

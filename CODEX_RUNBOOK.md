@@ -40,6 +40,8 @@
 
 每集返修后：重写 SRT → 合成/拼接 → 抽听异常区间前后各两段 → 替换正式 MP3/SRT → `podcast_doctor.py` → 单独 commit/push。
 
+替换正式文件一律用 `replace_published.py`（先过 `episode_acceptance.py`）：它会换成带版本号的新文件名（`<slug>-v<YYYYMMDDHHMM>.mp3/.srt`）并改写 feed 里的 URL，guid 不变。**不要同 URL 覆盖**——2026-11-12 实测小宇宙按 URL 缓存，覆盖后仍播旧版（时长停在旧的 76 分钟，前半段是旧音频）。字幕必须是配音同名那份 `.srt`，脚本会校验结束时间与音频相差 ≤3s、无 `>>`。
+
 ## 历史事故与防线
 
 | 事故 | 防线 |

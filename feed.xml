@@ -2,7 +2,7 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" version="2.0">
   <channel>
     <title>Dove的AI译站</title>
-    <description>聚焦全球AI一线构建者的分享与访谈，AI翻译成中文播客，声音克隆自原讲者。欢迎留言推荐你想听的内容。</description>
+    <description>聚焦全球AI一线构建者的分享与访谈，由AI翻译成中文播客。欢迎留言推荐你想听的内容。</description>
     <language>zh-cn</language>
     <link>https://mango666ai.github.io/podcast-translator</link>
     <itunes:author>DoveInBeta</itunes:author>
@@ -57,8 +57,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Wed, 09 Sep 2026 20:00:00 +0000</pubDate>
       <itunes:duration>3180</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.mp3" length="32063124" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice-v202611121341.mp3" length="32063124" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>OpenAI入侵HuggingFace事件：Black Hat USA 2026技术复盘</title>
@@ -100,8 +100,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Fri, 09 Oct 2026 10:00:00 +0000</pubDate>
       <itunes:duration>2327</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.mp3" length="23743897" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice-v202611121341.mp3" length="23743897" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/87DyyMV0kCY-openai-huggingface-incident-blackhat-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>智能体时代的设计：Paper创始人Stephen Haney×YC</title>
@@ -142,8 +142,8 @@ YC Design Review：How To Design In The Agent Era，Stephen Haney（Paper创始�
       <pubDate>Fri, 09 Oct 2026 01:00:00 +0000</pubDate>
       <itunes:duration>4337</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.mp3" length="40738729" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice-v202611121341.mp3" length="40738729" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/P06RgnUKX_I-stephen-haney-paper-design-agent-era-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>高人才密度团队搭建法：Cursor人才负责人Adam Ward谈反直觉招聘原则</title>
@@ -186,8 +186,8 @@ Adam Ward，现任Cursor人才负责人。他曾与人共同创立独立招聘�
       <pubDate>Thu, 08 Oct 2026 10:00:00 +0000</pubDate>
       <itunes:duration>5670</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.mp3" length="52442180" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice-v202611121341.mp3" length="52442180" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/zegYJ6dhIg4-adam-ward-cursor-talent-density-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>生成式AI经济学：硅谷投资人拆解AI价值链的钱去哪了</title>
@@ -230,8 +230,8 @@ AI 中文译制版，所有声音均为AI合成的标准音色，并非原节目
       <pubDate>Mon, 21 Sep 2026 01:00:00 +0000</pubDate>
       <itunes:duration>1914</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.mp3" length="20038710" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice-v202611121341.mp3" length="20038710" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/LNSvp-9b-J0-apoorv-agrawal-economics-of-generative-ai-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>DHH谈最佳AI编程模型与视频生成（第3/5集）｜Lex Fridman播客#501</title>
@@ -274,8 +274,8 @@ Lex Fridman Podcast #501：DHH访谈 第3/5部分（Voice prompting vs typing～
       <pubDate>Fri, 11 Sep 2026 01:00:00 +0000</pubDate>
       <itunes:duration>3654</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.mp3" length="36194851" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice-v202611121341.mp3" length="36194851" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p3-dhh-best-ai-coding-models-zh-cosyvoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>DHH谈手工编程的终结（第2/5集）｜Lex Fridman播客#501</title>
@@ -316,8 +316,8 @@ Lex Fridman Podcast #501：DHH访谈 第2/5部分（The end of manual programmin
       <pubDate>Thu, 10 Sep 2026 01:00:00 +0000</pubDate>
       <itunes:duration>3777</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.mp3" length="37435103" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice-v202611121341.mp3" length="37435103" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p2-dhh-end-of-manual-programming-zh-cosyvoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>智能效率：Ramp研究工程师Ben Geist谈如何用更少Token做更多推理</title>
@@ -357,8 +357,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Fri, 21 Aug 2026 18:00:00 +0000</pubDate>
       <itunes:duration>939</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.mp3" length="11113283" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh-v202611121341.mp3" length="11113283" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Z5M33oh-SAU-ben-geist-intelligence-efficiency-zh-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>智能体与基础设施：PlanetScale CEO Sam Lambert谈AI驱动的数据库运维</title>
@@ -441,8 +441,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Fri, 21 Aug 2026 08:30:00 +0000</pubDate>
       <itunes:duration>710</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.mp3" length="8692211" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice-v202611121341.mp3" length="8692211" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/I8YnwUV2C9w-baseten-memory-problem-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>工程师现在的工作是什么：Shopify工程负责人Farhan Thawar谈AI时代的角色转变</title>
@@ -484,8 +484,8 @@ AI 中文译制版，所有声音均为AI合成的标准音色，并非原节目
       <pubDate>Thu, 20 Aug 2026 18:00:00 +0000</pubDate>
       <itunes:duration>2038</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.mp3" length="21226452" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh-v202611121341.mp3" length="21226452" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/ByOF8qByGHU-farhan-thawar-what-is-your-job-now-zh-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>Cursor开场主题演讲：从山洞创业到代理时代</title>
@@ -569,8 +569,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Thu, 13 Aug 2026 10:00:00 +0000</pubDate>
       <itunes:duration>3555</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice.mp3" length="35249517" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice-v202611121341.mp3" length="35249517" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/gSUMFvc8br0-three-product-leaders-ai-lessons-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>如何演讲：MIT 传奇教授 Patrick Winston 的沟通心法</title>
@@ -612,8 +612,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Wed, 12 Aug 2026 10:00:00 +0000</pubDate>
       <itunes:duration>2770</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Unzc731iCUY-how-to-speak-patrick-winston-zh.mp3" length="25650054" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Unzc731iCUY-how-to-speak-patrick-winston-zh.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/Unzc731iCUY-how-to-speak-patrick-winston-zh-v202611121341.mp3" length="25650054" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/Unzc731iCUY-how-to-speak-patrick-winston-zh-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>AI 再次走向垂直化：Anthropic 首位技术 PM 的产品心法</title>
@@ -657,8 +657,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Mon, 10 Aug 2026 08:20:17 +0000</pubDate>
       <itunes:duration>4918</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/tivaWTTVRhY-dianne-penn-ai-going-vertical-zh-multivoice.mp3" length="48618234" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/tivaWTTVRhY-dianne-penn-ai-going-vertical-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/tivaWTTVRhY-dianne-penn-ai-going-vertical-zh-multivoice-v202611121341.mp3" length="48618234" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/tivaWTTVRhY-dianne-penn-ai-going-vertical-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>AI 内容生产不像 AI：Alex Lieberman 的内容机器拆解</title>
@@ -697,8 +697,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Thu, 06 Aug 2026 10:00:00 +0000</pubDate>
       <itunes:duration>2619</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice.mp3" length="27079701" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice-v202611121341.mp3" length="27079701" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/1jlukb7gm4-alex-lieberman-ai-content-machine-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>OpenAI 合并 Codex 与 ChatGPT：实现不再稀缺，品味是护城河</title>
@@ -736,8 +736,8 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <pubDate>Tue, 04 Aug 2026 12:25:57 +0000</pubDate>
       <itunes:duration>4327</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.mp3" length="39886313" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice-v202611121341.mp3" length="39886313" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/P3KDebPTUrw-openai-merging-codex-chatgpt-zh-multivoice-v202611121341.srt" type="text/srt" />
     </item>
     <item>
       <title>Brat 封面设计师经历：没有完成状态的设计</title>
