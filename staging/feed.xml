@@ -319,5 +319,48 @@ Gagan Bhat 与 Isabella Kai He，Anthropic 应用 AI 团队技术成员。
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.mp3" length="16952037" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>Figma给PM做了一套操作系统：Config 2026上Jenan与Lawrence讲PMOS从一条提示词到全员采用</title>
+      <description>来源：
+Figma Config 2026：Skill issue: how we built an OS for PMs at Figma（Figma 内部 PM 团队）
+原始发布日期：2026-07-06
+原始视频：https://www.youtube.com/watch?v=2nn5J6tUzwE
+
+本期播客简介：
+本期来自 Figma Config 2026，Figma 内部 PM 团队分享了他们如何用一个月时间构建内部工具 PMOS（PM 操作系统）的完整历程。从一篇关于“AI 武装的 PM 一天”的探索文章出发，三位志愿者把上下文、画像和体验抽成可复用积木，做出“现在有什么新情况”、周报生成和规格文档审查等入门技能，再通过线下黑客松推广到整个产品组织。节目重点讲了在真实团队里落地 AI 工具时踩过的坑、总结出的原则，以及一个 PM 用 PMOS 准备产品评审的具体案例。
+
+本期嘉宾：
+Jenan（Figma Slides 与 FigJam 产品负责人）、Lawrence（Figma 产品团队 TPM）。演讲中提到的项目发起人 Ezra 是 Figma 商业化团队的 PM，推动立项的是 Figma 首席产品官。
+
+时间戳：
+- 00:00 开场与主讲人介绍
+- 01:40 PM的日历长什么样
+- 05:13 PM的一天从工具开始
+- 08:26 默认应用与入门技能
+- 10:00 OS框架与组织推广
+- 13:13 旧操作系统的记忆
+- 14:41 实验评审与真实证据
+- 16:05 回到Ezra的宣言
+
+精彩内容：
+- Ezra 最初写下一篇关于“完全由 AI 武装的 PM 一天”的探索文章，成为整个 PMOS 项目的种子。
+- 团队定下三条原则：从简单用例起步、和用户一起构建、先让自己每天使用并找到产品市场契合。
+- 经过反复调试提示词，团队提炼出上下文、画像和体验三个基本构件，让技能可以复用和组合。
+- PMOS 推出“现在有什么新情况”、周报生成和规格文档审查三个入门技能，并放到 GitHub 上供团队扩展。
+- 团队通过记录摩擦日志、快速迭代上手体验，并借助线下黑客松把采用率从 25% 推到产品组织 100%。
+- 增长 PM Elan 用 PMOS 串联 Slack、实验数据、代码库和 FigJam，为一次产品评审省下至少两小时准备时间。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：Figma Config 2026：Skill issue: how we built an OS for PMs at Figma（Figma 内部 PM 团队）。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/2nn5J6tUzwE</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/2nn5J6tUzwE</guid>
+      <pubDate>Wed, 18 Nov 2026 13:45:17 +0000</pubDate>
+      <itunes:duration>1087</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice.mp3" length="10290357" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
