@@ -170,7 +170,7 @@ Emmanuel Ameisen，Anthropic 可解释性研究员，从事大语言模型内部
 - 0:46:25 心智模型的对错
 - 0:52:51 AI与专家对比
 - 0:59:45 进步速度与知情
-- 1:06:10 系统一直觉决策
+- 1:06:10 “系统一”式直觉决策
 
 精彩内容：
 - 解释“造出模型不等于理解模型”：Claude 通过海量数据训练生长出难以直接阅读的内部数学结构。
@@ -191,6 +191,49 @@ Emmanuel Ameisen，Anthropic 可解释性研究员，从事大语言模型内部
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice.mp3" length="41783973" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice.srt" type="text/srt" />
+    </item>
+    <item>
+      <title>Codex是怎么工作的：OpenAI的Dominik Kundel拆解Codex智能体框架的内部设计</title>
+      <description>来源：
+AI Engineer 频道：How Codex Works，Dominik Kundel（OpenAI）
+原始发布日期：2026-08-10
+原始视频：https://www.youtube.com/watch?v=shRR1e2HXMk
+
+本期播客简介：
+本期节目来自 AI Engineer 频道，OpenAI 的 Dominik Kundel 以约 20 分钟的快速演讲拆解 Codex harness 的内部工作机制。内容从一条消息发出后经过 app server 与 Responses API 两套协议讲起，涵盖上下文构建、工具延迟加载、子 agent、浏览器操作、文件系统沙箱与自动审查、WebSocket 加速、/goal 循环以及自动压缩等关键设计。适合正在构建自有 agent 的开发者收听，理解 Codex 在控制 token 成本、安全审批和推理速度上的取舍，并了解哪些能力可以直接复用。
+
+本期嘉宾：
+Dominik Kundel，OpenAI，参与 Codex 相关工作。本期为单人技术演讲。
+
+时间戳：
+- 01:51 消息发出后实际发生什么
+- 07:42 子agent与异步任务
+- 09:12 浏览器操作与持久会话
+- 11:19 Windows与PowerShell支持
+- 13:27 智能体的误解与偏差
+- 15:21 删除操作的安全边界
+- 18:55 目标循环与计划更新
+- 20:38 复用智能体基础能力
+
+精彩内容：
+- 解释 Codex 涉及的两套协议：UI 到 harness 走 app server，harness 到模型推理走 Responses API，且两者均为开放生态设计。
+- 上下文构建阶段重点控制尺寸、灵活性、性能和可缓存性，并通过工具延迟加载与技能列表不超过上下文窗口 2% 的规则来控制成本。
+- agent 的异步动作通过子 agent 和后台终端实现，浏览器操作则依赖持久 Node REPL 中编写 Playwright 代码来完成。
+- 文件编辑基于 apply patch，其他文件系统操作走 shell 工具，所有交互都经过 macOS Seatbelt、Linux Bubblewrap 或自建 Windows 沙箱。
+- 自动审查机制用独立只读子智能体结合用户授权与风险分类判断是否放行高风险操作，以缓解审批疲劳。
+- WebSocket 模式与服务端自动压缩让长任务更省网络开销并保持一致性能，/goal 循环则靠注入继续提示直到模型明确标记目标完成。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：How Codex Works，Dominik Kundel（OpenAI）。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/shRR1e2HXMk</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/shRR1e2HXMk</guid>
+      <pubDate>Wed, 18 Nov 2026 13:30:28 +0000</pubDate>
+      <itunes:duration>1280</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/shRR1e2HXMk-dominik-kundel-how-codex-works-zh.mp3" length="11911605" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/shRR1e2HXMk-dominik-kundel-how-codex-works-zh.srt" type="text/srt" />
     </item>
   </channel>
 </rss>
