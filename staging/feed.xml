@@ -23,5 +23,47 @@
     
     
     
+    <item>
+      <title>为什么Claude还当不了你的PM：Anthropic产品负责人Ami Vora与Mike Krieger谈AI时代的产品经理</title>
+      <description>来源：
+Lenny's Podcast（× Stripe，Lenny and Friends Summit 2026-09-10）：Why Claude can't be your PM (yet)，Ami Vora &amp; Mike Krieger（Anthropic），主持 Dan Shipper（Every）
+原始发布日期：2026-09-29
+原始视频：https://www.youtube.com/watch?v=sEXdyK6woKU
+
+本期播客简介：
+本期节目来自 Lenny's Podcast 与 Stripe 合作的 Lenny and Friends Summit，Anthropic 的 Ami Vora 与 Mike Krieger 和主持人 Dan Shipper 围绕“为什么 Claude 还当不了你的 PM”展开讨论。话题从 PM 角色是否消失、AI 时代产品判断力的变化，延伸到 agent 原生软件、可塑界面、并行实验与组织协作。适合关心 AI 产品管理、团队组织方式和产品落地节奏的听众。
+
+本期嘉宾：
+Ami Vora：Anthropic 产品负责人（节目标题称 CPO）；Mike Krieger：Anthropic 产品负责人/IC 工程师，Instagram 联合创始人（原视频中提及）；Dan Shipper：Every 联合创始人，本期主持人。
+
+时间戳：
+- 05:38 Claude能否当召集人
+- 08:26 团队与招聘期待
+- 13:41 Claude版本演进时间线
+- 16:29 个性化与有用性的平衡
+- 22:03 基础设施支撑探索
+- 25:07 早期Agent方法局限
+- 27:57 并行实验到连贯产品
+
+精彩内容：
+- Mike 分享自己被同事提醒“真的需要一个 PM”的经历，指出 PM 承担的黏合剂、应急方案和跨团队协调工作难以被 Claude 替代。
+- Ami 认为产品经理的核心始终是连接真实世界问题与技术，但技术每两个月就变一次，人的问题却没变，判断力和执着变得更重要。
+- 两位嘉宾讨论 agent 原生软件从侧栏助手到深度整合再到可塑界面的演进路径，以及让 Claude 参与生成和修改内部项目界面的实践。
+- Anthropic 同时推进前沿探索和稳定体验，Ami 表示宁可要五个以不同方式运作的重叠产品，也不要一个被过早限制的产品。
+- 主持人 Dan 提到“能力盲区”：一次失败后就断定模型做不到，但新模型可能三个月后彻底改变局面，因此需要持续用评测重新检验。
+- 展望一年后的 PM 角色，Mike 希望缩小模型能力与大多数人实际使用之间的差距，让更多非硬核用户也能拥有可跑通的多智能体配置。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：Lenny's Podcast（× Stripe，Lenny and Friends Summit 2026-09-10）：Why Claude can't be your PM (yet)。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/sEXdyK6woKU</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/sEXdyK6woKU</guid>
+      <pubDate>Wed, 18 Nov 2026 10:14:24 +0000</pubDate>
+      <itunes:duration>1905</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice.mp3" length="17290989" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
