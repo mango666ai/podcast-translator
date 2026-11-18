@@ -277,5 +277,47 @@ Romain Huet（OpenAI 开发者体验负责人）、Alexander Embiricos（OpenAI 
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice.mp3" length="14519997" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>Claude托管智能体：Anthropic的Gagan Bhat与Isabella Kai He谈智能体界面三年演进与生产落地经验</title>
+      <description>来源：
+AI Engineer 频道：Claude Managed Agents and Evolution of Agentic Surfaces，Gagan Bhat &amp; Isabella Kai He（Anthropic）
+原始发布日期：2026-08-11
+原始视频：https://www.youtube.com/watch?v=K0X9QDRkIdg
+
+本期播客简介：
+本期来自 AI Engineer 频道，由 Anthropic 应用 AI 团队的 Gagan Bhat 和 Isabella Kai He 分享智能体界面的三年演进路径：从 Messages API、Agent SDK 到 Claude Managed Agents。节目梳理了把智能体投入生产时绕不开的基础设施难题，介绍托管智能体以“大脑与双手解耦”为核心的架构设计，并用一个 SRE 故障排查演示展示搭建过程。最后总结了凭证隔离、延迟优化、会话日志与沙箱安全等实战经验。适合正在构建或准备上线智能体的开发者收听。
+
+本期嘉宾：
+Gagan Bhat 与 Isabella Kai He，Anthropic 应用 AI 团队技术成员。
+
+时间戳：
+- 02:34 智能体循环的由来
+- 05:06 Claude托管智能体理念
+- 13:10 会话与云端持久化
+- 18:27 定义运行环境
+- 21:02 落地经验：让智能体远离凭证
+- 23:41 会话日志与可观测性
+- 26:26 现有能力与未来展望
+
+精彩内容：
+- 回顾智能体界面从 Messages API 到 Agent SDK 再到 Claude Managed Agents 的三阶段演进。
+- 以 Sonnet 4.5 的“上下文焦虑”及 Opus 4.5 上相关修复变成负担为例，说明框架假设会随模型变强而过时。
+- 拆解托管智能体的大脑与双手解耦架构，以及智能体、环境、会话三大核心原语。
+- 现场演示用少量代码搭建 SRE 调查员智能体，自动定位 P99 延迟故障根因。
+- 分享凭证保险库、首个 token 延迟最高改善 90%、会话日志与 dreaming 记忆机制等客户实践经验。
+- 介绍自托管沙箱、MCP 隧道与结果判定等面向未来模型能力的扩展功能。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：Claude Managed Agents and Evolution of Agentic Surfaces，Gagan Bhat &amp; Isabella Kai He（Anthropic）。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/K0X9QDRkIdg</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/K0X9QDRkIdg</guid>
+      <pubDate>Wed, 18 Nov 2026 13:36:41 +0000</pubDate>
+      <itunes:duration>1832</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.mp3" length="16952037" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
