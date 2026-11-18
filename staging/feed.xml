@@ -107,5 +107,48 @@ Lenny's Podcast：OpenAI's Head of ChatGPT，Tibo Sottiaux（OpenAI ChatGPT/Code
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice.mp3" length="23844885" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>每家公司都该像实验室一样运作：Google Labs负责人Josh Woodward谈找点子、判断去留与AI时代的技能</title>
+      <description>来源：
+Lenny's Podcast：Josh Woodward（Google Labs / Gemini App / AI Studio 负责人）
+原始发布日期：2026-10-11
+原始视频：https://www.youtube.com/watch?v=3I6QYkccd3o
+
+本期播客简介：
+本期对话 Google Labs、Gemini 应用与 AI Studio 负责人 Josh Woodward，讨论为什么每家公司都需要像实验室团队那样运作。话题覆盖好点子的真实来源、如何判断一个想法该继续还是放弃、产品市场契合的早期信号，以及 AI 时代哪些技能在升值。适合产品经理、创业者和团队负责人收听，获取可操作的方法与判断标准。
+
+本期嘉宾：
+Josh Woodward，Google Labs、Gemini 应用和 AI Studio 负责人，在谷歌工作 17 年，负责试验并规模化新的 AI 产品。主持人：Lenny Rachitsky（Lenny's Podcast）。
+
+时间戳：
+- 0:00:00 公司像实验室一样运作
+- 0:11:20 从技术到用户趋势研究
+- 0:22:32 为共同目标凝聚团队
+- 0:34:07 技能价值的变化
+- 0:45:09 六个月路线图与长期愿景
+- 0:50:51 规模化转化与漏斗
+- 0:56:25 试探新领域的打法
+- 1:01:52 人机协作新模式
+
+精彩内容：
+- 好点子很少来自设计冲刺或专门安排的头脑风暴时间，更常出现在走廊、周末和休假期间，关键在于保持警觉并抓住让人眼前一亮的东西。
+- Labs 团队维护一份“几乎可能”清单，追踪哪些能力刚跨过技术门槛，再围绕它组建小团队快速推进。
+- 判断早期产品市场契合要看人们看到原型时的眼睛是否发亮、身体是否前倾，而不是日活或留存指标。
+- 放弃一个想法时团队往往比领导者更早察觉，领导要做的是营造让团队敢说不行的文化。
+- AI 时代更看重“遗忘速率”——多快学会一样东西又果断放下，以及能与人建立信任、同时善用智能体的协作能力。
+- 模型基准测试被高估，大多数人并不关心 Elo 评分，真正重要的是产品对用户是否真正有用。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：Lenny's Podcast：Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs)。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/3I6QYkccd3o</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/3I6QYkccd3o</guid>
+      <pubDate>Wed, 18 Nov 2026 11:23:31 +0000</pubDate>
+      <itunes:duration>3998</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice.mp3" length="35648637" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
