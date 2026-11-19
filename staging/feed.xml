@@ -404,5 +404,48 @@ Blair Metcalf：Reddit 首席 UX 工程师，Reddit Proto 的作者；Claire Vo�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zF-J3rMbzZw-reddit-blair-metcalf-hyper-real-prototypes-zh-multivoice.mp3" length="16142877" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zF-J3rMbzZw-reddit-blair-metcalf-hyper-real-prototypes-zh-multivoice.srt" type="text/srt" />
     </item>
+    <item>
+      <title>让Claude做长程任务：Anthropic的Lance Martin谈托管智能体、验证与记忆</title>
+      <description>来源：
+AI Engineer 频道：Claude for Long-Horizon Tasks，Lance Martin（Anthropic）
+原始发布日期：2026-07-22
+原始视频：https://www.youtube.com/watch?v=9QebvrrY3KY
+
+本期播客简介：
+本期节目来自 AI Engineer 频道，Anthropic 的 Lance Martin 分享了对长程异步智能体的产品与工程思考。内容围绕任务跨度如何随模型能力增长而变化，以及托管智能体在架构、验证、记忆与组织级 harness 上的设计取舍展开。适合关注 AI Agent 落地、上下文工程和长时任务可靠性的听众。
+
+本期嘉宾：
+Lance Martin，Anthropic。本期为他在 AI Engineer 大会上的单人演讲。
+
+时间戳：
+- 02:14 Messages API与harness
+- 04:41 无状态进程与事件日志
+- 07:02 别让干活和打分共用上下文
+- 11:32 人脑双系统与Claude记忆
+- 16:09 陷阱门与记忆拖累
+- 18:36 私人harness上手成本
+- 22:37 文件系统还是数据库
+- 24:53 如何验证记忆正确
+
+精彩内容：
+- 随着模型能自主工作的时间从十几分钟增长到十小时以上，产品形态和 API 也从 Messages API、Agent SDK 演进到 Claude Managed Agents。
+- 把大脑（harness）和双手（执行沙箱）解耦，让会话成为只追加的外部上下文日志，可提升长程任务的可靠性与凭证安全。
+- 将验证拆到独立上下文窗口，用构建智能体加验证智能体的循环反复打分，是把引导信号编码进环境的有效范式。
+- Claude 的带内记忆写作随模型代际提升，高容量模型更擅长把经验蒸馏成可泛化的抽象而非具体事实。
+- 离线的“做梦”过程能查看会话与记忆库并纠正带内写入的错误，宝可梦实验中显著减少了因错误记忆导致的回退。
+- Claude Tag 被视为组织级多人 harness 的雏形，具备独立身份、组织级上下文和主动性，能拉平新成员上手 harness 的差距。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：Claude for Long-Horizon Tasks，Lance Martin（Anthropic）。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/9QebvrrY3KY</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/9QebvrrY3KY</guid>
+      <pubDate>Thu, 19 Nov 2026 03:21:16 +0000</pubDate>
+      <itunes:duration>1539</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/9QebvrrY3KY-lance-martin-claude-long-horizon-tasks-zh.mp3" length="14250813" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/9QebvrrY3KY-lance-martin-claude-long-horizon-tasks-zh.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
