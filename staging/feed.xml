@@ -362,5 +362,47 @@ Jenan（Figma Slides 与 FigJam 产品负责人）、Lawrence（Figma 产品团�
       <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice-v202611191117.mp3" length="10300077" type="audio/mpeg" />
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice-v202611191117.srt" type="text/srt" />
     </item>
+    <item>
+      <title>Reddit设计师的超逼真原型：首席UX工程师Blair Metcalf谈Reddit Proto与从Figma到工程交接</title>
+      <description>来源：
+How I AI：Blair Metcalf（Reddit 首席 UX 工程师，Reddit Proto 作者），主持 Claire Vo
+原始发布日期：2026-10-26
+原始视频：https://www.youtube.com/watch?v=zF-J3rMbzZw
+
+本期播客简介：
+本期 How I AI 由 Claire Vo 主持，嘉宾是 Reddit 首席 UX 工程师 Blair Metcalf，他介绍了团队自研的原型工具 Reddit Proto。这个工具把设计系统、真实登录数据、Cursor 和自定义 MCP 串起来，让设计师和产品经理无需接触 Git 或部署流程，就能快速做出接近生产环境的原型。节目还讨论了这种原型如何改变设计评审、管理层对齐，以及从 Figma 到 PRD 再到工程交接的完整链路。
+
+本期嘉宾：
+Blair Metcalf：Reddit 首席 UX 工程师，Reddit Proto 的作者；Claire Vo：本期主持人，产品负责人、AI 爱好者，主持 How I AI 播客。
+
+时间戳：
+- 02:39 开场与嘉宾介绍
+- 05:11 从功能探索到原型制作
+- 10:00 精准标注的编辑体验
+- 15:06 设计系统评审流程
+- 17:26 原型搭建方法
+- 22:06 罗塞塔石碑可视化
+- 24:37 快问快答环节
+
+精彩内容：
+- Reddit Proto 让设计师和产品经理跳过 Git 和本地环境配置，直接进入类似 vibe coding 的原型开发环境。
+- 原型可登录真实 Reddit 账号并渲染个性化生产数据，让管理层在真实场景中评审新功能。
+- 团队通过自定义 MCP 把 Figma 画板映射到设计系统 token、组件和生产代码，减少大模型凭空幻觉。
+- 原型默认在公司内部公开，已有约 700 个，团队正在做可搜索控制台来管理这些原型。
+- 从 Figma 链接可自动生成 PRD 并交给 Cursor 执行，形成从设计到工程交接的完整链路。
+- Blair 分享当 AI 不听话时的提示词策略：先放一放，再像导演一样用更模糊、更宏观的方式重新描述意图。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：How I AI：Blair Metcalf（Reddit 首席 UX 工程师，Reddit Proto 作者），主持 Claire Vo。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/staging/ep/zF-J3rMbzZw</link>
+      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/zF-J3rMbzZw</guid>
+      <pubDate>Thu, 19 Nov 2026 03:20:33 +0000</pubDate>
+      <itunes:duration>1725</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/zF-J3rMbzZw-reddit-blair-metcalf-hyper-real-prototypes-zh-multivoice.mp3" length="16142877" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/zF-J3rMbzZw-reddit-blair-metcalf-hyper-real-prototypes-zh-multivoice.srt" type="text/srt" />
+    </item>
   </channel>
 </rss>
