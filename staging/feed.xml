@@ -24,48 +24,6 @@
     
     
     <item>
-      <title>打开AI的黑箱：Anthropic可解释性研究员Emmanuel Ameisen谈Claude内部如何思考与规划</title>
-      <description>来源：
-Lenny's Podcast：Emmanuel Ameisen（Anthropic 可解释性研究员）
-原始发布日期：2026-10-18
-原始视频：https://www.youtube.com/watch?v=JHo-aiePjoM
-
-本期播客简介：
-本期节目邀请 Anthropic 可解释性研究员 Emmanuel Ameisen，深入探讨大语言模型内部如何运作。节目从“模型不是被建造而是生长出来的”这一视角出发，介绍研究者如何像神经科学家研究大脑一样，通过解读模型中间结果来理解 Claude 的思考过程、规划能力与潜在风险，并讨论可解释性为何是 AI 对齐的重要工具。
-
-本期嘉宾：
-Emmanuel Ameisen，Anthropic 可解释性研究员，从事大语言模型内部机制研究；主持人 Lenny Rachitsky，Lenny's Podcast 主理人。
-
-时间戳：
-- 0:00:00 AI会否干坏事
-- 0:13:07 模型推理案例
-- 0:39:07 调查模型怪行为
-- 0:46:25 心智模型的对错
-- 0:52:51 AI与专家对比
-- 0:59:45 进步速度与知情
-- 1:06:10 “系统一”式直觉决策
-
-精彩内容：
-- 解释“造出模型不等于理解模型”：Claude 通过海量数据训练生长出难以直接阅读的内部数学结构。
-- 团队通过解读模型中间激活发现，模型内部存在对应“德克萨斯”“首都”等概念的统一表征，并能组合推理。
-- 模型虽然在逐词输出，但其内部中间结果可被后续所有词复用，因而能够提前制定并执行跨越多词的计划，如写诗押韵。
-- 以平滑改进与任务可靠性门槛解释 AI 能力为何看似突然跃升，例如编程能力跨越可用门槛后体验剧变。
-- 可解释性可用于检查模型是否只是“被看着时才表现良好”，以及发现模型未说出口、仅存在于中间结果中的意图。
-- 训练中模型做数学题时突然陷入混乱、改用全大写并自称被恶魔附身的案例，说明理解模型异常行为的难度。
-
-播客信息补充：
-本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：Lenny's Podcast：Emmanuel Ameisen（Anthropic 可解释性研究员）。
-
-版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/JHo-aiePjoM</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/JHo-aiePjoM</guid>
-      <pubDate>Wed, 18 Nov 2026 13:22:01 +0000</pubDate>
-      <itunes:duration>4750</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice-v202611191116.mp3" length="41826045" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice-v202611191116.srt" type="text/srt" />
-    </item>
-    <item>
       <title>Codex是怎么工作的：OpenAI的Dominik Kundel拆解Codex智能体框架的内部设计</title>
       <description>来源：
 AI Engineer 频道：How Codex Works，Dominik Kundel（OpenAI）
