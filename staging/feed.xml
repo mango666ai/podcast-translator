@@ -42,8 +42,8 @@ Ami Vora：Anthropic 产品负责人（节目标题称 CPO）；Mike Krieger：A
 - 13:41 Claude版本演进时间线
 - 16:29 个性化与有用性的平衡
 - 21:48 基础设施支撑探索
-- 24:55 早期Agent方法局限
-- 27:48 并行实验到连贯产品
+- 24:51 早期Agent方法局限
+- 27:45 并行实验到连贯产品
 
 精彩内容：
 - Mike 分享自己被同事提醒“真的需要一个 PM”的经历，指出 PM 承担的黏合剂、应急方案和跨团队协调工作难以被 Claude 替代。
@@ -60,10 +60,10 @@ Ami Vora：Anthropic 产品负责人（节目标题称 CPO）；Mike Krieger：A
       <link>https://mango666ai.github.io/podcast-translator/staging/ep/sEXdyK6woKU</link>
       <guid>https://mango666ai.github.io/podcast-translator/staging/ep/sEXdyK6woKU</guid>
       <pubDate>Wed, 18 Nov 2026 10:14:24 +0000</pubDate>
-      <itunes:duration>1905</itunes:duration>
+      <itunes:duration>1901</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice.mp3" length="17290989" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice-v202611191116.mp3" length="17348757" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/sEXdyK6woKU-anthropic-cpo-panel-claude-pm-zh-multivoice-v202611191116.srt" type="text/srt" />
     </item>
     <item>
       <title>OpenAI的ChatGPT负责人谈AI新时代：Tibo Sottiaux聊个人智能体Dots、产品与技能的升降</title>
@@ -104,8 +104,8 @@ Lenny's Podcast：OpenAI's Head of ChatGPT，Tibo Sottiaux（OpenAI ChatGPT/Code
       <pubDate>Wed, 18 Nov 2026 10:48:18 +0000</pubDate>
       <itunes:duration>2688</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice.mp3" length="23844885" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice-v202611191116.mp3" length="23858517" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/MM-C3JqCXBk-openai-tibo-sottiaux-new-era-of-ai-zh-multivoice-v202611191116.srt" type="text/srt" />
     </item>
     <item>
       <title>每家公司都该像实验室一样运作：Google Labs负责人Josh Woodward谈找点子、判断去留与AI时代的技能</title>
@@ -147,8 +147,8 @@ Josh Woodward，Google Labs、Gemini 应用和 AI Studio 负责人，在谷歌�
       <pubDate>Wed, 18 Nov 2026 11:23:31 +0000</pubDate>
       <itunes:duration>3998</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice.mp3" length="35648637" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice-v202611191116.mp3" length="35698029" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/3I6QYkccd3o-josh-woodward-google-labs-operate-like-a-lab-zh-multivoice-v202611191116.srt" type="text/srt" />
     </item>
     <item>
       <title>打开AI的黑箱：Anthropic可解释性研究员Emmanuel Ameisen谈Claude内部如何思考与规划</title>
@@ -189,8 +189,8 @@ Emmanuel Ameisen，Anthropic 可解释性研究员，从事大语言模型内部
       <pubDate>Wed, 18 Nov 2026 13:22:01 +0000</pubDate>
       <itunes:duration>4750</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice.mp3" length="41783973" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice-v202611191116.mp3" length="41826045" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/JHo-aiePjoM-emmanuel-ameisen-anthropic-interpretability-zh-multivoice-v202611191116.srt" type="text/srt" />
     </item>
     <item>
       <title>Codex是怎么工作的：OpenAI的Dominik Kundel拆解Codex智能体框架的内部设计</title>
@@ -274,8 +274,8 @@ Romain Huet（OpenAI 开发者体验负责人）、Alexander Embiricos（OpenAI 
       <pubDate>Wed, 18 Nov 2026 13:33:42 +0000</pubDate>
       <itunes:duration>1563</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice.mp3" length="14519997" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice-v202611191117.mp3" length="14519757" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice-v202611191117.srt" type="text/srt" />
     </item>
     <item>
       <title>Claude托管智能体：Anthropic的Gagan Bhat与Isabella Kai He谈智能体界面三年演进与生产落地经验</title>
@@ -316,8 +316,8 @@ Gagan Bhat 与 Isabella Kai He，Anthropic 应用 AI 团队技术成员。
       <pubDate>Wed, 18 Nov 2026 13:36:41 +0000</pubDate>
       <itunes:duration>1832</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.mp3" length="16952037" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice-v202611191116.mp3" length="16981029" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/K0X9QDRkIdg-anthropic-claude-managed-agents-zh-multivoice-v202611191116.srt" type="text/srt" />
     </item>
     <item>
       <title>Figma给PM做了一套操作系统：Config 2026上Jenan与Lawrence讲PMOS从一条提示词到全员采用</title>
@@ -359,8 +359,8 @@ Jenan（Figma Slides 与 FigJam 产品负责人）、Lawrence（Figma 产品团�
       <pubDate>Wed, 18 Nov 2026 13:45:17 +0000</pubDate>
       <itunes:duration>1087</itunes:duration>
       <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice.mp3" length="10290357" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice.srt" type="text/srt" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice-v202611191117.mp3" length="10300077" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/2nn5J6tUzwE-figma-config-pm-os-zh-multivoice-v202611191117.srt" type="text/srt" />
     </item>
   </channel>
 </rss>
