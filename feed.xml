@@ -61,6 +61,49 @@ AI中文译制版，所有声音均为AI合成的标准音色，并非原节目�
       <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/NYFGCESmikA-p1-dhh-lex-fridman-programming-ai-open-source-zh-cosyvoice-v202611181642.srt" type="text/srt" />
     </item>
     <item>
+      <title>前线部署工程师入门：Anthropic的Kevin Bai从Palantir讲起，谈FDE为何存在、何时该建</title>
+      <description>来源：
+AI Engineer 频道：Forward Deployed Engineering 101，Kevin Bai（Anthropic，前 Palantir/Rippling）
+原始发布日期：2026-07-28
+原始视频：https://www.youtube.com/watch?v=KwhgfwOSToQ
+
+本期播客简介：
+本期节目由 Kevin Bai 讲解前线部署工程师（Forward Deployed Engineer, FDE）这一角色的来龙去脉。他从 Palantir 的 Foundry 平台和商业模式讲起，说明为什么把技术性产品卖给非技术买家时会催生 FDE，以及这一模式如何放大到企业级规模。节目还讨论了组建 FDE 团队前的两个关键判断、共享基础组件的作用，以及 AI 时代平台定制化趋势对这一职能的影响。适合想了解 FDE 定位、或考虑在自己组织中引入该角色的听众。
+
+本期嘉宾：
+Kevin Bai，Anthropic 应用 AI 团队技术人员，曾帮助 Rippling 搭建 FDE 团队并是该团队首位成员，此前在 Palantir 工作。本期为单人演讲。
+
+时间戳：
+- 00:00 开场与嘉宾介绍
+- 01:42 Foundry平台与本体概念
+- 05:12 为何要做更简单的方案
+- 07:22 工程师薪酬对比
+- 09:13 遗留代码与技术债
+- 12:36 AI在2026年的影响
+- 15:46 历史上的类似尝试
+- 17:31 定制与通用化取舍
+
+精彩内容：
+- Palantir 将非常技术性的 Foundry 平台卖给缺乏工程深度的财富 500 强客户，这种错配催生了 FDE 模式。
+- FDE 本质上是把创业公司的设计合作放大到企业级规模，客户购买的是由工程师交付的成果而非软件或工时。
+- 组建 FDE 团队前应先自问是否真有必要把复杂技术卖给非技术买家，以及是否有可供工程师构建的平台。
+- FDE 不能从零写软件，而应基于平台上的共享基础组件组装方案，否则维护成本会吞掉利润。
+- 基础组件的原子化程度取决于目标领域，有的场景可复用约六成应用骨架，有的则需要极细粒度配置。
+- AI 让定制化软件开发变得更容易，几乎每个平台都趋向智能体驱动和可定制，FDE 式交付因此更具普遍意义。
+
+播客信息补充：
+本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：Forward Deployed Engineering 101，Kevin Bai（Anthropic，前 Palantir/Rippling）。
+
+版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
+      <link>https://mango666ai.github.io/podcast-translator/ep/KwhgfwOSToQ</link>
+      <guid>https://mango666ai.github.io/podcast-translator/ep/KwhgfwOSToQ</guid>
+      <pubDate>Fri, 20 Nov 2026 08:00:00 +0000</pubDate>
+      <itunes:duration>1133</itunes:duration>
+      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
+      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/episodes/KwhgfwOSToQ-kevin-bai-forward-deployed-engineering-101-zh.mp3" length="10498821" type="audio/mpeg" />
+      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/transcripts/KwhgfwOSToQ-kevin-bai-forward-deployed-engineering-101-zh.srt" type="text/srt" />
+    </item>
+    <item>
       <title>用大模型保护源代码安全：Anthropic的Eugene Yan谈发现漏洞之后的验证、分诊与补丁</title>
       <description>来源：
 AI Engineer 频道：Using LLMs to Secure Source Code，Eugene Yan（Anthropic）
