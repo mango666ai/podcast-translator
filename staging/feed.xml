@@ -24,48 +24,6 @@
     
     
     <item>
-      <title>AI工程的黄金时代：OpenAI的Romain Huet、Alexander Embiricos与Peter Steinberger谈Codex和管理智能体的外层循环</title>
-      <description>来源：
-AI Engineer 频道：The Golden Age of AI Engineering，Alexander Embiricos &amp; Romain Huet &amp; Peter Steinberger（OpenAI）
-原始发布日期：2026-07-09
-原始视频：https://www.youtube.com/watch?v=pMggiOb18tc
-
-本期播客简介：
-本期节目来自 AI Engineer 频道，由 OpenAI 团队分享他们对 AI 工程现状与未来的判断。演讲从模型发布节奏加快谈起，展示 Codex 如何从补全工具演进为能承担长任务的智能体，并介绍其开放的模型、框架、app server 与插件分层。嘉宾还讨论了成本效率、速度与并行执行，以及人类工程师如何从盯着智能体写代码转向管理外层循环。
-
-本期嘉宾：
-Romain Huet（OpenAI 开发者体验负责人）、Alexander Embiricos（OpenAI Codex 产品负责人）、Peter Steinberger（OpenClaw 作者，现就职于 OpenAI）。
-
-时间戳：
-- 02:12 5.6预览版发布
-- 04:49 从写代码到全流程
-- 10:00 命令行与协作界面
-- 12:40 Codex框架与后训练
-- 17:04 超低价格与性价比
-- 21:36 从亲自执行到管理智能体
-- 25:17 经理不该困在应用里
-
-精彩内容：
-- 模型发布节奏从约每 15 个月一个新模型加快到约每 6 周一个，产品能力随之快速演进。
-- Codex 从补全、行内预测发展到能自行测试工作并承担长时间运行的目标。
-- OpenAI 将 Codex 的执行框架、Agent MD、app server 与插件等分层开源，开发者可使用与产品相同的技术栈。
-- GPT 5.6 系列在成本效率上取得进展，部分型号以更低价格提供接近前沿的智能。
-- 运行在 Cerebras 上的 GPT 5.6 新模型达到每秒 750 个 token，使并行尝试多个方案成为可能。
-- Peter Steinberger 认为工程师的瓶颈已从 token 和算力转向注意力，未来应管理智能体组成的外层循环。
-
-播客信息补充：
-本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：The Golden Age of AI Engineering，Alexander Embiricos &amp; Romain Huet &amp; Peter Steinberger（OpenAI）。
-
-版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/pMggiOb18tc</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/pMggiOb18tc</guid>
-      <pubDate>Wed, 18 Nov 2026 13:33:42 +0000</pubDate>
-      <itunes:duration>1563</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice-v202611191117.mp3" length="14519757" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/pMggiOb18tc-openai-golden-age-of-ai-engineering-zh-multivoice-v202611191117.srt" type="text/srt" />
-    </item>
-    <item>
       <title>Claude托管智能体：Anthropic的Gagan Bhat与Isabella Kai He谈智能体界面三年演进与生产落地经验</title>
       <description>来源：
 AI Engineer 频道：Claude Managed Agents and Evolution of Agentic Surfaces，Gagan Bhat &amp; Isabella Kai He（Anthropic）
