@@ -24,47 +24,6 @@
     
     
     <item>
-      <title>用大模型保护源代码安全：Anthropic的Eugene Yan谈发现漏洞之后的验证、分诊与补丁</title>
-      <description>来源：
-AI Engineer 频道：Using LLMs to Secure Source Code，Eugene Yan（Anthropic）
-原始发布日期：2026-07-17
-原始视频：https://www.youtube.com/watch?v=imFedndyXYQ
-
-本期播客简介：
-本期节目来自 AI Engineer 频道，由 Anthropic 技术团队成员 Eugene Yan 分享如何用大模型保护源代码安全。他结合与几十家组织合作的经验，梳理了模型在漏洞发现能力上的进展，以及安全工作的瓶颈如何从发现转向验证、分诊与打补丁。节目还给出一个可落地的六步智能体框架，并讨论企业会遇到的非技术瓶颈。适合安全工程师、开发者以及关注 AI 落地实践的人收听。
-
-本期嘉宾：
-Eugene Yan，Anthropic 技术团队成员，过去几个月与安全团队合作，用 Claude 发现并修复代码和系统中的漏洞。本期为单人演讲。
-
-时间戳：
-- 02:08 大模型能力阶跃与安全挑战
-- 04:05 智能体框架保护代码库
-- 08:32 威胁建模实战案例
-- 12:33 SQL注入漏洞演示
-- 16:19 智能体自动分诊漏洞
-- 20:30 补丁审查与组织瓶颈
-
-精彩内容：
-- Eugene 指出模型在网络安全任务上的能力呈阶跃式提升，Mozilla Firefox 某月漏洞修复量达到去年平均的约 20 倍，其中约三分之二归功于模型辅助。
-- 发现漏洞已变得相对直接，瓶颈转移到验证、分诊和打补丁，最稀缺的资源是工程师的注意力。
-- 高质量的威胁模型能把真阳性率提升到约 90%，因为模型能读到代码，却读不到系统设计、补偿性控制等隐式上下文。
-- 隔离且可复现的沙箱是关键基础设施，让验证代理能独立构建并引爆 PoC，以确认漏洞是否真实存在。
-- 发现阶段优化召回率，验证阶段优化精确率，两者分开并由对抗性的验证代理独立工作，可有效降低误报。
-- 分诊与补丁需要人来闭环：结合威胁模型校准严重性，并通过原始 PoC 失效、测试全绿、再攻击补丁等阶梯验证补丁质量。
-
-播客信息补充：
-本集为AI中文译制版，所有声音均为AI合成的标准音色，并非原节目主持人和嘉宾本人。可能存在语气或断句不自然，敬请谅解。节目原始来源：AI Engineer 频道：Using LLMs to Secure Source Code，Eugene Yan（Anthropic）。
-
-版权与 AI 译制说明：本节目为基于公开原始内容制作的非官方 AI 中文译制，仅供学习与交流，不代表原节目、嘉宾或相关机构立场。原始音视频、文字内容及相关权利归原权利人所有，请通过节目中标注的原始链接支持原作。中文翻译与合成语音可能存在偏差，请以原始内容为准。如权利人对本内容的使用有异议，请联系我们核实并处理。</description>
-      <link>https://mango666ai.github.io/podcast-translator/staging/ep/imFedndyXYQ</link>
-      <guid>https://mango666ai.github.io/podcast-translator/staging/ep/imFedndyXYQ</guid>
-      <pubDate>Thu, 19 Nov 2026 03:21:55 +0000</pubDate>
-      <itunes:duration>1407</itunes:duration>
-      <itunes:image href="https://mango666ai.github.io/podcast-translator/cover-v2.png" />
-      <enclosure url="https://raw.githubusercontent.com/mango666ai/podcast-translator/main/staging/episodes/imFedndyXYQ-eugene-yan-llms-secure-source-code-zh.mp3" length="13041717" type="audio/mpeg" />
-      <podcast:transcript url="https://mango666ai.github.io/podcast-translator/staging/transcripts/imFedndyXYQ-eugene-yan-llms-secure-source-code-zh.srt" type="text/srt" />
-    </item>
-    <item>
       <title>前线部署工程师入门：Anthropic的Kevin Bai从Palantir讲起，谈FDE为何存在、何时该建</title>
       <description>来源：
 AI Engineer 频道：Forward Deployed Engineering 101，Kevin Bai（Anthropic，前 Palantir/Rippling）
